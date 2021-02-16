@@ -1,0 +1,129 @@
+#!/usr/bin/env bash
+#
+# Take screenshot with grim & slurp on Wayland
+#   or with maim & slop on X11
+
+
+# Error message in STDERR
+_err() {
+  printf -- '%s\n' "[$(date +'%Y-%m-%d %H:%M:%S')]: $*" >&2
+}
+
+# Test installed programs
+_is_grim() {
+  if command -v grim &>/dev/null; then return 0; fi
+}
+
+_is_slurp() {
+  if command -v slurp &>/dev/null; then return 0; fi
+}
+
+_is_maim() {
+  if command -v maim &>/dev/null; then return 0; fi
+}
+
+_is_slop() {
+  if command -v slop &>/dev/null; then return 0; fi
+}
+
+
+# Need at least one of grim or maim
+if ! _is_grim && ! _is_maim; then
+	_err "You need to install grim or maim."
+	exit 1
+fi
+
+
+# Help
+_usage() {
+  cat <<-END
+  screen_dir = $HOME/img/screenshot
+
+  Usage: snap [OPTION...]
+
+  With grim & slurp (Wayland):
+    -f, --fullscreen    Fullscreen
+    -s, --select        Select an area
+
+  With maim & slop (X11):
+    -f, --fullscreen    Fullscreen
+    -s, --select        Select an area
+    -w, --window        Active window
+    -c, --click         Click to select a window
+END
+}
+
+
+main() {
+
+  local screen_dir icon_path screen_date screen_file
+
+  screen_dir="$HOME"/img/screenshot
+  icon_path=/usr/share/icons/Arc/devices/128@2x/camera.png
+  screen_date=$(date +"%Y_%m_%d-%H_%M_%S")
+  screen_file=${screen_dir}/${screen_date}.png
+
+  # Make the screenshot dir if it doesn't exist
+  [[ ! -d ${screen_dir} ]] &>/dev/null && mkdir -p "${screen_dir}"
+
+  case "$1" in
+    -f | --fullscreen)
+      if _is_grim; then
+        grim -t jpeg -q 90 "${screen_file}"
+        notify-send 'Screenshot taken !' -i "${icon_path}"
+      elif _is_maim; then
+        maim -d 5 -u -m 3 "${screen_file}"
+        notify-send 'Screenshot taken !' -i "${icon_path}"
+      fi
+      ;;
+    -s | --select)
+      if _is_grim; then
+        if ! _is_slurp; then
+          _err "You need to install slurp."
+          exit 1
+        else
+          notify-send 'Select an area...' -i "${icon_path}" -t 2000
+          grim -t jpeg -q 90 -g "$(slurp)" "${screen_file}"
+          notify-send 'Screenshot taken !' -i "${icon_path}"
+        fi
+      elif _is_maim; then
+        if ! _is_slop; then
+          _err "You need to install slop."
+          exit 1
+        else
+          notify-send 'Select an area...' -i "${icon_path}" -t 2000
+          maim -s -u -m 3 "${screen_file}"
+          notify-send 'Screenshot taken !' -i "${icon_path}"
+        fi
+      fi
+      ;;
+    -w | --window )
+      if _is_grim; then
+        _err "Not available with grim."
+        exit 1
+      elif _is_maim; then
+        maim -d 5 -u -m 3 -i "$(xdotool getactivewindow)" "${screen_file}"
+        notify-send 'Screenshot taken !' -i "${icon_path}"
+      fi
+      ;;
+    -c | --click )
+      if _is_grim; then
+        _err "Not available with grim."
+        exit 1
+      elif _is_maim; then
+        notify-send 'Click on a window to select it...' -i "${icon_path}" -t 2000
+        maim -st 9999999 -u -m 3 "${screen_file}"
+        notify-send 'Screenshot taken !' -i "${icon_path}"
+      fi
+      ;;
+    *)
+      _usage
+      exit 1
+      ;;
+  esac
+
+  unset -v screen_dir icon_path screen_date screen_file
+  unset -f _err _is_grim _is_maim _is_slop _is_slurp _usage
+}
+
+main "$@"

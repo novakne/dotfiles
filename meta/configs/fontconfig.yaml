@@ -1,0 +1,4 @@
+# [ Fontconfig ]
+
+- link:
+    ~/.config/fontconfig: config/fontconfig

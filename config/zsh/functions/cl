@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+# cd to directory and list files with `exa` or `ls`
+
+cl () {
+    emulate -L zsh
+
+    if (( $+commands+[exa] )); then
+        cd "$1" && exa -lah --group-directories-first --git --icons
+    else 
+        cd "$1" && ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F
+    fi
+}

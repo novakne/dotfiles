@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#
+# Open an exit menu with confirmation in rofi
+
+
+confirm() {
+    printf -- '%s\n%s\n' "Yes" "No" \
+      | rofi -dmenu -i -format d -lines 2 -selected-row 0 -p "${1:-Confirm: }" -theme themes/menu.rasi
+}
+
+quit=" Quit awesome"
+shutdown=" Shutdown"
+reboot=" Reboot"
+suspend=" Suspend"
+hibernate=" Hibernate"
+
+launcher="rofi -dmenu -i -lines 5 -p Exit:  -theme themes/menu.rasi"
+options="${quit}\n${shutdown}\n${reboot}\n${suspend}\n${hibernate}"
+selection=$(echo -e ${options} | ${launcher})
+
+case ${selection} in
+  ("$quit") awesome quit ;;
+  ("$shutdown") [[ $(confirm "$@") = 1 ]] && (systemctl poweroff) ;;
+  ("$reboot") [[ $(confirm "$@") = 1 ]] && (systemctl reboot) ;;
+  ("$suspend") [[ $(confirm "$@") = 1 ]] && (systemctl suspend) ;;
+  ("$hibernate") [[ $(confirm "$@") = 1 ]] && (systemctl hibernate) ;;
+esac

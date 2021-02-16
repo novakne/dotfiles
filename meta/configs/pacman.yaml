@@ -1,0 +1,4 @@
+# [ Pacman ]
+
+- link:
+    ~/.config/pacman: config/pacman

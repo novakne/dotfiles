@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+# Launch dmenu-wl
+
+
+declare -a dmenu_opts
+dmenu_opts=(-i -h 28 -p 'App: ' -fn 'Inter' -nb '#38383c' -nf '#d2ccd6' -sb '#e8ec77' -sf '#232227')
+
+dmenu-wl_run "${dmenu_opts[@]}"

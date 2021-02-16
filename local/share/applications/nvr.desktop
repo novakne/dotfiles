@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+NoDisplay=true
+Exec=footclient nvr --remote-silent %f
+Name=Nvr
+Categories=Utility;TextEditor;
+Icon=nvim
+Comment=Edit a file in an existing neovim server with nvr

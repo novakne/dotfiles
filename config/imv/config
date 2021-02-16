@@ -1,0 +1,12 @@
+[options]
+background = 232227
+width = 1720
+height = 880
+overlay_font = Inter:16
+overlay_text_color = d2ccd6
+overlay_text_alpha = e6
+overlay_background_color = 232227
+overlay_background_alpha = 73
+overlay_position_bottom = true
+# recursively = true
+scaling_mode = full

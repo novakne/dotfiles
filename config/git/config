@@ -1,0 +1,43 @@
+[color]
+    ui = auto
+[status]
+    showUntrackedFiles = all
+[alias]
+    co = checkout
+    ci = commit
+    s = status
+    br = branch
+    sw = switch
+    ps = push
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    type = cat-file -t
+    dump = cat-file -p
+    qlog = log -5 --pretty --oneline
+    wow = log --all --graph --decorate --oneline --simplify-by-decoration
+    sbu = submodule update --remote --merge
+[diff]
+    tool = nvimdiff
+	submodule = log
+[core]
+    editor = nvim
+    pager = delta
+[include]
+    path = config.user
+[credential]
+    helper = store
+[pull]
+	rebase = preserve
+[init]
+	defaultBranch = main
+[delta]
+    plus-color = "#012800"
+    minus-color = "#340001"
+    syntax-theme = aize
+    line-numbers = true
+    side-by-side = true
+
+[interactive]
+    diffFilter = delta --color-only
+[user]
+	email = Pass-Automated-Testing-Suite@zx2c4.com
+	name = Pass Automated Testing Suite

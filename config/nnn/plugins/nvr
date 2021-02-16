@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# Open file in a running neovim instance with neomim-remote
+#   - Dependencies: neovim, neovim-remote
+# Shell: POSIX compliant
+
+SERVICE='nvim'
+ 
+if pgrep -f "$SERVICE" >/dev/null; then
+  nvr "$1"
+fi

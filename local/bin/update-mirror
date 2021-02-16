@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#
+# Update mirrorlist and rank mirrors for France / HTTPS
+
+# Make a backup
+sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+
+mirror_list () {
+  now=$(date +"%Y-%m-%d")
+
+  printf '%s\n%s\n%s\n%s\n \n%s\n'\
+    "##"\
+    "## Arch Linux repository mirrorlist"\
+    "## Generated on {$now}"\
+    "##"\
+    "## France"
+
+  curl -s "https://www.archlinux.org/mirrorlist/?country=FR&protocol=https&use_mirror_status=on" \
+    | sed -e 's/^#Server/Server/' -e '/^#/d' \
+    | rankmirrors -n 6 -
+}
+
+mirror_list > /etc/pacman.d/mirrors.txt

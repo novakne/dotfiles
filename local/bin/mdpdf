@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+# Convert markdown file to pdf with pandoc
+
+
+readonly pdf_dir pdf_theme
+pdf_dir="$HOME"/docs/notes/pdf
+pdf_theme="zenburn"
+
+declare -a pandoc_opts
+pandoc_opts=(-V geometry:margin=0.5in --listings --highlight-style=${pdf_theme} --toc --toc-depth=4)
+
+# Error message in STDERR
+err() {
+  printf -- '%s\n' "[$(date +'%Y-%m-%d %H:%M:%S')]: $*" >&2
+}
+
+if [ $# == "0" ]; then
+    err "Usage: mdpdf imput_file output_file"
+    exit 1
+elif [ "$2" = "0" ]; then
+    pandoc -s -f gfm "$1".md -o "${pdf_dir}"/"$1".pdf "${pandoc_opts[@]}"
+else
+    pandoc -s -f gfm "$1".md -o "${pdf_dir}"/"$2".pdf "${pandoc_opts[@]}"
+fi
+

@@ -1,0 +1,209 @@
+# [ STARSHIP ]
+
+format = "${custom.tab}$all"
+
+[aws]
+disabled = true
+
+[battery]
+format = "[$percentage]($style) "
+[[battery.display]]
+threshold = 15
+style = "red"
+
+[character]
+#success_symbol = "[▁](green)"
+#success_symbol = "[ ](green)"
+#success_symbol = "[ ](green)"
+success_symbol = "[ ](green)"
+#success_symbol = "[ ](green)"
+#success_symbol = "[ﰲ](green)"
+#success_symbol = "[ ](green)"
+#error_symbol = "[✗](red)"
+error_symbol = "[ ](red)"
+vicmd_symbol = "[ ](yellow)"
+
+[cmake]
+format = "via [ ($version)](cyan)"
+
+[cmd_duration]
+min_time = 5000
+format = "en [$duration](yellow) "
+
+[conda]
+disabled = true
+
+[crystal]
+disabled = true
+
+[dart]
+disabled = true
+
+[directory]
+format = "[$path](blue)[$read_only](red) "
+truncation_length = 3
+read_only = " "
+[directory.substitutions]
+"~" = "HOME"
+
+[docker_context]
+# disabled = true
+
+[dotnet]
+disabled = true
+
+[elixir]
+disabled = true
+
+[elm]
+disabled = true
+
+[env_var]
+symbol = " "
+variable = "NNNLVL"
+format = "[$symbol nnn](green) "
+
+[erlang]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[git_branch]
+format = "on [$symbol$branch$remote_name](yellow) "
+symbol = "   "
+# truncation_length = 4
+truncation_symbol = ""
+
+[git_commit]
+format = "[\\($hash\\)](white) [\\($tag\\)](white) "
+tag_disabled = false
+commit_hash_length = 4
+tag_symbol = " "
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($yellow) '
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]](blue) )'
+conflicted = "="
+ahead = "⇡ ${count}"
+behind = "⇣ ${count}"
+diverged = "⇕⇡ ${ahead_count}⇣${behind_count}"
+untracked = "?"
+stashed = "$"
+modified = "!"
+staged = '[++\($count\)](green)'
+renamed = ">>"
+deleted = "✘"
+
+[golang]
+format = "via [ ($version)](cyan)"
+
+[helm]
+disabled = true
+
+[hostname]
+ssh_only = true
+format =  "on [$hostname](red) "
+trim_at = "."
+disabled = false
+
+[java]
+disabled = true
+
+[jobs]
+symbol = "+ "
+threshold = 1
+format = "[$symbol$number](blue) "
+
+[julia]
+disabled = true
+
+[kotlin]
+disabled = true
+
+[line_break]
+disabled = true
+
+[lua]
+symbol = " "
+format = "via [$symbol $version](cyan) "
+
+[memory_usage]
+disabled = true
+
+[hg_branch]
+format = "on [ $branch](white)"
+disabled = true
+
+[nim]
+format = "via [ ($version)](cyan)"
+
+[nix_shell]
+disabled = true
+
+[nodejs]
+format = "via [ $version](cyan) "
+
+[ocaml]
+disabled = true
+
+[openstack]
+disabled = true
+
+[package]
+format = "via [ $version](cyan) "
+
+[perl]
+disabled = true
+
+[php]
+disabled = true
+
+[purescript]
+disabled = true
+
+[python]
+symbol = " "
+pyenv_version_name = true
+# Only use the `python3` binary to get the version.
+python_binary = "python3"
+
+[ruby]
+disabled = true
+
+[rust]
+format = "via [ $version](cyan) "
+
+[shlvl]
+disabled = true
+
+[singularity]
+disabled = true
+
+[swift]
+disabled = true
+
+[terraform]
+disabled = true
+
+[time]
+disabled = true
+
+[username]
+style_root = "red"
+format = "[$user]($style) "
+show_always = false
+disabled = false
+
+[zig]
+format = "via [ $version](cyan)"
+[custom]
+
+[custom.tab]
+description = "The current tab in the tab terminal multiplexer"
+command = 'echo "$TAB"'
+when = "tab --starship"
+shell = ["sh"]
+format = "[\\[ $output \\]](magenta) "

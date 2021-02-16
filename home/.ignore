@@ -1,0 +1,24 @@
+# Global home directories
+.cache
+.icons
+.npm
+.themes
+
+# Config directories
+.config/Mullvad VPN/
+.config/Thunar/
+.config/coc/
+.config/configstore/
+.config/dconf/
+.config/vivaldi/
+.config/pulse/
+.config/spotify/
+.config/yarn/
+.config/zsh/zinit/
+plug.vim
+.netrwhist
+
+# Misc files
+.zcompdump
+.uuid
+dotbot/

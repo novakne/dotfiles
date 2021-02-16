@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# [ Kosmikoa Colors ]
+
+base00='#232227'
+base01='#38383c'
+base02='#4e4e52'
+base03='#6b5c7c'
+base04='#837593'
+base05='#9d8fa9'
+base06='#b7acbf'
+base07='#d2ccd6'
+
+red='#f63d81'
+pink='#fc65b0'
+orange='#f5939c'
+yellow='#e8ec77'
+green='#2dcbb0'
+blue='#57bbf4'
+magenta='#a89bee'
+cyan='#4db9c8'
+
+riverctl attach-mode top
+riverctl background-color $base00
+riverctl border-color-focused $yellow
+riverctl border-color-unfocused $base01
+riverctl border-width 2
+riverctl focus-follows-cursor normal
+riverctl outer-padding 10
+riverctl view-padding 5
+riverctl xcursor-theme capitaine-cursor 24
+
+

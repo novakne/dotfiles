@@ -1,0 +1,4 @@
+prefix=${HOME}/.local/lib/npm
+cache=${XDG_CACHE_HOME}/npm
+devdir=${XDG_CACHE_HOME}/gyp
+init-module=${XDG_CONFIG_HOME}/npm/npm-init.js

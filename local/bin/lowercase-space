@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+# Replace:
+#   uppercase with lowercase
+#   '_' and'-' with 'space'
+
+
+mv "$1" "$(echo "$1" \
+  | tr ' A-Z' ' a-z' \
+  | tr ' 0-9' ' 0-9' \
+  | tr '_-' ' ' \
+  | tr -s ' ')"

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# Update fzf
+
+
+cd "$HOME"/bld/fzf
+git pull
+./install --bin --no-update-rc

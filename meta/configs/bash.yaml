@@ -1,0 +1,7 @@
+# [ Bash ]
+
+- link:
+    ~/.bash_logout: home/.bash_logout
+    ~/.bash_profile: home/.bash_profile
+    ~/.bashrc: home/.bashrc
+

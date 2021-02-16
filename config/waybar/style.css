@@ -1,0 +1,129 @@
+/* [ General ] */
+* {
+  border: none;
+  font-family: "Overpass", "Overpass Nerd Font";
+  font-size: 16px;
+  margin: 1px 0 1px 0; 
+}
+
+window#waybar {
+  background-color: transparent;
+  color: #d2ccd6;
+  /* font-size: 1.20em; */
+}
+
+/* [ Sway workspaces / River tags / Dwl tags ] */
+#workspaces,
+#custom-dwltags,
+#tags {
+  background-color: #232227;
+  margin-right: 10px;
+  padding: 0 10px 0 10px;
+  border-radius: 8px;
+}
+
+#workspaces button,
+#custom-dwltags button,
+#tags button {
+  background-color: transparent;
+  padding: 0 5px 0 5px;
+  color: #d2ccd6;
+}
+
+#workspaces button:hover,
+#custom-dwltags button:hover,
+#tags button:hover {
+  box-shadow: inherit;
+  color: #e8ec77;
+}
+
+#workspaces button.focused,
+#custom-dwltags button.focused,
+#tags button.focused {
+  color: #57bbf4;
+}
+
+#workspaces button.urgent,
+#custom-dwltags button.urgent,
+#tags button.urgent {
+  color: #f63d81;
+}
+
+/* [ Sway window ] */
+#window {
+  background-color: #232227;
+  color: #d2ccd6;
+  padding: 0 15px 0 15px;
+  margin: 0px;
+  border-radius: 8px;
+}
+
+/* [ Widgets ] */
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#battery,
+#custom-pacman,
+#tray {
+  background-color: #232227;
+  padding: 5px 0 5px 10px;
+}
+
+#cpu,
+#memory,
+#temperature,
+#custom-pacman,
+#network {
+  color: #d2ccd6;
+}
+
+
+#pulseaudio {
+  color: #d2ccd6;
+  border-radius: 8px 0 0 8px;
+  padding: 0 0 0 20px;
+}
+
+#pulseaudio.muted {
+  border-radius: 8px 0 0 8px;
+  color: #f63d81;
+  padding: 3px 4px 0 20px;
+}
+
+#battery {
+  color: #d2ccd6;
+  border-radius: 0 8px 8px 0;
+  padding: 0 20px 0 10px;
+}
+
+#battery.charging {
+  color: #2dcbb0;
+}
+
+@keyframes blink {
+  to {
+    background-color: #d2ccd6;
+    color: #232227;
+  }
+}
+
+#battery.critical:not(.charging) {
+  background-color: #f63d81;
+  color: #232227;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: 3;
+  animation-direction: alternate;
+}
+
+#clock {
+  background-color: #57bbf4;
+  color: #232227;
+  border-radius: 8px;
+  padding: 4px 15px 0 15px;
+  margin-left: 10px;
+}

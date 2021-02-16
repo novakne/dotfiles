@@ -1,0 +1,5 @@
+# [ local/bin ]
+
+- link:
+    ~/.local/bin: local/bin
+

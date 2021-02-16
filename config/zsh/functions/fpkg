@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+# Search installed pkg
+#   - Dependencies: fzf
+
+fpkg () {
+    pacman -Qe | fzf -e
+}
