@@ -38,6 +38,3 @@
 
 [interactive]
     diffFilter = delta --color-only
-[user]
-	email = Pass-Automated-Testing-Suite@zx2c4.com
-	name = Pass Automated Testing Suite
