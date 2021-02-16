@@ -4,7 +4,7 @@
 # Source: ( https://github.com/lewis6991/dotfiles/blob/master/bin/git-st )
 
 
-run {
+run() {
   local extra_diff_opts=""
 
   mapfile -t status < <(git -c color.status=always status --short "$@")
@@ -45,7 +45,7 @@ run {
   done
 }
 
-main {
+main() {
   run "$@"
 
   if [[ $* != *"--ignore-submodules"* ]]; then
