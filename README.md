@@ -6,7 +6,7 @@
 
 
 * `OS_` Arch Linux
-* `WM_` [Sway](https://github.com/swaywm/sway)
+* `WM_` [Dwl](https://github.com/djpohly/dwl), [River](https://github.com/ifreund/river), [Sway](https://github.com/swaywm/sway)
 * `Shell_` Zsh
 
 ### Applications
@@ -49,8 +49,6 @@
 ( **WIP** )
 
 ## Shell
-
-![prompt](previews/prompt.png?raw=true "prompt")
 
 ### File structure
 
