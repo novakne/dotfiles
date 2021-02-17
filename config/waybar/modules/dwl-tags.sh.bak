@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-echo ' 1  2  3  4  5  6  7  8  9 '
+printf -- " 1  2  3  4  5  6  7  8  9 "
 
-fname="/tmp/dwltags-$WAYLAND_DISPLAY";
+fname=/tmp/dwltags-"$WAYLAND_DISPLAY"
 
 while true
 do

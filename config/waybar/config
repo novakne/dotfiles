@@ -1,21 +1,19 @@
 {
   // [ GENERAL ]
-  "margin-top": 1,
-  "margin-bottom": 1,
-  "margin-left": 10,
-  "margin-right": 10,
-  //    "layer": "top",    // Waybar at top layer
+//  "layer": "top",    // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
-  //"height": 28, // Waybar height (to be removed for auto height)
-  "width": 1280, // Waybar width
+//  "height": 28, // Waybar height (to be removed for auto height)
+//  "width": 1280, // Waybar width
 
   // [ MODULES ]
-  //    "modules-left": ["sway/window"],
-  "modules-center": [],
-  "modules-right": [
+  "modules-left": [
+//    "sway/window",
 //    "sway/workspaces",
 //    "river/tags",
-    "custom/dwltags",
+    "custom/dwltags"
+  ],
+  "modules-center": [],
+  "modules-right": [
     "pulseaudio",
     "custom/pacman",
     "temperature",
@@ -33,22 +31,10 @@
     "format": "{icon}{name}",
     "disable-scroll": true,
     "format-icons": {
-      //          	"1": "",
-      //            "2": "",
-      //            "3": "",
-      //	"4": "",
-      //            "5": "",
       "urgent": "",
       "focused": "",
       "default": ""
     }
-    //        "persisVtent_workspaces": {
-    //            "1": [],
-    //            "2": [],
-    //            "3": [],
-    //            "4": [],
-    //            "5": [],
-    //        }
   },
 
   "sway/mode": {
@@ -79,7 +65,7 @@
   },
 
   "tray": {
-    //      "icon-size": 21,
+//    "icon-size": 21,
     "spacing": 10
   },
 
@@ -98,23 +84,23 @@
   },
 
   "temperature": {
-    //         "thermal-zone": 2,
-    //         "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+//    "thermal-zone": 2,
+//    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
     "critical-threshold": 80,
-    //         "format-critical": "{temperatureC}°C {icon}",
+//    "format-critical": "{temperatureC}°C {icon}",
     "format": "{icon} {temperatureC}°C",
     "format-icons": ["", "", ""]
   },
 
   "backlight": {
-    //         "device": "acpi_video1",
+//    "device": "acpi_video1",
     "format": "{icon} {percent}%",
     "format-icons": ["", ""]
   },
 
   "battery": {
     "states": {
-      //             "good": 95,
+//      "good": 95,
       "warning": 25,
       "critical": 15
     },
@@ -122,8 +108,8 @@
     "format-charging": " {capacity}%",
     "format-plugged": " {capacity}%",
     "format-alt": "{icon} {time}",
-    //         "format-good": "", // An empty format will hide the module
-    //         "format-full": "",
+//    "format-good": "", // An empty format will hide the module
+//    "format-full": "",
     "format-icons": ["  ", "  ", "  ", "  ", "  "]
   },
 
@@ -137,7 +123,7 @@
   },
 
   "pulseaudio": {
-    //         "scroll-step": 1, // %, can be a float
+//    "scroll-step": 1, // %, can be a float
     "format": "{icon} {volume}%",
     "format-bluetooth": "{volume}% 﫽",
     "format-bluetooth-muted": "﫾",
@@ -160,7 +146,7 @@
         "format": "{}",
         "max-length": 500,
         "escape": true,
-        "exec": "$HOME/.config/waybar/modules/dwl-tags.sh 1"
+        "exec": "$HOME/.config/waybar/modules/dwl-tags 1"
     },
 
     "custom/pacman": {

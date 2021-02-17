@@ -7,14 +7,12 @@
 }
 
 window#waybar {
-  background-color: transparent;
+  background-color: #232227;
   color: #d2ccd6;
-  /* font-size: 1.20em; */
 }
 
-/* [ Sway workspaces / River tags / Dwl tags ] */
+/* [ Sway workspaces / River tags ] */
 #workspaces,
-#custom-dwltags,
 #tags {
   background-color: #232227;
   margin-right: 10px;
@@ -23,7 +21,6 @@ window#waybar {
 }
 
 #workspaces button,
-#custom-dwltags button,
 #tags button {
   background-color: transparent;
   padding: 0 5px 0 5px;
@@ -31,22 +28,27 @@ window#waybar {
 }
 
 #workspaces button:hover,
-#custom-dwltags button:hover,
 #tags button:hover {
   box-shadow: inherit;
   color: #e8ec77;
 }
 
 #workspaces button.focused,
-#custom-dwltags button.focused,
 #tags button.focused {
   color: #57bbf4;
 }
 
 #workspaces button.urgent,
-#custom-dwltags button.urgent,
 #tags button.urgent {
   color: #f63d81;
+}
+
+/* [ Dwl tags ] */
+#custom-dwltags {
+  background-color: #232227;
+  color: #d2ccd6;
+  margin-right: 10px;
+  padding: 0 10px 0 10px;
 }
 
 /* [ Sway window ] */
@@ -83,20 +85,18 @@ window#waybar {
 
 #pulseaudio {
   color: #d2ccd6;
-  border-radius: 8px 0 0 8px;
   padding: 0 0 0 20px;
 }
 
 #pulseaudio.muted {
-  border-radius: 8px 0 0 8px;
   color: #f63d81;
-  padding: 3px 4px 0 20px;
+  padding: 0 0 0 20px;
 }
 
 #battery {
   color: #d2ccd6;
-  border-radius: 0 8px 8px 0;
-  padding: 0 20px 0 10px;
+  margin-right: 10px;
+  padding: 0 0 0 10px;
 }
 
 #battery.charging {
@@ -123,7 +123,5 @@ window#waybar {
 #clock {
   background-color: #57bbf4;
   color: #232227;
-  border-radius: 8px;
-  padding: 4px 15px 0 15px;
-  margin-left: 10px;
+  padding: 0 15px 0 15px;
 }
