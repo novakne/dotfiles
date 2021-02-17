@@ -1,0 +1,136 @@
+# [ YAMBAR ]
+
+# [ VARIABLES ]
+# Colors
+base00: &base00 232227ff
+base01: &base01 38383cff
+base02: &base02 4e4e52ff
+base03: &base03 6b5c7cff
+base04: &base04 837593ff
+base05: &base05 9d8fa9ff
+base06: &base06 b7acbfff
+base07: &base07 d2ccd6ff
+
+red: &red f63d81ff
+pink: &pink fc65b0ff
+orange: &orange f5939cff
+yellow: &yellow e8ec77ff
+green: &green 2dcbb0ff
+blue: &blue 57bbf4ff
+magenta: &magenta a89beeff
+cyan: &cyan 4db9c8ff
+
+# fonts
+nerdfont: &nerdfont Overpass Nerd Font:pixelsize=16
+std_underline: &std_underline { underline: { size: 2, color: *pink } }
+
+# [ BAR ]
+bar:
+  height: 28
+  location: top
+  spacing: 5
+  margin: 7
+
+  # Default
+  font: Overpass:pixelsize=16
+  foreground: *base07
+  background: *base00
+  border:
+    width: 0
+
+  # [ LEFT ]
+  left:
+    - label:
+        content:
+          string:
+            on-click: /usr/bin/bash -c "wlogout"
+            text: 
+            font: *nerdfont
+    # - river:
+    #   title: {string: { text: "{seat} - {title}" }}
+    #   content:
+    #     map:
+    #       tag: occupied
+    #       values:
+    #         false: {empty: {}}
+    #         true:
+    #           string:
+    #             margin: 5
+    #             text: "{id}: {state}"
+    - script:
+        path: "/home/novakane/.config/yambar/dwl-tags.sh"
+        args: [1]
+        content: {string: {text: "{dwltag}"}}
+
+  # [ CENTER ]
+  # center:
+
+  # [ RIGHT ]
+  right:
+    - network:
+        name: wlan0
+        content:
+          map:
+            tag: state
+            default: { string: { text: " ", font: *nerdfont } }
+            values:
+              down: { string: { text: " ", font: *nerdfont } }
+              up:
+                map:
+                  tag: ipv4
+                  default: { string: { text: " ", font: *nerdfont } }
+                  values:
+                    "": { string: { text: " ", font: *nerdfont } }
+    - alsa:
+        card: hw:PCH
+        mixer: Master
+        content:
+          map:
+            tag: muted
+            values:
+              true:
+                - string: { text: " ", font: *nerdfont, foreground: *pink }
+                - string: { text: "{volume}", foreground: *pink }
+              false:
+                ramp:
+                  tag: volume
+                  items:
+                    - string: { text: " {volume}", font: *nerdfont }
+                    - string: { text: " {volume}", font: *nerdfont }
+                    - string: { text: " {volume}", font: *nerdfont }
+                    - string: { text: " {volume}", font: *nerdfont }
+                    - string: { text: " {volume}", font: *nerdfont }
+    - battery:
+        name: BAT1
+        poll-interval: 30
+        content:
+          map:
+            tag: state
+            values:
+              discharging:
+                - ramp:
+                    tag: capacity
+                    items:
+                      - string: { text: "  ", foreground: *pink, font: *nerdfont }
+                      - string: { text: "  ", foreground: *pink, font: *nerdfont }
+                      - string: { text: "  ", foreground: *yellow, font: *nerdfont }
+                      - string: { text: "  ", foreground: *yellow, font: *nerdfont }
+                      - string: { text: "  ", font: *nerdfont }
+                      - string: { text: "  ", font: *nerdfont }
+                      - string: { text: "  ", font: *nerdfont }
+                      - string: { text: "  ", font: *nerdfont }
+                      - string: { text: "  ", font: *nerdfont }
+                      - string: { text: "  ", foreground: *green, font: *nerdfont }
+                - string: { text: " {capacity}%" }
+              charging:
+                - string: { text: " ", foreground: *magenta, font: *nerdfont }
+                - string: { text: "{capacity}%" }
+              full:
+                - string: { text: "  ", foreground: *green, font: *nerdfont }
+    - clock:
+        time-format: "  %H:%M  "
+        date-format: "%a %d/%m"
+        content:
+          - string: { text: "{date}", right-margin: 5 }
+          - string: { text: "{time}", foreground: *blue }
+
