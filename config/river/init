@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-_RIVER_DIR="$XDG_CONFIG_HOME"/river
+_river_dir="$XDG_CONFIG_HOME"/river
 
-source "$_RIVER_DIR"/autostart
-source "$_RIVER_DIR"/themes/kosmikoa
+source "${_river_dir}"/autostart
+source "${_river_dir}"/themes/kosmikoa
+
+unset -v _river_dir
 
 # [ Keybind ]
 mod="Mod4" # Logo key
@@ -40,12 +42,12 @@ riverctl map normal $mod+Shift Period send-to-output next
 riverctl map normal $mod+Shift Comma send-to-output previous
 
 # Mod+Return to bump the focused view to the top of the layout stack
-riverctl map normal $mod Return zoom
+riverctl map normal $mod+Shift Return zoom
 
 # Mod+H and Mod+L to decrease/increase the main factor by 5%
 # If using rivertile(1) this determines the width of the main stack.
-riverctl map normal $mod H mod-main-factor -0.05
-riverctl map normal $mod L mod-main-factor +0.05
+riverctl map normal $mod L mod-main-factor -0.05
+riverctl map normal $mod H mod-main-factor +0.05
 
 # Mod+Shift+H and Mod+Shift+L to increment/decrement the number of
 # main views in the layout
@@ -76,62 +78,45 @@ riverctl map-pointer normal $mod BTN_LEFT move-view
 # Mod + Right Mouse Button to resize views
 riverctl map-pointer normal $mod BTN_RIGHT resize-view
 
-    # for i in $(seq 1 9)
-    # do
-    # tags=$((1 << ($i - 1)))
-
-    # # Mod+[1-9] to focus tag [0-8]
-    # riverctl map normal $mod $i set-focused-tags $tags
-
-    # # Mod+Shift+[1-9] to tag focused view with tag [0-8]
-    # riverctl map normal $mod+Shift $i set-view-tags $tags
-
-    # # Mod+Ctrl+[1-9] to toggle focus of tag [0-8]
-    # riverctl map normal $mod+Control $i toggle-focused-tags $tags
-
-    # # Mod+Shift+Ctrl+[1-9] to toggle tag [0-8] of focused view
-    # riverctl map normal $mod+Shift+Control $i toggle-view-tags $tags
-    # done
-
 riverctl map normal $mod ampersand set-focused-tags 1
 riverctl map normal $mod eacute set-focused-tags 2
-riverctl map normal $mod quotedbl set-focused-tags 3
-riverctl map normal $mod apostrophe set-focused-tags 4
-riverctl map normal $mod parenleft set-focused-tags 5
-riverctl map normal $mod minus set-focused-tags 6
-riverctl map normal $mod egrave set-focused-tags 7
-riverctl map normal $mod underscore set-focused-tags 8
-riverctl map normal $mod ccedilla set-focused-tags 9
+riverctl map normal $mod quotedbl set-focused-tags 4
+riverctl map normal $mod apostrophe set-focused-tags 8
+riverctl map normal $mod parenleft set-focused-tags 16
+riverctl map normal $mod minus set-focused-tags 32
+riverctl map normal $mod egrave set-focused-tags 64
+riverctl map normal $mod underscore set-focused-tags 128
+riverctl map normal $mod ccedilla set-focused-tags 256
 
 riverctl map normal $mod+Shift ampersand set-view-tags 1
 riverctl map normal $mod+Shift eacute set-view-tags 2
-riverctl map normal $mod+Shift quotedbl set-view-tags 3
-riverctl map normal $mod+Shift apostrophe set-view-tags 4
-riverctl map normal $mod+Shift parenleft set-view-tags 5
-riverctl map normal $mod+Shift minus set-view-tags 6
-riverctl map normal $mod+Shift egrave set-view-tags 7
-riverctl map normal $mod+Shift underscore set-view-tags 8
-riverctl map normal $mod+Shift ccedilla set-view-tags 9
+riverctl map normal $mod+Shift quotedbl set-view-tags 4
+riverctl map normal $mod+Shift apostrophe set-view-tags 8
+riverctl map normal $mod+Shift parenleft set-view-tags 16
+riverctl map normal $mod+Shift minus set-view-tags 32
+riverctl map normal $mod+Shift egrave set-view-tags 64
+riverctl map normal $mod+Shift underscore set-view-tags 128
+riverctl map normal $mod+Shift ccedilla set-view-tags 256
 
 riverctl map normal $mod+Ctrl ampersand toggle-focused-tags 1
 riverctl map normal $mod+Ctrl eacute toggle-focused-tags 2
-riverctl map normal $mod+Ctrl quotedbl toggle-focused-tags 3
-riverctl map normal $mod+Ctrl apostrophe toggle-focused-tags 4
-riverctl map normal $mod+Ctrl parenleft toggle-focused-tags 5
-riverctl map normal $mod+Ctrl minus toggle-focused-tags 6
-riverctl map normal $mod+Ctrl egrave toggle-focused-tags 7
-riverctl map normal $mod+Ctrl underscore toggle-focused-tags 8
-riverctl map normal $mod+Ctrl ccedilla toggle-focused-tags 9
+riverctl map normal $mod+Ctrl quotedbl toggle-focused-tags 4
+riverctl map normal $mod+Ctrl apostrophe toggle-focused-tags 8
+riverctl map normal $mod+Ctrl parenleft toggle-focused-tags 16
+riverctl map normal $mod+Ctrl minus toggle-focused-tags 32
+riverctl map normal $mod+Ctrl egrave toggle-focused-tags 64
+riverctl map normal $mod+Ctrl underscore toggle-focused-tags 128
+riverctl map normal $mod+Ctrl ccedilla toggle-focused-tags 256
 
 riverctl map normal $mod+Shift+Ctrl ampersand toggle-view-tags 1
 riverctl map normal $mod+Shift+Ctrl eacute toggle-view-tags 2
-riverctl map normal $mod+Shift+Ctrl quotedbl toggle-view-tags 3
-riverctl map normal $mod+Shift+Ctrl apostrophe toggle-view-tags 4
-riverctl map normal $mod+Shift+Ctrl parenleft toggle-view-tags 5
-riverctl map normal $mod+Shift+Ctrl minus toggle-view-tags 6
-riverctl map normal $mod+Shift+Ctrl egrave toggle-view-tags 7
-riverctl map normal $mod+Shift+Ctrl underscore toggle-view-tags 8
-riverctl map normal $mod+Shift+Ctrl ccedilla toggle-view-tags 9
+riverctl map normal $mod+Shift+Ctrl quotedbl toggle-view-tags 4
+riverctl map normal $mod+Shift+Ctrl apostrophe toggle-view-tags 8
+riverctl map normal $mod+Shift+Ctrl parenleft toggle-view-tags 16
+riverctl map normal $mod+Shift+Ctrl minus toggle-view-tags 32
+riverctl map normal $mod+Shift+Ctrl egrave toggle-view-tags 64
+riverctl map normal $mod+Shift+Ctrl underscore toggle-view-tags 128
+riverctl map normal $mod+Shift+Ctrl ccedilla toggle-view-tags 256
 
 # Mod+0 to focus all tags
 # Mod+Shift+0 to tag focused view with all tags

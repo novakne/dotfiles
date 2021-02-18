@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 riverctl spawn 'swaybg -i ~/img/wal/tonton_revolver_john_wick_01.jpg'
-riverctl spawn 'foot --server'
-riverctl spawn 'fnott'
-riverctl spawn 'waybar'
+riverctl spawn 'foot --server &> /dev/null'
+riverctl spawn 'fnott &> /dev/null'
+riverctl spawn 'yambar &> /dev/null'
