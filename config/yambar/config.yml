@@ -29,7 +29,7 @@ bar:
   height: 28
   location: top
   spacing: 5
-  margin: 7
+  # margin: 7
 
   # Default
   font: Overpass:pixelsize=16
@@ -42,31 +42,51 @@ bar:
   left:
     - label:
         content:
-          string:
-            on-click: /usr/bin/bash -c "wlogout"
-            text: 
-            font: *nerdfont
-    # - river:
-    #   title: {string: { text: "{seat} - {title}" }}
-    #   content:
-    #     map:
-    #       tag: occupied
-    #       values:
-    #         false: {empty: {}}
-    #         true:
-    #           string:
-    #             margin: 5
-    #             text: "{id}: {state}"
-    - script:
-        path: "/home/novakane/.config/yambar/dwl-tags.sh"
-        args: [1]
-        content: {string: {text: "{dwltag}"}}
+          - string:
+              {
+                text: "    ",
+                foreground: *base00,
+                deco: { background: { color: *cyan } },
+                on-click: /usr/bin/bash -c "wlogout",
+              }
+    - river:
+        title: { string: { text: "=> [ {title} ]", max: 50 } }
+        content:
+          map:
+            tag: occupied
+            values:
+              false: { empty: {} }
+              true:
+                string:
+                  margin: 5
+                  text: "{id} [ {state} ]"
+
+    # - script:
+    #     path: "/home/novakane/.config/yambar/modules/dwl-tags.sh"
+    #     args: [1]
+    #     content: {string: {text: "{dwltag}"}}
+    #     content:
+    #       map:
+    #         tag: focused
+    #         values:
+    #           false:
+    #             string:
+    #               text: "{dwltag}"
+    #           true:
+    #             string:
+    #               text: "{dwltag}"
+    #               foreground: *yellow
 
   # [ CENTER ]
   # center:
 
   # [ RIGHT ]
   right:
+    - script:
+        path: "/home/novakane/.config/yambar/modules/cpu.sh"
+        args: [1]
+        content: { string: { text: "{cpu}%" } }
+
     - network:
         name: wlan0
         content:
@@ -111,16 +131,21 @@ bar:
                 - ramp:
                     tag: capacity
                     items:
-                      - string: { text: "  ", foreground: *pink, font: *nerdfont }
-                      - string: { text: "  ", foreground: *pink, font: *nerdfont }
-                      - string: { text: "  ", foreground: *yellow, font: *nerdfont }
-                      - string: { text: "  ", foreground: *yellow, font: *nerdfont }
+                      - string:
+                          { text: "  ", foreground: *pink, font: *nerdfont }
+                      - string:
+                          { text: "  ", foreground: *pink, font: *nerdfont }
+                      - string:
+                          { text: "  ", foreground: *yellow, font: *nerdfont }
+                      - string:
+                          { text: "  ", foreground: *yellow, font: *nerdfont }
                       - string: { text: "  ", font: *nerdfont }
                       - string: { text: "  ", font: *nerdfont }
                       - string: { text: "  ", font: *nerdfont }
                       - string: { text: "  ", font: *nerdfont }
                       - string: { text: "  ", font: *nerdfont }
-                      - string: { text: "  ", foreground: *green, font: *nerdfont }
+                      - string:
+                          { text: "  ", foreground: *green, font: *nerdfont }
                 - string: { text: " {capacity}%" }
               charging:
                 - string: { text: " ", foreground: *magenta, font: *nerdfont }
@@ -132,5 +157,10 @@ bar:
         date-format: "%a %d/%m"
         content:
           - string: { text: "{date}", right-margin: 5 }
-          - string: { text: "{time}", foreground: *blue }
+          - string:
+              {
+                text: "{time}",
+                foreground: *base00,
+                deco: { background: { color: *magenta } },
+              }
 
