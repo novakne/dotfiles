@@ -23,6 +23,7 @@ paru
 ripgrep
 river
 share
+shell
 ssh
 sway
 tab
@@ -31,5 +32,6 @@ userdirs
 waybar
 wlogout
 wofi
+yambar
 zathura
 zsh
