@@ -1,4 +1,5 @@
 # [ ZPROFILE ]
+#
 # Executes commands at login pre-zshrc.
 
 # Only on TTY

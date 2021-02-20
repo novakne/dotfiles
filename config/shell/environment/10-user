@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# Environement for programming lib
+
+
+# [ User bin ]
+if [[ -d "$HOME"/.local/bin ]]; then
+    _prepend_path "$HOME"/.local/{bin,bin{/app,/colors}}
+fi
+
+# [ User lib ]
+[[ -z "$LIB_HOME" ]] && export LIB_HOME="$HOME"/.local/lib
+

@@ -1,10 +1,12 @@
-#!usr/bin/env zsh
+#!usr/bin/env bash
 
 # ( https://git.grml.org/?p=grml-etc-core.git;a=blob_plain;f=etc/zsh/zshrc;hb=HEAD )
-# Provides useful information on globbing
+# Provides useful information on zsh globbing
 
 h-glob () {
     echo -e "
+    zsh globbing
+
     /      directories
     .      plain files
     @      symbolic links
@@ -41,4 +43,5 @@ h-glob () {
   print **/*(g:users:)  # Recursively match all files that are owned by group 'users'
   echo /proc/*/cwd(:h:t:s/self//) # Analogous to >ps ax | awk '{print $1}'<"
 }
+
 

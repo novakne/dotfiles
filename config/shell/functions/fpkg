@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# Search installed pkg
+#     - Requirements: fzf
+
+fpkg() {
+  pacman -Qe | fzf -e
+}

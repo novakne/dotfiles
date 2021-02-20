@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+#
+# Environement for programming lib
+
+
+# [ C ]
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+#  [ Go ]
+if _is_command go; then
+    export GOPATH="$LIB_HOME"/go
+    _append_path "$LIB_HOME"/go/bin
+fi
+
+# [ Lua ]
+[[ $(_is_command luarocks) ]] && _append_path "$LIB_HOME"/luarocks/bin
+
+# [ Nim ]
+[[ $(_is_command nimble) ]] && _append_path "$LIB_HOME"/nimble/bin
+
+# [ Npm ]
+if _is_command npm; then
+    export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+    _append_path "$LIB_HOME"/npm/bin
+fi
+
+# [ Ruby ]
+if _is_command ruby; then
+    GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+    export GEM_HOME
+    _append_path "$GEM_HOME"/bin
+fi
+
+# [ Rust ]
+if [[ -d "$XDG_DATA_HOME"/rustup && -d "$LIB_HOME"/cargo ]]; then
+    export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+    export CARGO_HOME="$LIB_HOME"/cargo
+    _append_path "$CARGO_HOME"/bin
+fi
+
+# [ Yarn ]
+[[ $(_is_command yarn) ]] && _append_path "$XDG_CONFIG_HOME"/yarn/global/node_modules/bin
+

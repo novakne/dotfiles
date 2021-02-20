@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# Jump to a dir with zoxide and open it in neovim
+#     - Requirements: zoxide neovim
+
+
+zn () {
+  if hash nv &> /dev/null; then
+    z "$1" && nv
+  else
+    z "$1" && "${EDITOR:-nvim}"
+  fi
+}
+

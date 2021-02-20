@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# cd to directory and list files with `exa` or `ls`
+#     - Requirements: exa (optional)
+
+
+cl() {
+  if hash exa; then
+    cd "$1" && exa -lah --group-directories-first --git --icons
+  else 
+    cd "$1" && ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F
+  fi
+}
+

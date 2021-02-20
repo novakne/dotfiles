@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# [ Aize Colors ]
+
+declare base00='#29223a'
+declare base01='#3e3350'
+declare base02='#534666'
+declare base03='#6b5c7c'
+declare base04='#837593'
+declare base05='#9d8fa9'
+declare base06='#b7acbf'
+declare base07='#d2ccd6'
+
+declare red='#f63d81'
+declare pink='#fc65b0'
+declare orange='#f5939c'
+declare yellow='#e8ec77'
+declare green='#2dcbb0'
+declare blue='#57bbf4'
+declare magenta='#a89bee'
+declare cyan='#4db9c8'
+
