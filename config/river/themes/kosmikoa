@@ -26,8 +26,10 @@ riverctl border-color-focused $yellow
 riverctl border-color-unfocused $base01
 riverctl border-width 2
 riverctl focus-follows-cursor normal
-riverctl outer-padding 10
+riverctl outer-padding 8
 riverctl view-padding 5
 riverctl xcursor-theme capitaine-cursor 24
 
+# Set opacity and fade effect
+# riverctl opacity 1.0 0.75 0.0 0.1 20
 
