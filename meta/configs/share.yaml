@@ -1,4 +1,5 @@
 # [ local/share ]
+
 - link:
     ~/.local/share/applications: local/share/applications
     ~/.local/share/fonts: local/share/fonts

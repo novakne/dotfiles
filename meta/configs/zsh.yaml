@@ -1,4 +1,5 @@
 # [ Zsh ]
+
 - link:
     ~/.config/zsh: config/zsh
     ~/.zshenv: home/.zshenv
