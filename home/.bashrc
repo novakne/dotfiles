@@ -73,7 +73,7 @@ fi
 [[ -r "$_shell_plugins_dir"/starship.toml ]] && eval "$(starship init bash)"
 
 # [ Zoxide ]
-[[ $(_is_command zoxide) ]] && eval "$(zoxide init bash)"
+eval "$(zoxide init bash)"
 
 
 # [ User plugins ]

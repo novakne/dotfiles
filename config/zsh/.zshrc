@@ -185,7 +185,7 @@ fi
 [[ -r "$_shell_plugins_dir"/starship.toml ]] && eval "$(starship init zsh)"
 
 # [ Zoxide ]
-[[ $(_is_command zoxide) ]] && eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh)"
 
 # [ User plugins]
 # Configure shell to emit the OSC 7 escape sequence
