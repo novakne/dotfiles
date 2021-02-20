@@ -73,23 +73,23 @@ Prompt_ [Starship](https://github.com/starship/starship)
 * **environment/** - Environment variables
     * `10-user`         - User bin & co
     * `20-plugins`      - Variables for shell plugins
-    * `30-cli`          - Variables for cli programm
+    * `30-cli`          - Variables for cli program
     * `40-programming`  - Variables for programming language
 * **functions/**
     * `cl`       - Cd to a dir and list files with `exa` or `ls`
-    * `fapps`    - Open apps [_fzf_]
-    * `fcd`      - Interactive `cd` [_fzf_]
-    * `fcdb`     - Interactive `cd` to parent directory [_fzf_]
-    * `fe`       - Open file in default editor [_fzf_]
-    * `fimg`     - Open images in `sxiv` [_fzf_]
-    * `fin`      - Install pkg with `paru` [_fzf_]
-    * `fkill`    - Kill processes [_fzf_]
-    * `fpkg`     - Search installed packages [_fzf_]
-    * `fre`      - Remove pkg with `paru` [_fzf_]
-    * `frg`      - Fuzzy grep with `ripgrep` and open in default editor [_fzf_]
-    * `ft`       - Search ctags [_fzf_]
-    * `ftag`     - Search ctags generated with `--excmd=number` [_fzf_]
-    * `fvid`     - Open videos in `mpv` [_fzf_]
+    * `fapps`    - Open apps [ _fzf_ ]
+    * `fcd`      - Interactive `cd` [ _fzf_ ]
+    * `fcdb`     - Interactive `cd` to parent directory [ _fzf_ ]
+    * `fe`       - Open file in default editor [ _fzf_ ]
+    * `fimg`     - Open images in `sxiv` [ _fzf_ ]
+    * `fin`      - Install pkg with `paru` [ _fzf_ ]
+    * `fkill`    - Kill processes [ _fzf_ ]
+    * `fpkg`     - Search installed packages [ _fzf_ ]
+    * `fre`      - Remove pkg with `paru` [ _fzf_ ]
+    * `frg`      - Fuzzy grep with `ripgrep` and open in default editor [ _fzf_ ]
+    * `ft`       - Search ctags [ _fzf_ ]
+    * `ftag`     - Search ctags generated with `--excmd=number` [ _fzf_ ]
+    * `fvid`     - Open videos in `mpv` [ _fzf_ ]
     * `hglob`    - Help for zsh glob
     * `mcd`      - mkdir and cd to new dir
     * `n`        - `nnn` cd on quit
