@@ -65,17 +65,6 @@ bar:
     #     path: "/home/novakane/.config/yambar/modules/dwl-tags.sh"
     #     args: [1]
     #     content: {string: {text: "{dwltag}"}}
-    #     content:
-    #       map:
-    #         tag: focused
-    #         values:
-    #           false:
-    #             string:
-    #               text: "{dwltag}"
-    #           true:
-    #             string:
-    #               text: "{dwltag}"
-    #               foreground: *yellow
 
   # [ CENTER ]
   # center:
@@ -86,6 +75,11 @@ bar:
         path: "/home/novakane/.config/yambar/modules/cpu.sh"
         args: [1]
         content: { string: { text: "{cpu}%" } }
+
+    - script:
+        path: "/home/novakane/.config/yambar/modules/pacman.sh"
+        args: [] 
+        content: { string: { text: " {pkg}" } }
 
     - network:
         name: wlan0
