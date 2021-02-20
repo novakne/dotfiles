@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #
 # Sync mails with isync then use notmuch to tag it
+#     - Requirements: isync notmuch
 
 
 printf -- '\e[31m%s\n\e[0m' "==> Sync mail..."

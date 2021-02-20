@@ -5,8 +5,10 @@
 
 # Session
 export XDG_SESSION_TYPE=wayland
-export XDG_SESSION_DESKTOP=dwl
-export XDG_CURRENT_DESKTOP=dwl
+export XDG_SESSION_DESKTOP=river
+export XDG_CURRENT_DESKTOP=river
+# export XDG_SESSION_DESKTOP=dwl
+# export XDG_CURRENT_DESKTOP=dwl
 
 # Firefox
 export MOZ_ENABLE_WAYLAND=1

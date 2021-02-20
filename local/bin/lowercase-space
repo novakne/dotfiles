@@ -4,9 +4,17 @@
 #   uppercase with lowercase
 #   '_' and'-' with 'space'
 
+_lower() {
+    printf '%s\n' "${1,,}"
+}
 
-mv "$1" "$(echo "$1" \
-  | tr ' A-Z' ' a-z' \
-  | tr ' 0-9' ' 0-9' \
-  | tr '_-' ' ' \
-  | tr -s ' ')"
+main() {
+  mv "$1" "$(printf -- "$1" \
+    | _lower "$1" \
+    | tr '_-' ' ' \
+    | tr -s ' ')"
+
+  unset -f _lower
+}
+
+main "$@"

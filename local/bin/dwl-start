@@ -5,7 +5,7 @@
 
 
 swaybg -o eDP-1 -i ~/img/wal/tonton_revolver_john_wick_01.jpg -m fill &
-fnott &
-# yambar &
-waybar &
-foot --server &
+fnott &> /dev/null &
+yambar &> /dev/null &
+# waybar &
+foot --server &> /dev/null &

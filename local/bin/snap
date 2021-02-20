@@ -2,6 +2,7 @@
 #
 # Take screenshot with grim & slurp on Wayland
 #   or with maim & slop on X11
+#     - Requirements: grim & slurp or maim & slop
 
 
 # Error message in STDERR
