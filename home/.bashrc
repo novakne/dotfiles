@@ -15,7 +15,7 @@ _fzf_dir="$HOME"/bld/fzf
 
 # [ Helpers ]
 _is_command() {
-  hash "$1" &> /dev/null
+  hash "$1" >/dev/null 2>&1
 }
 
 _append_path() {
@@ -73,7 +73,7 @@ fi
 [[ -r "$_shell_plugins_dir"/starship.toml ]] && eval "$(starship init bash)"
 
 # [ Zoxide ]
-eval "$(zoxide init bash)"
+_is_command  zoxide && eval "$(zoxide init bash)"
 
 
 # [ User plugins ]
