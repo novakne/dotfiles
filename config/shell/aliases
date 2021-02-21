@@ -18,6 +18,11 @@ alias exa='exa --group-directories-first --icons'
 alias ea='exa -lah --group-directories-first --git --icons'
 alias et='exa -lah -TL2 --group-directories-first --git --icons'
 
+# [ Git ]
+alias gics='git commit -S -m'
+alias gic='git commit -m'
+alias gis='git switch'
+
 # [ Nnn ]
 alias N='sudo -E nnn -e'
 
