@@ -5,7 +5,7 @@
 
 
 zn () {
-  if hash nv &> /dev/null; then
+  if hash nv >/dev/null 2>&1; then
     z "$1" && nv
   else
     z "$1" && "${EDITOR:-nvim}"

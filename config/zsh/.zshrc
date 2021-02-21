@@ -21,7 +21,7 @@ _fzf_dir="$HOME"/bld/fzf
 
 # [ Helpers ]
 _is_command() {
-  hash "$1" &> /dev/null
+  hash "$1" >/dev/null 2>&1
 }
 
 _append_path() {
@@ -185,7 +185,7 @@ fi
 [[ -r "$_shell_plugins_dir"/starship.toml ]] && eval "$(starship init zsh)"
 
 # [ Zoxide ]
-eval "$(zoxide init zsh)"
+_is_command zoxide && eval "$(zoxide init zsh)"
 
 # [ User plugins]
 # Configure shell to emit the OSC 7 escape sequence
@@ -197,3 +197,4 @@ fi
 
 unset -v _shell_dir _shell_env_dir _shell_fun_dir _shell_plugins_dir 
 unset -v _zsh_zinit_dir _fzf_dir
+unset -f _is_command _append_path _prepend_path

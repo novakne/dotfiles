@@ -13,10 +13,10 @@ if _is_command go; then
 fi
 
 # [ Lua ]
-[[ $(_is_command luarocks) ]] && _append_path "$LIB_HOME"/luarocks/bin
+_is_command luarocks && _append_path "$LIB_HOME"/luarocks/bin
 
 # [ Nim ]
-[[ $(_is_command nimble) ]] && _append_path "$LIB_HOME"/nimble/bin
+_is_command nimble && _append_path "$LIB_HOME"/nimble/bin
 
 # [ Npm ]
 if _is_command npm; then
@@ -39,5 +39,5 @@ if [[ -d "$XDG_DATA_HOME"/rustup && -d "$LIB_HOME"/cargo ]]; then
 fi
 
 # [ Yarn ]
-[[ $(_is_command yarn) ]] && _append_path "$XDG_CONFIG_HOME"/yarn/global/node_modules/bin
+_is_command yarn && _append_path "$XDG_CONFIG_HOME"/yarn/global/node_modules/bin
 
