@@ -15,7 +15,7 @@
 #         content: { string: { text: " {pacman} + {aur} = {pkg}" } }
 
 
-declare interval pacman_num aur_num pkg_num
+declare interval no_update aur_manager pacman_num aur_num pkg_num
 
 while true; do
   # Change interval here
@@ -28,10 +28,13 @@ while true; do
   # Leave empty if you want a 0 instead of a string 
   # (e.g. no_update="")
   no_update=""
+  
+  # Change with your aur manager
+  aur_manager="paru"
 
   # Get number of packages to update
-  pacman_num=$(pacman -Qu | wc -l)
-  aur_num=$(pacman -Qmu | wc -l)
+  pacman_num=$(checkupdates | wc -l)
+  aur_num=$("${aur_manager}" -Qmu | wc -l)
   pkg_num=$(( pacman_num + aur_num ))
 
   # Only display one if there is no update and multiple tags set
@@ -51,9 +54,9 @@ while true; do
     printf -- '%s\n' ""
   fi
 
-  sleep ${interval}
+  sleep "${interval}"
 
 done
 
-unset -v interval pacman_num aur_num pkg_num
+unset -v interval no_update aur_manager pacman_num aur_num pkg_num
 
