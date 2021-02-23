@@ -17,6 +17,7 @@ riverctl map normal $mod Return spawn $term
 riverctl map normal Control+Shift Return spawn $term
 riverctl map normal $mod D spawn dmenu-run
 riverctl map normal $mod B spawn $browser
+riverctl map normal $mod O spawn fuzzel-run
 
 # Mod+Q to close the focused view
 riverctl map normal $mod Q close
