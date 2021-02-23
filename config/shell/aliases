@@ -38,7 +38,7 @@ alias cp='cp -i'
 alias df='df -h'
 alias free='free -m'
 alias cmx='chmod 774'
-alias perm='stat -c '%A %a %n''
+alias perm='stat -c "%A %a %n"'
 alias sedit='sudo -E ${EDITOR:-nvim}'
 
 # [ Misc ]
