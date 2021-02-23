@@ -42,7 +42,7 @@ shopt -s cmdhist               # Save multi-line commands as one command
 shopt -s checkwinsize          # Check the window size after each command
 
 # [ Bash history ]
-HISTCONTROL="erasedups:ignoreboth" # Avoid duplicate entries
+HISTCONTROL="erasedups:ignoreboth:ignorespace" # Avoid duplicate entries
 export HISTFILE="$HOME"/.cache/bash/bash_history
 
 # [ Aliases ]
