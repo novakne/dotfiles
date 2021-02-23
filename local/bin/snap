@@ -12,26 +12,26 @@ _err() {
 
 # Test installed programs
 _is_grim() {
-  if command -v grim &>/dev/null; then return 0; fi
+  if hash grim >/dev/null 2>&1; then return 0; fi
 }
 
 _is_slurp() {
-  if command -v slurp &>/dev/null; then return 0; fi
+  if hash slurp >/dev/null 2>&1; then return 0; fi
 }
 
 _is_maim() {
-  if command -v maim &>/dev/null; then return 0; fi
+  if hash maim >/dev/null 2>&1; then return 0; fi
 }
 
 _is_slop() {
-  if command -v slop &>/dev/null; then return 0; fi
+  if hash slop >/dev/null 2>&1; then return 0; fi
 }
 
 
 # Need at least one of grim or maim
 if ! _is_grim && ! _is_maim; then
-	_err "You need to install grim or maim."
-	exit 1
+  _err "You need to install grim or maim."
+  exit 1
 fi
 
 

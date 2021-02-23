@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# Fuzzel default options
+
+
+fuzzel -I \
+  -f 'Overpass' \
+  -T 'footclient' \
+  -b '232227ff' \
+  -s '38383Cff' \
+  -t 'd2ccd6ff' \
+  -m 'e8ec77ff' \
+  -C '57bbf4ff' \
+  -x 10 -y 5 -r 4 -l 1
