@@ -6,6 +6,6 @@
 
 swaybg -o eDP-1 -i ~/img/wal/tonton_revolver_john_wick_01.jpg -m fill &
 fnott &> /dev/null &
-yambar &> /dev/null &
+yambar -c "$HOME"/.config/yambar/config-dwl.yml &> /dev/null &
 # waybar &
 foot --server &> /dev/null &
