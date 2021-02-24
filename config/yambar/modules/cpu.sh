@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # cpu.sh - measures CPU usage at a configurable sample interval
 #
