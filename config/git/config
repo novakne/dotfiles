@@ -18,6 +18,7 @@
 [diff]
     tool = nvimdiff
 	submodule = log
+    colorMoved = default
 [core]
     editor = nvim
     pager = delta
@@ -30,11 +31,12 @@
 [init]
 	defaultBranch = main
 [delta]
-    plus-color = "#012800"
-    minus-color = "#340001"
-    syntax-theme = aize
+    plus-color = "#2dcbb0"
+    minus-color = "#f63d81"
+    syntax-theme = kosmikoa
     line-numbers = true
     side-by-side = true
-
 [interactive]
     diffFilter = delta --color-only
+[commit]
+	gpgsign = true
