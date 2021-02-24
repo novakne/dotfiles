@@ -13,3 +13,5 @@ config/tmux/plugins
 
 packer_compiled.vim
 .netrwhist
+
+tags

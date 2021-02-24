@@ -39,17 +39,17 @@ telescope.setup {
     color_devicons = true,
     use_less = true,
     set_env = {['COLORTERM'] = 'truecolor'},
-    file_previewer = require'telescope.previewers'.cat.new,
-    grep_previewer = require'telescope.previewers'.vimgrep.new,
-    qflist_previewer = require'telescope.previewers'.qflist.new,
+    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
+    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
+    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
 
     -- Global remapping
     mappings = {
       i = {
-        ['<C-h>'] = actions.goto_file_selection_split,
+        ['<C-h>'] = actions.select_horizontal,
         ['<Esc>'] = actions.close, -- Close instead of normal mode
       },
-      n = {['<C-h>'] = actions.goto_file_selection_split},
+      n = {['<C-h>'] = actions.select_horizontal},
     },
 
   },
