@@ -24,9 +24,9 @@
 
 ### Applications
 
-* *Aur helper_* . [paru](https://github.com/Morganamilo/paru)
-* *Browser_* . firefox
-* *Bar_* . [yambar](https://codeberg.org/dnkl/yambar)
+* *Aur helper* . [paru](https://github.com/Morganamilo/paru)
+* * Browser_ * . firefox
+* _Bar_ . [yambar](https://codeberg.org/dnkl/yambar)
 * *Editor_* . [neovim 5.x](https://github.com/neovim/neovim) ( *prerelease build* )
 * *Files manager_* . [nnn](https://github.com/jarun/nnn) ( *build with nerd icons* )
 * *Launcher_*
@@ -79,30 +79,30 @@ Prompt_ [Starship](https://github.com/starship/starship)
 
 **$HOME/.config/shell/** - Common config for `bash` and `zsh`
 * **environment/** - Environment variables
-    - `10-user`         - User bin & co
-    - `20-plugins`      - Variables for shell plugins
-    - `30-cli`          - Variables for cli program
-    - `40-programming`  - Variables for programming language
+  - `10-user`         - User bin & co
+  - `20-plugins`      - Variables for shell plugins
+  - `30-cli`          - Variables for cli program
+  - `40-programming`  - Variables for programming language
 * **functions/**
-    - `cl`       - Cd to a dir and list files with `exa` or `ls`
-    - `fapps`    - Open apps [ _fzf_ ]
-    - `fcd`      - Interactive `cd` [ _fzf_ ]
-    - `fcdb`     - Interactive `cd` to parent directory [ _fzf_ ]
-    - `fe`       - Open file in default editor [ _fzf_ ]
-    - `fimg`     - Open images in `sxiv` [ _fzf_ ]
-    - `fin`      - Install pkg with `paru` [ _fzf_ ]
-    - `fkill`    - Kill processes [ _fzf_ ]
-    - `fpkg`     - Search installed packages [ _fzf_ ]
-    - `fre`      - Remove pkg with `paru` [ _fzf_ ]
-    - `frg`      - Fuzzy grep with `ripgrep` and open in default editor [ _fzf_ ]
-    - `ft`       - Search ctags [ _fzf_ ]
-    - `ftag`     - Search ctags generated with `--excmd=number` [ _fzf_ ]
-    - `fvid`     - Open videos in `mpv` [ _fzf_ ]
-    - `hglob`    - Help for zsh glob
-    - `mcd`      - mkdir and cd to new dir
-    - `n`        - `nnn` cd on quit
-    - `up`       - Go up N dir `(e.g. up 2)`
-    - `zn`       - Jump to a directory with `zoxide` and open it in `neovim`
+  - `cl`       - Cd to a dir and list files with `exa` or `ls`
+  - `fapps`    - Open apps [ _fzf_ ]
+  - `fcd`      - Interactive `cd` [ _fzf_ ]
+  - `fcdb`     - Interactive `cd` to parent directory [ _fzf_ ]
+  - `fe`       - Open file in default editor [ _fzf_ ]
+  - `fimg`     - Open images in `sxiv` [ _fzf_ ]
+  - `fin`      - Install pkg with `paru` [ _fzf_ ]
+  - `fkill`    - Kill processes [ _fzf_ ]
+  - `fpkg`     - Search installed packages [ _fzf_ ]
+  - `fre`      - Remove pkg with `paru` [ _fzf_ ]
+  - `frg`      - Fuzzy grep with `ripgrep` and open in default editor [ _fzf_ ]
+  - `ft`       - Search ctags [ _fzf_ ]
+  - `ftag`     - Search ctags generated with `--excmd=number` [ _fzf_ ]
+  - `fvid`     - Open videos in `mpv` [ _fzf_ ]
+  - `hglob`    - Help for zsh glob
+  - `mcd`      - mkdir and cd to new dir
+  - `n`        - `nnn` cd on quit
+  - `up`       - Go up N dir `(e.g. up 2)`
+  - `zn`       - Jump to a directory with `zoxide` and open it in `neovim`
 * **plugins/** - Personnal colors, dircolors, osc7 and starship config
 * *aliases* - Shell aliases
 * *env-global* - Environment for login shell
@@ -123,7 +123,7 @@ Prompt_ [Starship](https://github.com/starship/starship)
 **$HOME/.config/zsh/**
 * **completions/** - User auto completions for some cli tools
 * **plugins/**
-    * **zinit/** - Zinit plugins directories 
+  * **zinit/** - Zinit plugins directories 
 * *.zlogin*    - Post .zshrc
 * *.zprofile*  - Login pre .zshrc
 * *.zshrc*     - Everything
