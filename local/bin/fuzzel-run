@@ -11,4 +11,4 @@ fuzzel -I \
   -t 'd2ccd6ff' \
   -m 'e8ec77ff' \
   -C '57bbf4ff' \
-  -x 10 -y 5 -r 4 -l 1
+  -x 10 -y 5 -r 4 -l 5
