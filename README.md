@@ -18,48 +18,56 @@
 ## Infos
 
 
-* `OS_` Arch Linux
-* `WM_` [Dwl](https://github.com/djpohly/dwl), [River](https://github.com/ifreund/river)
-* `Shell_` Zsh
+* *OS_* . Arch Linux *(btw)*
+* *WM_* . [dwl](https://github.com/djpohly/dwl) . [river](https://github.com/ifreund/river)
+* *Shell_* . zsh
 
 ### Applications
 
-* `Aur helper_` [paru](https://github.com/Morganamilo/paru)
-* `Browser_` Firefox
-* `Editor_` [Neovim 5.x](https://github.com/neovim/neovim) ( *prerelease build* )
-* `Files manager_` [Nnn](https://github.com/jarun/nnn) ( *build with nerd icons* )
-* `Launcher_` [dmenu-wl](https://github.com/nyyManni/dmenu-wayland)
-* `Mail_`
-  * [afew](https://github.com/afewmail/afew)
-  * [alot](https://github.com/pazz/alot)
-  * [isync](https://isync.sourceforge.io/)
-  * [notmuch](https://notmuchmail.org/)
-* `Media_`
-  * `Image_` [imv](https://github.com/eXeC64/imv)
-  * `Music_` Mpd / Ncmpcpp / Spotify
-  * `Video_` [Mpv](https://github.com/mpv-player/mpv)
-  * `Pdf_` [Zathura](https://pwmt.org/projects/zathura/)
-* `Notification_` [Fnott](https://codeberg.org/dnkl/fnott)
-* `Rss_` [Newsboat](https://newsboat.org/)
-* `Screenshot_`
-  * [Grim](https://github.com/emersion/grim)
-  * [Slurp](https://github.com/emersion/slurp)
-* `Terminal_`
-  * [Foot](https://codeberg.org/dnkl/foot)
-  * [Alacritty](https://github.com/jwilm/alacritty)
+* *Aur helper_* . [paru](https://github.com/Morganamilo/paru)
+* *Browser_* . firefox
+* *Bar_* . [yambar](https://codeberg.org/dnkl/yambar)
+* *Editor_* . [neovim 5.x](https://github.com/neovim/neovim) ( *prerelease build* )
+* *Files manager_* . [nnn](https://github.com/jarun/nnn) ( *build with nerd icons* )
+* *Launcher_*
+  . [dmenu-wl](https://github.com/nyyManni/dmenu-wayland)
+  . [fuzzel](https://codeberg.org/dnkl/fuzzel)
+* *Mail_* 
+  . [afew](https://github.com/afewmail/afew)
+  . [alot](https://github.com/pazz/alot)
+  . [isync](https://isync.sourceforge.io/)
+  . [notmuch](https://notmuchmail.org/)
+* *Media_*
+  - *Image_* . [imv](https://github.com/eXeC64/imv)
+  - *Music_* . mpd . ncmpcpp . spotify
+  - *Video_* . [mpv](https://github.com/mpv-player/mpv)
+  - *Pdf_* . [zathura](https://pwmt.org/projects/zathura/)
+* *Notification_* . [fnott](https://codeberg.org/dnkl/fnott)
+* *Rss_* . [newsboat](https://newsboat.org/)
+* *Screenshot_* 
+  . [grim](https://github.com/emersion/grim)
+  . [slurp](https://github.com/emersion/slurp)
+* *Terminal_* 
+  . [foot](https://codeberg.org/dnkl/foot)
+  . [alacritty](https://github.com/jwilm/alacritty)
 
-* `Fonts_`
-  * `System_`
-    * [Overpass](https://overpassfont.org/)
-    * [Inter](https://github.com/rsms/inter)
-  * `Terminal_` [JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts)
-* `Theme_`
-  * `Icons_` [Arc](https://github.com/horst3180/arc-icon-theme)
-  * `Gtk_` [Arc](https://github.com/horst3180/arc-theme)
+* *Fonts_*
+  * *System_*
+    . [Overpass](https://overpassfont.org/)
+    . [Inter](https://github.com/rsms/inter)
+  * *Terminal_* . [JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts)
+* *Theme_*
+  * *Icons_* . [Arc](https://github.com/horst3180/arc-icon-theme)
+  * *Gtk_* . [Arc](https://github.com/horst3180/arc-theme)
 
 ## Screenshots
 
-( **WIP** )
+* *Wallpaper*: Amazing works by **[TONTON REVOLVER](https://www.artstation.com/artwork/xJAqkE)**
+
+|  |  |
+| ----- | ---- |
+| ![river_busy](.previews/river_busy.png?raw=true "river_busy") | ![river_clean](.previews/river_clean.png?raw=true "river_clean") |
+
 
 ## Shell
 
@@ -71,30 +79,30 @@ Prompt_ [Starship](https://github.com/starship/starship)
 
 **$HOME/.config/shell/** - Common config for `bash` and `zsh`
 * **environment/** - Environment variables
-    * `10-user`         - User bin & co
-    * `20-plugins`      - Variables for shell plugins
-    * `30-cli`          - Variables for cli program
-    * `40-programming`  - Variables for programming language
+    - `10-user`         - User bin & co
+    - `20-plugins`      - Variables for shell plugins
+    - `30-cli`          - Variables for cli program
+    - `40-programming`  - Variables for programming language
 * **functions/**
-    * `cl`       - Cd to a dir and list files with `exa` or `ls`
-    * `fapps`    - Open apps [ _fzf_ ]
-    * `fcd`      - Interactive `cd` [ _fzf_ ]
-    * `fcdb`     - Interactive `cd` to parent directory [ _fzf_ ]
-    * `fe`       - Open file in default editor [ _fzf_ ]
-    * `fimg`     - Open images in `sxiv` [ _fzf_ ]
-    * `fin`      - Install pkg with `paru` [ _fzf_ ]
-    * `fkill`    - Kill processes [ _fzf_ ]
-    * `fpkg`     - Search installed packages [ _fzf_ ]
-    * `fre`      - Remove pkg with `paru` [ _fzf_ ]
-    * `frg`      - Fuzzy grep with `ripgrep` and open in default editor [ _fzf_ ]
-    * `ft`       - Search ctags [ _fzf_ ]
-    * `ftag`     - Search ctags generated with `--excmd=number` [ _fzf_ ]
-    * `fvid`     - Open videos in `mpv` [ _fzf_ ]
-    * `hglob`    - Help for zsh glob
-    * `mcd`      - mkdir and cd to new dir
-    * `n`        - `nnn` cd on quit
-    * `up`       - Go up N dir `(e.g. up 2)`
-    * `zn`       - Jump to a directory with `zoxide` and open it in `neovim`
+    - `cl`       - Cd to a dir and list files with `exa` or `ls`
+    - `fapps`    - Open apps [ _fzf_ ]
+    - `fcd`      - Interactive `cd` [ _fzf_ ]
+    - `fcdb`     - Interactive `cd` to parent directory [ _fzf_ ]
+    - `fe`       - Open file in default editor [ _fzf_ ]
+    - `fimg`     - Open images in `sxiv` [ _fzf_ ]
+    - `fin`      - Install pkg with `paru` [ _fzf_ ]
+    - `fkill`    - Kill processes [ _fzf_ ]
+    - `fpkg`     - Search installed packages [ _fzf_ ]
+    - `fre`      - Remove pkg with `paru` [ _fzf_ ]
+    - `frg`      - Fuzzy grep with `ripgrep` and open in default editor [ _fzf_ ]
+    - `ft`       - Search ctags [ _fzf_ ]
+    - `ftag`     - Search ctags generated with `--excmd=number` [ _fzf_ ]
+    - `fvid`     - Open videos in `mpv` [ _fzf_ ]
+    - `hglob`    - Help for zsh glob
+    - `mcd`      - mkdir and cd to new dir
+    - `n`        - `nnn` cd on quit
+    - `up`       - Go up N dir `(e.g. up 2)`
+    - `zn`       - Jump to a directory with `zoxide` and open it in `neovim`
 * **plugins/** - Personnal colors, dircolors, osc7 and starship config
 * *aliases* - Shell aliases
 * *env-global* - Environment for login shell
@@ -166,5 +174,5 @@ Lazy loaded with [Zinit](https://github.com/zdharma/zinit)
 * `sxhkd-key`        - Show `sxkhd` mappings in `fzf`
 * `update-fzf`       - Update fzf local repo
 * `update-mirror`    - Get a list of fastest French mirror
-* `update-sunneko`   - Update lua LSP
+* `update-sumneko`   - Update lua LSP
 * `wayland-env`      - Wayland environment variables
