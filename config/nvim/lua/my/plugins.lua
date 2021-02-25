@@ -96,13 +96,6 @@ return require'packer'.startup(function()
     end,
   }
 
-  use {
-    'ludovicchabant/vim-gutentags',
-    config = function()
-      vim.g.gutentags_cache_dir = '~/.cache/tags'
-    end,
-  }
-
   -- use '~/bld/fzf'
   -- use {'junegunn/fzf.vim', config = function() require 'my.plugins.fzf' end}
 

@@ -19,6 +19,7 @@ vim.g.maplocalleader = ','    -- Change local leader to ','
 
 opt.scrolloff = 5             -- Always 5 lines at the bottom
 opt.backup = false            -- No backup file
+opt.undofile = true
 opt.hidden = true             -- Enables to switch between unsaved buffers and keep undo history
 opt.splitbelow = true         -- Puts new split windows to the bottom of the current
 opt.splitright = true         -- Puts new vsplit windows to the right of the current
