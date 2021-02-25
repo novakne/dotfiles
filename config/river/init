@@ -154,14 +154,19 @@ riverctl map passthrough $mod F11 enter-mode normal
 # not have a modifier
 for mode in normal locked; do
 	# Volume
-	riverctl map $mode None XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +5%
-	riverctl map $mode None XF86AudioLowerVolume spawn pactl set-sink-volume @DEFAULT_SINK@ -5%
-	riverctl map $mode None XF86AudioMute spawn pactl set-sink-mute DEFAULT_SINK@ toggle
+	riverctl map $mod None XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +5%
+	riverctl map $mod None XF86AudioLowerVolume spawn pactl set-sink-volume @DEFAULT_SINK@ -5%
+	riverctl map $mod None XF86AudioMute spawn pactl set-sink-mute DEFAULT_SINK@ toggle
 
 	# Brighness
-	riverctl map $mode None XF86MonBrightnessUp spawn brightnessctl set 5%-
-	riverctl map $mode None XF86MonBrightnessDown spawn brightnessctl set +5%
+	riverctl map $mod None XF86MonBrightnessUp spawn brightnessctl set 5%-
+	riverctl map $mod None XF86MonBrightnessDown spawn brightnessctl set +5%
+
 done
+
+# Screenshot
+riverctl map normal $mod Print spawn snap -f
+riverctl map normal $mod+Shift Print spawn snap -s
 
 # Set repeat rate
 riverctl set-repeat 50 300
