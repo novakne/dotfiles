@@ -1,3 +1,4 @@
+---
 # [ YAMBAR ]
 
 # [ VARIABLES ]
@@ -50,29 +51,27 @@ bar:
 
     - river:
         anchors:
-          - string: &default { text: " {id} " }
-          - focused:
-              &focused {
-                foreground: *base07,
-                deco: { underline: { size: 2, color: *pink } },
-              }
-          - occupied: &occupied { foreground: *blue }
-          - invisible: &invisible { foreground: *base05 }
+          - string: &default {text: ' {id} '}
+          - focused: &focused
+              foreground: *base07
+              deco: {underline: {size: 2, color: *pink}}
+          - occupied: {foreground: *blue}
+          - invisible: &invisible {foreground: *base05}
         content:
           - map:
               tag: occupied
               margin: 3
               values:
-                false: { empty: {} }
+                false: {empty: {}}
                 true:
                   map:
                     tag: state
                     values:
                       invisible:
-                        string: { <<: [*default, *invisible] }
+                        string: {<<: [*default, *invisible]}
                       focused:
                         string:
-                          text: " {id} "
+                          text: ' {id} '
                           <<: *focused
 
   # [ CENTER ]
@@ -80,17 +79,17 @@ bar:
     - river:
         title:
           - string:
-              text: "[ "
+              text: '[ '
               foreground: *base05
           - string:
-              text: "{title}"
+              text: '{title}'
               foreground: *base05
               max: 80
           - string:
-              text: " ]"
+              text: ' ]'
               foreground: *base05
         content:
-          string: { text: "" }
+          string: {text: ''}
 
   # [ RIGHT ]
   right:
@@ -105,7 +104,7 @@ bar:
                   text: 
                   font: *sfont
               - string:
-                  text: "{cpu}"
+                  text: '{cpu}'
 
     - script:
         path: /home/novakane/.config/yambar/modules/pacman.sh
@@ -121,12 +120,12 @@ bar:
                       text: 
                       font: *sfont
                   - string:
-                      text: "{pkg}"
+                      text: '{pkg}'
                       font: *myfont
             values:
               0:
                 string:
-                  text: "no updates"
+                  text: no updates
                   font: *sfont
 
     - alsa:
@@ -145,7 +144,7 @@ bar:
                         font: *sfont
                         foreground: *pink
                     - string:
-                        text: "{percent}"
+                        text: '{percent}'
                         foreground: *pink
               false:
                 list:
@@ -170,7 +169,7 @@ bar:
                               text: 
                               font: *sfont
                     - string:
-                        text: "{percent}"
+                        text: '{percent}'
                         font: *myfont
 
     - battery:
@@ -223,7 +222,7 @@ bar:
                               font: *sfont
                               foreground: *green
                     - string:
-                        text: "{capacity}%"
+                        text: '{capacity}%'
                         font: *myfont
               charging:
                 list:
@@ -234,7 +233,7 @@ bar:
                         foreground: *cyan
                         font: *sfont
                     - string:
-                        text: "{capacity}%"
+                        text: '{capacity}%'
                         font: *myfont
               full:
                 list:
@@ -245,7 +244,7 @@ bar:
                         foreground: *green
                         font: *sfont
                     - string:
-                        text: "{capacity}%"
+                        text: '{capacity}%'
                         font: *myfont
 
     - network:
@@ -270,23 +269,23 @@ bar:
                       text: 直
                       font: *sfont
                   values:
-                    "":
+                    '':
                       string:
                         text: 直
                         font: *sfont
 
     - clock:
-        time-format: "%H:%M"
-        date-format: "%a %d/%m"
+        time-format: '%H:%M'
+        date-format: '%a %d/%m'
         content:
           list:
             spacing: 5
             right-margin: 5
             items:
               - string:
-                  text: "{date}"
+                  text: '{date}'
                   font: *sfont
               - string:
-                  text: " {time} "
+                  text: ' {time} '
                   foreground: *magenta
-                  deco: { underline: { size: 2, color: *magenta } }
+                  deco: {underline: {size: 2, color: *magenta}}

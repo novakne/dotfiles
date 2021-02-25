@@ -1,3 +1,4 @@
+---
 # [ YAMBAR ]
 
 # [ VARIABLES ]
@@ -58,189 +59,153 @@ bar:
         content:
           - map:
               margin: 4
-              tag: dwltag_0_occupied
+              tag: tag_0_occupied
               values:
                 true:
                   map:
-                    tag: dwltag_0_focused
+                    tag: tag_0_focused
                     values:
-                      true:
-                          - string: {text: "{dwltag_0}", <<: *focused}
-                      false:
-                          - string: {text: "{dwltag_0}", <<: *occupied}
+                      true: {string: {text: '{tag_0}', <<: *focused}}
+                      false: {string: {text: '{tag_0}', <<: *occupied}}
                 false:
                   map:
-                    tag: dwltag_0_focused
+                    tag: tag_0_focused
                     values:
-                      true:
-                          - string: {text: "{dwltag_0}", <<: *focused}
-                      false:
-                          - string: {text: "{dwltag_0}", <<: *default}
+                      true: {string: {text: '{tag_0}', <<: *focused}}
+                      false: {string: {text: '{tag_0}', <<: *default}}
           - map:
               margin: 4
-              tag: dwltag_1_occupied
+              tag: tag_1_occupied
               values:
                 true:
                   map:
-                    tag: dwltag_1_focused
+                    tag: tag_1_focused
                     values:
-                      true:
-                          - string: {text: "{dwltag_1}", <<: *focused}
-                      false:
-                          - string: {text: "{dwltag_1}", <<: *occupied}
+                      true: {string: {text: '{tag_1}', <<: *focused}}
+                      false: {string: {text: '{tag_1}', <<: *occupied}}
                 false:
                   map:
-                    tag: dwltag_1_focused
+                    tag: tag_1_focused
                     values:
-                      true:
-                          - string: {text: "{dwltag_1}", <<: *focused}
-                      false:
-                          - string: {text: "{dwltag_1}", <<: *default}
+                      true: {string: {text: '{tag_1}', <<: *focused}}
+                      false: {string: {text: '{tag_1}', <<: *default}}
           - map:
               margin: 4
-              tag: dwltag_2_occupied
+              tag: tag_2_occupied
               values:
                 true:
                   map:
-                    tag: dwltag_2_focused
+                    tag: tag_2_focused
                     values:
-                      true:
-                          - string: {text: "{dwltag_2}", <<: *focused}
-                      false:
-                          - string: {text: "{dwltag_2}", <<: *occupied}
+                      true: {string: {text: '{tag_2}', <<: *focused}}
+                      false: {string: {text: '{tag_2}', <<: *occupied}}
                 false:
                   map:
-                    tag: dwltag_2_focused
+                    tag: tag_2_focused
                     values:
-                      true:
-                          - string: {text: "{dwltag_2}", <<: *focused}
-                      false:
-                          - string: {text: "{dwltag_2}", <<: *default}
+                      true: {string: {text: '{tag_2}', <<: *focused}}
+                      false: {string: {text: '{tag_2}', <<: *default}}
           - map:
               margin: 4
-              tag: dwltag_3_occupied
+              tag: tag_3_occupied
               values:
                 true:
                   map:
-                    tag: dwltag_3_focused
+                    tag: tag_3_focused
                     values:
-                      true:
-                          - string: {text: "{dwltag_3}", <<: *focused}
-                      false:
-                          - string: {text: "{dwltag_3}", <<: *occupied}
+                      true: {string: {text: '{tag_3}', <<: *focused}}
+                      false: {string: {text: '{tag_3}', <<: *occupied}}
                 false:
                   map:
-                    tag: dwltag_3_focused
+                    tag: tag_3_focused
                     values:
-                      true:
-                          - string: {text: "{dwltag_3}", <<: *focused}
-                      false:
-                          - string: {text: "{dwltag_3}", <<: *default}
+                      true: {string: {text: '{tag_3}', <<: *focused}}
+                      false: {string: {text: '{tag_3}', <<: *default}}
           - map:
               margin: 4
-              tag: dwltag_4_occupied
+              tag: tag_4_occupied
               values:
                 true:
                   map:
-                    tag: dwltag_4_focused
+                    tag: tag_4_focused
                     values:
-                      true:
-                          - string: {text: "{dwltag_4}", <<: *focused}
-                      false:
-                          - string: {text: "{dwltag_4}", <<: *occupied}
+                      true: {string: {text: '{tag_4}', <<: *focused}}
+                      false: {string: {text: '{tag_4}', <<: *occupied}}
                 false:
                   map:
-                    tag: dwltag_4_focused
+                    tag: tag_4_focused
                     values:
-                      true:
-                          - string: {text: "{dwltag_4}", <<: *focused}
-                      false:
-                          - string: {text: "{dwltag_4}", <<: *default}
+                      true: {string: {text: '{tag_4}', <<: *focused}}
+                      false: {string: {text: '{tag_4}', <<: *default}}
           - map:
               margin: 4
-              tag: dwltag_5_occupied
+              tag: tag_5_occupied
               values:
                 true:
                   map:
-                    tag: dwltag_5_focused
+                    tag: tag_5_focused
                     values:
-                      true:
-                          - string: {text: "{dwltag_5}", <<: *focused}
-                      false:
-                          - string: {text: "{dwltag_5}", <<: *occupied}
+                      true: {string: {text: '{tag_5}', <<: *focused}}
+                      false: {string: {text: '{tag_5}', <<: *occupied}}
                 false:
                   map:
-                    tag: dwltag_5_focused
+                    tag: tag_5_focused
                     values:
-                      true:
-                          - string: {text: "{dwltag_5}", <<: *focused}
-                      false:
-                          - string: {text: "{dwltag_5}", <<: *default}
+                      true: {string: {text: '{tag_5}', <<: *focused}}
+                      false: {string: {text: '{tag_5}', <<: *default}}
           - map:
               margin: 4
-              tag: dwltag_6_occupied
+              tag: tag_6_occupied
               values:
                 true:
                   map:
-                    tag: dwltag_6_focused
+                    tag: tag_6_focused
                     values:
-                      true:
-                          - string: {text: "{dwltag_6}", <<: *focused}
-                      false:
-                          - string: {text: "{dwltag_6}", <<: *occupied}
+                      true: {string: {text: '{tag_6}', <<: *focused}}
+                      false: {string: {text: '{tag_6}', <<: *occupied}}
                 false:
                   map:
-                    tag: dwltag_6_focused
+                    tag: tag_6_focused
                     values:
-                      true:
-                          - string: {text: "{dwltag_6}", <<: *focused}
-                      false:
-                          - string: {text: "{dwltag_6}", <<: *default}
+                      true: {string: {text: '{tag_6}', <<: *focused}}
+                      false: {string: {text: '{tag_6}', <<: *default}}
           - map:
               margin: 4
-              tag: dwltag_7_occupied
+              tag: tag_7_occupied
               values:
                 true:
                   map:
-                    tag: dwltag_7_focused
+                    tag: tag_7_focused
                     values:
-                      true:
-                          - string: {text: "{dwltag_7}", <<: *focused}
-                      false:
-                          - string: {text: "{dwltag_7}", <<: *occupied}
+                      true: {string: {text: '{tag_7}', <<: *focused}}
+                      false: {string: {text: '{tag_7}', <<: *occupied}}
                 false:
                   map:
-                    tag: dwltag_7_focused
+                    tag: tag_7_focused
                     values:
-                      true:
-                          - string: {text: "{dwltag_7}", <<: *focused}
-                      false:
-                          - string: {text: "{dwltag_7}", <<: *default}
+                      true: {string: {text: '{tag_7}', <<: *focused}}
+                      false: {string: {text: '{tag_7}', <<: *default}}
           - map:
               margin: 4
-              tag: dwltag_8_occupied
+              tag: tag_8_occupied
               values:
                 true:
                   map:
-                    tag: dwltag_8_focused
+                    tag: tag_8_focused
                     values:
-                      true:
-                          - string: {text: "{dwltag_8}", <<: *focused}
-                      false:
-                          - string: {text: "{dwltag_8}", <<: *occupied}
+                      true: {string: {text: '{tag_8}', <<: *focused}}
+                      false: {string: {text: '{tag_8}', <<: *occupied}}
                 false:
                   map:
-                    tag: dwltag_8_focused
+                    tag: tag_8_focused
                     values:
-                      true:
-                          - string: {text: "{dwltag_8}", <<: *focused}
-                      false:
-                          - string: {text: "{dwltag_8}", <<: *default}
+                      true: {string: {text: '{tag_8}', <<: *focused}}
+                      false: {string: {text: '{tag_8}', <<: *default}}
           - list:
-              spacing: 3
+              spacing: 4
               items:
-                  - string: {text: "{dwl_layout}"}
-                  - string: {text: "{dwl_title}"}
+                - string: {text: '{layout}'}
+                - string: {text: '{title}'}
 
   # [ CENTER ]
   # center:
@@ -258,7 +223,7 @@ bar:
                   text: 
                   font: *sfont
               - string:
-                  text: "{cpu}"
+                  text: '{cpu}'
 
     - script:
         path: /home/novakane/.config/yambar/modules/pacman.sh
@@ -274,12 +239,12 @@ bar:
                       text: 
                       font: *sfont
                   - string:
-                      text: "{pkg}"
+                      text: '{pkg}'
                       font: *myfont
             values:
               0:
                 string:
-                  text: "no updates"
+                  text: no updates
                   font: *sfont
 
     - alsa:
@@ -298,7 +263,7 @@ bar:
                         font: *sfont
                         foreground: *pink
                     - string:
-                        text: "{percent}"
+                        text: '{percent}'
                         foreground: *pink
               false:
                 list:
@@ -323,7 +288,7 @@ bar:
                               text: 
                               font: *sfont
                     - string:
-                        text: "{percent}"
+                        text: '{percent}'
                         font: *myfont
 
     - battery:
@@ -376,7 +341,7 @@ bar:
                               font: *sfont
                               foreground: *green
                     - string:
-                        text: "{capacity}%"
+                        text: '{capacity}%'
                         font: *myfont
               charging:
                 list:
@@ -387,7 +352,7 @@ bar:
                         foreground: *cyan
                         font: *sfont
                     - string:
-                        text: "{capacity}%"
+                        text: '{capacity}%'
                         font: *myfont
               full:
                 list:
@@ -398,7 +363,7 @@ bar:
                         foreground: *green
                         font: *sfont
                     - string:
-                        text: "{capacity}%"
+                        text: '{capacity}%'
                         font: *myfont
 
     - network:
@@ -423,23 +388,23 @@ bar:
                       text: 直
                       font: *sfont
                   values:
-                    "":
+                    '':
                       string:
                         text: 直
                         font: *sfont
 
     - clock:
-        time-format: "%H:%M"
-        date-format: "%a %d/%m"
+        time-format: '%H:%M'
+        date-format: '%a %d/%m'
         content:
           list:
             spacing: 5
             right-margin: 5
             items:
               - string:
-                  text: "{date}"
+                  text: '{date}'
                   font: *sfont
               - string:
-                  text: " {time} "
+                  text: ' {time} '
                   foreground: *magenta
-                  deco: { underline: { size: 2, color: *magenta } }
+                  deco: {underline: {size: 2, color: *magenta}}
