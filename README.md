@@ -18,47 +18,47 @@
 ## Infos
 
 
-* *OS_* . Arch Linux *(btw)*
-* *WM_* . [dwl](https://github.com/djpohly/dwl) . [river](https://github.com/ifreund/river)
-* *Shell_* . zsh
+* _OS_ . Arch Linux *(btw)*
+* _WM_ . [dwl](https://github.com/djpohly/dwl) . [river](https://github.com/ifreund/river)
+* _Shell_ . zsh
 
 ### Applications
 
-* *Aur helper* . [paru](https://github.com/Morganamilo/paru)
-* * Browser_ * . firefox
+* _Aur helper_ . [paru](https://github.com/Morganamilo/paru)
+* _Browser_ . firefox
 * _Bar_ . [yambar](https://codeberg.org/dnkl/yambar)
-* *Editor_* . [neovim 5.x](https://github.com/neovim/neovim) ( *prerelease build* )
-* *Files manager_* . [nnn](https://github.com/jarun/nnn) ( *build with nerd icons* )
-* *Launcher_*
+* _Editor_ . [neovim 5.x](https://github.com/neovim/neovim) ( *prerelease build* )
+* _Files manager_ . [nnn](https://github.com/jarun/nnn) ( *build with nerd icons* )
+* _Launcher_
   . [dmenu-wl](https://github.com/nyyManni/dmenu-wayland)
   . [fuzzel](https://codeberg.org/dnkl/fuzzel)
-* *Mail_* 
+* _Mail_ 
   . [afew](https://github.com/afewmail/afew)
   . [alot](https://github.com/pazz/alot)
   . [isync](https://isync.sourceforge.io/)
   . [notmuch](https://notmuchmail.org/)
-* *Media_*
-  - *Image_* . [imv](https://github.com/eXeC64/imv)
-  - *Music_* . mpd . ncmpcpp . spotify
-  - *Video_* . [mpv](https://github.com/mpv-player/mpv)
-  - *Pdf_* . [zathura](https://pwmt.org/projects/zathura/)
-* *Notification_* . [fnott](https://codeberg.org/dnkl/fnott)
-* *Rss_* . [newsboat](https://newsboat.org/)
-* *Screenshot_* 
+* _Media_
+  - _Image_ . [imv](https://github.com/eXeC64/imv)
+  - _Music_ . mpd . ncmpcpp . spotify
+  - _Video_ . [mpv](https://github.com/mpv-player/mpv)
+  - _Pdf_ . [zathura](https://pwmt.org/projects/zathura/)
+* _Notification_ . [fnott](https://codeberg.org/dnkl/fnott)
+* _Rss_ . [newsboat](https://newsboat.org/)
+* _Screenshot_ 
   . [grim](https://github.com/emersion/grim)
   . [slurp](https://github.com/emersion/slurp)
-* *Terminal_* 
+* _Terminal_ 
   . [foot](https://codeberg.org/dnkl/foot)
   . [alacritty](https://github.com/jwilm/alacritty)
 
-* *Fonts_*
-  * *System_*
+* _Fonts_
+  * _System_
     . [Overpass](https://overpassfont.org/)
     . [Inter](https://github.com/rsms/inter)
-  * *Terminal_* . [JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts)
-* *Theme_*
-  * *Icons_* . [Arc](https://github.com/horst3180/arc-icon-theme)
-  * *Gtk_* . [Arc](https://github.com/horst3180/arc-theme)
+  * _Terminal_ . [JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts)
+* _Theme_
+  * _Icons_ . [Arc](https://github.com/horst3180/arc-icon-theme)
+  * _Gtk_ . [Arc](https://github.com/horst3180/arc-theme)
 
 ## Screenshots
 
