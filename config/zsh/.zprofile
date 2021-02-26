@@ -10,6 +10,9 @@
 # 	exec startx "$XDG_CONFIG_HOME/X11/xinitrc"
 # fi
 
+# Ssh-agent
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 # Temporary Files
 if [[ ! -d "$TMPDIR" ]]; then
     export TMPDIR="/tmp/$LOGNAME"

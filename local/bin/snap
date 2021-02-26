@@ -70,7 +70,7 @@ main() {
   case "$1" in
     -f | --fullscreen)
       if _is_grim; then
-        grim -t jpeg -q 90 "${screen_file}"
+        grim -t png "${screen_file}"
         notify-send 'Screenshot taken !' -i "${icon_path}"
       elif _is_maim; then
         maim -d 5 -u -m 3 "${screen_file}"
@@ -84,7 +84,7 @@ main() {
           exit 1
         else
           notify-send 'Select an area...' -i "${icon_path}" -t 2000
-          grim -t jpeg -q 90 -g "$(slurp)" "${screen_file}"
+          grim -t png -g "$(slurp)" "${screen_file}"
           notify-send 'Screenshot taken !' -i "${icon_path}"
         fi
       elif _is_maim; then

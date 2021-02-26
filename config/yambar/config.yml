@@ -1,8 +1,7 @@
 ---
 # [ YAMBAR ]
 
-# [ VARIABLES ]
-# Colors
+# [ Variables ]
 base00: &base00 232227ff
 base01: &base01 38383cff
 base02: &base02 4e4e52ff
@@ -21,12 +20,15 @@ blue: &blue 57bbf4ff
 magenta: &magenta a89beeff
 cyan: &cyan 4db9c8ff
 
-# fonts
-nerdfont: &nerdfont Overpass Nerd Font:style=Regular:pixelsize=12
 myfont: &myfont Overpass:style=Regular:pixelsize=16
 sfont: &sfont Overpass:style=Regular:pixelsize=12
 
-# [ BAR ]
+separator: &separator
+  text: 
+  font: *sfont
+  foreground: *base02
+
+# [ Bar ]
 bar:
   height: 28
   location: top
@@ -39,28 +41,47 @@ bar:
   border:
     width: 0
 
-  # [ LEFT ]
+  # [ Left ]
   left:
     - label:
         content:
-          - string:
-              text: 襤
-              foreground: *cyan
-              left-margin: 5
-              on-click: /usr/bin/bash -c "wlogout"
+          list:
+            spacing: 5
+            items:
+              - string:
+                  text: 襤
+                  font: *sfont
+                  foreground: *cyan
+                  left-margin: 10
+                  on-click: /usr/bin/bash -c "wlogout"
+              - string: {<<: *separator}
+              - string:
+                  text: 
+                  font: *sfont
+                  foreground: *cyan
+                  on-click: /usr/bin/bash -c "fuzzel-run"
+              - string:
+                  text: 
+                  font: *sfont
+                  foreground: *cyan
+                  on-click: /usr/bin/bash -c "footclient nnn"
+              - string:
+                  text: 
+                  font: *sfont
+                  foreground: *cyan
+                  on-click: /usr/bin/bash -c "footclient nvim"
+              - string: {<<: *separator}
 
     - river:
         anchors:
-          - string: &default {text: ' {id} '}
+          - string: &default {text: '{id}'}
           - focused: &focused
               foreground: *base07
               deco: {underline: {size: 2, color: *pink}}
-          - occupied: {foreground: *blue}
           - invisible: &invisible {foreground: *base05}
         content:
           - map:
               tag: occupied
-              margin: 3
               values:
                 false: {empty: {}}
                 true:
@@ -68,13 +89,11 @@ bar:
                     tag: state
                     values:
                       invisible:
-                        string: {<<: [*default, *invisible]}
+                        string: {margin: 8, <<: [*default, *invisible]}
                       focused:
-                        string:
-                          text: ' {id} '
-                          <<: *focused
+                        string: {margin: 8, <<: [*default, *focused]}
 
-  # [ CENTER ]
+  # [ Center ]
   center:
     - river:
         title:
@@ -88,10 +107,9 @@ bar:
           - string:
               text: ' ]'
               foreground: *base05
-        content:
-          string: {text: ''}
+        content: {string: {text: ''}}
 
-  # [ RIGHT ]
+  # [ Right ]
   right:
     - script:
         path: /home/novakane/.config/yambar/modules/cpu.sh
@@ -129,7 +147,7 @@ bar:
                   font: *sfont
 
     - alsa:
-        card: hw:PCH
+        card: default
         mixer: Master
         content:
           map:
@@ -144,14 +162,14 @@ bar:
                         font: *sfont
                         foreground: *pink
                     - string:
-                        text: '{percent}'
+                        text: '{volume}'
                         foreground: *pink
               false:
                 list:
                   spacing: 3
                   items:
                     - ramp:
-                        tag: percent
+                        tag: volume
                         items:
                           - string:
                               text: 
@@ -169,7 +187,7 @@ bar:
                               text: 
                               font: *sfont
                     - string:
-                        text: '{percent}'
+                        text: '{volume}'
                         font: *myfont
 
     - battery:
@@ -230,7 +248,7 @@ bar:
                   items:
                     - string:
                         text: 
-                        foreground: *cyan
+                        foreground: *blue
                         font: *sfont
                     - string:
                         text: '{capacity}%'
@@ -261,6 +279,7 @@ bar:
                 string:
                   text: 睊
                   font: *sfont
+                  foreground: *pink
               up:
                 map:
                   tag: ipv4
@@ -280,12 +299,14 @@ bar:
         content:
           list:
             spacing: 5
-            right-margin: 5
             items:
+              - string: {<<: *separator}
               - string:
                   text: '{date}'
                   font: *sfont
+              - string: {<<: *separator}
               - string:
-                  text: ' {time} '
-                  foreground: *magenta
-                  deco: {underline: {size: 2, color: *magenta}}
+                  margin: 10
+                  text: '{time}'
+                  foreground: *yellow
+                  deco: {underline: {size: 2, color: *yellow}}

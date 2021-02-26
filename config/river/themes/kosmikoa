@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-
+#
 # [ Kosmikoa Colors ]
+
 
 base00='#232227'
 base01='#38383c'
