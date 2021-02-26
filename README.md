@@ -3,6 +3,7 @@
   * [Infos](#infos)
     + [Applications](#applications)
   * [Screenshots](#screenshots)
+    + [River](#river)
   * [Shell](#shell)
     + [File structure](#file-structure)
       - [Global](#global)
@@ -63,6 +64,8 @@
 ## Screenshots
 
 * *Wallpaper*: Amazing works by **[TONTON REVOLVER](https://www.artstation.com/artwork/xJAqkE)**
+
+### River
 
 |  |  |
 | ----- | ---- |

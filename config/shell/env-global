@@ -28,6 +28,7 @@ export PAGER=less
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 GPG_TTY=$(tty)
 export GPG_TTY
+
 [[ -n "$SSH_CONNECTION" ]] && export PINENTRY_USER_DATA="USE_CURSES=1"
 
 # [ Systemd ]
@@ -36,5 +37,5 @@ export SYSTEMD_LESS=FRXMK
 
 # [ System bin ]
 PATH="/usr/local/{bin,sbin}${PATH:+:${PATH}}"
-systemctl --user import-environment PATH GNUPGHOME
+dbus-update-activation-environment --systemd --all
 

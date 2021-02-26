@@ -70,7 +70,7 @@ a:~/.config/awesome;\
 s:~/.config/shell;\
 i:~/img;\
 g:~/dev;\
-b:~/bld;\
+b:~/.local/share/bld;\
 e:~/doc;\
 l:~/.local;\
 d:~/.local/share/dotfiles;"

@@ -26,6 +26,7 @@ share
 shell
 ssh
 sway
+systemd
 tab
 tmux
 userdirs

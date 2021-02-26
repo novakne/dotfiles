@@ -10,8 +10,7 @@ config/tmux/plugins
 !config/tmux/plugins/tpm
 
 .zcompdump
-
 packer_compiled.vim
 .netrwhist
-
 tags
+default.target.wants
