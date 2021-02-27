@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 #
-# Environement for programming lib
+# Environement global user
 
 
 # [ User bin ]
 if [[ -d "$HOME"/.local/bin ]]; then
-    _prepend_path "$HOME"/.local/{bin,bin{/app,/colors}}
+    _prepend_path "$HOME"/.local/bin
+    _prepend_path "$HOME"/.local/bin/app
+    _prepend_path "$HOME"/.local/bin/colors
 fi
 
 # [ User lib ]

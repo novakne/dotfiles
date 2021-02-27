@@ -40,6 +40,7 @@ alias free='free -m'
 alias cmx='chmod 774'
 alias perm='stat -c "%A %a %n"'
 alias sedit='sudo -E ${EDITOR:-nvim}'
+alias enote="cd $XDG_DATA_HOME/notes && nvim"
 
 # [ Misc ]
 alias :q='exit'

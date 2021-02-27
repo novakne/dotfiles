@@ -71,7 +71,7 @@ s:~/.config/shell;\
 i:~/img;\
 g:~/dev;\
 b:~/.local/share/bld;\
-e:~/doc;\
+e:~/.local/share/notes;\
 l:~/.local;\
 d:~/.local/share/dotfiles;"
     export NNN_PLUG="\

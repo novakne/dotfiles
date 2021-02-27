@@ -96,7 +96,7 @@ return require'packer'.startup(function()
     end,
   }
 
-  -- use '~/bld/fzf'
+  -- use '~/.local/share/bld/fzf'
   -- use {'junegunn/fzf.vim', config = function() require 'my.plugins.fzf' end}
 
 

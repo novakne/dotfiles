@@ -17,7 +17,7 @@ _shell_plugins_dir="$_shell_dir"/plugins
 _zsh_zinit_dir="$ZDOTDIR"/plugins/zinit
 _zsh_opts_dir="$ZDOTDIR"/config
 
-_fzf_dir="$HOME"/bld/fzf
+_fzf_dir="$XDG_DATA_HOME"/bld/fzf
 
 # [ Helpers ]
 _is_command() {
@@ -126,7 +126,7 @@ colors
 [[ ! -d "$XDG_CACHE_HOME"/zsh ]] && mkdir -p "$XDG_CACHE_HOME"/zsh
 
 export HISTSIZE=10000 SAVEHIST=10000 HISTFILE="$XDG_CACHE_HOME"/zsh/zhistory
-export HISTORY_IGNORE="(ls|cd|pwd|exit|:q|ea|fe|clear|n|update)"
+export HISTORY_IGNORE="(ls|cd *|pwd|exit|:q|;q|q:|ea|et|z *|fe|clear|n|update|up *)"
 export HISTTIMEFORMAT="%F %T:  "
 
 # setopt INC_APPEND_HISTORY   # Add commands to the history immediately

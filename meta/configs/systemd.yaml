@@ -1,4 +1,4 @@
 # [ Systemd ]
 
 - link:
-    ~/.config/systemd/user: config/systemd/user
+    ~/.config/systemd/user/ssh-agent.service: config/systemd/user/ssh-agent.service

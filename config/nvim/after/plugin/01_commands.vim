@@ -19,4 +19,7 @@ command! Cdt :tcd %:p:h
 command! LF !lua-format -i %
 
 " Fix Treesitter
-command FixTs write | edit | TSBufEnable highlight
+command! FixTs write | edit | TSBufEnable highlight
+
+" Generates Markdown qf
+command! Mdqf :grep  '^\#+\s'

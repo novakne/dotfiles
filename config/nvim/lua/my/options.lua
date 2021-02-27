@@ -43,7 +43,7 @@ opt.pumheight = 10                    -- Maximum number of items to show in the 
 -- [ Search ]
 opt.ignorecase = true -- Case insensitive searching
 opt.smartcase = true  -- Override ignorecase if upper case typed
-opt.grepprg = [[rg --vimgrep --no-heading --smart-case]]
+opt.grepprg = [[rg --vimgrep --no-heading --smart-case --only-matching]]
 opt.grepformat = [[%f:%l:%c:%m,%f:%l:%m]]
 
 -- [ Ui ]
