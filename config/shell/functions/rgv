@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#
+# Search with rg and open in neovim quicklist
+#     - Requirements: ripgrep, nvim
+
+
+if [[ $# -eq 0 ]]; then
+  printf -- '%s\n' \
+    "[$(date +'%Y-%m-%d %H:%M:%S')]: Require at least one argument" >&2
+fi
+
+rgv() {
+  nvim -c "silent grep $1" -c "copen"
+}
+

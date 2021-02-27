@@ -21,3 +21,4 @@ fcdb() {
   
   cd "$DIR" || exit
 }
+

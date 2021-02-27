@@ -3,6 +3,12 @@
 # Fuzzy grep via rg and open in vim with line number
 #     - Requirements: fzf, rg, neovim
 
+
+if [[ $# -eq 0 ]]; then
+  printf -- '%s\n' \
+    "[$(date +'%Y-%m-%d %H:%M:%S')]: Require at least one argument" >&2
+fi
+
 frg() {
   local file line
 

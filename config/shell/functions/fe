@@ -17,3 +17,4 @@ fe() {
     [[ -n "${files[*]}" ]] && ${EDITOR:-nvim} "${files[@]}"
   fi
 }
+

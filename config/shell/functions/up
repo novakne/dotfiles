@@ -15,3 +15,4 @@ up () {
 
   cd $str || exit
 }
+

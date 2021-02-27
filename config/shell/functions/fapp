@@ -11,3 +11,4 @@ fapp () {
   selected="$(ls /usr/share/applications | fzf -e)"
   nohup $(grep '^Exec' "/usr/share/applications/$selected" | tail -1 | sed 's/^Exec=//' | sed 's/%.//') >/dev/null 2>&1&
 }
+
