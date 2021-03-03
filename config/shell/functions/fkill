@@ -13,9 +13,9 @@ fkill() {
     pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
   fi  
 
-  if [ "x$pid" != "x" ]
+  if [ "x${pid}" != "x" ]
   then
-    echo "$pid" | xargs kill -${1:-9}
+    printf -- '%s\n' "${pid}" | xargs kill -"${1:-9}"
   fi
 }
 

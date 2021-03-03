@@ -143,7 +143,7 @@ bar:
             values:
               0:
                 string:
-                  text: no updates
+                  text:  no updates
                   font: *sfont
 
     - alsa:

@@ -4,11 +4,11 @@
 
 
 # [ Dircolors ]
-[[ -r "$_shell_plugins_dir"/dircolors ]] && eval "$(dircolors -b "$_shell_plugins_dir"/dircolors)"
+[[ -r "${_shell_plugins_dir}"/dircolors ]] && eval "$(dircolors -b "${_shell_plugins_dir}"/dircolors)"
 
 # [ Starship ]
-if [[ -r "$_shell_plugins_dir"/starship.toml ]]; then
-    export STARSHIP_CONFIG="$_shell_plugins_dir"/starship.toml
+if [[ -r "${_shell_plugins_dir}"/starship.toml ]]; then
+    export STARSHIP_CONFIG="${_shell_plugins_dir}"/starship.toml
 fi
 
 # [ Zoxide ]
@@ -17,12 +17,13 @@ if _is_command zoxide; then
     export _ZO_RESOLVE_SYMLINKS=1
 fi
 
+
 # [ Personnal custom ]
-# colors
-[[ -d "$_shell_plugins_dir"/colors ]] && . "$_shell_plugins_dir"/colors/kosmikoa
+# Colors
+[[ -d "${_shell_plugins_dir}"/colors ]] && . "${_shell_plugins_dir}"/colors/kosmikoa
 
 # Configure shell to emit the OSC 7 escape sequence
-if [[ -r "$_shell_plugins_dir"/osc7 ]]; then
-    source "$_shell_plugins_dir"/osc7
+if [[ -r "${_shell_plugins_dir}"/osc7 ]]; then
+    source "${_shell_plugins_dir}"/osc7
 fi
 

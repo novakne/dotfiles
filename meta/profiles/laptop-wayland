@@ -25,14 +25,9 @@ river
 share
 shell
 ssh
-sway
 systemd
-tab
-tmux
 userdirs
-waybar
 wlogout
-wofi
 yambar
 zathura
 zsh

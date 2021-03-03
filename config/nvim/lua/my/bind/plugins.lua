@@ -5,8 +5,8 @@ local utils = require 'my.utils'
 local map = utils.bind
 
 -- FTerm
-map('n', '<Leader>c', '<CMD>FTermToggle<CR>')
-map('t', '<Leader>c', '<C-\\><C-n><CMD>lua require"FTerm".toggle()<CR>')
+map('n', '<Leader>e', '<CMD>FTermToggle<CR>')
+map('t', '<Leader>e', '<C-\\><C-n><CMD>lua require"FTerm".toggle()<CR>')
 
 -- Hop
 map('n', 'fw', '<CMD>lua require"hop".hint_words()<CR>')
@@ -22,3 +22,5 @@ map('n', 'ga', '<Plug>(EasyAlign)', {silent = true})
 -- Start interactive EasyAlign in visual mode (e.g. vipga)
 map('x', 'ga', '<Plug>(EasyAlign)', {silent = true})
 
+map('n', '<Leader>', [[:<c-u>WhichKey '<Space>'<CR>]])
+map('n', '<LocalLeader>', [[:<c-u>WhichKey  ','<CR>]])

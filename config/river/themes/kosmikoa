@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 #
-# [ Kosmikoa Colors ]
+# [ Kosmikoa theme ]
 
 
+declare base00 base01 base02 base03 base04 base05 base06 base07
+declare red pink orange yellow green blue magenta cyan
+
+# [ Colors ]
 base00='#232227'
 base01='#38383c'
 base02='#4e4e52'
@@ -21,16 +25,20 @@ blue='#57bbf4'
 magenta='#a89bee'
 cyan='#4db9c8'
 
-riverctl attach-mode top
-riverctl background-color $base00
-riverctl border-color-focused $yellow
-riverctl border-color-unfocused $base01
+
+# [ Theme ]
+riverctl background-color "${base00}"
+riverctl border-color-focused "${yellow}"
+riverctl border-color-unfocused "${base01}"
 riverctl border-width 2
-riverctl focus-follows-cursor normal
 riverctl outer-padding 8
 riverctl view-padding 5
 riverctl xcursor-theme capitaine-cursor 24
 
 # Set opacity and fade effect
 # riverctl opacity 1.0 0.75 0.0 0.1 20
+
+
+unset -v base00 base01 base02 base03 base04 base05 base06 base07
+unset -v red pink orange yellow green blue magenta cyan
 

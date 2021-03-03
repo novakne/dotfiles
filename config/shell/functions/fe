@@ -14,7 +14,7 @@ fe() {
   if hash nv >/dev/null 2>&1; then
     [[ -n "${files[*]}" ]] && nv "${files[@]}"
   else
-    [[ -n "${files[*]}" ]] && ${EDITOR:-nvim} "${files[@]}"
+    [[ -n "${files[*]}" ]] && "${EDITOR:-nvim}" "${files[@]}"
   fi
 }
 

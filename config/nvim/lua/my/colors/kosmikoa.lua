@@ -5,42 +5,68 @@ local M = {}
 
 local colors = {
   base00  = '#232227',
-  base01  = '#38383c',
-  base02  = '#4e4e52',
-  base03  = '#6b5c7c',
-  base04  = '#837593',
-  base05  = '#9d8fa9',
-  base06  = '#b7acbf',
-  base07  = '#d2ccd6',
-  red     = '#f63d81',
-  pink    = '#fc65b0',
-  orange  = '#f5939c',
-  yellow  = '#e8ec77',
-  green   = '#2dcbb0',
-  blue    = '#57bbf4',
-  magenta = '#a89bee',
-  cyan    = '#4db9c8',
+  base01  = '#444349',
+  base02  = '#636268',
+  base03  = '#78767c',
+  base04  = '#a19fa6',
+  base05  = '#c0bec5',
+  base06  = '#e2e1e8',
+  base07  = '#f0eef5',
 
-  shadow  = '#27262c',
+  red01     = '#f63d81',
+  red02     = '#f86298',
+  red03     = '#fa90b6',
+
+  pink01    = '#fc65b0',
+  pink02    = '#fb93c8',
+  pink03    = '#fbbede',
+
+  orange01  = '#f5939c',
+  orange02  = '#f8af88',
+  orange03  = '#fbceb7',
+
+  yellow01  = '#e8ec77',
+  yellow02  = '#eff29e',
+  yellow03  = '#f5f6c4',
+  ts_yellow = '#eecb69',
+
+  green01   = '#00e2a7',
+  green02   = '#7deac0',
+  green03   = '#b5f2d9',
+  ts_green  = '#00c6b2',
+
+  blue01    = '#57bbf4',
+  blue02    = '#6ac7f6',
+  blue03    = '#8fd7fa',
+
+  magenta01 = '#8273e5',
+  magenta02 = '#a79bee',
+  magenta03 = '#cbc3f4',
+
+  cyan01    = '#4db9c8',
+  cyan02    = '#67ced8',
+  cyan03    = '#b7eaee',
+
+  test = '#ff0000'
 }
 
--- Terminal
+-- [ Terminal ]
 local term_colors = {
   terminal_color_0  = colors.base01,
-  terminal_color_1  = colors.red,
-  terminal_color_2  = colors.green,
-  terminal_color_3  = colors.yellow,
-  terminal_color_4  = colors.blue,
-  terminal_color_5  = colors.magenta,
-  terminal_color_6  = colors.cyan,
+  terminal_color_1  = colors.red01,
+  terminal_color_2  = colors.green01,
+  terminal_color_3  = colors.yellow01,
+  terminal_color_4  = colors.blue01,
+  terminal_color_5  = colors.magenta01,
+  terminal_color_6  = colors.cyan01,
   terminal_color_7  = colors.base06,
   terminal_color_8  = colors.base02,
-  terminal_color_9  = colors.red,
-  terminal_color_10 = colors.green,
-  terminal_color_11 = colors.yellow,
-  terminal_color_12 = colors.blue,
-  terminal_color_13 = colors.magenta,
-  terminal_color_14 = colors.cyan,
+  terminal_color_9  = colors.red01,
+  terminal_color_10 = colors.green01,
+  terminal_color_11 = colors.yellow01,
+  terminal_color_12 = colors.blue01,
+  terminal_color_13 = colors.magenta01,
+  terminal_color_14 = colors.cyan01,
   terminal_color_15 = colors.base07,
 }
 
@@ -56,80 +82,84 @@ end
 
 M.set_syntax = function()
   local syntax = {
-    -- ___UI COMPONENTS___
+
+    -- ------------------------------------------
+    -- [ UI COMPONENTS ]
+    -- ------------------------------------------
     -- ( :so $VIMRUNTIME/syntax/hitest.vim )
 
-    -- ATTRIBUTES
+
+    -- [ Attributes ]
     Bold = {attr = 'bold'},
     Italic = {attr = 'italic'},
     Underline = {attr = 'underline'},
 
-    -- EDITOR
+    -- [ Editor ]
     ColorColumn = {fg = colors.base01},
     Cursor = {fg = colors.base00, bg = colors.base06},
     CursorLine = {bg = colors.base01},
-    Error = {fg = colors.red, bg = colors.base00},
+    Error = {fg = colors.red01, bg = colors.base00},
     iCursor = {fg = colors.base00, bg = colors.base05},
     LineNr = {fg = colors.base02, bg = colors.base00},
-    MatchParen = {fg = colors.green, bg = colors.base02},
+    MatchParen = {fg = colors.green01, bg = colors.base02},
     NonText = {fg = colors.base02},
     Normal = {fg = colors.base07, bg = colors.base00},
     PMenu = {fg = colors.base05, bg = colors.base01},
     PmenuSbar = {fg = colors.base05, bg = colors.base02},
-    PMenuSel = {fg = colors.base01, bg = colors.green},
-    PmenuThumb = {fg = colors.green, bg = colors.base02},
+    PMenuSel = {fg = colors.base01, bg = colors.green01},
+    PmenuThumb = {fg = colors.green01, bg = colors.base02},
     RedrawDebugNormal = {fg = colors.base00, bg = colors.base06},
-    RedrawDebugClear = {fg = colors.base00, bg = colors.yellow},
-    RedrawDebugComposed = {fg = colors.base00, bg = colors.green},
-    RedrawDebugRecompose = {fg = colors.base00, bg = colors.red},
+    RedrawDebugClear = {fg = colors.base00, bg = colors.yellow01},
+    RedrawDebugComposed = {fg = colors.base00, bg = colors.green01},
+    RedrawDebugRecompose = {fg = colors.base00, bg = colors.red01},
     SpecialKey = {fg = colors.base04},
     SpellBad = {
-      fg = colors.red,
+      fg = colors.red01,
       bg = colors.base00,
       attr = 'undercurl',
-      sp = colors.red,
+      sp = colors.red01,
     },
     SpellCap = {
-      fg = colors.pink,
+      fg = colors.pink01,
       bg = colors.base00,
       attr = 'undercurl',
-      sp = colors.pink,
+      sp = colors.pink01,
     },
     SpellLocal = {
-      fg = colors.orange,
+      fg = colors.orange01,
       bg = colors.base00,
       attr = 'undercurl',
-      sp = colors.orange,
+      sp = colors.orange01,
     },
     SpellRare = {
-      fg = colors.yellow,
+      fg = colors.yellow01,
       bg = colors.base00,
       attr = 'undercurl',
-      sp = colors.yellow,
+      sp = colors.yellow01,
     },
     Visual = {fg = colors.base05, bg = colors.base01, attr = 'bold'},
     VisualNOS = {fg = colors.base03},
 
-    -- NEOVIM SUPPORT
-    NvimInternalError = {fg = colors.base00, bg = colors.red},
-    healthError = {fg = colors.red, bg = colors.base00},
-    healthSuccess = {fg = colors.green, bg = colors.base00},
-    healthWarning = {fg = colors.yellow, bg = colors.base00},
+    -- [ Neovim support ]
+    NvimInternalError = {fg = colors.base00, bg = colors.red01},
+    healthError = {fg = colors.red01, bg = colors.base00},
+    healthSuccess = {fg = colors.green01, bg = colors.base00},
+    healthWarning = {fg = colors.yellow01, bg = colors.base00},
     TermCursorNC = {fg = colors.base01},
 
-    -- GUTTER
+    -- [ Gutter ]
     CursorColumn = {fg = colors.base01},
     CursorLineNr = {fg = colors.base05, bg = colors.base00},
     Folded = {fg = colors.base04, bg = colors.base01, attr = 'bold'},
     FoldColumn = {fg = colors.base03, bg = colors.base00},
     SignColumn = {fg = colors.base01, bg = colors.base00},
 
-    -- NAVIGATION
-    Directory = {fg = colors.green},
+    -- [ Navigation ]
+    Directory = {fg = colors.green01},
 
-    -- PROMPT / STATUS
+    -- [ Prompt / Status ]
     EndOfBuffer = {fg = colors.base01},
-    ErrorMsg = {fg = colors.base00, bg = colors.red},
+    ErrorMsg = {fg = colors.base00, bg = colors.red01},
     ModeMsg = {fg = colors.base04},
     MoreMsg = {fg = colors.base04},
     Question = {fg = colors.base04},
@@ -137,416 +167,352 @@ M.set_syntax = function()
     StatusLineNC = {fg = colors.base04, bg = colors.base01},
     StatusLineTerm = {fg = colors.base05, bg = colors.base01},
     StatusLineTermNC = {fg = colors.base04, bg = colors.base01},
-    WarningMsg = {fg = colors.base00, bg = colors.yellow},
-    WildMenu = {fg = colors.yellow, bg = colors.base01},
+    WarningMsg = {fg = colors.base00, bg = colors.yellow01},
+    WildMenu = {fg = colors.yellow01, bg = colors.base01},
 
-    -- SEARCH
-    IncSearch = {fg = colors.base01, bg = colors.yellow, attr = 'underline'},
-    Search = {fg = colors.base01, bg = colors.blue},
+    -- [ Search ]
+    IncSearch = {fg = colors.base01, bg = colors.yellow01, attr = 'underline'},
+    Search = {fg = colors.base01, bg = colors.blue01},
 
-    -- TABS
+    -- [ Tabs ]
     TabLine = {fg = colors.base04, bg = colors.base01},
     TabLineFill = {fg = colors.base04, bg = colors.base01},
-    TabLineSel = {fg = colors.base00, bg = colors.blue},
+    TabLineSel = {fg = colors.base00, bg = colors.blue01},
 
-    -- WINDOW
+    -- [ Window ]
     Title = {fg = colors.base04},
     VertSplit = {fg = colors.base01, bg = colors.base00},
 
-    -- DIFF
-    DiffAdd = {fg = colors.green, bg = colors.base00, attr = 'inverse'},
-    DiffChange = {fg = colors.yellow, bg = colors.base00, attr = 'inverse'},
-    DiffDelete = {fg = colors.red, bg = colors.base00, attr = 'inverse'},
-    DiffText = {fg = colors.blue, bg = colors.base00, attr = 'inverse'},
+    -- [ Diff ]
+    DiffAdd = {fg = colors.green01, bg = colors.base00, attr = 'inverse'},
+    DiffChange = {fg = colors.yellow01, bg = colors.base00, attr = 'inverse'},
+    DiffDelete = {fg = colors.red01, bg = colors.base00, attr = 'inverse'},
+    DiffText = {fg = colors.blue01, bg = colors.base00, attr = 'inverse'},
     -- Legacy groups for official git.vim and diff.vim syntax
-    diffAdded = {fg = colors.green, bg = colors.base00, attr = 'inverse'},
-    diffChanged = {fg = colors.yellow, bg = colors.base00, attr = 'inverse'},
-    diffRemoved = {fg = colors.red, bg = colors.base00, attr = 'inverse'},
+    diffAdded = {fg = colors.green01, bg = colors.base00, attr = 'inverse'},
+    diffChanged = {fg = colors.yellow01, bg = colors.base00, attr = 'inverse'},
+    diffRemoved = {fg = colors.red01, bg = colors.base00, attr = 'inverse'},
 
-    -- QUICKFIX / LOCATION LIST
-    qfLineNr = {fg = colors.yellow},
+    -- [ Quickfix / Location list ]
+    qfLineNr = {fg = colors.yellow01},
 
-    -- NEOVIM LSP
-    LspDiagnosticsDefaultError = {fg = colors.red},
-    LspDiagnosticsDefaultWarning = {fg = colors.yellow},
-    LspDiagnosticsDefaultInformation = {fg = colors.blue},
-    LspDiagnosticsDefaultHint = {fg = colors.green},
-    LspDiagnosticsUnderlineError = {fg = colors.red},
-    LspDiagnosticsUnderlineWarning = {fg = colors.yellow},
-    LspDiagnosticsUnderlineInformation = {fg = colors.blue},
-    LspDiagnosticsUnderlineHint = {fg = colors.green},
-    LspDiagErrorBorder = {fg = colors.red},
-    LspDiagWarnBorder = {fg = colors.yellow},
-    LspDiagInforBorder = {fg = colors.blue},
-    LspDiagHintBorder = {fg = colors.green},
+    -- [ Neovim lsp ]
+    LspDiagnosticsDefaultError = {fg = colors.red01},
+    LspDiagnosticsDefaultWarning = {fg = colors.yellow01},
+    LspDiagnosticsDefaultInformation = {fg = colors.blue01},
+    LspDiagnosticsDefaultHint = {fg = colors.blue03},
+    LspDiagnosticsUnderlineError = {fg = colors.red01},
+    LspDiagnosticsUnderlineWarning = {fg = colors.yellow01},
+    LspDiagnosticsUnderlineInformation = {fg = colors.blue01},
+    LspDiagnosticsUnderlineHint = {fg = colors.blue03},
+    LspDiagErrorBorder = {fg = colors.red01},
+    LspDiagWarnBorder = {fg = colors.yellow01},
+    LspDiagInforBorder = {fg = colors.blue01},
+    LspDiagHintBorder = {fg = colors.blue03},
 
-    -- ___LANGUAGE kosmikoa.base GROUPS___
+    -- ------------------------------------------
+    -- [ LANGUAGE kosmikoa.base GROUPS ]
+    -- ------------------------------------------
     -- ( :help w18 )
+
 
     Comment = {fg = colors.base03, attr = 'italic'},
 
-    Constant = {fg = colors.pink},
-    String = {fg = colors.magenta, attr = 'italic'},
-    Character = {fg = colors.pink},
-    Number = {fg = colors.red},
-    Boolean = {fg = colors.green},
-    Float = {fg = colors.orange},
+    Constant = {fg = colors.pink01},
+    String = {fg = colors.magenta03, attr = 'italic'},
+    Character = {fg = colors.pink01},
+    Number = {fg = colors.orange02},
+    Boolean = {fg = colors.orange01},
+    Float = {fg = colors.orange03},
 
-    Identifier = {fg = colors.blue},
-    Function = {fg = colors.blue, attr = 'bold'},
+    Identifier = {fg = colors.blue03},
+    Function = {fg = colors.yellow01},
 
-    Statement = {fg = colors.magenta},
-    Conditional = {fg = colors.blue},
-    Repeat = {fg = colors.magenta},
-    Label = {fg = colors.red},
-    Operator = {fg = colors.blue},
-    Keyword = {fg = colors.yellow},
-    Exception = {fg = colors.red},
+    Statement = {fg = colors.magenta02},
+    Conditional = {fg = colors.magenta01},
+    Repeat = {fg = colors.magenta02},
+    Label = {fg = colors.red01},
+    Operator = {fg = colors.blue01},
+    Keyword = {fg = colors.yellow03},
+    Exception = {fg = colors.red01},
 
-    PreProc = {fg = colors.magenta},
-    Include = {fg = colors.cyan},
-    Define = {fg = colors.blue},
-    Macro = {fg = colors.yellow},
-    PreCondit = {fg = colors.yellow},
+    PreProc = {fg = colors.magenta01},
+    Include = {fg = colors.green03},
+    Define = {fg = colors.blue01},
+    Macro = {fg = colors.green01},
+    PreCondit = {fg = colors.green02},
 
-    Type = {fg = colors.pink},
-    StorageClass = {fg = colors.pink},
-    Structure = {fg = colors.pink},
-    Typedef = {fg = colors.blue},
+    Type = {fg = colors.pink02},
+    StorageClass = {fg = colors.pink01},
+    Structure = {fg = colors.pink01},
+    Typedef = {fg = colors.pink01},
 
-    Special = {fg = colors.base05},
-    SpecialChar = {fg = colors.blue},
+    Special = {fg = colors.cyan01},
+    SpecialChar = {fg = colors.cyan02},
     Tag = {fg = colors.base05},
     Delimiter = {fg = colors.base07},
     SpecialComment = {fg = colors.base05, attr = 'italic'},
-    Todo = {fg = colors.blue},
+    Todo = {fg = colors.cyan01, attr = 'bold'},
 
-    -- ___LANGUAGES SPECIFIC___
 
-    -- C
-    cUserFunction = {fg = colors.red, attr = 'italic'},
+    -- ------------------------------------------
+    -- [ LANGUAGES SPECIFIC ]
+    -- ------------------------------------------
 
-    -- CFG
-    CfgValues = {fg = colors.blue},
-    CfgSection = {fg = colors.green},
 
-    -- CSS
-    cssAttr = {fg = colors.yellow},
-    cssAttributeSelector = {fg = colors.blue},
-    cssBraces = {fg = colors.base02},
-    cssClassName = {fg = colors.cyan},
-    cssClassNameDot = {fg = colors.red},
-    cssColor = {fg = colors.base02},
-    cssDefinition = {fg = colors.base07},
-    cssFontAttr = {fg = colors.magenta},
-    cssImportant = {fg = colors.red},
-    cssMediaType = {fg = colors.green},
-    cssProp = {fg = colors.base07},
-    cssPseudoClass = {fg = colors.base07},
-    cssPseudoClassId = {fg = colors.blue},
-    cssSelectorOp = {fg = colors.yellow},
-    cssTagName = {fg = colors.blue},
-    cssUnitDecorators = {fg = colors.orange},
-    cssVendor = {fg = colors.yellow},
+    -- [ Css ]
+    cssAttributeSelector = {fg = colors.magenta01},
+    cssBackgroundProp = {fg = colors.pink02},
+    cssBorderProp = {fg = colors.pink02},
+    cssBraces = {fg = colors.green01},
+    cssClassName = {fg = colors.cyan01},
+    cssClassNameDot = {fg = colors.cyan03},
+    cssColor = {fg = colors.base05, attr = 'bold'},
+    cssFontProp = {fg = colors.red02},
+    cssIdentifier = {fg = colors.blue03},
+    cssMediaType = {fg = colors.pink03},
+    cssSelectorOp = {fg = colors.magenta02},
+    cssSelectorOp2 = {fg = colors.yellow02},
+    cssTagName = {fg = colors.blue01},
+    cssTextProp = {fg = colors.red01},
+    cssURL = {fg = colors.green01, attr = 'underline'},
 
-    -- FENNEL ( https://github.com/bakpakin/fennel.vim )
-    FennelSpecialForm = {fg = colors.pink},
-    FennelSymbol = {fg = colors.base07},
-    FennelParen = {fg = colors.blue},
+    -- [ Fennel ]
+    -- ( https://github.com/bakpakin/fennel.vim )
+    FennelSpecialForm = {fg = colors.pink01},
+    FennelSymbol = {fg = colors.red02},
 
-    -- GO
-    goBuiltins = {fg = colors.cyan},
-    goConstants = {fg = colors.yellow},
+    -- [ Go ]
+    goBuiltins = {fg = colors.green01},
+    goDeclType = {fg = colors.pink02},
+    goVar = {fg = colors.red02},
+    goVarArgs = {fg = colors.base05, attr = 'bold'},
 
-    -- HTML
-    htmlLink = {fg = colors.blue},
-    htmlArg = {fg = colors.base07},
-    htmlBold = {attr = 'bold'},
-    htmlEndTag = {fg = colors.blue},
-    htmlH1 = {fg = colors.red},
-    htmlH2 = {fg = colors.pink},
-    htmlH3 = {fg = colors.pink},
-    htmlH4 = {fg = colors.magenta},
-    htmlH5 = {fg = colors.magenta},
-    htmlH6 = {fg = colors.magenta},
-    htmlItalic = {attr = 'italic'},
-    htmlSpecialChar = {fg = colors.blue},
-    htmlSpecialTagName = {fg = colors.pink},
-    htmlTag = {fg = colors.blue},
-    htmlTagN = {fg = colors.blue},
-    htmlTagName = {fg = colors.blue},
-    htmlTitle = {fg = colors.orange},
+    -- [ Html ]
+    htmlBold = {fg = colors.base05, attr = 'bold'},
+    htmlEndTag = {fg = colors.cyan01},
+    htmlH1 = {fg = colors.red01},
+    htmlH2 = {fg = colors.red02},
+    htmlH3 = {fg = colors.pink01},
+    htmlH4 = {fg = colors.pink02},
+    htmlH5 = {fg = colors.magenta01},
+    htmlH6 = {fg = colors.magenta02},
+    htmlItalic = {fg = colors.base05, attr = 'italic'},
+    htmlLink = {fg = colors.green01, attr = 'underline'},
+    htmlTag = {fg = colors.blue01},
+    htmlTagN = {fg = colors.blue02},
+    htmlTagName = {fg = colors.blue01},
+    htmlTitle = {fg = colors.base05},
 
-    -- JAVA
-    javaCommentTitle = {fg = colors.base03, attr = 'italic'},
-    javaDocTags = {fg = colors.base07},
+    -- [ Java ]
+    javaCommentTitle = {fg = colors.base05, attr = 'italic'},
+    javaDocParam = {fg = colors.cyan02},
+    javaDocSeeTagParam = {fg = colors.cyan03},
+    javaDocTags = {fg = colors.cyan01, attr = 'bold'},
 
-    -- JAVASCRIPT
+    -- [ Javascript ]
     -- ( http//github.com/pangloss/vim-javascript )
-    jsGlobalNodeObjects = {fg = colors.red, attr = 'italic'},
-    jsVariableDef = {fg = colors.base06, attr = 'italic'},
-    jsFuncArgs = {fg = colors.base06, attr = 'italic'},
-    jsArrowFunction = {fg = colors.yellow},
-    jsBrackets = {fg = colors.base06},
-    jsClassDefinition = {fg = colors.green},
-    jsFuncCall = {fg = colors.green},
-    jsFuncParens = {fg = colors.base06},
-    jsGlobalObjects = {fg = colors.red},
-    jsNoise = {fg = colors.base06},
-    jsObjectProp = {fg = colors.cyan},
-    jsPrototype = {fg = colors.yellow},
-    jsRegexpString = {fg = colors.blue},
-    jsReturn = {fg = colors.yellow},
-    jsTemplateString = {fg = colors.yellow},
-    jsThis = {fg = colors.yellow},
+    jsArrowFunction = {fg = colors.yellow01},
+    jsFuncArgs = {fg = colors.base05, attr = 'italic'},
+    jsFuncCall = {fg = colors.yellow02},
+    jsObjectColon = {fg = colors.blue03},
+    jsObjectKey = {fg = colors.blue01},
+    jsObjectProp = {fg = colors.cyan01},
+    jsVariableDef = {fg = colors.red02},
 
-    -- JSX
-    --  ( http//github.com/mxw/vim-jsx )
-    xmlTag = {fg = colors.blue},
-    xmlTagName = {fg = colors.blue},
-    xmlEndTag = {fg = colors.blue},
+    -- [ Json ]
+    jsonBraces = {fg = colors.green01},
+    jsonKeyword = {fg = colors.blue01},
+    jsonKeywordMatch = {fg = colors.blue02},
 
-    -- JSON
-    jsonBraces = {fg = colors.blue},
-    jsonKeyword = {fg = colors.base07},
-    jsonKeywordMatch = {fg = colors.yellow},
-    jsonNoise = {fg = colors.pink},
-
-    -- LATEX
-    -- (  http//github.com/lervag/vimtex )
-    texStatement = {fg = colors.green},
-    texUrl = {fg = colors.blue},
-
-    -- LESS
+    -- [ Less ]
     --  ( http//github.com/groenewege/vim-less )
-    lessAmpersand = {fg = colors.yellow},
-    lessClass = {fg = colors.base07},
-    lessCssAttribute = {fg = colors.base06},
-    lessFunction = {fg = colors.green},
-    lessVariable = {fg = colors.pink},
+    lessVariable = {fg = colors.cyan01},
 
-    -- LUA
-    luaFuncCall = {fg = colors.yellow},
-    luaLocal = {fg = colors.cyan},
-    luaFuncKeyword = {fg = colors.magenta},
-    luaSpecialValue = {fg = colors.orange},
-    luaStatement = {fg = colors.green},
-    luaRepeat = {fg = colors.pink},
-    luaConstant = {fg = colors.red},
+    -- [ Lua ]
+    luaFuncCall = {fg = colors.yellow02},
+    luaSpecialValue = {fg = colors.green01},
 
-    -- MARKDOWN
-    markdownUrl = {fg = colors.green},
-    markdownBlockquote = {fg = colors.base07},
-    markdownBold = {attr = 'bold'},
-    markdownBoldDelimiter = {fg = colors.yellow},
-    markdownCode = {fg = colors.blue},
-    markdownCodeDelimiter = {fg = colors.blue},
-    markdownFootnote = {fg = colors.base07},
-    markdownFootnoteDefinition = {fg = colors.base07},
-    markdownH1 = {fg = colors.red},
-    markdownH2 = {fg = colors.pink},
-    markdownH3 = {fg = colors.pink},
-    markdownH4 = {fg = colors.magenta},
-    markdownH5 = {fg = colors.magenta},
-    markdownH6 = {fg = colors.magenta},
-    markdownHeadingDelimiter = {fg = colors.yellow},
-    markdownId = {fg = colors.base07},
-    markdownIdDeclaration = {fg = colors.base07},
-    markdownIdDelimiter = {fg = colors.yellow},
-    markdownItalic = {attr = 'italic'},
-    markdownItalicDelimiter = {fg = colors.yellow},
-    markdownLinkDelimiter = {fg = colors.yellow},
-    markdownLinkText = {fg = colors.red},
-    markdownLinkTextDelimiter = {fg = colors.pink},
-    markdownListMarker = {fg = colors.yellow},
-    markdownRule = {fg = colors.yellow},
-
+    -- [ Markdown ]
     -- ( http//github.com/plasticboy/vim-markdown )
-    mkdListItem = {fg = colors.yellow},
-    mkdCode = {fg = colors.blue},
-    mkdHeading = {fg = colors.pink},
-    mkdURL = {fg = colors.green},
+    mkdBold = {fg = colors.base05, attr = 'bold'},
+    mkdCode = {fg = colors.blue02},
+    mkdCodeDelimiter = {fg = colors.blue01},
+    mkdCodeEnd = {fg = colors.blue01},
+    mkdCodeStart = {fg = colors.blue01},
+    mkdHeading = {fg = colors.pink01},
+    mkdItalic = {fg = colors.base05, attr = 'italic'},
+    mkdLink = {fg = colors.green01},
+    mkdListItem = {fg = colors.red01},
+    mkdListItemLine = {fg = colors.base06},
 
-    -- PHP
-    phpClasses = {fg = colors.base07},
-    phpDocCustomTags = {fg = colors.base07},
-    phpDocTags = {fg = colors.base07},
-    phpMemberSelector = {fg = colors.yellow},
+    -- [ Php ]
+    phpVarSelector = {fg = colors.red02},
+    phpIdentifier = {fg = colors.red03},
 
-    -- PYTHON
-    pythonBuiltin = {fg = colors.pink},
-    pythonEscape = {fg = colors.blue},
+    -- [ Python ]
+    pythonClassVar = {fg = colors.orange01},
+    pythonBuiltinType = {fg = colors.pink02},
+    pythonFunctionCall = {fg = colors.yellow02},
+    pythonStatement = {fg = colors.blue01},
 
-    -- RUST
+    -- [ Rust ]
     -- ( http//github.com/rust-lang/rust.vim )
-    rustArrowCharacter = {fg = colors.green},
+    rustArrowCharacter = {fg = colors.green01},
+    rustFatRightArrowHead = {fg = colors.yellow02},
+    rustFatRightArrowTail = {fg = colors.yellow02},
+    rustModPathSep = {fg = colors.base04, attr = 'bold'},
+    rustRepeat = {fg = colors.magenta02},
+    rustSelf = {fg = colors.cyan01, attr = 'italic'},
+    rustStructure = {fg = colors.pink01},
 
-    -- SCSS
+    -- [ Scss ]
     -- ( http//github.com/cakebaker/scss-syntax.vim )
-    scssVariable = {fg = colors.pink},
+    scssVariable = {fg = colors.cyan01},
 
-    -- SHELL
-    shCmdParenRegion = {fg = colors.base06},
-    shCmdSubRegion = {fg = colors.base06},
-    shDerefSimple = {fg = colors.blue},
-    shDerefVar = {fg = colors.blue},
+    -- [ Shell ]
+    shCaseBar = {fg = colors.magenta02},
+    shDerefSimple = {fg = colors.blue01},
+    shDerefVar = {fg = colors.orange02},
+    shSet = {fg = colors.pink02},
+    shSetList = {fg = colors.red02},
+    shStatement = {fg = colors.yellow02},
+    shVariable = {fg = colors.red02},
 
-    -- VIM
-    vimAugroup = {fg = colors.base07},
-    vimCommand = {fg = colors.blue},
-    vimFunc = {fg = colors.green},
-    vimFunction = {fg = colors.green},
-    vimMap = {fg = colors.red},
-    vimMapRhs = {fg = colors.base07},
-    vimNotation = {fg = colors.base07},
-    vimOption = {fg = colors.cyan},
-    vimUserFunc = {fg = colors.green},
-    vimVar = {fg = colors.yellow},
+    -- [ Vim ]
+    vimAugroupKey = {fg = colors.orange01},
+    vimAutocmd = {fg = colors.orange02},
+    vimCommand = {fg = colors.magenta02},
+    vimFuncName = {fg = colors.yellow02},
+    vimFunction = {fg = colors.yellow01},
+    vimLet = {fg = colors.pink02},
+    vimNotFunc = {fg = colors.magenta01},
+    vimOption = {fg = colors.green01},
+    vimUserFunc = {fg = colors.yellow01},
+    vimVar = {fg = colors.red02},
 
-    -- XML
-    xmlCdataStart = {fg = colors.base03, attr = 'bold'},
-    xmlAttrib = {fg = colors.base07},
-    xmlAttribPunct = {fg = colors.base01},
-    xmlCdata = {fg = colors.base03, attr = 'italic'},
-    xmlCdataCdata = {fg = colors.base03, attr = 'bold'},
-    xmlCdataEnd = {fg = colors.base03, attr = 'bold'},
-    xmlNamespace = {fg = colors.base07},
-    xmlProcessingDelim = {fg = colors.yellow},
+    -- [ Xml ]
+    xmlProcessingDelim = {fg = colors.green01},
+    xmlTag = {fg = colors.blue03},
+    xmlTagName = {fg = colors.blue01},
 
-    -- YAML
-    yamlBlockMappingKey = {fg = colors.base07},
-    yamlBool = {fg = colors.yellow},
-    yamlDocumentStart = {fg = colors.yellow},
+    -- [ Yaml ]
+    yamlBlockMappingKey = {fg = colors.blue01},
+    yamlFlowIndicator = {fg = colors.green01},
+    yamlFlowMappingKey = {fg = colors.blue03},
+    yamlFlowMappingMerge = {fg = colors.yellow01},
 
-    -- ZSH
-    zshFunction = {fg = colors.green},
-    zshDeref = {fg = colors.cyan},
-    zshVariableDef = {fg = colors.orange},
+    -- [ Zig ]
+    zigBuiltinFn = {fg = colors.green01},
+    zigExecution = {fg = colors.magenta02},
+    zigKeyword = {fg = colors.yellow01},
+    zigVarDecl = {fg = colors.pink01},
 
-    -- ___PLUGIN SUPPORT___
+    -- [ Zsh ]
+    zshDelimiter = {fg = colors.magenta02},
+    zshDeref = {fg = colors.red01},
+    zshOption = {fg = colors.green01},
+    zshShortDeref = {fg = colors.blue01},
+    zshSubst = {fg = colors.orange02},
+    zshSubstDelim = {fg = colors.orange03},
+    zshVariableDef = {fg = colors.red02},
 
-    -- ALE
-    -- ( http//github.com/w0rp/ale )
-    ALEErrorSign = {fg = colors.red},
-    ALEWarningSign = {fg = colors.yellow},
 
-    -- COC.NVIM
-    -- ( http//github.com/neoclide/coc.nvim )
-    CocErrorSign = {fg = colors.red},
-    CocWarningSign = {fg = colors.yellow},
-    CocInfoSign = {fg = colors.blue},
-    CocHintSign = {fg = colors.blue},
-    CocCodeLens = {fg = colors.base05},
+    -- -------------------------------------------
+    -- [ PLUGIN SUPPORT ]
+    -- -------------------------------------------
 
-    -- FUGITIVE
-    -- ( http//github.com/tpope/vim-fugitive )
-    gitcommitDiscardedFile = {fg = colors.red},
-    gitcommitUntrackedFile = {fg = colors.red},
-    gitcommitSelectedFile = {fg = colors.green},
 
-    -- GITGUTTER
-    -- ( http//github.com/airblade/vim-gitgutter )
-    GitGutterAdd = {fg = colors.green},
-    GitGutterChange = {fg = colors.yellow},
-    GitGutterChangeDelete = {fg = colors.pink},
-    GitGutterDelete = {fg = colors.red},
-
-    -- HOP
+    -- [ Hop ]
     -- ( https://github.com/phaazon/hop.nvim )
-    HopNextKey = {fg = colors.pink},
-    HopNextKey1 = {fg = colors.yellow},
-    HopNextKey2 = {fg = colors.blue},
+    HopNextKey = {fg = colors.pink01},
+    HopNextKey1 = {fg = colors.yellow01},
+    HopNextKey2 = {fg = colors.blue01},
 
-    -- LSPSAGA
+    -- [ Lspsaga ]
     -- ( https://github.com/glepnir/lspsaga.nvim )
     LineDiagTuncateLine = {fg = colors.base02},
-    LspFloatWinBorder = {fg = colors.pink},
-    LspLinesDiagBorder = {fg = colors.red},
-    LspSagaAutoPreview = {fg = colors.pink},
-    LspSagaBorderTitle = {fg = colors.pink},
-    LspSagaCodeActionBorder = {fg = colors.pink},
+    LspFloatWinBorder = {fg = colors.pink01},
+    LspLinesDiagBorder = {fg = colors.red01},
+    LspSagaAutoPreview = {fg = colors.pink01},
+    LspSagaBorderTitle = {fg = colors.pink01},
+    LspSagaCodeActionBorder = {fg = colors.pink01},
     LspSagaCodeActionContent = {fg = colors.base06},
-    LspSagaCodeActionTitle = {fg = colors.pink},
+    LspSagaCodeActionTitle = {fg = colors.pink01},
     LspSagaCodeActionTruncateLine = {fg = colors.base02},
-    LspSagaDefPreviewBorder = {fg = colors.blue},
+    LspSagaDefPreviewBorder = {fg = colors.blue01},
     LspSagaDocTruncateLine = {fg = colors.base02},
-    LspSagaFinderSelection = {fg = colors.green},
-    LspSagaHoverBorder = {fg = colors.blue},
-    LspSagaLspFinderBorder = {fg = colors.blue},
-    LspSagaRenameBorder = {fg = colors.pink},
-    LspSagaRenamePromptPrefix = {fg = colors.pink},
+    LspSagaFinderSelection = {fg = colors.green01},
+    LspSagaHoverBorder = {fg = colors.blue01},
+    LspSagaLspFinderBorder = {fg = colors.blue01},
+    LspSagaRenameBorder = {fg = colors.pink01},
+    LspSagaRenamePromptPrefix = {fg = colors.pink01},
     LspSagaShTruncateLine = {fg = colors.base02},
-    LspSagaSignatureHelpBorder= {fg = colors.blue},
+    LspSagaSignatureHelpBorder= {fg = colors.blue01},
     ProviderTruncateLine = {fg = colors.base02},
     SagaShadow = {fg = colors.base06, bg = colors.base00},
 
-    -- NERDTREE
-    -- ( http//github.com/scrooloose/nerdtree )
-    NERDTreeExecFile = {fg = colors.cyan},
-    NERDTreeDirSlash = {fg = colors.cyan},
-    NERDTreeHelp = {fg = colors.base03, attr = 'italic'},
 
-    -- SIGNIFY
+    -- [ Signify ]
     -- ( http//github.com/mhinz/vim-signify )
-    SignifyLineAdd = {fg = colors.green},
-    SignifySignAdd = {fg = colors.green},
-    SignifyLineChange = {fg = colors.yellow},
-    SignifyLineChangeDelete = {fg = colors.yellow},
-    SignifySignChange = {fg = colors.yellow},
-    SignifySignChangeDelete = {fg = colors.yellow},
-    SignifyLineDelete = {fg = colors.red},
-    SignifyLineDeleteFirstLine = {fg = colors.red},
-    SignifySignDelete = {fg = colors.red},
-    SignifyDeleteFirstLine = {fg = colors.red},
+    SignifyDeleteFirstLine = {fg = colors.red01},
+    SignifyLineAdd = {fg = colors.green01},
+    SignifyLineChange = {fg = colors.yellow01},
+    SignifyLineChangeDelete = {fg = colors.yellow01},
+    SignifyLineDelete = {fg = colors.red01},
+    SignifyLineDeleteFirstLine = {fg = colors.red01},
+    SignifySignAdd = {fg = colors.green01},
+    SignifySignChange = {fg = colors.yellow01},
+    SignifySignChangeDelete = {fg = colors.yellow01},
+    SignifySignDelete = {fg = colors.red01},
 
-    -- TAGBAR
-    -- ( http//github.com/majutsushi/tagbar )
-    TagbarComment = {fg = colors.base03, attr = 'italic'},
-    TagbarKind = {fg = colors.green},
+    -- [ Telescope ]
+    -- ( https://github.com/nvim-telescope/telescope.nvim )
+    TelescopeSelection = {fg = colors.yellow01, attr = 'bold'},
+    TelescopeSelectionCaret = {fg = colors.pink01},
+    TelescopePreviewLine = {fg = colors.orange01},
 
-    -- TELESCOPE
-    -- ( )
-    TelescopeSelection = {fg = colors.yellow, attr = 'bold'},
-    TelescopeSelectionCaret = {fg = colors.pink},
-    TelescopePreviewLine = {fg = colors.orange},
-
-    -- TREESITTER
+    -- [ Treesitter ]
     -- ( https://github.com/nvim-treesitter/nvim-treesitter )
-    TSFunction = {fg = colors.blue, attr = 'bold'},
-    TSMethod = {fg = colors.green},
-    TSKeywordFunction = {fg = colors.green},
-    TSProperty = {fg = colors.green},
-    TSType = {fg = colors.pink},
-    TSPunctBracket = {fg = colors.magenta},
-    TSParameter = {fg = colors.magenta},
-    TSParameterReference = {fg = colors.magenta},
-    TSVariableBuiltin = {fg = colors.orange},
+    TSKeywordOperator = {fg = colors.blue2},
+    TSFuncBuiltin = {fg = colors.green01},
+    TSMethod = {fg = colors.yellow02},
+    TSKeywordFunction = {fg = colors.pink02},
+    TSKeyword = {fg = colors.ts_yellow},
+    TSParameter = {fg = colors.base05, attr = 'italic'},
+    TSProperty = {fg = colors.base05},
+    TSConstMacro = {fg = colors.green01},
+    TSInclude = {fg = colors.ts_green},
     -- Nvim-ts-rainbow ( https://github.com/p00f/nvim-ts-rainbow )
-    rainbowcol1 = {fg = colors.magenta},
-    rainbowcol2 = {fg = colors.blue},
-    rainbowcol3 = {fg = colors.green},
-    rainbowcol4 = {fg = colors.yellow},
-    rainbowcol5 = {fg = colors.orange},
-    rainbowcol6 = {fg = colors.pink},
-    rainbowcol7 = {fg = colors.red},
+    rainbowcol1 = {fg = colors.magenta01},
+    rainbowcol2 = {fg = colors.blue01},
+    rainbowcol3 = {fg = colors.green01},
+    rainbowcol4 = {fg = colors.yellow01},
+    rainbowcol5 = {fg = colors.orange01},
+    rainbowcol6 = {fg = colors.pink01},
+    rainbowcol7 = {fg = colors.red01},
     -- Nvim-treesitter-refactor ( https://github.com/nvim-treesitter/nvim-treesitter-refactor )
     TSDefiniton = {fg = colors.base00, bg = colors.base06, attr = 'bold'},
-    TSDefinitionUsage = {fg = colors.red, attr = 'italic'},
-    TSCurrentScope = {bg = colors.shadow},
+    TSDefinitionUsage = {fg = colors.red01, attr = 'italic'},
+    TSCurrentScope = {bg = colors.base01},
     -- Treesitter-playground ( https://github.com/nvim-treesitter/playground )
-    TSPlaygroundFocus = {fg = colors.base00, bg = colors.orange},
+    TSPlaygroundFocus = {fg = colors.base00, bg = colors.orange01},
 
-    -- VIM-PLUG
-    -- ( http//github.com/junegunn/vim-plug )
-    plugDeleted = {fg = colors.pink},
+    -- [ Which-key ]
+    -- ( https://github.com/liuchengxu/vim-which-key )
+    WhichKey = {fg = colors.pink01},
+    WhichKeyGroup = {fg = colors.yellow01},
+    WhichKeyTrigger = {fg = colors.magenta01},
+    WhichKeyName = {fg = colors.base06},
+    WhichKeySeperator = {fg = colors.blue01},
+    WhichKeyFloating = {bg = colors.base00},
+    WhichKeyDesc = {fg = colors.base06},
 
-    -- VIM-SNEAK
-    -- ( http//github.com/justinmk/vim-sneak )
-    Sneak = {fg = colors.base00, bg = colors.green},
   }
 
   return syntax
 end
+
 
 M.setup = function(opts)
   local user_colors = opts or {}
@@ -573,4 +539,6 @@ M.setup = function(opts)
 
 end
 
+
 return M
+

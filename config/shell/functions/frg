@@ -4,13 +4,13 @@
 #     - Requirements: fzf, rg, neovim
 
 
-if [[ $# -eq 0 ]]; then
-  printf -- '%s\n' \
-    "[$(date +'%Y-%m-%d %H:%M:%S')]: Require at least one argument" >&2
-fi
-
 frg() {
   local file line
+
+  if [[ $# -eq 0 ]]; then
+    printf -- '%s\n' \
+      "[$(date +'%Y-%m-%d %H:%M:%S')]: Require at least one argument" >&2
+  fi
 
   read -r file line <<<"$(rg --no-heading --line-number 2> /dev/null "$@" \
     | fzf -0 -1 \

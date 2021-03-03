@@ -82,4 +82,9 @@ _is_command  zoxide && eval "$(zoxide init bash)"
 
 
 unset -v _shell_dir _shell_env_dir _shell_fun_dir _shell_plugins_dir _fzf_dir
+
+unset -v base00 base01 base02 base03 base04 base05 base06 base07
+unset -v red pink orange yellow green blue magenta cyan
+
 unset -f _is_command _append_path _prepend_path
+

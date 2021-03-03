@@ -1,16 +1,18 @@
-
+<!--toc-->
 - [Dotfiles](#dotfiles)
-  * [Infos](#infos)
-    + [Applications](#applications)
-  * [Screenshots](#screenshots)
-    + [River](#river)
-  * [Shell](#shell)
-    + [File structure](#file-structure)
-      - [Global](#global)
-      - [Bash](#bash)
-      - [Zsh](#zsh)
-    + [Cli tools](#cli-tools)
-    + [User scripts](#user-scripts)
+    * [Infos](#infos)
+        * [Applications](#applications)
+    * [Screenshots](#screenshots)
+        * [River](#river)
+    * [Shell](#shell)
+        * [File structure](#file-structure)
+            * [Global](#global)
+            * [Bash](#bash)
+            * [Zsh](#zsh)
+        * [Cli tools](#cli-tools)
+        * [User scripts](#user-scripts)
+
+<!-- tocstop -->
 
 # Dotfiles
 

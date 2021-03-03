@@ -3,7 +3,5 @@
 # Make directory and change into it.
 
 
-mcd() {
-  mkdir -p "$1" && cd "$1" || exit;
-}
+mcd() { mkdir -p "$1" && cd "$1" || exit; }
 

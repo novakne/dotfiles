@@ -17,3 +17,4 @@ return {
   bind_plugins = bind_plugins,
   plugins = plugins,
 }
+

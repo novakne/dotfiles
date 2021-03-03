@@ -22,4 +22,5 @@ command! LF !lua-format -i %
 command! FixTs write | edit | TSBufEnable highlight
 
 " Generates Markdown qf
-command! Mdqf :grep  '^\#+\s'
+command! Gmd :grep  '^\#+\s'
+command! Gpart :grep '\[{1}\s+\w.*\s+\]{1}$' %

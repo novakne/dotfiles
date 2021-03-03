@@ -4,31 +4,30 @@
 # output=<undefined>
 max-width=400
 max-height=300
+anchor=bottom-right
+edge-margin-vertical=20
+edge-margin-horizontal=20
+notification-margin=10
 icon-theme=Arc
 # max-icon-size=32
-margin=10
+# margin=10
 selection-helper=dmenu-wl
 
 # Default values, may be overridden in 'urgency' specific sections
-background=232227
-border-color=57bbf4
+background=57bbf4
+border-color=232227
 border-size=1
-title-font=Overpass Nerd Font:size=10
-title-color=57bbf4
-summary-font=Overpass Nerd Font:size=10
-summary-color=b7acbf
-body-font=Overpass Nerd Font:size=8
-body-color=d2ccd6
+title-font=Overpass:size=10
+title-color=232227
+summary-font=Overpass:size=10
+summary-color=38383c
+body-font=Overpass:size=8
+body-color=232227
 timeout=4
 
 # [low]
-# background=2b2b2b
-# title-color=888888
-# summary-color=888888
-# body-color=888888
 
 # [normal]
 
 [critical]
-border-color=fc65b0
-title-color=fc65b0
+background=fc65b0

@@ -17,3 +17,4 @@ TMPPREFIX="${TMPDIR%/}/bash"
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "$HOME"/.bash_profile" ]]; then
 		source "$HOME"/.bash_profile"
 fi
+

@@ -64,15 +64,15 @@ map('n', '<Leader>r', [[<CMD>lua require'telescope.builtin'.live_grep()<CR>]])
 map('n', '<Leader>k', [[<CMD>lua require'telescope.builtin'.grep_string()<CR>]])
 
 -- vim pickers
-map('n', '<Leader>b', [[<CMD>lua require'telescope.builtin'.buffers()<CR>]])
-map('n', '<Leader>to', [[<CMD>lua require'telescope.builtin'.oldfiles()<CR>]])
-map('n', '<Leader>tc', [[<CMD>lua require'telescope.builtin'.commands()<CR>]])
-map('n', '<Leader>tt', [[<CMD>lua require'telescope.builtin'.tags()<CR>]])
-map('n', '<Leader>tq', [[<CMD>lua require'telescope.builtin'.quickfix()<CR>]])
-map('n', '<Leader>tl', [[<CMD>lua require'telescope.builtin'.loclist()<CR>]])
-map('n', '<Leader>t=',
+map('n', '<Leader>tvb', [[<CMD>lua require'telescope.builtin'.buffers()<CR>]])
+map('n', '<Leader>tvo', [[<CMD>lua require'telescope.builtin'.oldfiles()<CR>]])
+map('n', '<Leader>tvc', [[<CMD>lua require'telescope.builtin'.commands()<CR>]])
+map('n', '<Leader>tvt', [[<CMD>lua require'telescope.builtin'.tags()<CR>]])
+map('n', '<Leader>tvq', [[<CMD>lua require'telescope.builtin'.quickfix()<CR>]])
+map('n', '<Leader>tvl', [[<CMD>lua require'telescope.builtin'.loclist()<CR>]])
+map('n', '<Leader>tv=',
   [[<CMD>lua require'telescope.builtin'.spell_suggest()<CR>]])
-map('n', '<Leader>tr',
+map('n', '<Leader>tvr',
   [[<CMD>lua require'telescope.builtin'.current_buffer_fuzzy_find()<CR>]])
 
 -- lsp pickers
@@ -97,8 +97,5 @@ map('n', '<Leader>tgb',
 map('n', '<Leader>tgs', [[<CMD>lua require'telescope.builtin'.git_status()<CR>]])
 
 -- treesitter pickers
-map('n', '<Leader>tf', [[<CMD>lua require'telescope.builtin'.treesitter()<CR>]])
-
--- spell
-map('n', 'z=', [[<CMD>lua require'telescope.builtin'.spell_suggest()<CR>]])
+map('n', '<Leader>ttf', [[<CMD>lua require'telescope.builtin'.treesitter()<CR>]])
 

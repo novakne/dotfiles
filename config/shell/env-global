@@ -36,6 +36,9 @@ export GPG_TTY
 export SYSTEMD_LESS=FRXMK
 
 # [ System bin ]
-PATH="/usr/local/{bin,sbin}${PATH:+:${PATH}}"
+PATH="/usr/local/bin${PATH:+:${PATH}}"
+PATH="/usr/local/sbin${PATH:+:${PATH}}"
+
+# Send environment variables to dbus and systemd
 dbus-update-activation-environment --systemd --all
 

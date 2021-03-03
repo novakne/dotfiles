@@ -1,79 +1,68 @@
 # [ ZSHRC ]
 
-# Profiling
+
+# [ Profiling ]
 # zmodload zsh/zprof
+
 
 # [ Variables ]
 # Ensure path arrays do not contain duplicates.
 declare -gU path PATH cdpath CDPATH fpath FPATH manpath MANPATH mailpath
 declare -U _shell_dir _shell_env_dir _shell_fun_dir _shell_plugins_dir 
-declare -U _zsh_zinit_dir _fzf_dir
+declare -U _zsh_plugins_dir _fzf_dir
 
 _shell_dir="$XDG_CONFIG_HOME"/shell
 _shell_env_dir="$_shell_dir"/environment
 _shell_fun_dir="$_shell_dir"/functions
 _shell_plugins_dir="$_shell_dir"/plugins
 
-_zsh_zinit_dir="$ZDOTDIR"/plugins/zinit
+_zsh_plugins_dir="$ZDOTDIR"/plugins
 _zsh_opts_dir="$ZDOTDIR"/config
 
 _fzf_dir="$XDG_DATA_HOME"/bld/fzf
 
 # [ Helpers ]
-_is_command() {
-  hash "$1" >/dev/null 2>&1
-}
+_is_command() { hash "$1" >/dev/null 2>&1; }
 
-_append_path() {
-  PATH="${PATH:+${PATH}:}$1"
-}
+_append_path() { PATH="${PATH:+${PATH}:}$1"; }
 
-_prepend_path() {
-  PATH="$1${PATH:+:${PATH}}"
-}
+_prepend_path() { PATH="$1${PATH:+:${PATH}}"; }
 
 
 # [ Wayland ]
 [[ "$XDG_SESSION_TYPE" == "wayland" ]] && . "$HOME"/.local/bin/wayland-env
 
 
-# [ Zinit ]
-if [[ -d "$_zsh_zinit_dir" ]]; then
-    declare -A ZINIT
-
-    ZINIT[HOME_DIR]="$_zsh_zinit_dir"
-    ZINIT[COMPINIT_OPTS]=-C
-
-    source "$_zsh_zinit_dir"/bin/zinit.zsh
-
-    # Plugins list
-    zinit ice wait lucid
-    zinit load wfxr/forgit
-
-    zinit ice wait blockf atpull'zinit creinstall -q .' lucid
-    zinit light zsh-users/zsh-completions
-
-    zinit ice wait atload"_zsh_autosuggest_start" lucid
-    zinit light zsh-users/zsh-autosuggestions
-    ZSH_AUTOSUGGEST_USE_ASYNC=true
-
-    zinit ice wait atinit"zpcompinit; zpcdreplay" lucid
-    zinit light zdharma/fast-syntax-highlighting
-fi
-
-
 # [ Zsh options ]
 # [ Completions ]
+autoload -Uz compinit
+
+declare _zcompdump
+_zcompdump="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
+
+# #q expands globs in conditional expressions
+if [[ ${_zcompdump}(#qNmh-20) ]]; then
+  # -C (skip function check) implies -i (skip security check).
+  compinit -C -d "${_zcompdump}"
+else
+  mkdir -p "${_zcompdump:h}"
+  compinit -i -d "${_zcompdump}"
+fi
+
+unset -v _zcompdump
+
+setopt ALWAYS_TO_END    # Move cursor to the end of a completed word
+setopt AUTO_PARAM_SLASH # If completed parameter is a directory, add a trailing slash
 setopt COMPLETE_ALIASES
-setopt COMPLETE_IN_WORD
-setopt ALWAYS_TO_END
+setopt COMPLETE_IN_WORD # Complete from both ends of a word
+setopt EXTENDEDGLOB     # Enable extended globbing
 
 # If there are more than 5 options allow selecting from a menu
 	# else don't use any menus at all
 if [[ "$NOMENU" -eq 0 ]]; then
 	zstyle ':completion:*' menu select=5
 else
-	setopt no_auto_menu
+	setopt NO_AUTO_MENU
 fi
 
 # Fallback to built in ls colors
@@ -118,9 +107,6 @@ zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
-# [ Colors ]
-autoload -U colors
-colors
 
 # [ History ]
 [[ ! -d "$XDG_CACHE_HOME"/zsh ]] && mkdir -p "$XDG_CACHE_HOME"/zsh
@@ -129,72 +115,95 @@ export HISTSIZE=10000 SAVEHIST=10000 HISTFILE="$XDG_CACHE_HOME"/zsh/zhistory
 export HISTORY_IGNORE="(ls|cd *|pwd|exit|:q|;q|q:|ea|et|z *|fe|clear|n|update|up *)"
 export HISTTIMEFORMAT="%F %T:  "
 
-# setopt INC_APPEND_HISTORY   # Add commands to the history immediately
-setopt APPEND_HISTORY
-setopt HIST_IGNORE_SPACE    # Do not record an event starting with a space
-setopt HIST_IGNORE_DUPS     # Do not record an event that was just recorded again
-setopt HIST_IGNORE_ALL_DUPS # Delete an old recorded event if a new event is a duplicate
-setopt HIST_FIND_NO_DUPS    # Do not display a previously found event
-setopt SHARE_HISTORY        # Share history between all sessions
+# setopt APPEND_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST  # Expire a duplicate event first when trimming histor
+setopt HIST_FIND_NO_DUPS       # Do not display a previously found event
+setopt HIST_IGNORE_ALL_DUPS    # Delete an old recorded event if a new event is a duplicate
+setopt HIST_IGNORE_DUPS        # Do not record an event that was just recorded again
+setopt HIST_IGNORE_SPACE       # Do not record an event starting with a space
+setopt HIST_SAVE_NO_DUPS       # Do not write a duplicate event to the history file
+setopt INC_APPEND_HISTORY      # Add commands to the history immediately
+setopt SHARE_HISTORY           # Share history between all sessions
+
 
 # [ Misc ]
 setopt AUTO_CD           # Go to folder path without using cd
 setopt AUTO_PUSHD        # Push the current directory visited on the stack
+setopt CORRECT           # Enable built-in command auto-correction
 setopt PUSHD_IGNORE_DUPS # Do not store duplicates in the stack
 setopt PUSHD_SILENT      # Do not print the directory stack after pushd or popd
-setopt CORRECT           # Enable built-in command auto-correction
-setopt EXTENDEDGLOB      # Enable extended globbing
 
 # No Beep
 setopt NO_BEEP
-setopt NO_LIST_BEEP
 setopt NO_HIST_BEEP
+setopt NO_LIST_BEEP
 
 
 # [ Aliases ]
-[[ -r "$_shell_dir"/aliases ]] && . "$_shell_dir"/aliases
+[[ -r "${_shell_dir}"/aliases ]] && . "${_shell_dir}"/aliases
+
 
 # [ Environment variables ]
-if [[ -d "$_shell_env_dir" ]]; then
-  for var in "$_shell_env_dir"/*; do
+if [[ -d "${_shell_env_dir}" ]]; then
+  for var in "${_shell_env_dir}"/*; do
     source "${var}"
   done
 fi
 
+
 # [ Zsh completions ]
 [[ -d "$ZDOTDIR"/completions ]] && fpath+=("$ZDOTDIR"/completions)
 
-# [ Functions ( Lazy load ) ]
-if [[ -d "$_shell_fun_dir" ]]; then
-    fpath+=("$_shell_fun_dir")
 
-    for fun in "$_shell_fun_dir"/*; do
+# [ Functions ]
+if [[ -d "${_shell_fun_dir}" ]]; then
+    fpath+=("${_shell_fun_dir}")
+
+    for fun in "${_shell_fun_dir}"/*; do
         autoload -Uz ${fun:t}
     done
 fi
 
 
 # [ Plugins ]
+# [ Fast syntax highlighting ]
+source "${_zsh_plugins_dir}"/fsh/fast-syntax-highlighting.plugin.zsh
+
+# [ Forgit ]
+source "${_zsh_plugins_dir}"/forgit/forgit.plugin.zsh
+
+# [ Zsh-completions ]
+fpath+=("${_zsh_plugins_dir}"/zsh-completions/src)
+
+# [ Zsh-autosuggestions ]
+source "${_zsh_plugins_dir}"/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_USE_ASYNC=true
+
 # [ Fzf ]
-if [[ -d "$_fzf_dir" ]]; then
-    source "$_fzf_dir"/shell/completion.zsh 2> /dev/null
-    source "$_fzf_dir"/shell/key-bindings.zsh
+if [[ -d "${_fzf_dir}" ]]; then
+    source "${_fzf_dir}"/shell/completion.zsh 2> /dev/null
+    source "${_fzf_dir}"/shell/key-bindings.zsh
 fi
 
 # [ Starship ]
-[[ -r "$_shell_plugins_dir"/starship.toml ]] && eval "$(starship init zsh)"
+[[ -r "${_shell_plugins_dir}"/starship.toml ]] && eval "$(starship init zsh)"
 
 # [ Zoxide ]
 _is_command zoxide && eval "$(zoxide init zsh)"
 
-# [ User plugins]
+# [ Osc ]
 # Configure shell to emit the OSC 7 escape sequence
-if [[ -r "$_shell_plugins_dir"/osc7 ]]; then
+if [[ -r "${_shell_plugins_dir}"/osc7 ]]; then
     autoload -Uz add-zsh-hook
     add-zsh-hook -Uz chpwd osc7_cwd
 fi
 
 
 unset -v _shell_dir _shell_env_dir _shell_fun_dir _shell_plugins_dir 
-unset -v _zsh_zinit_dir _fzf_dir
+unset -v _zsh_plugins_dir _fzf_dir
+
+unset -v base00 base01 base02 base03 base04 base05 base06 base07
+unset -v red pink orange yellow green blue magenta cyan
+
 unset -f _is_command _append_path _prepend_path
+

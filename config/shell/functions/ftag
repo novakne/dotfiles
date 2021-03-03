@@ -16,7 +16,7 @@ ftag() {
       --with-nth=2 \
       --preview-window="50%" \
       --preview="bat {3} --color=always | tail -n +\$(echo {4} | tr -d \";\\\"\")"
-  ) && ${EDITOR:-nvim} "$(cut -f3 <<< "$line")" -c "set nocst" \
-                                      -c "silent tag $(cut -f2 <<< "$line")"
+  ) && "${EDITOR:-nvim}" "$(cut -f3 <<< "${line}")" -c "set nocst" \
+                                      -c "silent tag $(cut -f2 <<< "${line}")"
 }
 

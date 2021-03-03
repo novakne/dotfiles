@@ -8,7 +8,7 @@ ts.setup {
   ensure_installed = {'bash', 'lua', 'fennel', 'rust'},
   highlight = {
     enable = true, -- false will disable the whole extension
-    disable = {},
+    disable = {'lua', 'c', 'rust'},
   },
   textobjects = {
     select = {

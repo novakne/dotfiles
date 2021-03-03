@@ -207,3 +207,4 @@ command = 'echo "$TAB"'
 when = "tab --starship"
 shell = ["sh"]
 format = "[\\[ $output \\]](magenta) "
+

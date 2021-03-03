@@ -71,6 +71,7 @@ opt.breakindent = true
 opt.showbreak = string.rep(' ', 3) -- Make it so that long lines wrap smartly
 opt.linebreak = true
 
+
 -- Disable some providers and plugins
 vim.g.loaded_node_provider = 0
 vim.g.loaded_ruby_provider = 0

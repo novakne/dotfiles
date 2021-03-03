@@ -8,3 +8,15 @@
 [submodule "config/tmux/plugins/tpm"]
 	path = config/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "config/zsh/plugins/forgit"]
+	path = config/zsh/plugins/forgit
+	url = git@github.com:wfxr/forgit.git
+[submodule "config/zsh/plugins/zsh-autosuggestions"]
+	path = config/zsh/plugins/zsh-autosuggestions
+	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule "config/zsh/plugins/zsh-completions"]
+	path = config/zsh/plugins/zsh-completions
+	url = git@github.com:zsh-users/zsh-completions.git
+[submodule "config/zsh/plugins/fsh"]
+	path = config/zsh/plugins/fsh
+	url = git@github.com:zdharma/fast-syntax-highlighting.git

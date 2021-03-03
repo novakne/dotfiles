@@ -4,8 +4,8 @@
 
 
 # [ Fzf ]
-if [[ -d "$_fzf_dir" ]]; then
-  _append_path "$_fzf_dir"/bin
+if [[ -d "${_fzf_dir}" ]]; then
+  _append_path "${_fzf_dir}"/bin
 
   export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden -E .git --color=always'
   # Uses tree command to show the entries of the directory
@@ -13,22 +13,21 @@ if [[ -d "$_fzf_dir" ]]; then
 
   _gen_fzf_default_opts() {
     export FZF_DEFAULT_OPTS="
-    --color=bg+:$base00,bg:$base00,spinner:$pink,hl:$green
-    --color=fg:$base05,header:$pink,info:$pink,pointer:$yellow
-    --color=marker:$blue,fg+:$base07,prompt:$pink,hl+:$yellow
+    --color=bg+:${base00},bg:${base00},spinner:${pink},hl:${green}
+    --color=fg:${base05},header:${pink},info:${pink},pointer:${yellow}
+    --color=marker:${blue},fg+:${base07},prompt:${pink},hl+:${yellow}
     --height 50% --reverse --margin 2% --cycle --multi --ansi
     "
   }
 
   _gen_fzf_default_opts
 
-  _fzf_compgen_path() {   # Use fd instead of the default find
-    fd --hidden --follow --exclude ".git" . "$1"
-  }
+  # Use fd instead of the default find
+  _fzf_compgen_path() { fd --hidden --follow --exclude ".git" . "$1"; }
 
-  _fzf_compgen_dir() {    # Use fd to generate the list for directory completion
-    fd --type d --hidden --follow --exclude ".git" . "$1"
-  }
+  # Use fd to generate the list for directory completion
+  _fzf_compgen_dir() { fd --type d --hidden --follow --exclude ".git" . "$1"; }
+
 fi
 
 # [ Less ]
@@ -36,6 +35,7 @@ fi
 if _is_command less; then
     export LESS='-g -i -M -R -S -w -z-4'
     export LESSHISTFILE="$XGG_CACHE_HOME"/less
+
     # Colors
     export LESS_TERMCAP_md=$'\e[1;31m'
     export LESS_TERMCAP_me=$'\e[0m'
@@ -47,6 +47,7 @@ fi
 
 # [ Neovim ]
 export DIFFPROG="nvim -d" # Use neovim instead of vim for pacdiff
+
 # Give a name to nvim server to start with neovim-remote
 _is_command nvr && export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim
 
@@ -81,7 +82,7 @@ o:open;\
 c:cmx;\
 e:exec;\
 n:nvr;\
-a:_unar $nnn*"
+a:_unar ${nnn}*"
 fi
 
 # [ Pass ]

@@ -19,15 +19,17 @@ alias ea='exa -lah --group-directories-first --git --icons'
 alias et='exa -lah -TL2 --group-directories-first --git --icons'
 
 # [ Git ]
-alias gics='git commit -S -m'
-alias gic='git commit -m'
-alias gis='git switch'
+alias gc='git clone'
+alias gcm='git commit -m'
+alias gs='git switch'
+alias gpo='git pull origin'
 
 # [ Nnn ]
 alias N='sudo -E nnn -e'
 
 # [ Trash-cli ]
 alias del='trash-put'
+alias restore='trash-restore'
 
 # [ Files ]
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
@@ -39,14 +41,15 @@ alias df='df -h'
 alias free='free -m'
 alias cmx='chmod 774'
 alias perm='stat -c "%A %a %n"'
-alias sedit='sudo -E ${EDITOR:-nvim}'
-alias enote="cd $XDG_DATA_HOME/notes && nvim"
+alias sedit='sudo -E "${EDITOR:-nvim}"'
+alias enote='cd "$XDG_DATA_HOME"/notes && nvim'
 
 # [ Misc ]
 alias :q='exit'
 alias sc='systemctl'
-alias Xress='xrdb $XDG_CONFIG_HOME/X11/xresources'
+alias Xress='xrdb "$XDG_CONFIG_HOME"/X11/xresources'
 alias wname='xprop | grep WM_CLASS'
-alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias wget='wget --hsts-file="$XDG_CACHE_HOME"/wget-hsts'
 alias awesometest='Xephyr :5 & sleep 1 ; DISPLAY=:5 awesome'
-alias mbsync='mbsync -c ~/.config/isync/mbsyncrc'
+alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
+

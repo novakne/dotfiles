@@ -5,10 +5,16 @@
 #     - Requirements: fzf
 
 
+# @FIXME: Doesn't work anymore???
 fapp () {
   local selected
 
-  selected="$(ls /usr/share/applications | fzf -e)"
-  nohup $(grep '^Exec' "/usr/share/applications/$selected" | tail -1 | sed 's/^Exec=//' | sed 's/%.//') >/dev/null 2>&1&
+  selected="$(find /usr/share/applications -type f -printf '%P\n' | fzf -e)"
+
+  nohup "$(grep '^Exec' /usr/share/applications/"${selected}" \
+    | tail -1 \
+    | sed 's/^Exec=//' \
+    | sed 's/%.//')" \
+    >/dev/null 2>&1&
 }
 

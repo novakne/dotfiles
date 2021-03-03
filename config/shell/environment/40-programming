@@ -41,3 +41,12 @@ fi
 # [ Yarn ]
 _is_command yarn && _append_path "$XDG_CONFIG_HOME"/yarn/global/node_modules/bin
 
+# [ Zig ]
+declare _zig_dir
+_zig_dir="$LIB_HOME"/zig
+
+# 0.7.1
+[[ -d "${_zig_dir}"/zig-0.7.1 ]] && _append_path "${_zig_dir}"/zig-0.7.1
+
+unset -v _zig_dir
+

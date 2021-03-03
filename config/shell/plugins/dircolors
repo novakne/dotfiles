@@ -67,27 +67,26 @@ TERM xterm-256color
 
 ## Special files
 
-NORMAL 00;38;5;15 # no color code at all
-#FILE 00 # regular file: use no color at all
-RESET 0 # reset to "normal" color
-DIR 00;38;5;4 # directory 01;34
-LINK target # symbolic link. (If you set this to 'target' instead of a
- # numerical value, the color is as for the file pointed to.)
-MULTIHARDLINK 00 # regular file with more than one link
-FIFO 48;5;0;38;5;3;01 # pipe
-SOCK 48;5;0;38;5;3;01 # socket
-DOOR 48;5;0;38;5;3;01 # door
-BLK 48;5;0;38;5;15;01 # block device driver
-CHR 48;5;0;38;5;15;01 # character device driver
-ORPHAN 48;5;0;38;5;1 # symlink to nonexistent file, or non-stat'able file
-SETUID 48;5;1;38;5;3 # file that is setuid (u+s)
-SETGID 48;5;1;38;5;3 # file that is setgid (g+s)
-CAPABILITY 30;41 # file with capability
-STICKY_OTHER_WRITABLE 48;5;2;38;5;3 # dir that is sticky and other-writable (+t,o+w)
-OTHER_WRITABLE 48;5;0;38;5;6 # dir that is other-writable (o+w) and not sticky
-STICKY 48;5;6;38;5;3 # dir with the sticky bit set (+t) and not other-writable
-# This is for files with execute permission:
-EXEC 00;38;5;3
+NORMAL 00;38;5;15                    # no color code at all
+# FILE 00 # regular file: use no color at all
+RESET 0                              # reset to "normal" color
+DIR 00;38;5;4                        # directory 01;34
+LINK target                          # symbolic link. (If you set this to 'target' instead of a
+                                     # numerical value, the color is as for the file pointed to.)
+MULTIHARDLINK 00                     # regular file with more than one link
+FIFO 48;5;0;38;5;3;01                # pipe
+SOCK 48;5;0;38;5;3;01                # socket
+DOOR 48;5;0;38;5;3;01                # door
+BLK 48;5;0;38;5;15;01                # block device driver
+CHR 48;5;0;38;5;15;01                # character device driver
+ORPHAN 48;5;0;38;5;1                 # symlink to nonexistent file, or non-stat'able file
+SETUID 48;5;1;38;5;3                 # file that is setuid (u+s)
+SETGID 48;5;1;38;5;3                 # file that is setgid (g+s)
+CAPABILITY 30;41                     # file with capability
+STICKY_OTHER_WRITABLE 48;5;2;38;5;3  # dir that is sticky and other-writable (+t,o+w)
+OTHER_WRITABLE 48;5;0;38;5;6         # dir that is other-writable (o+w) and not sticky
+STICKY 48;5;6;38;5;3                 # dir with the sticky bit set (+t) and not other-writable
+EXEC 00;38;5;3                       # This is for files with execute permission
 
 ## Archives ( magenta )
 .tar    00;38;5;5

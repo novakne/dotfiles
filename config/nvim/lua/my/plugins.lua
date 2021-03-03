@@ -110,9 +110,16 @@ return require'packer'.startup(function()
     end,
   }
 
+  use {
+    'liuchengxu/vim-which-key',
+    config = function()
+      require 'my.plugins.whichkey'
+    end,
+  }
+
   -- use 'yamatsum/nvim-cursorline'
 
-  
+
   -- [ EDITING ]
   use {
     'terrortylor/nvim-comment',
@@ -146,7 +153,6 @@ return require'packer'.startup(function()
   use {'moll/vim-bbye', cmd = 'Bdelete'}
   use {'norcalli/nvim-colorizer.lua', cmd = 'ColorizerToggle'}
   use {'numtostr/FTerm.nvim', cmd = 'FTermToggle'}
-  use 'sunaku/tmux-navigate'
   use 'phaazon/hop.nvim'
 
 
@@ -163,7 +169,6 @@ return require'packer'.startup(function()
 
   use 'sheerun/vim-polyglot'
   use 'editorconfig/editorconfig-vim'
-  use 'neomake/neomake'
 
 
   -- [ /tmp ]

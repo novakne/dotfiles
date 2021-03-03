@@ -1,5 +1,6 @@
 # [ ZSHENV ]
 
+
 # [ Global env ]
 [[ -f "$HOME"/.config/shell/env-global ]] && . "$HOME"/.config/shell/env-global
 
@@ -10,3 +11,4 @@ export ZDOTDIR="$DOTFILES_DIR"/config/zsh
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
 		source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+
