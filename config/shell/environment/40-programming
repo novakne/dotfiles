@@ -7,10 +7,7 @@
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 #  [ Go ]
-if _is_command go; then
-    export GOPATH="$LIB_HOME"/go
-    _append_path "$LIB_HOME"/go/bin
-fi
+_is_command go && { export GOPATH="$LIB_HOME"/go; _append_path "$LIB_HOME"/go/bin; }
 
 # [ Lua ]
 _is_command luarocks && _append_path "$LIB_HOME"/luarocks/bin
@@ -42,11 +39,6 @@ fi
 _is_command yarn && _append_path "$XDG_CONFIG_HOME"/yarn/global/node_modules/bin
 
 # [ Zig ]
-declare _zig_dir
-_zig_dir="$LIB_HOME"/zig
-
 # 0.7.1
-[[ -d "${_zig_dir}"/zig-0.7.1 ]] && _append_path "${_zig_dir}"/zig-0.7.1
-
-unset -v _zig_dir
+[[ -d "$LIB_HOME"/zig/zig-0.7.1 ]] && _append_path "$LIB_HOME"/zig/zig-0.7.1
 

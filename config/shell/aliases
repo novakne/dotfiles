@@ -2,6 +2,7 @@
 #
 # [ ALIASES ]
 
+
 # [ Pacman ]
 alias upgrade='sudo pacman -Syu'
 alias pac='sudo pacman'

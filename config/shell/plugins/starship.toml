@@ -1,6 +1,7 @@
 # [ STARSHIP ]
 
-format = "${custom.tab}$all"
+
+format = "$all"
 
 [aws]
 disabled = true
@@ -201,10 +202,10 @@ disabled = false
 format = "via [ $version](cyan)"
 [custom]
 
-[custom.tab]
-description = "The current tab in the tab terminal multiplexer"
-command = 'echo "$TAB"'
-when = "tab --starship"
-shell = ["sh"]
-format = "[\\[ $output \\]](magenta) "
+# [custom.tab]
+# description = "The current tab in the tab terminal multiplexer"
+# command = 'echo "$TAB"'
+# when = "tab --starship"
+# shell = ["sh"]
+# format = "[\\[ $output \\]](magenta) "
 
