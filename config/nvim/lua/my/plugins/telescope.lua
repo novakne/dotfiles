@@ -64,7 +64,7 @@ map('n', '<Leader>r', [[<CMD>lua require'telescope.builtin'.live_grep()<CR>]])
 map('n', '<Leader>k', [[<CMD>lua require'telescope.builtin'.grep_string()<CR>]])
 
 -- vim pickers
-map('n', '<Leader>tvb', [[<CMD>lua require'telescope.builtin'.buffers()<CR>]])
+map('n', '<Leader>b', [[<CMD>lua require'telescope.builtin'.buffers()<CR>]])
 map('n', '<Leader>tvo', [[<CMD>lua require'telescope.builtin'.oldfiles()<CR>]])
 map('n', '<Leader>tvc', [[<CMD>lua require'telescope.builtin'.commands()<CR>]])
 map('n', '<Leader>tvt', [[<CMD>lua require'telescope.builtin'.tags()<CR>]])
