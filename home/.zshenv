@@ -1,4 +1,7 @@
 # [ ZSHENV ]
+#
+# ( login & interactive: First )
+# zshenv (l/i) -> zprofile (l) -> zshrc (i) -> zlogin (l) -> zlogout
 
 
 # [ Global env ]

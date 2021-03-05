@@ -1,6 +1,6 @@
 # [ ZPROFILE ]
 #
-# Executes commands at login pre-zshrc.
+# ( login: pre-zshrc / post-zshenv )
 
 
 # Only on TTY

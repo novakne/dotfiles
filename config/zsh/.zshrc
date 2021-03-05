@@ -1,4 +1,6 @@
 # [ ZSHRC ]
+#
+# ( interactive: post-zshenv )
 
 
 # [ Profiling ]
