@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# Open a floating foot window in river
+
+
+riverctl float-filter-add "footfloat"
+riverctl spawn 'footclient --app-id "footfloat" --window-size-pixels 1200x800 >/dev/null 2>&1'
+
