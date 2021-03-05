@@ -37,6 +37,7 @@ riverctl map normal Control+Shift Return spawn $term
 riverctl map normal $mod D spawn dmenu-run
 riverctl map normal $mod B spawn $browser
 riverctl map normal $mod O spawn fuzzel-run
+riverctl map normal $mod S spawn foot-float
 
 
 # Mod+E to exit river
