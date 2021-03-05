@@ -4,7 +4,7 @@
 # output=<undefined>
 max-width=400
 max-height=300
-anchor=bottom-right
+anchor=top-right
 edge-margin-vertical=20
 edge-margin-horizontal=20
 notification-margin=10
