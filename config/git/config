@@ -40,3 +40,5 @@
     diffFilter = delta --color-only
 [commit]
 	gpgsign = true
+[sendemail]
+    smtpserver = /usr/bin/msmtp
