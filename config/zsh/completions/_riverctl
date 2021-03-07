@@ -1,0 +1,33 @@
+#compdef riverctl
+
+
+local -a cmds
+
+cmds=(
+  'close:Close the focused view'
+  'csd-filter-add:Add app-id to the CSD filter list'
+  'exit:Exit the compositor, terminating the Wayland session'
+  'float-filter-add:Add app-id to the float filter list'
+  'focus-output:Focus the next or previous output'
+  'focus-view:Focus the next or previous view in the stack'
+  'layout:Provide a command which river will use for generating the layout of non-floating windows'
+  'mod-main-count:Increase or decrease the number of "main" views'
+  'mod-main-factor:Increase or decrease the "main factor"'
+  'move:Move the focused view in the specified direction'
+  'resize:Resize the focused view along the given axis'
+  'snap:Snap the focused view to the specified screen edge'
+  'send-to-output:Send the focused view to the next or the previous output'
+  'spawn:Run shell_command using /bin/sh -c'
+  'swap:Swap the focused view with the next/previous visible non-floating view'
+  'toggle-float:Toggle the floating state of the focused view'
+  'toggle-fullscreen:Toggle the fullscreen state of the focused view'
+  'zoom:Bump the focused view to the top of the layout stack'
+  'set-focused-tags:Show views with tags corresponding to the set bits of tags'
+  'set-view-tags:Assign the currently focused view the tags corresponding to the set bits of tags'
+  'toggle-focused-tags:Toggle visibility of views with tags corresponding to the set bits of tags'
+  'toggle-view-tags:Toggle the tags of the currently focused view'
+  'spawn-tagmask:Set a tagmask to filter the tags assigned to newly spawned views on the focused output'
+)
+
+_describe 'command' cmds
+
