@@ -34,10 +34,12 @@ opt.lazyredraw = true         -- Do not redraw screen in the middle of a macro
 opt.swapfile = false          -- No swap file
 opt.updatetime = 100          -- Smaller updatetime for CursorHold & CursorHoldI
 opt.modelines = 1
+-- opt.foldmethod = 'expr'
+-- opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
 -- [ Completion ] ( :help 'complete' )
 opt.wildignorecase = true             -- Ignore case when completing file and directory
-opt.completeopt = 'menuone,noselect'  -- options for Insert mode completion ins-completion
+opt.completeopt = 'menuone,noselect,noinsert'  -- options for Insert mode completion ins-completion
 opt.pumheight = 10                    -- Maximum number of items to show in the popup menu
 
 -- [ Search ]
