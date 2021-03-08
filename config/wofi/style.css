@@ -1,6 +1,6 @@
 window {
   border: 2px solid #a89bee;
-  background-color: #232227;
+  background-color: #23222b;
   font-family: Inter;
   font-size: 18px;
 }
@@ -9,20 +9,20 @@ window {
   margin: 0 25px 0 10px;
   /* padding: 5px 0 5px 0; */
   border: none;
-  color: #d2ccd6;
-  background-color: #38383c;
+  color: #eae9ee;
+  background-color: #474557;
 }
 
 #inner-box {
   /* margin: 0 10px 0 0px; */
   border: none;
-  background-color: #232227;
+  background-color: #23222b;
 }
 
 #outer-box {
   /* margin: 5px; */
   border: none;
-  background-color: #232227;
+  background-color: #23222b;
 }
 
 #scroll {
@@ -31,19 +31,20 @@ window {
 }
 
 #text {
-  color: #d2ccd6;
+  color: #eae9ee;
 }
 
 #text:selected {
-  background-color: #a89bee;
-  color: #232227;
+  background-color: #be8fde;
+  color: #23222b;
 }
 
 #entry:selected {
-  background-color: #a89bee;
-  color: #232227;
+  background-color: #be8fde;
+  color: #23222b;
 }
 
 #entry:unselected {
-  color: #d2ccd6;
+  color: #eae9ee;
 }
+

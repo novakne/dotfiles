@@ -4,14 +4,14 @@
 
 
 declare -a dmenu_opts
-dmenu_opts=(-i -h 28 -fn Overpass -nb '#38383c' -nf '#d2ccd6' -sb '#e8ec77' -sf '#232227')
+dmenu_opts=(-i -h 28 -fn Overpass -nb '#23222b' -nf '#eae9ee' -sb '#e8ec77' -sf '#23222b')
 
 confirm() {
     printf -- '%s\n%s\n' "Yes" "No" \
       | dmenu-wl "${dmenu_opts[@]}" -p "${1:-Confirm:}"
 }
 
-quit=" Quit awesome"
+quit=" Quit River"
 shutdown=" Shutdown"
 reboot=" Reboot"
 suspend=" Suspend"
@@ -21,7 +21,7 @@ options="${quit}\n${shutdown}\n${reboot}\n${suspend}\n${hibernate}"
 selection=$(echo -e "${options}" | dmenu-wl "${dmenu_opts[@]}" -p 'Exit: ')
 
 case ${selection} in
-    ("$quit") awesome quit ;;
+    ("$quit") riverctl exit ;;
     ("$shutdown") [[ $(confirm "$@") = 1 ]] && (systemctl poweroff) ;;
     ("$reboot") [[ $(confirm "$@") = 1 ]] && (systemctl reboot) ;;
     ("$suspend") [[ $(confirm "$@") = 1 ]] && (systemctl suspend) ;;

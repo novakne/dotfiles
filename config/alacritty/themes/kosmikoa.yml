@@ -1,8 +1,8 @@
 # [ KOSMIKOA ]
 colors:
   primary:
-    background: '0x232227'
-    foreground: '0xd2ccd6'
+    background: '0x23222b'
+    foreground: '0xeae9ee'
   cursor:
     text: CellBackground
     cursor: CellForeground
@@ -12,23 +12,23 @@ colors:
 
     # Normal colors
   normal:
-    black:   '0x38383c'
+    black:   '0x474557'
     red:     '0xfc65b0'
-    green:   '0x2dcbb0'
+    green:   '0x62e89e'
     yellow:  '0xe8ec77'
     blue:    '0x57bbf4'
-    magenta: '0xa89bee'
-    cyan:    '0x4db9c8'
-    white:   '0xb7acbf'
+    magenta: '0xbe8fde'
+    cyan:    '0x00cfd0'
+    white:   '0xeae9ee'
 
     # Bright colors
   bright:
-    black:   '0x4e4e52'
+    black:   '0x59566d'
     red:     '0xfc65b0'
-    green:   '0x2dcbb0'
+    green:   '0x62e89e'
     yellow:  '0xe8ec77'
     blue:    '0x57bbf4'
-    magenta: '0xa89bee'
-    cyan:    '0x4db9c8'
-    white:   '0xd2ccd6'
+    magenta: '0xbe8fde'
+    cyan:    '0x00cfd0'
+    white:   '0xeae9ee'
 

@@ -4,6 +4,6 @@
     ~/.config/zsh: config/zsh
     ~/.zshenv: home/.zshenv
 
-- create:
-    - ~/.cache/zsh
+# - create:
+#     - ~/.cache/zsh
 

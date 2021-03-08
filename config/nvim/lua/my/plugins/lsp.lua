@@ -8,7 +8,7 @@ local bmap = utils.bind_bufnr
 
 local M = {}
 
-vim.lsp.set_log_level("debug")
+-- vim.lsp.set_log_level("debug")
 
 -- [ Custom handlers ]
 function M.handler_init()

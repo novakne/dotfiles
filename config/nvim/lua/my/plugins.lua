@@ -73,7 +73,6 @@ return require'packer'.startup(function()
     end,
     config = function()
       require 'my.plugins.treesitter'
-      require'my.colors.kosmikoa'.setup() -- Load colorscheme after treesitter
     end,
   }
 
@@ -101,6 +100,19 @@ return require'packer'.startup(function()
 
 
   -- [ UI ]
+  use {
+    '~/dev/_personnal/kosmikoa.nvim',
+    config = function()
+      require'kosmikoa'.setup()
+    end,
+  }
+  -- use {
+  --   'novakne/kosmikoa.nvim',
+  --   config = function()
+  --     require'kosmikoa'.setup()
+  --   end,
+  -- }
+
   use {
     'glepnir/galaxyline.nvim',
     branch = 'main',

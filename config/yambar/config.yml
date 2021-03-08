@@ -2,23 +2,23 @@
 # [ YAMBAR ]
 
 # [ Variables ]
-base00: &base00 232227ff
-base01: &base01 38383cff
-base02: &base02 4e4e52ff
-base03: &base03 6b5c7cff
-base04: &base04 837593ff
-base05: &base05 9d8fa9ff
-base06: &base06 b7acbfff
-base07: &base07 d2ccd6ff
+base00: &base00 23222bff
+base01: &base01 474557ff
+base02: &base02 59566dff
+base03: &base03 6b6883ff
+base04: &base04 7e7b97ff
+base05: &base05 bfbdcbff
+base06: &base06 d4d3dcff
+base07: &base07 eae9eeff
 
 red: &red f63d81ff
-pink: &pink fc65b0ff
-orange: &orange f5939cff
+pink: &pink e980bbff
+orange: &orange f08c89ff
 yellow: &yellow e8ec77ff
 green: &green 2dcbb0ff
 blue: &blue 57bbf4ff
-magenta: &magenta a89beeff
-cyan: &cyan 4db9c8ff
+magenta: &magenta be8fdeff
+cyan: &cyan 00cfd0ff
 
 myfont: &myfont Overpass:style=Regular:pixelsize=16
 sfont: &sfont Overpass:style=Regular:pixelsize=12
@@ -51,24 +51,24 @@ bar:
               - string:
                   text: 襤
                   font: *sfont
-                  foreground: *cyan
+                  foreground: *blue
                   left-margin: 10
                   on-click: /usr/bin/bash -c "wlogout"
               - string: {<<: *separator}
               - string:
                   text: 
                   font: *sfont
-                  foreground: *cyan
+                  foreground: *blue
                   on-click: /usr/bin/bash -c "fuzzel-run"
               - string:
                   text: 
                   font: *sfont
-                  foreground: *cyan
+                  foreground: *blue
                   on-click: /usr/bin/bash -c "footclient nnn"
               - string:
                   text: 
                   font: *sfont
-                  foreground: *cyan
+                  foreground: *blue
                   on-click: /usr/bin/bash -c "footclient nvim"
               - string: {<<: *separator}
 
@@ -76,7 +76,7 @@ bar:
         anchors:
           - string: &default {text: '{id}'}
           - focused: &focused
-              foreground: *base07
+              foreground: *pink
               deco: {underline: {size: 2, color: *pink}}
           - invisible: &invisible {foreground: *base05}
         content:
@@ -238,7 +238,7 @@ bar:
                           - string:
                               text: 
                               font: *sfont
-                              foreground: *green
+                              foreground: *blue
                     - string:
                         text: '{capacity}%'
                         font: *myfont
@@ -248,7 +248,7 @@ bar:
                   items:
                     - string:
                         text: 
-                        foreground: *blue
+                        foreground: *magenta
                         font: *sfont
                     - string:
                         text: '{capacity}%'
@@ -259,7 +259,7 @@ bar:
                   items:
                     - string:
                         text: 
-                        foreground: *green
+                        foreground: *blue
                         font: *sfont
                     - string:
                         text: '{capacity}%'

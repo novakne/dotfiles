@@ -15,14 +15,14 @@ selection-helper=dmenu-wl
 
 # Default values, may be overridden in 'urgency' specific sections
 background=57bbf4
-border-color=232227
+border-color=23222b
 border-size=1
 title-font=Overpass:size=10
-title-color=232227
+title-color=23222b
 summary-font=Overpass:size=10
-summary-color=38383c
+summary-color=474557
 body-font=Overpass:size=8
-body-color=232227
+body-color=59566d
 timeout=4
 
 # [low]

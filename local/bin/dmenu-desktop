@@ -4,7 +4,8 @@
 
 
 declare -a dmenu_opts
-dmenu_opts=(-i -h 28 -p 'App: ' -fn 'Overpass Nerd Font' -nb '#38383c' -nf '#d2ccd6' -sb '#e8ec77' -sf '#232227')
+dmenu_opts=(-i -h 28 -p 'App: ' -fn 'Overpass' -nb '#23222b' -nf '#eae9ee' -sb '#e8ec77' -sf
+  '#23222b')
 
 eval "$(dot-desktop "$(dot-desktop | dmenu-wl "${dmenu_opts[@]}")")"
 

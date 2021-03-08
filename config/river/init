@@ -9,7 +9,11 @@ river_dir="$XDG_CONFIG_HOME"/river
 source "${river_dir}"/autostart
 source "${river_dir}"/themes/kosmikoa
 
+
+# ------------------------------------------------
 # [ Options ]
+# ------------------------------------------------
+
 riverctl set-repeat 50 300      # Set repeat rate
 riverctl layout rivertile right # Set the layout on startup
 riverctl attach-mode top
@@ -26,7 +30,10 @@ riverctl float-filter-add "mpv"
 # riverctl csd-filter-add "firefox"
 
 
+# ------------------------------------------------
 # [ Keybind ]
+# ------------------------------------------------
+
 mod="Mod4" # Logo key
 term=footclient
 browser=firefox

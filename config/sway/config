@@ -60,23 +60,23 @@ bar {
         icon_theme Arc
     }
     colors {
-        separator #38383c
-        background #232227
-        statusline #d2ccd6
-        focused_workspace #e8ec77 #e8ec77 #232227
-        active_workspace #232227 #232227 #d2ccd6
-        inactive_workspace #232227 #232227 #d2ccd6
-        urgent_workspace #f63d81 #f63d81 #232227
+        separator #59566d
+        background #23222b
+        statusline #eae9ee
+        focused_workspace #e8ec77 #e8ec77 #23222b
+        active_workspace #23222b #23222b #eae9ee
+        inactive_workspace #23222b #23222b #eae9ee
+        urgent_workspace #f63d81 #f63d81 #23222b
     }
 }
 
 # [ Colors ]
-set $border #38383c
-set $bg #38383c
-set $txt #dcdccc
+set $border #59566d
+set $bg #59566d
+set $txt #eae9ee
 set $focused #e8ec77
-set $inactive #dcdccc
-set $unfocused #38383c
+set $inactive #a9a7b9
+set $unfocused #474557
 set $urgent #f63d81
 
 # class 	            border  background  text  indicator  child_border

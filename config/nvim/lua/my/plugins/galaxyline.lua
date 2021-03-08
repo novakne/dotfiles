@@ -8,22 +8,22 @@ local gls = gl.section
 gl.short_line_list = {'NvimTree', 'vista', 'dbui'}
 
 local colors = {
-  base00  = '#232227',
-  base01  = '#38383c',
-  base02  = '#4e4e52',
-  base03  = '#6b5c7c',
-  base04  = '#837593',
-  base05  = '#9d8fa9',
-  base06  = '#b7acbf',
-  base07  = '#d2ccd6',
-  red     = '#f63d81',
-  pink    = '#fc65b0',
-  orange  = '#f5939c',
+  base00  = '#23222b',
+  base01  = '#474557',
+  base02  = '#59566d',
+  base03  = '#6b6883',
+  base04  = '#7e7b97',
+  base05  = '#bfbdcb',
+  base06  = '#d4d3dc',
+  base07  = '#eae9ee',
+  pink00  = '#fc65b0',
+  pink01  = '#e980bb',
+  orange  = '#f08c89',
   yellow  = '#e8ec77',
-  green   = '#2dcbb0',
+  green   = '#62e89e',
   blue    = '#57bbf4',
-  magenta = '#a89bee',
-  cyan    = '#4db9c8',
+  magenta = '#be8fde',
+  cyan    = '#00cfd0',
 }
 
 local buffer_not_empty = function()
@@ -44,16 +44,16 @@ gls.left[1] = {
     provider = function()
       local mode = {
         n      = {color = colors.yellow,   name = 'N'},
-        i      = {color = colors.pink,  name = 'I'},
+        i      = {color = colors.pink00,  name = 'I'},
         v      = {color = colors.green,    name = 'V'},
         [''] = {color = colors.green,    name = 'V'},
         V      = {color = colors.green,    name = 'V'},
         c      = {color = colors.orange,  name = 'C'},
         no     = {color = colors.yellow,   name = 'No'},
-        s      = {color = colors.red,     name = 'S'},
-        S      = {color = colors.red,     name = 'S'},
-        [''] = {color = colors.red,     name = 'S'},
-        ic     = {color = colors.pink,  name = 'Ic'},
+        s      = {color = colors.pink01,     name = 'S'},
+        S      = {color = colors.pink01,     name = 'S'},
+        [''] = {color = colors.pink01,     name = 'S'},
+        ic     = {color = colors.pink00,  name = 'Ic'},
         R      = {color = colors.blue,    name = 'R'},
         Rv     = {color = colors.blue,    name = 'R'},
         cv     = {color = colors.orange,  name = 'Cv'},
@@ -68,7 +68,7 @@ gls.left[1] = {
         .nvim_command('hi GalaxyViMode guifg=' .. mode[vim.fn.mode()].color)
       return ' ' .. mode[vim.fn.mode()].name .. '  '
     end,
-    highlight = {colors.red, colors.base00, 'bold'},
+    highlight = {colors.pink01, colors.base00, 'bold'},
   },
 }
 
@@ -142,7 +142,7 @@ gls.right[1] = {
   DiagnosticError = {
     provider = 'DiagnosticError',
     icon = '  ',
-    highlight = {colors.pink, colors.base00},
+    highlight = {colors.pink00, colors.base00},
   },
 }
 gls.right[2] = {

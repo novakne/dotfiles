@@ -5,5 +5,5 @@
     ~/.bash_profile: home/.bash_profile
     ~/.bashrc: home/.bashrc
 
-- create:
-    - ~/.cache/bash
+# - create:
+#     - ~/.cache/bash

@@ -31,8 +31,8 @@
 [init]
 	defaultBranch = main
 [delta]
-    plus-color = "#1f8e7b"
-    minus-color = "#ac2a5a"
+    plus-color = "#2fe5b5"
+    minus-color = "#e98fc2"
     syntax-theme = kosmikoa
     line-numbers = true
     side-by-side = true

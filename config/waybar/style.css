@@ -7,14 +7,14 @@
 }
 
 window#waybar {
-  background-color: #232227;
-  color: #d2ccd6;
+  background-color: #23222b;
+  color: #eae9ee;
 }
 
 /* [ Sway workspaces / River tags ] */
 #workspaces,
 #tags {
-  background-color: #232227;
+  background-color: #23222b;
   margin-right: 10px;
   padding: 0 10px 0 10px;
   border-radius: 8px;
@@ -24,7 +24,7 @@ window#waybar {
 #tags button {
   background-color: transparent;
   padding: 0 5px 0 5px;
-  color: #d2ccd6;
+  color: #eae9ee;
 }
 
 #workspaces button:hover,
@@ -45,16 +45,16 @@ window#waybar {
 
 /* [ Dwl tags ] */
 #custom-dwltags {
-  background-color: #232227;
-  color: #d2ccd6;
+  background-color: #23222b;
+  color: #eae9ee;
   margin-right: 10px;
   padding: 0 10px 0 10px;
 }
 
 /* [ Sway window ] */
 #window {
-  background-color: #232227;
-  color: #d2ccd6;
+  background-color: #23222b;
+  color: #eae9ee;
   padding: 0 15px 0 15px;
   margin: 0px;
   border-radius: 8px;
@@ -70,7 +70,7 @@ window#waybar {
 #battery,
 #custom-pacman,
 #tray {
-  background-color: #232227;
+  background-color: #23222b;
   padding: 5px 0 5px 10px;
 }
 
@@ -79,12 +79,12 @@ window#waybar {
 #temperature,
 #custom-pacman,
 #network {
-  color: #d2ccd6;
+  color: #eae9ee;
 }
 
 
 #pulseaudio {
-  color: #d2ccd6;
+  color: #eae9ee;
   padding: 0 0 0 20px;
 }
 
@@ -94,19 +94,19 @@ window#waybar {
 }
 
 #battery {
-  color: #d2ccd6;
+  color: #eae9ee;
   margin-right: 10px;
   padding: 0 0 0 10px;
 }
 
 #battery.charging {
-  color: #2dcbb0;
+  color: #be8fde;
 }
 
 @keyframes blink {
   to {
-    background-color: #d2ccd6;
-    color: #232227;
+    background-color: #eae9ee;
+    color: #23222b;
   }
 }
 

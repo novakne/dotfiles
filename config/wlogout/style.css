@@ -2,11 +2,11 @@
 	background-image: none;
 }
 window {
-	background-color: rgba(35, 34, 39, 1);
+	background-color: rgba(35, 34, 43, 1);
 }
 button {
-    color: #232227;
-	background-color: #232227;
+    color: #23222b;
+	background-color: #23222b;
 	border-style: solid;
 	border-width: 2px;
 	background-repeat: no-repeat;
