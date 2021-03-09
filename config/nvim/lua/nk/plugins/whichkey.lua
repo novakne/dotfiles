@@ -5,13 +5,6 @@ vim.fn['which_key#register']('<Space>', "g:which_key_map")
 vim.g.which_key_sep = ' ﰲ '
 vim.g.which_key_hspace = 2
 vim.g.which_key_use_floating_win = 1
--- vim.g.which_key_floating_relative_win = 1
--- vim.g.which_key_floating_opts = {
---   row = '-1',
---   col = '-1',
---   width = 300,
---   height = 40,
--- }
 
 local M = {}
 

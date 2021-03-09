@@ -1,14 +1,14 @@
 -- [ LOAD CONFIG ]
 -- [ Neovim general settings ]
-local options = require 'my.options'
-local autocmd = require 'my.autocmd'
+local options = require 'nk.options'
+local autocmd = require 'nk.autocmd'
 
 -- [ Keybind ]
-local bind = require 'my.bind.default'
-local bind_plugins = require 'my.bind.plugins'
+local bind = require 'nk.bind.default'
+local bind_plugins = require 'nk.bind.plugins'
 
 -- [ Plugins settings ]
-local plugins = require 'my.plugins'
+local plugins = require 'nk.plugins'
 
 return {
   options = options,

@@ -2,7 +2,7 @@
 
 if not vim.fn.exists('fzf') then return end
 
-local bind = require 'my.utils'.bind
+local map = require 'nk.utils'.bind
 
 vim.g.fzf_layout = {window = {width = 0.8, height = 0.9}}
 vim.g.fzf_buffers_jump = 1
@@ -23,5 +23,5 @@ map('n', '<Leader>k', '<CMD>Rg <C-R><C-W><CR>')  -- Search current word under cu
 
 -- Vim spelling suggestions with fzf
 -- ( https://coreyja.com/blog/2018/11/10/vim-spelling-suggestions-fzf.html )
-map('n', 'z=', [[ <CMD>lua require'my.bind.fn'.fzf_spell()<CR> ]])
+map('n', 'z=', [[ <CMD>lua require'nk.bind.fn'.fzf_spell()<CR> ]])
 

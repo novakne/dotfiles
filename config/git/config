@@ -27,7 +27,7 @@
 [credential]
     helper = store
 [pull]
-	rebase = preserve
+	rebase = merges
 [init]
 	defaultBranch = main
 [delta]

@@ -3,7 +3,7 @@ MUtils.plugin_loaded('lspconfig')
 
 local lspconfig = require 'lspconfig'
 local configs = require 'lspconfig/configs'
-local utils = require 'my.utils'
+local utils = require 'nk.utils'
 local bmap = utils.bind_bufnr
 
 local M = {}
@@ -11,34 +11,35 @@ local M = {}
 -- vim.lsp.set_log_level("debug")
 
 -- [ Custom handlers ]
-function M.handler_init()
+M.handler_init = function()
   vim.lsp.handlers['textDocument/publishDiagnostics'] =
     vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
       underline = false,
       virtual_text = true,
       update_in_insert = false,
       -- Use a function to dynamically turn signs off
-      -- and on, using buffer local variables
+        -- and on, using buffer local variables
       signs = function(bufnr, client_id)
-        local ok, result = pcall(vim.api.nvim_buf_get_var, bufnr, 'show_signs')
+        local ok, result =
+        pcall(vim.api.nvim_buf_get_var, bufnr, 'show_signs')
+
         -- No buffer local variable set, so just enable by default
         if not ok then return true end
 
         return result
-      end,
+      end
     })
 end
 
-local function preview_location_callback(_, _, result)
-  if result == nil or vim.tbl_isempty(result) then return nil end
-  vim.lsp.util.preview_location(result[1])
-end
 
 local on_attach = function(client)
   M.handler_init()
   vim.lsp.diagnostic.set_loclist({open_loclist = false})
 
-  -- Mappings.
+  -- ---------------------------------------------
+  -- Mappings
+  -- ---------------------------------------------
+
   -- lspsaga.nvim
   bmap('n', '<Leader>lk',
     [[<CMD>lua require'lspsaga.hover'.render_hover_doc()<CR>]])
@@ -74,44 +75,44 @@ local on_attach = function(client)
     bmap('n', '<Leader>lf', '<CMD>lua vim.lsp.buf.formatting()<CR>')
   end
 
-  vim.fn.sign_define("LspDiagnosticsSignError",
-    {text = "", texthl = "LspDiagnosticsSignError"})
-  vim.fn.sign_define("LspDiagnosticsSignWarning",
-    {text = "", texthl = "LspDiagnosticsSignWarning"})
-  vim.fn.sign_define("LspDiagnosticsSignInformation",
-    {text = "", texthl = "LspDiagnosticsSignInformation"})
-  vim.fn.sign_define("LspDiagnosticsSignHint",
-    {text = "", texthl = "LspDiagnosticsSignHint"})
+  vim.fn.sign_define('LspDiagnosticsSignError',
+    {text = '', texthl = 'LspDiagnosticsSignError'})
+  vim.fn.sign_define('LspDiagnosticsSignWarning',
+    {text = '', texthl = 'LspDiagnosticsSignWarning'})
+  vim.fn.sign_define('LspDiagnosticsSignInformation',
+    {text = '', texthl = 'LspDiagnosticsSignInformation'})
+  vim.fn.sign_define('LspDiagnosticsSignHint',
+    {text = '', texthl = 'LspDiagnosticsSignHint'})
 
   vim.api.nvim_exec([[
-      augroup DiagnosticRefresh
-        autocmd!
-        autocmd BufWinEnter,TabEnter <buffer>, lua require'my.plugins.lsp'.handler_init()
-      augroup END
+    augroup DiagnosticRefresh
+    autocmd!
+    autocmd BufWinEnter,TabEnter <buffer>, lua require'nk.plugins.lsp'.handler_init()
+    augroup END
     ]], false)
 
 end
 
+
+  -- -----------------------------------------------
+  -- [ Servers ]
+  -- -----------------------------------------------
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
--- [ Setup servers ]
-function M.init()
+M.init = function()
   local lsp_dir = os.getenv('HOME') .. '/.local/lib/lsp/'
   local lua_bin = lsp_dir .. 'lua/bin/Linux/lua-language-server'
   local lua_main = lsp_dir .. 'lua/main.lua'
 
-  -- [ SERVERS ]
   configs = {
     bashls = {},
     clangd = {
       cmd = {
-        "clangd",
-        "--background-index",
-        "--suggest-missing-includes",
-        "--clang-tidy",
-        "--header-insertion=iwyu",
-      },
+        'clangd', '--background-index', '--suggest-missing-includes',
+        '--clang-tidy', '--header-insertion=iwyu'
+      }
     },
 
     sumneko_lua = {
@@ -120,22 +121,22 @@ function M.init()
         Lua = {
           runtime = {version = 'LuaJIT', path = vim.split(package.path, ';')},
           diagnostics = {
-            globals = {'vim', 'awesome', 'client', 'tag', 'screen', 'use'},
-          },
+            globals = {'vim', 'awesome', 'client', 'tag', 'screen', 'use'}
+          }
         },
         workspace = {
           library = {
             [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-            [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-          },
-        },
-      },
+            [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
+          }
+        }
+      }
     },
 
     rust_analyzer = {},
     vimls = {},
     yamlls = {},
-    zls = {},
+    zls = {cmd = {lsp_dir .. 'zls/zig-cache/bin/zls'}}
   }
 
   for server, config in pairs(configs) do
@@ -147,3 +148,4 @@ function M.init()
 end
 
 return M
+

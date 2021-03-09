@@ -2,7 +2,7 @@
 
 if not vim.fn.exists('nnn') then return end
 
-local map = require 'my.utils'.bind
+local map = require 'nk.utils'.bind
 
 vim.g['nnn#layout'] = {
   window = {width = 0.5, height = 0.6, highlight = 'Debug'},
@@ -17,3 +17,4 @@ vim.g['nnn#command'] = 'nnn -eH'
 
 -- Start in the current file's directory
 map('n', '<F6>', '<CMD>NnnPicker %:p:h<CR>')
+

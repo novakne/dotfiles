@@ -1,12 +1,9 @@
 -- [ MAPPING FOR PLUGINS ]
 if not vim.fn.exists('packer') then return end
 
-local utils = require 'my.utils'
+local utils = require 'nk.utils'
 local map = utils.bind
 
--- FTerm
-map('n', '<Leader>e', '<CMD>FTermToggle<CR>')
-map('t', '<Leader>e', '<C-\\><C-n><CMD>lua require"FTerm".toggle()<CR>')
 
 -- Hop
 map('n', 'fw', '<CMD>lua require"hop".hint_words()<CR>')
@@ -24,3 +21,4 @@ map('x', 'ga', '<Plug>(EasyAlign)', {silent = true})
 
 map('n', '<Leader>', [[:<c-u>WhichKey '<Space>'<CR>]])
 map('n', '<LocalLeader>', [[:<c-u>WhichKey  ','<CR>]])
+

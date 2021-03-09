@@ -4,10 +4,14 @@ MUtils.plugin_loaded('telescope')
 
 local telescope = require 'telescope'
 local actions = require 'telescope.actions'
-local utils = require 'my.utils'
+local utils = require 'nk.utils'
 local map = utils.bind
 
+
+-- -----------------------------------------------
 -- [ options ]
+-- -----------------------------------------------
+
 telescope.setup {
   defaults = {
     vimgrep_arguments = {
@@ -20,7 +24,7 @@ telescope.setup {
       '--smart-case',
     },
     prompt_position = 'top',
-    prompt_prefix = ' ',
+    prompt_prefix = '  ',
     selection_strategy = 'reset',
     sorting_strategy = 'ascending',
     layout_strategy = 'horizontal',
@@ -56,7 +60,11 @@ telescope.setup {
   },
 }
 
+
+-- -----------------------------------------------
 -- [ mapping ]
+-- -----------------------------------------------
+
 -- file pickers
 map('n', '<Leader>o',
   [[<CMD>lua require'telescope.builtin'.find_files({find_command = {'fd', '-i', '-t', 'file', '-H', '-L', '-E', '.git'}})<CR>]])

@@ -20,11 +20,13 @@ return require'packer'.startup(function()
   use {'wbthomason/packer.nvim', opt = true}
 
 
+  -- ---------------------------------------------
   -- [ LSP ]
+  -- ---------------------------------------------
   use {
     'neovim/nvim-lspconfig',
     config = function()
-      require'my.plugins.lsp'.init()
+      require'nk.plugins.lsp'.init()
     end,
   }
 
@@ -35,7 +37,7 @@ return require'packer'.startup(function()
       {'hrsh7th/vim-vsnip-integ', after = 'nvim-compe'}
     },
     config = function()
-      require 'my.plugins.compe'
+      require 'nk.plugins.compe'
     end,
   }
 
@@ -58,7 +60,9 @@ return require'packer'.startup(function()
   use 'nvim-lua/lsp_extensions.nvim'
 
 
+  -- ---------------------------------------------
   -- [ TREESITTER ]
+  -- ---------------------------------------------
   use {
     'nvim-treesitter/nvim-treesitter',
     requires = {
@@ -72,17 +76,19 @@ return require'packer'.startup(function()
       vim.cmd [[TSUpdate]]
     end,
     config = function()
-      require 'my.plugins.treesitter'
+      require 'nk.plugins.treesitter'
     end,
   }
 
 
+  -- ---------------------------------------------
   -- [ FILES ]
+  -- ---------------------------------------------
   use {
     'nvim-telescope/telescope.nvim',
     requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'},
     config = function()
-      require 'my.plugins.telescope'
+      require 'nk.plugins.telescope'
     end,
   }
 
@@ -91,15 +97,17 @@ return require'packer'.startup(function()
     cmd = {'Np', 'NnnPicker'},
     keys = '<F6>',
     config = function()
-      require 'my.plugins.nnn'
+      require 'nk.plugins.nnn'
     end,
   }
 
   -- use '~/.local/share/bld/fzf'
-  -- use {'junegunn/fzf.vim', config = function() require 'my.plugins.fzf' end}
+  -- use {'junegunn/fzf.vim', config = function() require 'nk.plugins.fzf' end}
 
 
+  -- ---------------------------------------------
   -- [ UI ]
+  -- ---------------------------------------------
   use {
     '~/dev/_personnal/kosmikoa.nvim',
     config = function()
@@ -108,6 +116,7 @@ return require'packer'.startup(function()
   }
   -- use {
   --   'novakne/kosmikoa.nvim',
+  --   branch = 'main',
   --   config = function()
   --     require'kosmikoa'.setup()
   --   end,
@@ -118,21 +127,21 @@ return require'packer'.startup(function()
     branch = 'main',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
     config = function()
-      require 'my.plugins.galaxyline'
+      require 'nk.plugins.galaxyline'
     end,
   }
 
   use {
     'liuchengxu/vim-which-key',
     config = function()
-      require 'my.plugins.whichkey'
+      require 'nk.plugins.whichkey'
     end,
   }
 
-  -- use 'yamatsum/nvim-cursorline'
 
-
+  -- ---------------------------------------------
   -- [ EDITING ]
+  -- ---------------------------------------------
   use {
     'terrortylor/nvim-comment',
     keys = 'gc',
@@ -144,7 +153,7 @@ return require'packer'.startup(function()
   use {
     'windwp/nvim-autopairs',
     config = function()
-      require 'my.plugins.autopairs'
+      require 'nk.plugins.autopairs'
     end,
   }
 
@@ -153,22 +162,34 @@ return require'packer'.startup(function()
   use 'tpope/vim-repeat'
 
 
+  -- ---------------------------------------------
   -- [ MISC ]
+  -- ---------------------------------------------
   use {
     'lewis6991/gitsigns.nvim',
     requires = 'nvim-lua/plenary.nvim',
     config = function()
-      require 'my.plugins.gitsigns'
+      require 'nk.plugins.gitsigns'
+    end,
+  }
+
+  use {
+    'akinsho/nvim-toggleterm.lua',
+    keys = '<Leader>e',
+    cmd = {'ToggleTerm', 'TermExec'},
+    config = function()
+      require 'nk.plugins.toggleterm'
     end,
   }
 
   use {'moll/vim-bbye', cmd = 'Bdelete'}
   use {'norcalli/nvim-colorizer.lua', cmd = 'ColorizerToggle'}
-  use {'numtostr/FTerm.nvim', cmd = 'FTermToggle'}
   use 'phaazon/hop.nvim'
 
 
+  -- ---------------------------------------------
   -- [ LANG ]
+  -- ---------------------------------------------
   use {
     'euclio/vim-markdown-composer',
     opt = true,

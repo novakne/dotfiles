@@ -3,7 +3,7 @@
 MUtils.plugin_loaded('nvim-autopairs')
 
 local npairs = require 'nvim-autopairs'
-local map = require'my.utils'.bind
+local map = require'nk.utils'.bind
 
 npairs.setup {
   break_line_filetype = nil, -- enable this rule for all filetypes
@@ -29,4 +29,5 @@ npairs.setup {
 
 vim.g.completion_confirm_key = ""
 
-map('i', '<CR>', 'v:lua.MUtils.completion_confirm()',{expr = true, noremap = true})
+map('i', '<CR>', 'v:lua.MUtils.completion_confirm()', {expr = true, noremap = true})
+

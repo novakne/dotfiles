@@ -2,8 +2,8 @@
 
 MUtils.plugin_loaded('compe')
 
-local utils = require 'my.utils'
-local map = require 'my.utils'.bind
+local utils = require 'nk.utils'
+local map = require 'nk.utils'.bind
 
 require'compe'.setup {
   enabled = true,
@@ -51,3 +51,4 @@ local autocmd = {
 }
 
 utils.create_augroups(autocmd)
+

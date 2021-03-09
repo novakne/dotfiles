@@ -1,5 +1,5 @@
 -- [ AUTOCMD ]
-local utils = require 'my.utils'
+local utils = require 'nk.utils'
 
 local autocmd = {
   -- Auto close popup menu when finish completion
@@ -15,6 +15,12 @@ local autocmd = {
     {'BufEnter', '*', 'let g:compe_enabled = v:true'},
     {'FileType', 'TelescopePrompt', 'let g:compe_enabled = v:false'},
   },
+  FtDetect = {
+    {'BufRead,BufNewFile', '*.conf', 'setlocal filetype=cfg'},
+    {'BufRead,BufNewFile', '*.jsx', 'setlocal filetype=javascript.jsx'},
+    {'BufRead,BufNewFile', '*.log,*_log,*.LO,G*_LOG', 'set filetype=log'},
+    {'BufRead,BufNewFile', '*.rasi', 'setlocal filetype=css'},
+  }
 }
 
 utils.create_augroups(autocmd)

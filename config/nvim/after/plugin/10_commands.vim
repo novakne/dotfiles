@@ -24,3 +24,7 @@ command! FixTs write | edit | TSBufEnable highlight
 " Generates Markdown qf
 command! Gmd :grep  '^\#+\s'
 command! Gpart :grep '\[{1}\s+\w.*\s+\]{1}$' %
+
+" Genrerate TOC
+command! Toc  :!toc -p %
+

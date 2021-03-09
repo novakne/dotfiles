@@ -38,3 +38,4 @@ gitsigns.setup {
   sign_priority = 6,
   status_formatter = nil, -- Use default
 }
+

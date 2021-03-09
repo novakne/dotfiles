@@ -1,5 +1,5 @@
 -- [ MAPPING ]
-local utils = require 'my.utils'
+local utils = require 'nk.utils'
 local map = utils.bind
 
 -- Normal mode with 'jk' or 'kj'
@@ -51,16 +51,16 @@ map('c', '$d', [[<CR>:d<CR>``]], {noremap = true})
 -- [ WINDOWS ]
 -- Move to the split in the direction shown, or create a new split
 -- ( https://aonemd.github.io/blog/handy-keymaps-in-vim )
-map('n', '<C-h>', [[<CMD>lua require'my.bind.fn'.win_move('h')<CR>]])
-map('n', '<C-j>', [[<CMD>lua require'my.bind.fn'.win_move('j')<CR>]])
-map('n', '<C-k>', [[<CMD>lua require'my.bind.fn'.win_move('k')<CR>]])
-map('n', '<C-l>', [[<CMD>lua require'my.bind.fn'.win_move('l')<CR>]])
+map('n', '<C-h>', [[<CMD>lua require'nk.bind.fn'.win_move('h')<CR>]])
+map('n', '<C-j>', [[<CMD>lua require'nk.bind.fn'.win_move('j')<CR>]])
+map('n', '<C-k>', [[<CMD>lua require'nk.bind.fn'.win_move('k')<CR>]])
+map('n', '<C-l>', [[<CMD>lua require'nk.bind.fn'.win_move('l')<CR>]])
 
 -- Intelligent windows resizing using ctrl + arrow keys
 map('n', '<C-Right>',
-  [[<CMD>lua require'my.bind.fn'.vertical_resize('right')<CR>]])
+  [[<CMD>lua require'nk.bind.fn'.vertical_resize('right')<CR>]])
 map('n', '<C-Left>',
-  [[<CMD>lua require'my.bind.fn'.vertical_resize('left')<CR>]])
+  [[<CMD>lua require'nk.bind.fn'.vertical_resize('left')<CR>]])
 map('n', '<C-Up>', '<CMD>resize -1<CR>')
 map('n', '<C-Down>', '<CMD>resize +1<CR>')
 
@@ -88,8 +88,8 @@ map('n', '<F9>', '<CMD>setlocal spell! spelllang=en<CR>')
 map('n', '<F10>', '<CMD>setlocal spell! spelllang=fr<CR>')
 
 -- Get color group name of the syntax group where the cursor is
-map('n', '<F12>', [[<CMD>lua require'my.bind.fn'.syntax_group()<CR>]])
+map('n', '<F12>', [[<CMD>lua require'nk.bind.fn'.syntax_group()<CR>]])
 
 -- Toggle between number and relative number
-map('n', '<Leader>à', [[<CMD>lua require'my.bind.fn'.toggle_number()<CR>]])
+map('n', '<Leader>à', [[<CMD>lua require'nk.bind.fn'.toggle_number()<CR>]])
 

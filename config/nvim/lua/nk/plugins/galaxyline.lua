@@ -43,16 +43,16 @@ gls.left[1] = {
   ViMode = {
     provider = function()
       local mode = {
-        n      = {color = colors.yellow,   name = 'N'},
+        n      = {color = colors.yellow,  name = 'N'},
         i      = {color = colors.pink00,  name = 'I'},
-        v      = {color = colors.green,    name = 'V'},
-        [''] = {color = colors.green,    name = 'V'},
-        V      = {color = colors.green,    name = 'V'},
+        v      = {color = colors.green,   name = 'V'},
+        [''] = {color = colors.green,   name = 'V'},
+        V      = {color = colors.green,   name = 'V'},
         c      = {color = colors.orange,  name = 'C'},
-        no     = {color = colors.yellow,   name = 'No'},
-        s      = {color = colors.pink01,     name = 'S'},
-        S      = {color = colors.pink01,     name = 'S'},
-        [''] = {color = colors.pink01,     name = 'S'},
+        no     = {color = colors.yellow,  name = 'No'},
+        s      = {color = colors.pink01,  name = 'S'},
+        S      = {color = colors.pink01,  name = 'S'},
+        [''] = {color = colors.pink01,  name = 'S'},
         ic     = {color = colors.pink00,  name = 'Ic'},
         R      = {color = colors.blue,    name = 'R'},
         Rv     = {color = colors.blue,    name = 'R'},
@@ -64,10 +64,12 @@ gls.left[1] = {
         ['!']  = {color = colors.magenta, name = '!'},
         t      = {color = colors.magenta, name = 'T'},
       }
+
       vim.api
         .nvim_command('hi GalaxyViMode guifg=' .. mode[vim.fn.mode()].color)
       return ' ' .. mode[vim.fn.mode()].name .. '  '
     end,
+
     highlight = {colors.pink01, colors.base00, 'bold'},
   },
 }
