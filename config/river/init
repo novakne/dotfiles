@@ -15,8 +15,8 @@ source "${river_dir}"/themes/kosmikoa
 # ------------------------------------------------
 
 riverctl set-repeat 50 300      # Set repeat rate
-riverctl layout rivertile right # Set the layout on startup
-riverctl attach-mode top
+riverctl layout rivertile left # Set the layout on startup
+riverctl attach-mode bottom
 riverctl focus-follows-cursor normal
 
 # Set app-ids of views which should float
