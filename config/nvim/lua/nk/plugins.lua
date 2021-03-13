@@ -175,7 +175,7 @@ return require'packer'.startup(function()
 
   use {
     'akinsho/nvim-toggleterm.lua',
-    keys = '<Leader>e',
+    keys = '<C-e>',
     cmd = {'ToggleTerm', 'TermExec'},
     config = function()
       require 'nk.plugins.toggleterm'
@@ -207,7 +207,7 @@ return require'packer'.startup(function()
   -- [ /tmp ]
   use 'dahu/VimRegexTutor'
   -- use 'dstein64/vim-startuptime'
-  -- use 'tweekmonster/startuptime.vim'
+  use 'tweekmonster/startuptime.vim'
 
 
 end)

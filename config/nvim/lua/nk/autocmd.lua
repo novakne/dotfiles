@@ -4,6 +4,8 @@ local utils = require 'nk.utils'
 local autocmd = {
   -- Auto close popup menu when finish completion
   CompletAuto = {{'CompleteDone', '*', 'if pumvisible() == 0 | pclose | endif'}},
+  -- Fix Neovim opening at te wrong size when doing `footclient nvim`
+  FixNvim = {{'VimEnter', '*', ':silent exec "!kill -s SIGWINCH $PPID"'}},
   HighlightYank = {
     {
       'TextYankPost',

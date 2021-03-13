@@ -15,16 +15,6 @@ command! Cdt :tcd %:p:h
 " Fzf
 " command! -nargs=* -bang RG lua require'my.utils'.ripgrep_fzf(<q-args>, <bang>0)
 
-" Lua Format
-command! LF !lua-format -i %
-
 " Fix Treesitter
 command! FixTs write | edit | TSBufEnable highlight
-
-" Generates Markdown qf
-command! Gmd :grep  '^\#+\s'
-command! Gpart :grep '\[{1}\s+\w.*\s+\]{1}$' %
-
-" Genrerate TOC
-command! Toc  :!toc -p %
 

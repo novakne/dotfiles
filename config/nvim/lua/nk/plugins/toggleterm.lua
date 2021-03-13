@@ -5,7 +5,7 @@ local tt = require 'toggleterm'
 
 tt.setup{
   size = 15,
-  open_mapping = [[<Leader>e]],
+  open_mapping = [[<C-e>]],
   shade_filetypes = {},
   shade_terminals = false,
   -- the degree by which to darken to terminal colour
