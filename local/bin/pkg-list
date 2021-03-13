@@ -35,7 +35,7 @@ main() {
   file_date=$(date +"%Y_%m_%d")
 
   # Create pkg_dir if it doesn't exists
-  [[ ! -d ${pkg_dir} ]] &>/dev/null && mkdir -p "${pkg_dir}"
+  [[ ! -d ${pkg_dir} ]] >/dev/null 2>&1 && mkdir -p "${pkg_dir}"
 
   case "$1" in
     -a | --all)
@@ -67,3 +67,4 @@ main() {
 }
 
 main "$@"
+

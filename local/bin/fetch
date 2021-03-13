@@ -46,7 +46,10 @@ CTEXT="$WHT" # color of entry text
 # format: mkent NAME TEXT
 mkent "OS" "Arch Linux"
 mkent "Kernel" "$(uname -r | cut -d '-' -f1)"
-mkent "WM" "$(xprop -id $(xprop -root -notype | awk '$1=="_NET_SUPPORTING_WM_CHECK:"{print $5}') -notype -f _NET_WM_NAME 8t | grep "WM_NAME" | cut -f2 -d \")"
+mkent "WM" "$(xprop -id $(xprop -root -notype \
+  | awk '$1=="_NET_SUPPORTING_WM_CHECK:"{print $5}') -notype -f _NET_WM_NAME 8t \
+  | grep "WM_NAME" \
+  | cut -f2 -d \")"
 mkent "Shell" "$(basename $(printenv SHELL))"
 mkent "Packages" "$(pacman -Q | wc -l)"
 # mkent "Uptime" "$(uptime -p | sed 's/up //')"
@@ -85,3 +88,4 @@ read -n 1
 
 # give the cursor back
 tput cnorm
+

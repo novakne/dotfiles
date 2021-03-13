@@ -8,7 +8,7 @@ sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 mirror_list () {
   now=$(date +"%Y-%m-%d")
 
-  printf '%s\n%s\n%s\n%s\n \n%s\n'\
+  printf -- '%s\n%s\n%s\n%s\n \n%s\n'\
     "##"\
     "## Arch Linux repository mirrorlist"\
     "## Generated on {$now}"\
@@ -21,3 +21,4 @@ mirror_list () {
 }
 
 mirror_list > /etc/pacman.d/mirrors.txt
+

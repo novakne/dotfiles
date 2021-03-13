@@ -25,3 +25,4 @@ case ${selection} in
   ("$suspend") [[ $(confirm "$@") = 1 ]] && (systemctl suspend) ;;
   ("$hibernate") [[ $(confirm "$@") = 1 ]] && (systemctl hibernate) ;;
 esac
+

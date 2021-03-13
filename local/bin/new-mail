@@ -9,3 +9,4 @@ mbsync -c "$HOME"/.config/isync/mbsyncrc -Va
 
 printf -- '\e[31m%s\n\e[0m' "==> Tagging new mail..."
 notmuch new
+

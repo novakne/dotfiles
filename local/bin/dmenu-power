@@ -4,7 +4,15 @@
 
 
 declare -a dmenu_opts
-dmenu_opts=(-i -h 28 -fn Overpass -nb '#23222b' -nf '#eae9ee' -sb '#e8ec77' -sf '#23222b')
+
+dmenu_opts=( \
+  -i -h 28 \
+  -fn Overpass \
+  -nb '#23222b' \
+  -nf '#eae9ee' \
+  -sb '#e8ec77' \
+  -sf '#23222b'\
+)
 
 confirm() {
     printf -- '%s\n%s\n' "Yes" "No" \
@@ -21,10 +29,12 @@ options="${quit}\n${shutdown}\n${reboot}\n${suspend}\n${hibernate}"
 selection=$(echo -e "${options}" | dmenu-wl "${dmenu_opts[@]}" -p 'Exit: ')
 
 case ${selection} in
-    ("$quit") riverctl exit ;;
-    ("$shutdown") [[ $(confirm "$@") = 1 ]] && (systemctl poweroff) ;;
-    ("$reboot") [[ $(confirm "$@") = 1 ]] && (systemctl reboot) ;;
-    ("$suspend") [[ $(confirm "$@") = 1 ]] && (systemctl suspend) ;;
-    ("$hibernate") [[ $(confirm "$@") = 1 ]] && (systemctl hibernate) ;;
+    "$quit") riverctl exit ;;
+    "$shutdown") [[ $(confirm "$@") = 1 ]] && (systemctl poweroff) ;;
+    "$reboot") [[ $(confirm "$@") = 1 ]] && (systemctl reboot) ;;
+    "$suspend") [[ $(confirm "$@") = 1 ]] && (systemctl suspend) ;;
+    "$hibernate") [[ $(confirm "$@") = 1 ]] && (systemctl hibernate) ;;
 esac
+
+unset dmenu_opts
 

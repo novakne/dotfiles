@@ -3,7 +3,7 @@
 # Extract archive
 
 
-err() {
+_err() {
   printf -- '%s\n' "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $*" >&2
 }
 
@@ -24,12 +24,13 @@ extract () {
       *.Z)         uncompress "$1"  ;;
       *.7z)        7z x "$1"  ;;
       *)
-        err "$1 cannot be extracted via extract()"
+        _err "$1 cannot be extracted via extract()"
         exit 1
         ;;
     esac
   else
-    err "$1 is not a valid file"
+    _err "$1 is not a valid file"
     exit 1
   fi
 }
+

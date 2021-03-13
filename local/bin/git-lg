@@ -16,3 +16,5 @@ git log \
     --format="%w(${width},,${width2})%C(bold yellow)%h %C(bold blue)%<(18,trunc)%an %C(bold green)%<(14)%cd %C(auto)%d %Creset%s" \
     "$@"
 
+unset -v length hash_length width width2
+

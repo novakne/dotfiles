@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 #
-# Fuzzel default options
+# Launch uzzel
 
 
-fuzzel -I \
+declare -a fuzzel_opts
+
+fuzzel_opts=( \
+  -I \
   -f 'Overpass' \
   -T 'footclient' \
   -b '23222bff' \
@@ -11,4 +14,10 @@ fuzzel -I \
   -t 'eae9eeff' \
   -m 'e8ec77ff' \
   -C '57bbf4ff' \
-  -x 10 -y 5 -r 4 -l 5
+  -x 10 -y 5 -r 4 -l 5 \
+)
+
+fuzzel "${fuzzel_opts[@]}" <&0
+
+unset fuzzel_opts
+

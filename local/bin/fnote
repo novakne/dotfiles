@@ -5,12 +5,17 @@
 
 
 declare file line notes_dir
-notes_dir="$XDG_DATA_HOME"/notes
+declare -a rg_opts
 
-read -r file line <<<"$(rg --color=always --no-heading --line-number --smart-case --only-matching '^\#+\s.*$' "${notes_dir}"  2>/dev/null \
+notes_dir="$XDG_DATA_HOME"/notes
+rg_opts=( --color=always --no-heading --line-number --smart-case --only-matching )
+
+read -r file line <<<"$(rg "${rg_opts[@]}" -- '^\#+\s.*$' "${notes_dir}"  2>/dev/null \
     | fzf -0 -1 --query="$1" \
     | awk -F: '{print $1, $2}')"
 
 [[ -n "${file}" ]] && "${EDITOR:-nvim}" "${file}" +"${line}"
 
 unset -v file line
+unset rg_opts
+

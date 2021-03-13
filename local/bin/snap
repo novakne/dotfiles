@@ -65,7 +65,7 @@ main() {
   screen_file=${screen_dir}/${screen_date}.png
 
   # Make the screenshot dir if it doesn't exist
-  [[ ! -d ${screen_dir} ]] &>/dev/null && mkdir -p "${screen_dir}"
+  [[ ! -d ${screen_dir} ]] >/dev/null 2>&1 && mkdir -p "${screen_dir}"
 
   case "$1" in
     -f | --fullscreen)
@@ -128,3 +128,4 @@ main() {
 }
 
 main "$@"
+

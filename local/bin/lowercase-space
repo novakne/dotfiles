@@ -5,7 +5,7 @@
 #   '_' and'-' with 'space'
 
 _lower() {
-    printf '%s\n' "${1,,}"
+    printf -- '%s\n' "${1,,}"
 }
 
 main() {
@@ -18,3 +18,4 @@ main() {
 }
 
 main "$@"
+

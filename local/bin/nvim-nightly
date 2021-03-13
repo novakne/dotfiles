@@ -12,3 +12,4 @@ mv nvim.appimage "$HOME"/.local/bin/app/nv
 
 # Make it executable
 chmod 774 "$HOME"/.local/bin/app/nv
+

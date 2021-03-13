@@ -6,3 +6,4 @@
 cd "$XDG_DATA_HOME"/bld/fzf
 git pull
 ./install --bin --no-update-rc
+
