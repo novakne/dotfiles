@@ -205,7 +205,7 @@ return require'packer'.startup(function()
 
 
   -- [ /tmp ]
-  use 'dahu/VimRegexTutor'
+  -- use 'dahu/VimRegexTutor'
   -- use 'dstein64/vim-startuptime'
   use 'tweekmonster/startuptime.vim'
 
