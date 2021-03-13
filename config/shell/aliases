@@ -32,6 +32,9 @@ alias N='sudo -E nnn -e'
 alias del='trash-put'
 alias restore='trash-restore'
 
+# [ Lang ]
+alias z7='zig-0.7.1v'
+
 # [ Files ]
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
@@ -44,6 +47,7 @@ alias cmx='chmod 774'
 alias perm='stat -c "%A %a %n"'
 alias sedit='sudo -E "${EDITOR:-nvim}"'
 alias enote='cd "$XDG_DATA_HOME"/notes && nvim'
+alias qnote='nvim "$XDG_DATA_HOME"/notes/quick.md'
 
 # [ Misc ]
 alias :q='exit'

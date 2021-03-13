@@ -69,6 +69,7 @@ n:~/.config/nvim;\
 z:~/.config/zsh;\
 a:~/.config/awesome;\
 s:~/.config/shell;\
+r:~/.config/river;\
 i:~/img;\
 g:~/dev;\
 b:~/.local/share/bld;\
