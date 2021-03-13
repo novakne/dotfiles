@@ -163,7 +163,7 @@ bar:
                         foreground: *pink
                     - string:
                         text: '{volume}'
-                        foreground: *pink
+                        font: *myfont
               false:
                 list:
                   spacing: 3
