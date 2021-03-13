@@ -22,3 +22,5 @@ plug.vim
 .zcompdump
 .uuid
 dotbot/
+
+zig-cache/
