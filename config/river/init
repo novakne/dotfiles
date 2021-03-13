@@ -153,9 +153,12 @@ riverctl map normal $mod+Shift+Ctrl ccedilla toggle-view-tags 256
 
 # Mod+0 to focus all tags
 # Mod+Shift+0 to tag focused view with all tags
-all_tags=$(((1 << 32) - 1))
-riverctl map normal $mod agrave set-focused-tags $all_tags
-riverctl map normal $mod+Shift agrave set-view-tags $all_tags
+# all_tags=$(((1 << 32) - 1))
+# riverctl map normal $mod agrave set-focused-tags $all_tags
+# riverctl map normal $mod+Shift agrave set-view-tags $all_tags
+tags1to9=$(((1 << 9) - 1))
+riverctl map normal $mod agrave set-focused-tags $tags1to9
+riverctl map normal $mod+Shift agrave set-view-tags $tags1to9
 
 
 # [ Layouts ]
