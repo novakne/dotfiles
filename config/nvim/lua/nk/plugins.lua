@@ -101,8 +101,9 @@ return require'packer'.startup(function()
     end,
   }
 
-  -- use '~/.local/share/bld/fzf'
-  -- use {'junegunn/fzf.vim', config = function() require 'nk.plugins.fzf' end}
+  use 'kevinhwang91/nvim-bqf'
+  use '~/.local/share/bld/fzf'
+  use {'junegunn/fzf.vim', config = function() require 'nk.plugins.fzf' end}
 
 
   -- ---------------------------------------------

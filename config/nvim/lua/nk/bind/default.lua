@@ -24,6 +24,8 @@ map('n', '<Leader>!', '<CMD>q!<CR>')
 -- Apend ;/, at the end of the line
 map('n', '<Leader>;', '<CMD>normal A;<CR>')
 map('n', '<Leader>,', '<CMD>normal A,<CR>')
+map('i', '<C-;>', '<CMD>normal A;<CR>')
+map('i', '<C-,>', '<CMD>normal A,<CR>')
 
 map('n', 'yc', 'vawy')  -- Yank the world under the cursor
 map('n', 's', '"_d')    -- Make s act like d, except it doesn’t save the cut text to a register

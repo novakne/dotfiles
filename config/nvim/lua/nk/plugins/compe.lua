@@ -22,16 +22,16 @@ require'compe'.setup {
 
   source = {
     path = true,
-    buffer = true,
-    calc = true,
+    -- buffer = true,
+    -- calc = true,
     omni = true,
     vsnip = true,
     nvim_lsp = true,
     nvim_lua = true,
-    spell = true,
-    tags = true,
+    -- spell = true,
+    -- tags = true,
     snippetSupport = true,
-    treesitter = true,
+    -- treesitter = true,
   },
 }
 
