@@ -97,6 +97,7 @@ Prompt_ [Starship](https://github.com/starship/starship)
   - `fimg`     - Open images in `sxiv` [ _fzf_ ]
   - `fin`      - Install pkg with `paru` [ _fzf_ ]
   - `fkill`    - Kill processes [ _fzf_ ]
+  - `fman`     - Search man pages [ _fzf_ ]
   - `fpkg`     - Search installed packages [ _fzf_ ]
   - `fre`      - Remove pkg with `paru` [ _fzf_ ]
   - `frg`      - Fuzzy grep with `ripgrep` and open in default editor [ _fzf_ ]
@@ -106,6 +107,7 @@ Prompt_ [Starship](https://github.com/starship/starship)
   - `hglob`    - Help for zsh glob
   - `mcd`      - mkdir and cd to new dir
   - `n`        - `nnn` cd on quit
+  - `rgv`      - Search with ripgrep and open in nvim quicklist
   - `up`       - Go up N dir `(e.g. up 2)`
   - `zn`       - Jump to a directory with `zoxide` and open it in `neovim`
 * **plugins/** - Personnal colors, dircolors, osc7 and starship config
@@ -127,18 +129,14 @@ Prompt_ [Starship](https://github.com/starship/starship)
 
 **$HOME/.config/zsh/**
 * **completions/** - User auto completions for some cli tools
-* **plugins/**
-  * **zinit/** - Zinit plugins directories 
+* **plugins/** - Submodules
+  * [fast-syntax-highlighting](https://github.com/zdharma/fast-syntax-highlighting)
+  * [forgit](https://github.com/wfxr/forgit)
+  * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+  * [zsh-completions](https://github.com/zsh-users/zsh-completions)
 * *.zlogin*    - Post .zshrc
 * *.zprofile*  - Login pre .zshrc
 * *.zshrc*     - Everything
-
-Lazy loaded with [Zinit](https://github.com/zdharma/zinit)
-
-* [fast-syntax-highlighting](https://github.com/zdharma/fast-syntax-highlighting)
-* [forgit](https://github.com/wfxr/forgit)
-* [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-* [zsh-completions](https://github.com/zsh-users/zsh-completions)
 
 ### Cli tools
 
@@ -166,6 +164,11 @@ Lazy loaded with [Zinit](https://github.com/zdharma/zinit)
 * `dwl-start`        - Script to use at dwl launch
 * `extract`          - Extract archive
 * `fetch`            - Show basic system infos
+* `fnote`            - Search for header in markdown files
+* `foot-float`       - Open a floating foot window in river
+* `fpass`            - Fuzzy search paswords in pass and copy it
+* `ftnote`           - Search for `@tag` in markdown files
+* `fuzzel-run`       - Launch fuzzel with default args
 * `git-lg`           - Better git log
 * `git-st`           - Better git status
 * `lowercase-space`  - Change to lowercase and add space
@@ -177,6 +180,7 @@ Lazy loaded with [Zinit](https://github.com/zdharma/zinit)
 * `rofi-power_menu`  - Open a exit menu in `rofi`
 * `snap`             - Take screenshot with maim & slop or grim & slurp
 * `sxhkd-key`        - Show `sxkhd` mappings in `fzf`
+* `update-foot`      - Update foot ( master branch )
 * `update-fzf`       - Update fzf local repo
 * `update-mirror`    - Get a list of fastest French mirror
 * `update-sumneko`   - Update lua LSP
