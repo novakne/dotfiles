@@ -35,7 +35,10 @@ _prepend_path() { PATH="$1${PATH:+:${PATH}}"; }
 [[ "$XDG_SESSION_TYPE" == "wayland" ]] && . "$HOME"/.local/bin/wayland-env
 
 
+# ------------------------------------------------
 # [ Zsh options ]
+# ------------------------------------------------
+
 # [ Completions ]
 setopt ALWAYS_TO_END    # Move cursor to the end of a completed word
 setopt AUTO_PARAM_SLASH # If completed parameter is a directory, add a trailing slash
@@ -125,9 +128,12 @@ setopt NO_HIST_BEEP
 setopt NO_LIST_BEEP
 
 
+# ------------------------------------------------
+# [ User custom ]
+# ------------------------------------------------
+
 # [ Aliases ]
 [[ -r "${_shell_dir}"/aliases ]] && . "${_shell_dir}"/aliases
-
 
 # [ Environment variables ]
 if [[ -d "${_shell_env_dir}" ]]; then
@@ -136,14 +142,23 @@ if [[ -d "${_shell_env_dir}" ]]; then
   done
 fi
 
+# [ Functions ]
+if [[ -d "${_shell_fun_dir}" ]]; then
+    fpath+=("${_shell_fun_dir}")
 
-# [ Zsh completions ]
+    for fun in "${_shell_fun_dir}"/*; do
+        autoload -Uz ${fun:t}
+    done
+fi
+
+# [ Completions ]
 [[ -d "$ZDOTDIR"/completions ]] && fpath+=("$ZDOTDIR"/completions)
 
-# # Load and initialize the completion system ignoring insecure directories with a
+# Load and initialize the completion system ignoring insecure directories with a
 # cache time of 20 hours, so it should almost always regenerate the first time a
 # shell is opened each day.
 autoload -Uz compinit
+
 _comp_path="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
 
 # #q expands globs in conditional expressions
@@ -157,18 +172,29 @@ fi
 
 unset _comp_path
 
+# Change terminal title
+autoload -Uz add-zsh-hook
 
-# [ Functions ]
-if [[ -d "${_shell_fun_dir}" ]]; then
-    fpath+=("${_shell_fun_dir}")
+xterm_title_precmd () {
+	print -Pn -- '\e]2;%n@%m %~\a'
+	[[ "$TERM" == 'screen'* ]] && print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-}\e\\'
+}
 
-    for fun in "${_shell_fun_dir}"/*; do
-        autoload -Uz ${fun:t}
-    done
+xterm_title_preexec () {
+	print -Pn -- '\e]2;%n@%m %~ %# ' && print -n -- "${(q)1}\a"
+	[[ "$TERM" == 'screen'* ]] && { print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-} %# ' && print -n -- "${(q)1}\e\\"; }
+}
+
+if [[ "$TERM" == (alacritty*|foot*|kitty*|screen*|tmux*|xterm*) ]]; then
+	add-zsh-hook -Uz precmd xterm_title_precmd
+	add-zsh-hook -Uz preexec xterm_title_preexec
 fi
 
 
+# ------------------------------------------------
 # [ Plugins ]
+# ------------------------------------------------
+
 # [ Fast syntax highlighting ]
 source "${_zsh_plugins_dir}"/fsh/fast-syntax-highlighting.plugin.zsh
 
