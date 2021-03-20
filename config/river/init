@@ -4,10 +4,17 @@
 
 
 declare river_dir
+declare -a azerty tags main_fctr main_amt
+
+# Workaround for azerty keyboard
+azerty=( ampersand eacute quotedbl apostrophe parenleft minus egrave underscore ccedilla )
+tags=( 1 2 4 8 16 32 64 128 256 )
+main_fctr=( 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 )
+main_amt=( 1 2 3 4 5 6 7 8 9 )
+
 river_dir="$XDG_CONFIG_HOME"/river
 
 source "${river_dir}"/autostart
-source "${river_dir}"/themes/kosmikoa
 
 
 # ------------------------------------------------
@@ -15,9 +22,14 @@ source "${river_dir}"/themes/kosmikoa
 # ------------------------------------------------
 
 riverctl set-repeat 50 300      # Set repeat rate
-riverctl layout rivertile left # Set the layout on startup
+# Set the layout on startup
+# riverctl layout rivertile tile-left
+riverctl spawn rivertile
+riverctl set-option -focused-output layout tile-left
 riverctl attach-mode bottom
 riverctl focus-follows-cursor normal
+
+source "${river_dir}"/themes/kosmikoa
 
 # Set app-ids of views which should float
 riverctl float-filter-add "float"
@@ -75,16 +87,6 @@ riverctl map normal $mod+Shift Comma send-to-output previous
 # Mod+Return to bump the focused view to the top of the layout stack
 riverctl map normal $mod+Shift Return zoom
 
-# Mod+H and Mod+L to decrease/increase the main factor by 5%
-# If using rivertile(1) this determines the width of the main stack.
-riverctl map normal $mod L mod-main-factor -0.05
-riverctl map normal $mod H mod-main-factor +0.05
-
-# Mod+Shift+H and Mod+Shift+L to increment/decrement the number of
-# main views in the layout
-riverctl map normal $mod+Shift H mod-main-count +1
-riverctl map normal $mod+Shift L mod-main-count -1
-
 # Mod+Alt+{H,J,K,L} to move views
 riverctl map normal $mod+Mod1 H move left 100
 riverctl map normal $mod+Mod1 J move down 100
@@ -110,46 +112,33 @@ riverctl map-pointer normal $mod BTN_LEFT move-view
 riverctl map-pointer normal $mod BTN_RIGHT resize-view
 
 
+# [ Layouts ]
+riverctl map normal $mod Space toggle-float  # Mod+Space to toggle float
+riverctl map normal $mod F toggle-fullscreen # Mod+F to toggle fullscreen
+
+# Mod+{Up,Right,Down,Left} to change layout orientation
+riverctl map normal $mod Up spawn riverctl set-option -focused-output layout tile-up
+riverctl map normal $mod Right spawn riverctl set-option -focused-output layout tile-right
+riverctl map normal $mod Down spawn riverctl set-option -focused-output layout tile-down
+riverctl map normal $mod Left spawn riverctl set-option -focused-output layout tile-left
+
+for i in {0..9}; do
+  # Decrease/increase the main factor
+  # If using rivertile(1) this determines the width of the main stack.
+  riverctl map normal $mod+Mod1 "${azerty[i]}" spawn riverctl set-option \
+    -focused-output main_factor "${main_fctr[i]}"
+  # Increment/decrement the number of main views in the layout
+  riverctl map normal $mod+Mod1+Shift "${azerty[i]}" spawn riverctl set-option \
+    -focused-output main_amount "${main_amt[i]}"
+done
+
 # [ Tags ]
-riverctl map normal $mod ampersand set-focused-tags 1
-riverctl map normal $mod eacute set-focused-tags 2
-riverctl map normal $mod quotedbl set-focused-tags 4
-riverctl map normal $mod apostrophe set-focused-tags 8
-riverctl map normal $mod parenleft set-focused-tags 16
-riverctl map normal $mod minus set-focused-tags 32
-riverctl map normal $mod egrave set-focused-tags 64
-riverctl map normal $mod underscore set-focused-tags 128
-riverctl map normal $mod ccedilla set-focused-tags 256
-
-riverctl map normal $mod+Shift ampersand set-view-tags 1
-riverctl map normal $mod+Shift eacute set-view-tags 2
-riverctl map normal $mod+Shift quotedbl set-view-tags 4
-riverctl map normal $mod+Shift apostrophe set-view-tags 8
-riverctl map normal $mod+Shift parenleft set-view-tags 16
-riverctl map normal $mod+Shift minus set-view-tags 32
-riverctl map normal $mod+Shift egrave set-view-tags 64
-riverctl map normal $mod+Shift underscore set-view-tags 128
-riverctl map normal $mod+Shift ccedilla set-view-tags 256
-
-riverctl map normal $mod+Ctrl ampersand toggle-focused-tags 1
-riverctl map normal $mod+Ctrl eacute toggle-focused-tags 2
-riverctl map normal $mod+Ctrl quotedbl toggle-focused-tags 4
-riverctl map normal $mod+Ctrl apostrophe toggle-focused-tags 8
-riverctl map normal $mod+Ctrl parenleft toggle-focused-tags 16
-riverctl map normal $mod+Ctrl minus toggle-focused-tags 32
-riverctl map normal $mod+Ctrl egrave toggle-focused-tags 64
-riverctl map normal $mod+Ctrl underscore toggle-focused-tags 128
-riverctl map normal $mod+Ctrl ccedilla toggle-focused-tags 256
-
-riverctl map normal $mod+Shift+Ctrl ampersand toggle-view-tags 1
-riverctl map normal $mod+Shift+Ctrl eacute toggle-view-tags 2
-riverctl map normal $mod+Shift+Ctrl quotedbl toggle-view-tags 4
-riverctl map normal $mod+Shift+Ctrl apostrophe toggle-view-tags 8
-riverctl map normal $mod+Shift+Ctrl parenleft toggle-view-tags 16
-riverctl map normal $mod+Shift+Ctrl minus toggle-view-tags 32
-riverctl map normal $mod+Shift+Ctrl egrave toggle-view-tags 64
-riverctl map normal $mod+Shift+Ctrl underscore toggle-view-tags 128
-riverctl map normal $mod+Shift+Ctrl ccedilla toggle-view-tags 256
+for i in {0..9}; do
+  riverctl map normal $mod "${azerty[i]}" set-focused-tags "${tags[i]}"
+  riverctl map normal $mod+Shift "${azerty[i]}" set-view-tags "${tags[i]}"
+  riverctl map normal $mod+Control "${azerty[i]}" toggle-focused-tags "${tags[i]}"
+  riverctl map normal $mod+Shift+Control "${azerty[i]}" toggle-view-tags "${tags[i]}"
+done
 
 # Mod+0 to focus all tags
 # Mod+Shift+0 to tag focused view with all tags
@@ -159,18 +148,6 @@ riverctl map normal $mod+Shift+Ctrl ccedilla toggle-view-tags 256
 tags1to9=$(((1 << 9) - 1))
 riverctl map normal $mod agrave set-focused-tags $tags1to9
 riverctl map normal $mod+Shift agrave set-view-tags $tags1to9
-
-
-# [ Layouts ]
-riverctl map normal $mod Space toggle-float  # Mod+Space to toggle float
-riverctl map normal $mod F toggle-fullscreen # Mod+F to toggle fullscreen
-riverctl map normal $mod M layout full       # Mod+M to change to Full layout
-
-# Mod+{Up,Right,Down,Left} to change layout orientation
-riverctl map normal $mod Up layout rivertile top
-riverctl map normal $mod Right layout rivertile right
-riverctl map normal $mod Down layout rivertile bottom
-riverctl map normal $mod Left layout rivertile left
 
 
 # [ Passthrough ]
@@ -206,4 +183,4 @@ riverctl map normal $mod+Shift Print spawn 'snap -s'
 
 
 unset -v river_dir
-
+unset -v azerty tags main_fctr main_amt
