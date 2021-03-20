@@ -3,7 +3,8 @@
 # Update fzf
 
 
-cd "$XDG_DATA_HOME"/bld/fzf
+cd "$XDG_DATA_HOME"/bld/fzf || exit
+
 git pull
 ./install --bin --no-update-rc
 

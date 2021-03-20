@@ -3,11 +3,11 @@
 # Update sunneko lua LSP
 
 
-cd "$HOME"/.local/lib/lsp/lua
+cd "$HOME"/.local/lib/lsp/lua || exit
 
 git pull origin master
 git submodule update --init --recursive
-cd 3rd/luamake
+cd 3rd/luamake || exit
 ninja -f ninja/linux.ninja
 cd ../..
 ./3rd/luamake/luamake rebuild
