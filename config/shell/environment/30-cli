@@ -56,7 +56,7 @@ _is_command notmuch && export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/config
 
 # [ Nnn ]
 if _is_command nnn; then
-    export NNN_OPTS="ceEH"
+    export NNN_OPTS="ceEHr"
     export NNN_COLORS='3415'
     export NNN_FCOLORS='070704030f05060808010301'
     export NNN_TRASH=1
