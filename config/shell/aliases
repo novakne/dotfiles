@@ -57,4 +57,5 @@ alias wname='xprop | grep WM_CLASS'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME"/wget-hsts'
 alias awesometest='Xephyr :5 & sleep 1 ; DISPLAY=:5 awesome'
 alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
+alias rgi='rg --no-ignore'
 

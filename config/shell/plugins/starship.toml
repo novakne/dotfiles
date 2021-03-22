@@ -199,7 +199,9 @@ show_always = false
 disabled = false
 
 [zig]
-format = "via [ $version](cyan)"
+format = "[⚡️Zig ](cyan)"
+disabled = false
+
 [custom]
 
 # [custom.tab]
