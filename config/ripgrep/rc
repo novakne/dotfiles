@@ -9,13 +9,12 @@
 !git/*
 
 # Theme
-# --colors=line:fg:yellow
-# --colors=line:style:bold
-# --colors=path:fg:green
-# --colors=path:style:bold
-# --colors=match:fg:black
-# --colors=match:bg:yellow
-# --colors=match:style:nobold
+--colors=line:fg:yellow
+--colors=line:style:nobold
+--colors=path:fg:blue
+--colors=path:style:underline
+--colors=match:fg:red
+--colors=match:style:bold
 
 --smart-case
 
