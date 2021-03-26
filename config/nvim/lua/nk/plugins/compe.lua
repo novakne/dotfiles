@@ -7,7 +7,7 @@ local map = require 'nk.utils'.bind
 
 require'compe'.setup {
   enabled = true,
-  -- autocomplete = true,
+  autocomplete = true,
   debug = false,
   min_length = 2,
   preselect = 'disable',
@@ -18,20 +18,20 @@ require'compe'.setup {
   max_kind_width = 100,
   max_menu_width = 100,
   documentation = true,
-  allow_prefix_unmatch = false,
+  -- allow_prefix_unmatch = false,
 
   source = {
     path = true,
-    -- buffer = true,
+    buffer = true,
     -- calc = true,
-    omni = true,
+    -- omni = true,
     vsnip = true,
     nvim_lsp = true,
     nvim_lua = true,
     -- spell = true,
     -- tags = true,
-    snippetSupport = true,
-    -- treesitter = true,
+    -- snippetSupport = true,
+    -- nvim_treesitter = true,
   },
 }
 

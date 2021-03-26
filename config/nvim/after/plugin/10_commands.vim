@@ -18,3 +18,9 @@ command! Cdt :tcd %:p:h
 " Fix Treesitter
 command! FixTs write | edit | TSBufEnable highlight
 
+" Grep [ word ]
+command! Gpart :grep '\[{1}\s+\w.*\s+\]{1}$' %
+
+" Zig function in qf
+command! Zfn :grep '^fn\s\w+'
+

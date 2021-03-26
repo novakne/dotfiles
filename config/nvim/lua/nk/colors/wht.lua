@@ -7,48 +7,20 @@ local wht = {}
 
 
 local colors = {
-
+  base00 = '#fbf9ff',
+  base01 = '#f6f4ff',
+  base02 = '#f0eefb',
+  base03 = '#e3e1ed',
+  base04 = '#c0beca',
+  base05 = '#a19fab',
+  base06 = '#787681',
+  base07 = '#64626d',
+  base08 = '#44434d',
   base09 = '#23222b',
-  base08 = '#474557',
-  base07 = '#59566d',
-  base06 = '#6b6883',
-  base05 = '#7e7b97',
-  base04 = '#9491a8',
-  base03 = '#a9a7b9',
-  base02 = '#bfbdcb',
-  base01 = '#d4d3dc',
-  base00 = '#eae9ee',
 
-  pink00    = '#a50353',
-  yellow00  = '#6c6218',
-  blue00    = '#0e639c',
-  err       = '#c01549',
-  green00   = '#336e4d',
-  orange00  = '#9d4a30',
-  magenta00 = '#8437b9',
-  cyan00    = '#376b6b',
-
-}
-
-
--- [ Terminal ]
-local term_colors = {
-  terminal_color_0  = colors.base01,
-  terminal_color_1  = colors.pink00,
-  terminal_color_2  = colors.green00,
-  terminal_color_3  = colors.yellow00,
-  terminal_color_4  = colors.blue00,
-  terminal_color_5  = colors.magenta00,
-  terminal_color_6  = colors.cyan00,
-  terminal_color_7  = colors.base08,
-  terminal_color_8  = colors.base02,
-  terminal_color_9  = colors.pink00,
-  terminal_color_10 = colors.green00,
-  terminal_color_11 = colors.yellow00,
-  terminal_color_12 = colors.blue00,
-  terminal_color_13 = colors.magenta00,
-  terminal_color_14 = colors.cyan00,
-  terminal_color_15 = colors.base09,
+  color00 = '#bb397c',
+  color01 = '#873fb5',
+  color02 = '#3969bb',
 }
 
 
@@ -83,70 +55,70 @@ wht.set_syntax = function()
 
     -- [ Editor ]
     ColorColumn = {fg = colors.base01},
-    Cursor = {fg = colors.base00, bg = colors.base09},
-    CursorLine = {bg = colors.base01},
-    Error = {fg = colors.err, bg = colors.base00},
+    Cursor = {fg = colors.base00, bg = colors.base07},
+    CursorLine = {bg = colors.base03},
+    Error = {fg = colors.color00, bg = colors.base00},
     iCursor = {fg = colors.base00, bg = colors.base07},
-    LineNr = {fg = colors.base02, bg = colors.base00},
-    MatchParen = {fg = colors.green00, bg = colors.base02},
-    NonText = {fg = colors.base02},
+    LineNr = {fg = colors.base04, bg = colors.base00},
+    MatchParen = {fg = colors.base06, bg = colors.base03},
+    NonText = {fg = colors.base03},
     Normal = {fg = colors.base09, bg = colors.base00},
     PMenu = {fg = colors.base07, bg = colors.base01},
     PmenuSbar = {fg = colors.base08, bg = colors.base02},
-    PMenuSel = {fg = colors.base01, bg = colors.blue00},
-    PmenuThumb = {fg = colors.green00, bg = colors.base02},
+    PMenuSel = {fg = colors.base01, bg = colors.color02},
+    PmenuThumb = {fg = colors.color02, bg = colors.base02},
     RedrawDebugNormal = {fg = colors.base00, bg = colors.base09},
-    RedrawDebugClear = {fg = colors.base00, bg = colors.yellow00},
-    RedrawDebugComposed = {fg = colors.base00, bg = colors.green00},
-    RedrawDebugRecompose = {fg = colors.base00, bg = colors.err},
+    RedrawDebugClear = {fg = colors.base00, bg = colors.color02},
+    RedrawDebugComposed = {fg = colors.base00, bg = colors.color01},
+    RedrawDebugRecompose = {fg = colors.base00, bg = colors.color00},
     SpecialKey = {fg = colors.base04},
     SpellBad = {
-      fg = colors.err,
+      fg = colors.color00,
       bg = colors.base00,
       attr = 'undercurl',
-      sp = colors.err,
+      sp = colors.color00,
     },
     SpellCap = {
-      fg = colors.pink00,
+      fg = colors.color00,
       bg = colors.base00,
       attr = 'undercurl',
-      sp = colors.pink00,
+      sp = colors.color00,
     },
     SpellLocal = {
-      fg = colors.orange00,
+      fg = colors.color00,
       bg = colors.base00,
       attr = 'undercurl',
-      sp = colors.orange00,
+      sp = colors.color00,
     },
     SpellRare = {
-      fg = colors.yellow00,
+      fg = colors.color00,
       bg = colors.base00,
       attr = 'undercurl',
-      sp = colors.yellow00,
+      sp = colors.color00,
     },
-    Visual = {fg = colors.base07, bg = colors.base01, attr = 'bold'},
+    Visual = {fg = colors.base07, bg = colors.base02, attr = 'bold'},
     VisualNOS = {fg = colors.base05},
 
     -- [ Neovim support ]
-    NvimInternalError = {fg = colors.base00, bg = colors.err},
-    healthError = {fg = colors.err, bg = colors.base00},
-    healthSuccess = {fg = colors.green00, bg = colors.base00},
-    healthWarning = {fg = colors.yellow00, bg = colors.base00},
+    NvimInternalError = {fg = colors.base00, bg = colors.color00},
+    healthError = {fg = colors.color00, bg = colors.base00},
+    healthSuccess = {fg = colors.base09, bg = colors.base00},
+    healthWarning = {fg = colors.color01, bg = colors.base00},
     TermCursorNC = {fg = colors.base01},
 
     -- [ Gutter ]
-    CursorColumn = {fg = colors.base01},
-    CursorLineNr = {fg = colors.blue00, bg = colors.base00},
-    Folded = {fg = colors.base04, bg = colors.base01, attr = 'bold'},
-    FoldColumn = {fg = colors.base03, bg = colors.base00},
-    SignColumn = {fg = colors.base01, bg = colors.base00},
+    CursorColumn = {fg = colors.base03},
+    CursorLineNr = {fg = colors.base07, bg = colors.base00},
+    Folded = {fg = colors.base05, bg = colors.base01, attr = 'bold'},
+    FoldColumn = {fg = colors.base04, bg = colors.base00},
+    SignColumn = {fg = colors.base04, bg = colors.base00},
 
     -- [ Navigation ]
-    Directory = {fg = colors.blue00},
+    Directory = {fg = colors.base07, attr = 'bold'},
 
     -- [ Prompt / Status ]
     EndOfBuffer = {fg = colors.base01},
-    ErrorMsg = {fg = colors.base00, bg = colors.err},
+    ErrorMsg = {fg = colors.base00, bg = colors.color00},
     ModeMsg = {fg = colors.base06},
     MoreMsg = {fg = colors.base06},
     Question = {fg = colors.base06},
@@ -154,48 +126,48 @@ wht.set_syntax = function()
     StatusLineNC = {fg = colors.base06, bg = colors.base01},
     StatusLineTerm = {fg = colors.base07, bg = colors.base01},
     StatusLineTermNC = {fg = colors.base06, bg = colors.base01},
-    WarningMsg = {fg = colors.base00, bg = colors.yellow00},
-    WildMenu = {fg = colors.yellow00, bg = colors.base01},
+    WarningMsg = {fg = colors.base00, bg = colors.color01},
+    WildMenu = {fg = colors.color01, bg = colors.base01},
 
     -- [ Search ]
-    IncSearch = {fg = colors.base00, bg = colors.yellow00, attr = 'underline'},
-    Search = {fg = colors.base00, bg = colors.blue00},
+    IncSearch = {fg = colors.base00, bg = colors.color01, attr = 'underline'},
+    Search = {fg = colors.base00, bg = colors.color02},
 
     -- [ Tabs ]
     TabLine = {fg = colors.base06, bg = colors.base01},
     TabLineFill = {fg = colors.base06, bg = colors.base01},
-    TabLineSel = {fg = colors.base00, bg = colors.blue00},
+    TabLineSel = {fg = colors.base00, bg = colors.color02},
 
     -- [ Window ]
     Title = {fg = colors.base06},
     VertSplit = {fg = colors.base01, bg = colors.base00},
 
     -- [ Diff ]
-    DiffAdd = {fg = colors.green00, bg = colors.base00, attr = 'inverse'},
-    DiffChange = {fg = colors.yellow00, bg = colors.base00, attr = 'inverse'},
-    DiffDelete = {fg = colors.err, bg = colors.base00, attr = 'inverse'},
-    DiffText = {fg = colors.blue00, bg = colors.base00, attr = 'inverse'},
+    DiffAdd = {fg = colors.base07, bg = colors.base00, attr = 'inverse'},
+    DiffChange = {fg = colors.base07, bg = colors.base00, attr = 'inverse'},
+    DiffDelete = {fg = colors.color00, bg = colors.base00, attr = 'inverse'},
+    DiffText = {fg = colors.base07, bg = colors.base00, attr = 'inverse'},
     -- Legacy groups for official git.vim and diff.vim syntax
-    diffAdded = {fg = colors.green00, bg = colors.base00, attr = 'inverse'},
-    diffChanged = {fg = colors.yellow00, bg = colors.base00, attr = 'inverse'},
-    diffRemoved = {fg = colors.err, bg = colors.base00, attr = 'inverse'},
+    diffAdded = {fg = colors.base07, bg = colors.base00, attr = 'inverse'},
+    diffChanged = {fg = colors.base07, bg = colors.base00, attr = 'inverse'},
+    diffRemoved = {fg = colors.color00, bg = colors.base00, attr = 'inverse'},
 
     -- [ Quickfix / Location list ]
-    qfLineNr = {fg = colors.blue00},
+    qfLineNr = {fg = colors.base07},
 
     -- [ Neovim lsp ]
-    LspDiagnosticsDefaultError = {fg = colors.err},
-    LspDiagnosticsDefaultWarning = {fg = colors.yellow00},
-    LspDiagnosticsDefaultInformation = {fg = colors.blue00},
-    LspDiagnosticsDefaultHint = {fg = colors.blue00},
-    LspDiagnosticsUnderlineError = {fg = colors.err},
-    LspDiagnosticsUnderlineWarning = {fg = colors.yellow00},
-    LspDiagnosticsUnderlineInformation = {fg = colors.blue00},
-    LspDiagnosticsUnderlineHint = {fg = colors.blue00},
-    LspDiagErrorBorder = {fg = colors.err},
-    LspDiagWarnBorder = {fg = colors.yellow00},
-    LspDiagInforBorder = {fg = colors.blue00},
-    LspDiagHintBorder = {fg = colors.blue00},
+    LspDiagnosticsDefaultError = {fg = colors.color00},
+    LspDiagnosticsDefaultWarning = {fg = colors.color01},
+    LspDiagnosticsDefaultInformation = {fg = colors.base07},
+    LspDiagnosticsDefaultHint = {fg = colors.base07},
+    LspDiagnosticsUnderlineError = {fg = colors.color00},
+    LspDiagnosticsUnderlineWarning = {fg = colors.color01},
+    LspDiagnosticsUnderlineInformation = {fg = colors.base07},
+    LspDiagnosticsUnderlineHint = {fg = colors.base07},
+    LspDiagErrorBorder = {fg = colors.color00},
+    LspDiagWarnBorder = {fg = colors.color02},
+    LspDiagInforBorder = {fg = colors.base07},
+    LspDiagHintBorder = {fg = colors.base07},
 
 
     -- -------------------------------------------
@@ -204,43 +176,43 @@ wht.set_syntax = function()
     -- ( :help w18 )
 
 
-    Comment = {fg = colors.base03, attr = 'italic'},
+    Comment = {fg = colors.base05, attr = 'italic'},
 
-    Constant = {fg = colors.pink00},
-    String = {fg = colors.blue00, attr = 'italic'},
-    Character = {fg = colors.cyan00},
-    Number = {fg = colors.orange00},
-    Boolean = {fg = colors.orange00},
-    Float = {fg = colors.orange00},
+    Constant = {fg = colors.color00},
+    String = {fg = colors.base06, attr = 'italic'},
+    Character = {fg = colors.base07, attr = 'bold'},
+    Number = {fg = colors.base06},
+    Boolean = {fg = colors.base06, attr = 'bold'},
+    Float = {fg = colors.base06, attr = 'italic'},
 
     Identifier = {fg = colors.base07},
-    Function = {fg = colors.yellow00},
+    Function = {fg = colors.color01},
 
-    Statement = {fg = colors.blue00},
-    Conditional = {fg = colors.blue00},
-    Repeat = {fg = colors.blue00},
-    Label = {fg = colors.yellow00},
-    Operator = {fg = colors.magenta00},
-    Keyword = {fg = colors.yellow00},
-    Exception = {fg = colors.pink00},
+    Statement = {fg = colors.base08},
+    Conditional = {fg = colors.color02},
+    Repeat = {fg = colors.color02},
+    Label = {fg = colors.color01},
+    Operator = {fg = colors.color02},
+    Keyword = {fg = colors.color01},
+    Exception = {fg = colors.color00},
 
-    PreProc = {fg = colors.magenta00},
-    Include = {fg = colors.magenta00},
-    Define = {fg = colors.magenta00},
-    Macro = {fg = colors.magenta00},
-    PreCondit = {fg = colors.magenta00},
+    PreProc = {fg = colors.base05},
+    Include = {fg = colors.base05},
+    Define = {fg = colors.base05},
+    Macro = {fg = colors.base05},
+    PreCondit = {fg = colors.base05},
 
-    Type = {fg = colors.pink00},
-    StorageClass = {fg = colors.pink00},
-    Structure = {fg = colors.pink00},
-    Typedef = {fg = colors.pink00},
+    Type = {fg = colors.base07, atrr = 'bold'},
+    StorageClass = {fg = colors.base06},
+    Structure = {fg = colors.base09, attr = 'bold'},
+    Typedef = {fg = colors.base09},
 
-    Special = {fg = colors.cyan00},
-    SpecialChar = {fg = colors.cyan00},
-    Tag = {fg = colors.base07},
-    Delimiter = {fg = colors.base08},
-    SpecialComment = {fg = colors.base03, attr = 'italic'},
-    Todo = {fg = colors.yellow00, attr = 'underline'},
+    Special = {fg = colors.base05},
+    SpecialChar = {fg = colors.base05},
+    Tag = {fg = colors.base05},
+    Delimiter = {fg = colors.base05},
+    SpecialComment = {fg = colors.base02, attr = 'italic'},
+    Todo = {fg = colors.base04, attr = 'underline'},
 
 
     -- ------------------------------------------
@@ -248,201 +220,201 @@ wht.set_syntax = function()
     -- ------------------------------------------
 
 
-    -- [ C ]
-    cDefine = {fg = colors.magenta00},
+--     -- [ C ]
+--     cDefine = {fg = colors.color02},
 
-    -- [ Css ]
-    cssAttributeSelector = {fg = colors.magenta00},
-    cssBackgroundAttr = {fg = colors.pink00},
-    cssBackgroundProp = {fg = colors.pink00},
-    cssBorderAttr = {fg = colors.pink00},
-    cssBorderProp = {fg = colors.pink00},
-    cssBoxAttr = {fg = colors.pink00},
-    cssBoxProp = {fg = colors.pink00},
-    cssClassName = {fg = colors.blue00},
-    cssClassNameDot = {fg = colors.blue00},
-    cssColor = {fg = colors.base07},
-    cssFontAttr = {fg = colors.pink00},
-    cssFontProp = {fg = colors.pink00},
-    cssIdentifier = {fg = colors.blue00},
-    cssMediaType = {fg = colors.pink00},
-    cssPositioningAttr = {fg = colors.pink00},
-    cssPositioningProp = {fg = colors.pink00},
-    cssPseudoClassId = {fg = colors.blue00},
-    cssSelectorOp = {fg = colors.magenta00},
-    cssSelectorOp2 = {fg = colors.yellow00},
-    cssTagName = {fg = colors.blue00},
-    cssTextAttr = {fg = colors.pink00},
-    cssTextProp = {fg = colors.pink00},
-    cssURL = {fg = colors.base07, attr = 'underline'},
+--     -- [ Css ]
+--     cssAttributeSelector = {fg = colors.color02},
+--     cssBackgroundAttr = {fg = colors.color00},
+--     cssBackgroundProp = {fg = colors.color00},
+--     cssBorderAttr = {fg = colors.color00},
+--     cssBorderProp = {fg = colors.color00},
+--     cssBoxAttr = {fg = colors.color00},
+--     cssBoxProp = {fg = colors.color00},
+--     cssClassName = {fg = colors.color02},
+--     cssClassNameDot = {fg = colors.color02},
+--     cssColor = {fg = colors.base07},
+--     cssFontAttr = {fg = colors.color00},
+--     cssFontProp = {fg = colors.color00},
+--     cssIdentifier = {fg = colors.color02},
+--     cssMediaType = {fg = colors.color00},
+--     cssPositioningAttr = {fg = colors.color00},
+--     cssPositioningProp = {fg = colors.color00},
+--     cssPseudoClassId = {fg = colors.color02},
+--     cssSelectorOp = {fg = colors.color02},
+--     cssSelectorOp2 = {fg = colors.color01},
+--     cssTagName = {fg = colors.color02},
+--     cssTextAttr = {fg = colors.color00},
+--     cssTextProp = {fg = colors.color00},
+--     cssURL = {fg = colors.base07, attr = 'underline'},
 
-    -- [ Fennel ]
-    -- ( https://github.com/bakpakin/fennel.vim )
-    FennelSpecialForm = {fg = colors.pink00},
-    FennelSymbol = {fg = colors.pink00},
+--     -- [ Fennel ]
+--     -- ( https://github.com/bakpakin/fennel.vim )
+--     FennelSpecialForm = {fg = colors.color00},
+--     FennelSymbol = {fg = colors.color00},
 
-    -- [ Go ]
-    goBuiltins = {fg = colors.green00},
-    goDeclType = {fg = colors.pink00},
-    goVar = {fg = colors.pink00},
-    goVarArgs = {fg = colors.yellow00},
+--     -- [ Go ]
+--     goBuiltins = {fg = colors.color02},
+--     goDeclType = {fg = colors.color00},
+--     goVar = {fg = colors.color00},
+--     goVarArgs = {fg = colors.color01},
 
-    -- [ Html ]
-    htmlArg = {fg = colors.yellow00},
-    htmlBold = {fg = colors.base07, attr = 'bold'},
-    htmlEndTag = {fg = colors.blue00},
-    htmlH1 = {fg = colors.pink00},
-    htmlH2 = {fg = colors.pink00},
-    htmlH3 = {fg = colors.pink00},
-    htmlH4 = {fg = colors.pink00},
-    htmlH5 = {fg = colors.pink00},
-    htmlH6 = {fg = colors.pink00},
-    htmlItalic = {fg = colors.base07, attr = 'italic'},
-    htmlLink = {fg = colors.base07, attr = 'underline'},
-    htmlTag = {fg = colors.blue00},
-    htmlTagN = {fg = colors.blue00},
-    htmlTagName = {fg = colors.blue00},
-    htmlTitle = {fg = colors.base09, attr = 'bold'},
+--     -- [ Html ]
+--     htmlArg = {fg = colors.color01},
+--     htmlBold = {fg = colors.base07, attr = 'bold'},
+--     htmlEndTag = {fg = colors.color02},
+--     htmlH1 = {fg = colors.color00},
+--     htmlH2 = {fg = colors.color00},
+--     htmlH3 = {fg = colors.color00},
+--     htmlH4 = {fg = colors.color00},
+--     htmlH5 = {fg = colors.color00},
+--     htmlH6 = {fg = colors.color00},
+--     htmlItalic = {fg = colors.base07, attr = 'italic'},
+--     htmlLink = {fg = colors.base07, attr = 'underline'},
+--     htmlTag = {fg = colors.color02},
+--     htmlTagN = {fg = colors.color02},
+--     htmlTagName = {fg = colors.color02},
+--     htmlTitle = {fg = colors.base09, attr = 'bold'},
 
-    -- [ Java ]
-    javaCommentTitle = {fg = colors.base05, attr = 'italic'},
-    javaDocParam = {fg = colors.cyan00},
-    javaDocSeeTagParam = {fg = colors.cyan00},
-    javaDocTags = {fg = colors.cyan00, attr = 'bold'},
+--     -- [ Java ]
+--     javaCommentTitle = {fg = colors.base05, attr = 'italic'},
+--     javaDocParam = {fg = colors.color02},
+--     javaDocSeeTagParam = {fg = colors.color02},
+--     javaDocTags = {fg = colors.color02, attr = 'bold'},
 
-    -- [ Javascript ]
-    -- ( http//github.com/pangloss/vim-javascript )
-    jsArrowFunction = {fg = colors.yellow00},
-    jsFuncArgs = {fg = colors.yellow00, attr = 'italic'},
-    jsFuncCall = {fg = colors.yellow00},
-    jsObjectColon = {fg = colors.blue00},
-    jsObjectKey = {fg = colors.blue00},
-    jsObjectProp = {fg = colors.cyan00},
-    jsVariableDef = {fg = colors.base07, attr = 'italic'},
+--     -- [ Javascript ]
+--     -- ( http//github.com/pangloss/vim-javascript )
+--     jsArrowFunction = {fg = colors.color01},
+--     jsFuncArgs = {fg = colors.color01, attr = 'italic'},
+--     jsFuncCall = {fg = colors.color01},
+--     jsObjectColon = {fg = colors.color02},
+--     jsObjectKey = {fg = colors.color02},
+--     jsObjectProp = {fg = colors.color02},
+--     jsVariableDef = {fg = colors.base07, attr = 'italic'},
 
-    -- [ Json ]
-    jsonBraces = {fg = colors.magenta00},
-    jsonNull = {fg = colors.pink00},
+--     -- [ Json ]
+--     jsonBraces = {fg = colors.color02},
+--     jsonNull = {fg = colors.color00},
 
-    -- [ Less ]
-    --  ( http//github.com/groenewege/vim-less )
-    lessClassCall = {fg = colors.yellow00},
-    lessCssAttribute = {fg = colors.yellow00},
-    lessFunction = {fg = colors.yellow00},
-    lessVariable = {fg = colors.magenta00},
-    lessclass = {fg = colors.blue00},
-    lessclassChar = {fg = colors.blue00},
+--     -- [ Less ]
+--     --  ( http//github.com/groenewege/vim-less )
+--     lessClassCall = {fg = colors.color01},
+--     lessCssAttribute = {fg = colors.color01},
+--     lessFunction = {fg = colors.color01},
+--     lessVariable = {fg = colors.color02},
+--     lessclass = {fg = colors.color02},
+--     lessclassChar = {fg = colors.color02},
 
-    -- [ Lua ]
-    luaFuncCall = {fg = colors.yellow00},
-    luaSpecialValue = {fg = colors.yellow00},
-    luaBuiltIn = {fg = colors.green00},
+--     -- [ Lua ]
+--     luaFuncCall = {fg = colors.color01},
+--     luaSpecialValue = {fg = colors.color01},
+--     luaBuiltIn = {fg = colors.color02},
 
-    -- [ Markdown ]
-    -- ( http//github.com/plasticboy/vim-markdown )
-    mkdBold = {fg = colors.base07, attr = 'bold'},
-    mkdCode = {fg = colors.blue00},
-    mkdCodeDelimiter = {fg = colors.blue00},
-    mkdCodeEnd = {fg = colors.blue00},
-    mkdCodeStart = {fg = colors.blue00},
-    mkdHeading = {fg = colors.pink00},
-    mkdItalic = {fg = colors.base07, attr = 'italic'},
-    mkdLink = {fg = colors.base07, attr = 'underline'},
-    mkdListItem = {fg = colors.pink00},
-    mkdListItemLine = {fg = colors.base06},
+--     -- [ Markdown ]
+--     -- ( http//github.com/plasticboy/vim-markdown )
+--     mkdBold = {fg = colors.base07, attr = 'bold'},
+--     mkdCode = {fg = colors.color02},
+--     mkdCodeDelimiter = {fg = colors.color02},
+--     mkdCodeEnd = {fg = colors.color02},
+--     mkdCodeStart = {fg = colors.color02},
+--     mkdHeading = {fg = colors.color00},
+--     mkdItalic = {fg = colors.base07, attr = 'italic'},
+--     mkdLink = {fg = colors.base07, attr = 'underline'},
+--     mkdListItem = {fg = colors.color00},
+--     mkdListItemLine = {fg = colors.base06},
 
-    -- [ Nim ]
-    nimBuiltin = {fg = colors.green00},
+--     -- [ Nim ]
+--     nimBuiltin = {fg = colors.color02},
 
-    -- [ Php ]
-    phpVarSelector = {fg = colors.pink00},
-    phpIdentifier = {fg = colors.pink00},
+--     -- [ Php ]
+--     phpVarSelector = {fg = colors.color00},
+--     phpIdentifier = {fg = colors.color00},
 
-    -- [ Python ]
-    pythonClassVar = {fg = colors.magenta00},
-    pythonBuiltinType = {fg = colors.green00},
-    pythonFunctionCall = {fg = colors.yellow00},
-    pythonStatement = {fg = colors.blue00},
+--     -- [ Python ]
+--     pythonClassVar = {fg = colors.color02},
+--     pythonBuiltinType = {fg = colors.color02},
+--     pythonFunctionCall = {fg = colors.color01},
+--     pythonStatement = {fg = colors.color02},
 
-    -- [ Rust ]
-    -- ( http//github.com/rust-lang/rust.vim )
-    rustArrowCharacter = {fg = colors.yellow00},
-    rustFatRightArrowHead = {fg = colors.yellow00},
-    rustFatRightArrowTail = {fg = colors.yellow00},
-    rustModPathSep = {fg = colors.base07, attr = 'bold'},
-    rustRepeat = {fg = colors.blue00},
-    rustSelf = {fg = colors.green00},
-    rustStructure = {fg = colors.pink00},
+--     -- [ Rust ]
+--     -- ( http//github.com/rust-lang/rust.vim )
+--     rustArrowCharacter = {fg = colors.color01},
+--     rustFatRightArrowHead = {fg = colors.color01},
+--     rustFatRightArrowTail = {fg = colors.color01},
+--     rustModPathSep = {fg = colors.base07, attr = 'bold'},
+--     rustRepeat = {fg = colors.color02},
+--     rustSelf = {fg = colors.color02},
+--     rustStructure = {fg = colors.color00},
 
 
-    -- [ Scss ]
-    -- ( http//github.com/cakebaker/scss-syntax.vim )
-    scssSelectorName = {fg = colors.cyan00},
-    scssSelectorChar = {fg = colors.cyan00},
-    scssVariable = {fg = colors.magenta00},
+--     -- [ Scss ]
+--     -- ( http//github.com/cakebaker/scss-syntax.vim )
+--     scssSelectorName = {fg = colors.color02},
+--     scssSelectorChar = {fg = colors.color02},
+--     scssVariable = {fg = colors.color02},
 
-    -- [ Shell ]
-    shCaseBar = {fg = colors.magenta00},
-    shCmdParenRegion = {fg = colors.yellow00},
-    shDerefPPSleft = {fg = colors.yellow00},
-    shDerefPPSright = {fg = colors.yellow00},
-    shDerefSimple = {fg = colors.pink00},
-    shDerefSpecial = {fg = colors.pink00},
-    shDerefVar = {fg = colors.pink00},
-    shDerefVarArray = {fg = colors.orange00},
-    shFunctionKey = {fg = colors.pink00},
-    shSet = {fg = colors.pink00},
-    shSetList = {fg = colors.pink00},
-    shVariable = {fg = colors.base07, attr = 'italic'},
+--     -- [ Shell ]
+--     shCaseBar = {fg = colors.color02},
+--     shCmdParenRegion = {fg = colors.color01},
+--     shDerefPPSleft = {fg = colors.color01},
+--     shDerefPPSright = {fg = colors.color01},
+--     shDerefSimple = {fg = colors.color00},
+--     shDerefSpecial = {fg = colors.color00},
+--     shDerefVar = {fg = colors.color00},
+--     shDerefVarArray = {fg = colors.color00},
+--     shFunctionKey = {fg = colors.color00},
+--     shSet = {fg = colors.color00},
+--     shSetList = {fg = colors.color00},
+--     shVariable = {fg = colors.base07, attr = 'italic'},
 
-    -- [ Toml ]
-    tomlKey = {fg = colors.blue00},
-    tomlTable = {fg = colors.pink00},
+--     -- [ Toml ]
+--     tomlKey = {fg = colors.color02},
+--     tomlTable = {fg = colors.color00},
 
-    -- [ Typescript ]
-    typescriptVariable = {fg = colors.pink00},
-    typescriptOperator = {fg = colors.blue00},
-    typescriptVariableDeclaration = {fg = colors.base07},
+--     -- [ Typescript ]
+--     typescriptVariable = {fg = colors.color00},
+--     typescriptOperator = {fg = colors.color02},
+--     typescriptVariableDeclaration = {fg = colors.base07},
 
-    -- [ Vim ]
-    vimAugroupKey = {fg = colors.orange00},
-    vimAutocmd = {fg = colors.orange00},
-    vimCommand = {fg = colors.green00},
-    vimSubsPat = {fg = colors.yellow00},
-    vimSubsRep4 = {fg = colors.yellow00},
-    vimFuncName = {fg = colors.yellow00},
-    vimFunction = {fg = colors.yellow00},
-    vimLet = {fg = colors.pink00},
-    vimNotFunc = {fg = colors.magenta00},
-    vimOption = {fg = colors.green00},
-    vimUserFunc = {fg = colors.yellow00},
-    vimVar = {fg = colors.pink00},
+--     -- [ Vim ]
+--     vimAugroupKey = {fg = colors.color00},
+--     vimAutocmd = {fg = colors.color00},
+--     vimCommand = {fg = colors.color02},
+--     vimSubsPat = {fg = colors.color01},
+--     vimSubsRep4 = {fg = colors.color01},
+--     vimFuncName = {fg = colors.color01},
+--     vimFunction = {fg = colors.color01},
+--     vimLet = {fg = colors.color00},
+--     vimNotFunc = {fg = colors.color02},
+--     vimOption = {fg = colors.color02},
+--     vimUserFunc = {fg = colors.color01},
+--     vimVar = {fg = colors.color00},
 
-    -- [ Xml ]
-    xmlProcessingDelim = {fg = colors.green00},
-    xmlTag = {fg = colors.blue00},
-    xmlTagName = {fg = colors.blue00},
+--     -- [ Xml ]
+--     xmlProcessingDelim = {fg = colors.color02},
+--     xmlTag = {fg = colors.color02},
+--     xmlTagName = {fg = colors.color02},
 
-    -- [ Yaml ]
-    yamlBlockMappingKey = {fg = colors.blue00},
-    yamlFlowIndicator = {fg = colors.magenta00},
-    yamlFlowMappingKey = {fg = colors.blue00},
-    yamlFlowMappingMerge = {fg = colors.yellow00},
+--     -- [ Yaml ]
+--     yamlBlockMappingKey = {fg = colors.color02},
+--     yamlFlowIndicator = {fg = colors.color02},
+--     yamlFlowMappingKey = {fg = colors.color02},
+--     yamlFlowMappingMerge = {fg = colors.color01},
 
-    -- [ Zig ]
-    zigBuiltinFn = {fg = colors.green00},
-    zigExecution = {fg = colors.magenta00},
-    zigKeyword = {fg = colors.yellow00},
-    zigVarDecl = {fg = colors.pink00},
+--     -- [ Zig ]
+--     zigBuiltinFn = {fg = colors.color02},
+--     zigExecution = {fg = colors.color02},
+--     zigKeyword = {fg = colors.color01},
+--     zigVarDecl = {fg = colors.color00},
 
-    -- [ Zsh ]
-    zshDelimiter = {fg = colors.magenta00},
-    zshDeref = {fg = colors.err},
-    zshOption = {fg = colors.green00},
-    zshShortDeref = {fg = colors.blue00},
-    zshSubst = {fg = colors.orange00},
-    zshSubstDelim = {fg = colors.orange00},
-    zshVariableDef = {fg = colors.pink00},
+--     -- [ Zsh ]
+--     zshDelimiter = {fg = colors.color02},
+--     zshDeref = {fg = colors.color00},
+--     zshOption = {fg = colors.color02},
+--     zshShortDeref = {fg = colors.color02},
+--     zshSubst = {fg = colors.color00},
+--     zshSubstDelim = {fg = colors.color00},
+--     zshVariableDef = {fg = colors.color00},
 
 
     -- -------------------------------------------
@@ -450,103 +422,103 @@ wht.set_syntax = function()
     -- -------------------------------------------
 
 
-    -- [ Hop ]
-    -- ( https://github.com/phaazon/hop.nvim )
-    HopNextKey = {fg = colors.pink00},
-    HopNextKey1 = {fg = colors.yellow00},
-    HopNextKey2 = {fg = colors.blue00},
+--     -- [ Hop ]
+--     -- ( https://github.com/phaazon/hop.nvim )
+--     HopNextKey = {fg = colors.color00},
+--     HopNextKey1 = {fg = colors.color01},
+--     HopNextKey2 = {fg = colors.color02},
 
-    -- [ Lspsaga ]
-    -- ( https://github.com/glepnir/lspsaga.nvim )
-    LineDiagTuncateLine = {fg = colors.base02},
-    LspFloatWinBorder = {fg = colors.yellow00},
-    LspLinesDiagBorder = {fg = colors.err},
-    LspSagaAutoPreview = {fg = colors.pink00},
-    LspSagaBorderTitle = {fg = colors.pink00},
-    LspSagaCodeActionBorder = {fg = colors.pink00},
-    LspSagaCodeActionContent = {fg = colors.base08},
-    LspSagaCodeActionTitle = {fg = colors.pink00},
-    LspSagaCodeActionTruncateLine = {fg = colors.base02},
-    LspSagaDefPreviewBorder = {fg = colors.blue00},
-    LspSagaDocTruncateLine = {fg = colors.base02},
-    LspSagaFinderSelection = {fg = colors.blue00},
-    LspSagaHoverBorder = {fg = colors.blue00},
-    LspSagaLspFinderBorder = {fg = colors.blue00},
-    LspSagaRenameBorder = {fg = colors.pink00},
-    LspSagaRenamePromptPrefix = {fg = colors.pink00},
-    LspSagaShTruncateLine = {fg = colors.base02},
-    LspSagaSignatureHelpBorder= {fg = colors.blue00},
-    ProviderTruncateLine = {fg = colors.base02},
-    SagaShadow = {fg = colors.base08, bg = colors.base00},
+--     -- [ Lspsaga ]
+--     -- ( https://github.com/glepnir/lspsaga.nvim )
+--     LineDiagTuncateLine = {fg = colors.base02},
+--     LspFloatWinBorder = {fg = colors.color01},
+--     LspLinesDiagBorder = {fg = colors.color00},
+--     LspSagaAutoPreview = {fg = colors.color00},
+--     LspSagaBorderTitle = {fg = colors.color00},
+--     LspSagaCodeActionBorder = {fg = colors.color00},
+--     LspSagaCodeActionContent = {fg = colors.base08},
+--     LspSagaCodeActionTitle = {fg = colors.color00},
+--     LspSagaCodeActionTruncateLine = {fg = colors.base02},
+--     LspSagaDefPreviewBorder = {fg = colors.color02},
+--     LspSagaDocTruncateLine = {fg = colors.base02},
+--     LspSagaFinderSelection = {fg = colors.color02},
+--     LspSagaHoverBorder = {fg = colors.color02},
+--     LspSagaLspFinderBorder = {fg = colors.color02},
+--     LspSagaRenameBorder = {fg = colors.color00},
+--     LspSagaRenamePromptPrefix = {fg = colors.color00},
+--     LspSagaShTruncateLine = {fg = colors.base02},
+--     LspSagaSignatureHelpBorder= {fg = colors.color02},
+--     ProviderTruncateLine = {fg = colors.base02},
+--     SagaShadow = {fg = colors.base08, bg = colors.base00},
 
 
-    -- [ Signify ]
-    -- ( http//github.com/mhinz/vim-signify )
-    SignifyDeleteFirstLine = {fg = colors.err},
-    SignifyLineAdd = {fg = colors.green00},
-    SignifyLineChange = {fg = colors.yellow00},
-    SignifyLineChangeDelete = {fg = colors.yellow00},
-    SignifyLineDelete = {fg = colors.err},
-    SignifyLineDeleteFirstLine = {fg = colors.err},
-    SignifySignAdd = {fg = colors.green00},
-    SignifySignChange = {fg = colors.yellow00},
-    SignifySignChangeDelete = {fg = colors.yellow00},
-    SignifySignDelete = {fg = colors.err},
+--     -- [ Signify ]
+--     -- ( http//github.com/mhinz/vim-signify )
+--     SignifyDeleteFirstLine = {fg = colors.color00},
+--     SignifyLineAdd = {fg = colors.color02},
+--     SignifyLineChange = {fg = colors.color01},
+--     SignifyLineChangeDelete = {fg = colors.color01},
+--     SignifyLineDelete = {fg = colors.color00},
+--     SignifyLineDeleteFirstLine = {fg = colors.color00},
+--     SignifySignAdd = {fg = colors.color02},
+--     SignifySignChange = {fg = colors.color01},
+--     SignifySignChangeDelete = {fg = colors.color01},
+--     SignifySignDelete = {fg = colors.color00},
 
-    -- [ Telescope ]
-    -- ( https://github.com/nvim-telescope/telescope.nvim )
-    TelescopePreviewLine = {fg = colors.blue00},
-    TelescopeSelection = {fg = colors.yellow00},
-    TelescopeSelectionCaret = {fg = colors.pink00},
+--     -- [ Telescope ]
+--     -- ( https://github.com/nvim-telescope/telescope.nvim )
+--     TelescopePreviewLine = {fg = colors.color02},
+--     TelescopeSelection = {fg = colors.color01},
+--     TelescopeSelectionCaret = {fg = colors.color00},
 
-    -- [ Treesitter ]
-    -- ( https://github.com/nvim-treesitter/nvim-treesitter )
-    TSConstBuiltin = {fg = colors.green00},
-    TSConstMacro = {fg = colors.magenta00},
-    TSConstant = {fg = colors.pink00},
-    TSConstructor = {fg = colors.pink00},
-    TSFuncBuiltin = {fg = colors.green00},
-    TSFuncMacro = {fg = colors.magenta00},
-    TSFunction = {fg = colors.yellow00},
-    TSInclude = {fg = colors.magenta00},
-    TSKeyword = {fg = colors.yellow00},
-    TSKeywordFunction = {fg = colors.pink00},
-    TSKeywordOperator = {fg = colors.blue00},
-    TSMethod = {fg = colors.yellow00},
-    TSParameter = {fg = colors.yellow00, attr = 'italic'},
-    TSParameterReference = {fg = colors.yellow00, attr = 'italic'},
-    TSProperty = {fg = colors.blue00, attr = 'italic'},
-    TSStringEscape = {fg = colors.cyan00, attr = 'italic'},
-    TSStringRegex = {fg = colors.cyan00, attr = 'italic'},
-    TSType = {fg = colors.pink00},
-    TSTypeBuiltin = {fg = colors.green00},
-    TSVariable = {fg = colors.base07, attr = 'italic'},
-    TSVariableBuiltin = {fg = colors.base07, attr = 'bold'},
+--     -- [ Treesitter ]
+--     -- ( https://github.com/nvim-treesitter/nvim-treesitter )
+--     TSConstBuiltin = {fg = colors.color02},
+--     TSConstMacro = {fg = colors.color02},
+--     TSConstant = {fg = colors.color00},
+--     TSConstructor = {fg = colors.color00},
+--     TSFuncBuiltin = {fg = colors.color02},
+--     TSFuncMacro = {fg = colors.color02},
+--     TSFunction = {fg = colors.color01},
+--     TSInclude = {fg = colors.color02},
+--     TSKeyword = {fg = colors.color01},
+--     TSKeywordFunction = {fg = colors.color00},
+--     TSKeywordOperator = {fg = colors.color02},
+--     TSMethod = {fg = colors.color01},
+--     TSParameter = {fg = colors.color01, attr = 'italic'},
+--     TSParametcolor00eference = {fg = colors.color01, attr = 'italic'},
+--     TSProperty = {fg = colors.color02, attr = 'italic'},
+--     TSStringEscape = {fg = colors.color02, attr = 'italic'},
+--     TSStringRegex = {fg = colors.color02, attr = 'italic'},
+--     TSType = {fg = colors.color00},
+--     TSTypeBuiltin = {fg = colors.color02},
+--     TSVariable = {fg = colors.base07, attr = 'italic'},
+--     TSVariableBuiltin = {fg = colors.base07, attr = 'bold'},
 
-    -- Nvim-ts-rainbow ( https://github.com/p00f/nvim-ts-rainbow )
-    rainbowcol1 = {fg = colors.green00},
-    rainbowcol2 = {fg = colors.err},
-    rainbowcol3 = {fg = colors.cyan00},
-    rainbowcol4 = {fg = colors.orange00},
-    rainbowcol5 = {fg = colors.magenta00},
-    rainbowcol6 = {fg = colors.blue00},
-    rainbowcol7 = {fg = colors.yellow00},
-    -- Nvim-treesitter-refactor ( https://github.com/nvim-treesitter/nvim-treesitter-refactor )
-    TSCurrentScope = {bg = colors.base01},
-    TSDefinitionUsage = {fg = colors.err, attr = 'italic'},
-    TSDefiniton = {fg = colors.base00, bg = colors.base09, attr = 'bold'},
-    -- Treesitter-playground ( https://github.com/nvim-treesitter/playground )
-    TSPlaygroundFocus = {fg = colors.base00, bg = colors.orange00},
+--     -- Nvim-ts-rainbow ( https://github.com/p00f/nvim-ts-rainbow )
+--     rainbowcol1 = {fg = colors.color02},
+--     rainbowcol2 = {fg = colors.color00},
+--     rainbowcol3 = {fg = colors.color02},
+--     rainbowcol4 = {fg = colors.color00},
+--     rainbowcol5 = {fg = colors.color02},
+--     rainbowcol6 = {fg = colors.color02},
+--     rainbowcol7 = {fg = colors.color01},
+--     -- Nvim-treesitter-refactor ( https://github.com/nvim-treesitter/nvim-treesitter-refactor )
+--     TSCurrentScope = {bg = colors.base01},
+--     TSDefinitionUsage = {fg = colors.color00, attr = 'italic'},
+--     TSDefiniton = {fg = colors.base00, bg = colors.base09, attr = 'bold'},
+--     -- Treesitter-playground ( https://github.com/nvim-treesitter/playground )
+--     TSPlaygroundFocus = {fg = colors.base00, bg = colors.color00},
 
-    -- [ Which-key ]
-    -- ( https://github.com/liuchengxu/vim-which-key )
-    WhichKey = {fg = colors.pink00},
-    WhichKeyDesc = {fg = colors.base09},
-    WhichKeyFloating = {bg = colors.base00},
-    WhichKeyGroup = {fg = colors.yellow00},
-    WhichKeyName = {fg = colors.base08},
-    WhichKeySeperator = {fg = colors.blue00},
-    WhichKeyTrigger = {fg = colors.magenta00},
+--     -- [ Which-key ]
+--     -- ( https://github.com/liuchengxu/vim-which-key )
+--     WhichKey = {fg = colors.color00},
+--     WhichKeyDesc = {fg = colors.base09},
+--     WhichKeyFloating = {bg = colors.base00},
+--     WhichKeyGroup = {fg = colors.color01},
+--     WhichKeyName = {fg = colors.base08},
+--     WhichKeySeperator = {fg = colors.color02},
+--     WhichKeyTrigger = {fg = colors.color02},
 
   }
 
@@ -564,12 +536,8 @@ wht.setup = function(opts)
     vim.cmd [[syntax reset]]
   end
 
-  vim.o.background = 'dark'
+  vim.o.background = 'light'
   vim.o.termguicolors = true
-
-  for color, value in pairs(term_colors) do
-    vim.g[color] = value
-  end
 
   local syntax = wht.set_syntax()
 
