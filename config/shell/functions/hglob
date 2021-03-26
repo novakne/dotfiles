@@ -4,7 +4,7 @@
 # Provides useful information on zsh globbing
 
 
-h-glob () {
+h-glob() {
     echo -e "
     zsh globbing
 

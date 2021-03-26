@@ -16,10 +16,6 @@ frg() {
     | fzf -0 -1 \
     | awk -F: '{print $1, $2}')"
 
-  if hash nv &> /dev/null; then
-    [[ -n "${file}" ]] && nv "${file}" +"${line}"
-  else
-    [[ -n "${file}" ]] && ${EDITOR:-nvim} "${file}" +"${line}"
-  fi
+  [[ -n "${file}" ]] && nvim "${file}" +"${line}"
 }
 

@@ -4,11 +4,5 @@
 #     - Requirements: zoxide neovim
 
 
-zn () {
-  if hash nv >/dev/null 2>&1; then
-    z "$1" && nv
-  else
-    z "$1" && "${EDITOR:-nvim}"
-  fi
-}
+zn() { z "$1" && "${EDITOR:-nvim}"; }
 

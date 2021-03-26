@@ -11,10 +11,6 @@ fe() {
 
   IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
 
-  if hash nv >/dev/null 2>&1; then
-    [[ -n "${files[*]}" ]] && nv "${files[@]}"
-  else
-    [[ -n "${files[*]}" ]] && "${EDITOR:-nvim}" "${files[@]}"
-  fi
+  [[ -n "${files[*]}" ]] && "${EDITOR:-nvim}" "${files[@]}"
 }
 

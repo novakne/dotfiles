@@ -6,7 +6,7 @@
 
 
 # @FIXME: Doesn't work anymore???
-fapp () {
+fapp() {
   local selected
 
   selected="$(find /usr/share/applications -type f -printf '%P\n' | fzf -e)"

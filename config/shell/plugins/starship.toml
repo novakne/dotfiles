@@ -8,6 +8,7 @@ disabled = true
 
 [battery]
 format = "[$percentage]($style) "
+disabled = true
 [[battery.display]]
 threshold = 15
 style = "red"

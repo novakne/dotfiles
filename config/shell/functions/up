@@ -3,7 +3,7 @@
 # Go up N directories
 
 
-up () {
+up() {
   local str count
 
   str=""

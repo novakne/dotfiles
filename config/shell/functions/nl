@@ -14,5 +14,5 @@ nl() {
   file="$1"
   line="$2"
 
-  [[ -n "${file}" ]] && ${EDITOR:-nvim} "${file}" +"${line}"
+  [[ -n "${file}" ]] && nvim "${file}" +"${line}"
 }
