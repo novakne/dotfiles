@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#
+# Fuzzy search with fzf and ripgrep and opent in neovim
+#     - Requirements: fzf, rg, neovim
+
+
+ferg() {
+  local file line
+
+  if [[ "$#" -eq 0 ]]; then
+    printf -- '%s\n' \
+      "[$(date +'%Y-%m-%d %H:%M:%S')]: Require at least one argument" >&2
+  fi
+
+
+  read -r file line <<<"$(rg --no-heading --line-number 2> /dev/null "$@" \
+    | fzf -0 -1 \
+    | awk -F: '{print $1, $2}')"
+
+  [[ -n "${file}" ]] && ${EDITOR:-nvim} -c "silent grep $1" "${file}" +"${line}"
+}
+
+ferg "$@"

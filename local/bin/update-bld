@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+#
+# Update different repo to latest commit
+
+
+# Help
+_usage() {
+  cat <<-END
+  Usage: update-bld [OPTION...]
+
+    -fennel   Update fennel [ main ]
+    -fzf,     Update fzf [ master ]
+    -foot,    Update foot [ master ]
+    -nvim,    Update neovim [ master ]
+    -lualsp,  update lua lsp [ master ]
+
+END
+}
+
+declare bld_dir
+
+bld_dir="${XDG_DATA_HOME:-$HOME/.local/share}"/bld
+
+# [ https://git.sr.ht/~technomancy/fennel ]
+_fennel() {
+  cd "${bld_dir}"/fennel || exit
+
+  git pull
+  make fennel
+}
+
+# [ https://github.com/junegunn/fzf ]
+_fzf() {
+  cd "${bld_dir}"/fzf || exit
+
+  git pull
+  ./install --bin --no-update-rc
+}
+
+# [ https://codeberg.org/dnkl/foot ]
+_foot() {
+  cd "${bld_dir}"/foot || exit
+
+  [[ -d bld/release ]] && trash-put bld/release
+
+  git pull
+
+  mkdir -p bld/release && cd bld/release || exit
+  export CFLAGS="$CFLAGS -O3 -Wno-missing-profile"
+  meson --buildtype=release --prefix=/usr -Db_lto=true ../..
+  meson configure -Db_pgo=generate
+  ninja
+
+  foot_tmp_file=$(mktemp)
+  ./foot --config=/dev/null --term=alacritty sh -c "$HOME/.local/share/bld/foot/scripts/generate-alt-random-writes.py --scroll --scroll-region --colors-regular --colors-bright --colors-256 --colors-rgb --attr-bold --attr-italic --attr-underline ${foot_tmp_file} && cat ${foot_tmp_file}"
+  rm "${foot_tmp_file}"
+  meson configure -Db_pgo=use
+  ninja
+
+  sudo ninja install
+}
+
+# [ https://github.com/neovim/neovim ]
+_nvim() {
+  cd "${bld_dir}"neovim || exit
+
+  git pull
+  sudo make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=/usr install
+}
+
+# [ https://github.com/sumneko/lua-language-server ]
+_lua_lsp() {
+  cd "$HOME"/.local/lib/lsp/lua || exit
+
+  git pull origin master
+  git submodule update --init --recursive
+  cd 3rd/luamake || exit
+  ninja -f ninja/linux.ninja
+  cd ../..
+  ./3rd/luamake/luamake rebuild
+}
+
+main() {
+  case "$1" in
+    -fennel) _fennel ;;
+    -fzf) _fzf ;;
+    -foot) _foot ;;
+    -nvim) _nvim ;;
+    -lualsp) _lua_lsp ;;
+    *)
+      _usage
+      exit 1
+    ;;
+  esac
+
+  unset -v bld_dir
+  unset -f _fennel _fzf _foot _nvim _lua_lsp
+}
+
+main "$@"
+

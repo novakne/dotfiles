@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+#
+# Update the main/master upstream branch
+
+
+# Help
+_usage() {
+  cat <<-END
+  Usage: git-pu [OPTION...]
+
+    -master    Fullscreen
+    -main      Select an area
+END
+}
+
+git-sfm() {
+  case "$1" in
+    -master)
+      git switch master
+      git fetch upstream master
+      git merge --commit upstream/master
+    ;;
+    -main)
+      git switch main
+      git fetch upstream main
+      git merge --commit upstream/main
+    ;;
+    *)
+      _usage
+      exit 1
+    ;;
+  esac
+
+  unset -f _usage
+}
+
+git-sfm "$@"
+
