@@ -8,18 +8,20 @@ _usage() {
   cat <<-END
   Usage: update-bld [OPTION...]
 
-    -fennel   Update fennel [ main ]
+    -fennel,   Update fennel [ main ]
     -fzf,     Update fzf [ master ]
     -foot,    Update foot [ master ]
     -nvim,    Update neovim [ master ]
-    -lualsp,  update lua lsp [ master ]
+    -lualsp,  Update lua lsp [ master ]
+    -zig,     Update zig [ master ]
 
 END
 }
 
-declare bld_dir
+declare bld_dir lib_dir
 
 bld_dir="${XDG_DATA_HOME:-$HOME/.local/share}"/bld
+lib_dir="$HOME"/.local/lib
 
 # [ https://git.sr.ht/~technomancy/fennel ]
 _fennel() {
@@ -62,15 +64,16 @@ _foot() {
 
 # [ https://github.com/neovim/neovim ]
 _nvim() {
-  cd "${bld_dir}"neovim || exit
+  cd "${bld_dir}"/neovim || exit
 
   git pull
+  make clean && make distclean
   sudo make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=/usr install
 }
 
 # [ https://github.com/sumneko/lua-language-server ]
 _lua_lsp() {
-  cd "$HOME"/.local/lib/lsp/lua || exit
+  cd "${lib_dir}"/lsp/lua || exit
 
   git pull origin master
   git submodule update --init --recursive
@@ -80,6 +83,15 @@ _lua_lsp() {
   ./3rd/luamake/luamake rebuild
 }
 
+_zig() {
+  cd "${lib_dir}"/zig/zig-master || exit
+
+  git pull origin master
+  cd build || exit
+  cmake .. -DCMAKE_BUILD_TYPE=None -DCMAKE_INSTALL_PREFIX=/usr -DZIG_PREFER_CLANG_CPP_DYLIB=ON
+  sudo make install
+}
+
 main() {
   case "$1" in
     -fennel) _fennel ;;
@@ -87,14 +99,15 @@ main() {
     -foot) _foot ;;
     -nvim) _nvim ;;
     -lualsp) _lua_lsp ;;
+    -zig) _zig ;;
     *)
       _usage
       exit 1
     ;;
   esac
 
-  unset -v bld_dir
-  unset -f _fennel _fzf _foot _nvim _lua_lsp
+  unset -v bld_dir lib_dir
+  unset -f _fennel _fzf _foot _nvim _lua_lsp _zig
 }
 
 main "$@"
