@@ -101,7 +101,7 @@ zstyle ':completion:*:approximate:*' max-errors 1 numeric
 [[ ! -d "$XDG_CACHE_HOME"/zsh ]] && mkdir -p "$XDG_CACHE_HOME"/zsh
 
 export HISTSIZE=10000 SAVEHIST=10000 HISTFILE="$XDG_CACHE_HOME"/zsh/zhistory
-export HISTORY_IGNORE="(ls|cd *|pwd|exit|:q|;q|q:|ea|et|z *|fe|clear|n|update|up *)"
+export HISTORY_IGNORE="(ls|cd *|pwd|exit|:q|;q|q:|e *|ea|et|z *|fe|clear|n|update|up *)"
 export HISTTIMEFORMAT="%F %T:  "
 
 # setopt APPEND_HISTORY

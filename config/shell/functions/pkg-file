@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+# Listing files owned by a package with size
+
+
+pkg-file() {
+  pacman -Qlq "$1" | grep -v '/$' | xargs -r du -h | sort -h
+}
+
