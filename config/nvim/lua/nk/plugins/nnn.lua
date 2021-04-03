@@ -1,17 +1,16 @@
 -- [ Nnn ]
-
 if not vim.fn.exists('nnn') then return end
 
-local map = require 'nk.utils'.bind
+local map = require'nk.utils'.bind
 
 vim.g['nnn#layout'] = {
-  window = {width = 0.5, height = 0.6, highlight = 'Debug'},
+    window = {width = 0.5, height = 0.6, highlight = 'Debug'},
 }
 vim.g['nnn#set_default_mappings'] = 0
 vim.g['nnn#action'] = {
-  ['<c-t>'] = 'tab split',
-  ['<c-h>'] = 'split',
-  ['<c-v>'] = 'vsplit',
+    ['<c-t>'] = 'tab split',
+    ['<c-h>'] = 'split',
+    ['<c-v>'] = 'vsplit',
 }
 vim.g['nnn#command'] = 'nnn -eH'
 

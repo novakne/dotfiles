@@ -1,2 +1,2 @@
-" Include - for completion
-setlocal iskeyword+=-
+setlocal iskeyword+=- " Include - for completion
+

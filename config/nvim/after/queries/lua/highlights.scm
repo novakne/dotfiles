@@ -9,4 +9,3 @@
 (function_call
  (function_call (identifier) @constant))
 
-; (return_statement ["return"] @constant)

@@ -1,4 +1,4 @@
-" [ USER COMMANDS ]
+" [ User commands ]
 
 command! -nargs=* VTerm vsplit | terminal <args>
 command! -nargs=* STerm split | terminal <args>
@@ -12,15 +12,9 @@ command! Cd :cd %:p:h
 command! Cdw :lcd %:p:h
 command! Cdt :tcd %:p:h
 
-" Fzf
-" command! -nargs=* -bang RG lua require'my.utils'.ripgrep_fzf(<q-args>, <bang>0)
-
 " Fix Treesitter
 command! FixTs write | edit | TSBufEnable highlight
 
-" Grep [ word ]
+" Grep '[ word ]'
 command! Gpart :grep '\[{1}\s+\w.*\s+\]{1}$' %
-
-" Zig function in qf
-command! Zfn :grep '^fn\s\w+'
 

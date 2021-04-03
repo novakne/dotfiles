@@ -6,3 +6,4 @@ let g:rustfmt_autosave = 1
 nnoremap <buffer> <LocalLeader>rr :RustRun<CR>
 nnoremap <buffer> <LocalLeader>rf :RustFmt<CR>
 nnoremap <buffer> <Localleader>rc :!cargo clippy<CR>
+

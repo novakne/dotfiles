@@ -1,9 +1,6 @@
 setlocal textwidth=80
-
 nmap <buffer> <silent> <LocalLeader>p <Plug>MarkdownPreviewToggle
 
-" Generates Markdown qf
-command! Gmd :grep  '^\#+\s\w+$'
+command! Gmd :grep '^\#+\s\w+$' " Grep headers
+command! Toc :!toc -p %         " Genrerate TOC
 
-" Genrerate TOC
-command! Toc  :!toc -p %
