@@ -48,14 +48,15 @@ _foot() {
   git pull
 
   mkdir -p bld/release && cd bld/release || exit
-  export CFLAGS="$CFLAGS -O3 -Wno-missing-profile"
+  export CFLAGS="$CFLAGS -O3"
   meson --buildtype=release --prefix=/usr -Db_lto=true ../..
   meson configure -Db_pgo=generate
-  ninja
+  ninja all test
 
+  ./footclient --version
   foot_tmp_file=$(mktemp)
-  ./foot --config=/dev/null --term=alacritty sh -c "$HOME/.local/share/bld/foot/scripts/generate-alt-random-writes.py --scroll --scroll-region --colors-regular --colors-bright --colors-256 --colors-rgb --attr-bold --attr-italic --attr-underline ${foot_tmp_file} && cat ${foot_tmp_file}"
-  rm "${foot_tmp_file}"
+  ./foot --config=/dev/null --term=alacritty sh -c "$HOME/.local/share/bld/foot/scripts/generate-alt-random-writes.py --scroll --scroll-region --colors-regular --colors-bright --colors-256 --colors-rgb --attr-bold --attr-italic --attr-underline --sixel ${foot_tmp_file} && cat ${foot_tmp_file}"
+  rm ${foot_tmp_file}
   meson configure -Db_pgo=use
   ninja
 
@@ -67,7 +68,8 @@ _nvim() {
   cd "${bld_dir}"/neovim || exit
 
   git pull
-  make clean && make distclean
+  sudo make clean
+  sudo make distclean
   sudo make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=/usr install
 }
 
