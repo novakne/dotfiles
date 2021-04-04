@@ -2,6 +2,10 @@
 local utils = require 'nk.utils'
 local map = utils.bind
 
+-- Bind Leader to whichkey
+map('n', '<Leader>', [[:<c-u>WhichKey '<Space>'<CR>]])
+map('n', '<LocalLeader>', [[:<c-u>WhichKey  ','<CR>]])
+
 -- Normal mode with 'jk' or 'kj'
 map('i', 'jk', '<esc>')
 map('i', 'kj', '<esc>')

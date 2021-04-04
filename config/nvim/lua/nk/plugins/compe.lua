@@ -1,57 +1,59 @@
--- [ compe & vim-vsnip ]
-MUtils.plugin_loaded('compe')
+-- [ Compe ]
+if packer_plugins['nvim-compe'] and packer_plugins['nvim-compe'].loaded then
 
-local utils = require 'nk.utils'
-local map = require'nk.utils'.bind
+    local utils = require 'nk.utils'
+    local map = require'nk.utils'.bind
 
-require'compe'.setup {
-    enabled = true,
-    autocomplete = true,
-    debug = false,
-    min_length = 2,
-    preselect = 'disable',
-    throttle_time = 80,
-    source_timeout = 200,
-    incomplete_delay = 400,
-    max_abbr_width = 100,
-    max_kind_width = 100,
-    max_menu_width = 100,
-    documentation = true,
+    require'compe'.setup {
+        enabled = true,
+        autocomplete = true,
+        debug = false,
+        min_length = 2,
+        preselect = 'disable',
+        throttle_time = 80,
+        source_timeout = 200,
+        incomplete_delay = 400,
+        max_abbr_width = 100,
+        max_kind_width = 100,
+        max_menu_width = 100,
+        documentation = true,
 
-    source = {
-        buffer = true,
-        calc = false,
-        emoji = false,
-        luasnip = false,
-        nvim_lsp = true,
-        nvim_lua = true,
-        nvim_treesitter = false,
-        omni = false,
-        path = true,
-        snippets_nvim = false,
-        spell = true,
-        tags = true,
-        ultisnips = false,
-        vim_lsc = false,
-        vim_lsp = false,
-        vsnip = false,
-    },
-}
-
-map('i', '<Tab>', 'v:lua.MUtils.tab_complete()', {expr = true})
-map('s', '<Tab>', 'v:lua.MUtils.tab_complete()', {expr = true})
-map('i', '<S-Tab>', 'v:lua.MUtils.s_tab_complete()', {expr = true})
-map('s', '<S-Tab>', 'v:lua.MUtils.s_tab_complete()', {expr = true})
-
-local autocmd = {
-    InlayHints = {
-        {
-            'InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost',
-            '*.rs',
-            'lua require"lsp_extensions".inlay_hints{ prefix = " » ", highlight = "NonText", enabled = {"ChainingHint"} }',
+        source = {
+            buffer = true,
+            calc = false,
+            emoji = false,
+            luasnip = false,
+            nvim_lsp = true,
+            nvim_lua = true,
+            nvim_treesitter = false,
+            omni = false,
+            path = true,
+            snippets_nvim = false,
+            spell = true,
+            tags = true,
+            ultisnips = false,
+            vim_lsc = false,
+            vim_lsp = false,
+            vsnip = false,
         },
-    },
-}
+    }
 
-utils.create_augroups(autocmd)
+    map('i', '<Tab>', 'v:lua.MUtils.tab_complete()', {expr = true})
+    map('s', '<Tab>', 'v:lua.MUtils.tab_complete()', {expr = true})
+    map('i', '<S-Tab>', 'v:lua.MUtils.s_tab_complete()', {expr = true})
+    map('s', '<S-Tab>', 'v:lua.MUtils.s_tab_complete()', {expr = true})
+
+    local autocmd = {
+        InlayHints = {
+            {
+                'InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost',
+                '*.rs',
+                'lua require"lsp_extensions".inlay_hints{ prefix = " » ", highlight = "NonText", enabled = {"ChainingHint"} }',
+            },
+        },
+    }
+
+    utils.create_augroups(autocmd)
+
+end
 

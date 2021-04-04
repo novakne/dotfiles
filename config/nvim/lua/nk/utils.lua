@@ -8,12 +8,6 @@ MUtils.inspect = function(stuff)
     return print(vim.inspect(stuff))
 end
 
--- Check if plugin is loaded before loading config
-MUtils.plugin_loaded = function(plugin)
-    local ok, _ = pcall(require, plugin)
-    if not ok then return end
-end
-
 -- Vim-compe
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
