@@ -56,7 +56,7 @@ _foot() {
   ./footclient --version
   foot_tmp_file=$(mktemp)
   ./foot --config=/dev/null --term=alacritty sh -c "$HOME/.local/share/bld/foot/scripts/generate-alt-random-writes.py --scroll --scroll-region --colors-regular --colors-bright --colors-256 --colors-rgb --attr-bold --attr-italic --attr-underline --sixel ${foot_tmp_file} && cat ${foot_tmp_file}"
-  rm ${foot_tmp_file}
+  rm "${foot_tmp_file}"
   meson configure -Db_pgo=use
   ninja
 

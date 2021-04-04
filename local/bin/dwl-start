@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #
 # Autostart programm with dwl
-#   `dwl -s dwm-start`
+#   `dwl -s dwl-start`
 
 
-swaybg -o eDP-1 -i ~/img/wal/tonton_revolver_john_wick_01.jpg -m fill >/dev/null 2>&1 &
+swaybg -o eDP-1 -i "$HOME"/img/wal/tonton_revolver_john_wick_01.jpg -m fill >/dev/null 2>&1 &
 yambar -c "$HOME"/.config/yambar/config-dwl.yml >/dev/null 2>&1 &
 fnott >/dev/null 2>&1 &
 foot --server >/dev/null 2>&1 &

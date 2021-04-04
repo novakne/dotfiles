@@ -9,7 +9,7 @@ _lower() {
 }
 
 main() {
-  mv "$1" "$(printf -- "$1" \
+  mv "$1" "$(printf -- '%s' "$1" \
     | _lower "$1" \
     | tr '_-' ' ' \
     | tr -s ' ')"

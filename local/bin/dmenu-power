@@ -5,13 +5,13 @@
 
 declare -a dmenu_opts
 
-dmenu_opts=( \
-  -i -h 28 \
-  -fn Overpass \
-  -nb '#23222b' \
-  -nf '#eae9ee' \
-  -sb '#e8ec77' \
-  -sf '#23222b'\
+dmenu_opts=(
+  -i -h 28
+  -fn Overpass
+  -nb '#23222b'
+  -nf '#eae9ee'
+  -sb '#e8ec77'
+  -sf '#23222b'
 )
 
 confirm() {

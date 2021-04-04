@@ -9,7 +9,7 @@ pdf_dir="$HOME"/docs/notes/pdf
 pdf_theme="zenburn"
 
 declare -a pandoc_opts
-pandoc_opts=( -V geometry:margin=0.5in --listings --highlight-style=${pdf_theme} --toc --toc-depth=4 )
+pandoc_opts=( -V geometry:margin=0.5in --listings --highlight-style="${pdf_theme}" --toc --toc-depth=4 )
 
 # error message in STDERR
 _err() {

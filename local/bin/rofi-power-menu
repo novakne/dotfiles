@@ -14,9 +14,9 @@ reboot=" Reboot"
 suspend=" Suspend"
 hibernate=" Hibernate"
 
-launcher="rofi -dmenu -i -lines 5 -p Exit:  -theme themes/menu.rasi"
+launcher=( rofi '-dmenu' '-i' '-lines 5' '-p Exit: ' '-theme themes/menu.rasi' )
 options="${quit}\n${shutdown}\n${reboot}\n${suspend}\n${hibernate}"
-selection=$(echo -e ${options} | ${launcher})
+selection=$(echo -e "${options}" | "${launcher[@]}")
 
 case ${selection} in
   ("$quit") awesome quit ;;
