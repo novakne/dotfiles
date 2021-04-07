@@ -23,7 +23,6 @@ source "${river_dir}"/autostart
 
 riverctl set-repeat 50 300      # Set repeat rate
 # Set the layout on startup
-# riverctl layout rivertile tile-left
 riverctl spawn rivertile
 riverctl set-option -focused-output layout tile-left
 riverctl attach-mode bottom

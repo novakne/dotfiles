@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+#
+
+
+foot -c "$HOME"/.config/foot/foot-light.ini >/dev/null 2>&1
+

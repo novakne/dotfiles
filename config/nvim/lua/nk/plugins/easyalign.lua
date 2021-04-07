@@ -1,8 +1,6 @@
 -- [ EasyAlign ]
 if packer_plugins['vim-easy-align'] then
-
-    local utils = require 'nk.utils'
-    local map = utils.bind
+    local map = require'nk.utils'.bind
 
     -- Start interactive EasyAlign for a motion/text object (e.g. gaip)
     map('n', 'ga', '<Plug>(EasyAlign)', {silent = true})

@@ -2,7 +2,7 @@
 if packer_plugins['nvim-compe'] and packer_plugins['nvim-compe'].loaded then
 
     local utils = require 'nk.utils'
-    local map = require'nk.utils'.bind
+    local map = utils.bind
 
     require'compe'.setup {
         enabled = true,

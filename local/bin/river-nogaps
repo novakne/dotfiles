@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# Set outer and view padding to 0
+
+
+if hash riverctl >/dev/null 2>&1; then
+  riverctl set-option -focused-output outer_padding 0
+  riverctl set-option -focused-output view_padding 0
+else
+  printf -- '%s\n' "Riverctl not found" >&2
+  exit 1
+fi
+

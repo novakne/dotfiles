@@ -70,7 +70,7 @@ _nvim() {
   git pull
   sudo make clean
   sudo make distclean
-  sudo make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=/usr install
+  sudo make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=/usr install
 }
 
 # [ https://github.com/sumneko/lua-language-server ]

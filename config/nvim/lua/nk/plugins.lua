@@ -170,6 +170,16 @@ return require'packer'.startup(function()
         'junegunn/vim-easy-align',
         keys = '<Plug>(EasyAlign)',
         cmd = 'EasyAlign',
+        config = function()
+            require 'nk.plugins.easyalign'
+        end,
+    }
+
+    use {
+        'nacro90/numb.nvim',
+        config = function()
+            require'numb'.setup()
+        end,
     }
 
     use 'machakann/vim-sandwich'
@@ -195,9 +205,28 @@ return require'packer'.startup(function()
         end,
     }
 
-    use {'moll/vim-bbye', cmd = 'Bdelete'}
-    use {'norcalli/nvim-colorizer.lua', cmd = 'ColorizerToggle'}
-    use 'phaazon/hop.nvim'
+    use {
+        'moll/vim-bbye',
+        cmd = 'Bdelete',
+        config = function()
+            require 'nk.plugins.bbye'
+        end,
+    }
+
+    use {
+        'norcalli/nvim-colorizer.lua',
+        cmd = 'ColorizerToggle',
+        config = function()
+            require 'nk.plugins.colorizer'
+        end,
+    }
+
+    use {
+        'phaazon/hop.nvim',
+        config = function()
+            require 'nk.plugins.hop'
+        end,
+    }
 
     -- ---------------------------------------------
     -- [ LANG ]

@@ -6,7 +6,7 @@
 #
 # REQUIREMENTS:
 #  - inotifywait ( 'inotify-tools' on arch )
-#  - Launch dwl with `dwl > ~.cache/log/dwltags.log` or change $fname
+#  - Launch dwl with `dwl 1> ~.cache/log/dwltags.log` or change $fname
 #
 # TAGS:
 #  Name                 Type    Return
@@ -122,7 +122,7 @@ _cycle
 while true; do
 
   [[ ! -f "${fname}" ]] && printf -- '%s\n' \
-      "You need to redirect dwl stdout to ~/.cache/dwltags" >&2
+      "You need to redirect dwl stdout to ~/.cache/dwltags.log" >&2
 
   inotifywait -qq --event modify "${fname}"
 

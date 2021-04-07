@@ -20,10 +20,10 @@ if packer_plugins['vim-grepper'] and packer_plugins['vim-grepper'].loaded then
 
     map('n', 'gs', '<plug>(GrepperOperator)', {silent = true})
     map('x', 'gs', '<plug>(GrepperOperator)', {silent = true})
-    map('n', '<Leader>rg', '<CMD>Grepper<CR>')
-    map('n', '<Leader>rb', '<CMD>Grepper -buffers<CR>')
-    map('n', '<Leader>rB', '<CMD>Grepper -buffer<CR>')
-    map('n', '<Leader>rw', '<CMD>Grepper -cword<CR>')
+    map('n', '<Leader>sg', '<CMD>Grepper<CR>')
+    map('n', '<Leader>sb', '<CMD>Grepper -buffers<CR>')
+    map('n', '<Leader>sB', '<CMD>Grepper -buffer<CR>')
+    map('n', '<Leader>sw', '<CMD>Grepper -cword<CR>')
 
 end
 

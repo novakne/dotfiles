@@ -59,7 +59,7 @@ argi.set_syntax = function()
         CursorLine = {bg = colors.light03},
         Error = {fg = colors.red01, bg = colors.light00},
         iCursor = {fg = colors.light00, bg = colors.dark07},
-        LineNr = {fg = colors.dark03, bg = colors.light00},
+        LineNr = {fg = colors.dark06, bg = colors.light00},
         MatchParen = {fg = colors.light03, bg = colors.dark03},
         NonText = {fg = colors.dark03},
         Normal = {fg = colors.dark00, bg = colors.light00},
@@ -108,7 +108,7 @@ argi.set_syntax = function()
 
         -- [ Gutter ]
         CursorColumn = {fg = colors.dark03},
-        CursorLineNr = {fg = colors.dark03, bg = colors.light00},
+        CursorLineNr = {fg = colors.dark03, bg = colors.light00, attr = 'bold'},
         Folded = {fg = colors.dark03, bg = colors.light03, attr = 'bold'},
         FoldColumn = {fg = colors.dark05, bg = colors.light00},
         SignColumn = {fg = colors.dark05, bg = colors.light00},

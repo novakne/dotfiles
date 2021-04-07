@@ -43,10 +43,12 @@ if packer_plugins['vim-which-key'] and packer_plugins['vim-which-key'].loaded th
 
     M.g = {
         name = '+GitSign',
+        p = 'Previous hunk',
+        n = 'Next hunk',
         s = 'Stage hunk',
         u = 'Undo stage hunk',
         r = 'Reset hunk',
-        p = 'Preview hunk',
+        h = 'Preview hunk',
         b = 'Blame line',
     }
 
@@ -69,7 +71,7 @@ if packer_plugins['vim-which-key'] and packer_plugins['vim-which-key'].loaded th
         q = 'Set loclist',
     }
 
-    M.r = {
+    M.s = {
         name = '+Grepper',
         g = 'Grepper',
         b = 'Grepper -buffers',
