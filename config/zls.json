@@ -1,0 +1,9 @@
+{
+    "zig_exe_path":"/home/novakane/.local/bin/app/zig-master",
+    "enable_snippets":true,
+    "warn_style":true,
+    "enable_semantic_tokens":false,
+    "operator_completions":true,
+    "include_at_in_builtins":false,
+    "max_detail_length":1048576
+}

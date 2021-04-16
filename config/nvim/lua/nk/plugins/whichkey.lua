@@ -26,7 +26,8 @@ if packer_plugins['vim-which-key'] and packer_plugins['vim-which-key'].loaded th
         ['à'] = 'Toggle Number',
     }
 
-    M.c = {name = '+Quickfix', c = 'Close', o = 'Open', p = 'Prev', n = 'Next'}
+    M.c =
+        { name = '+Quickfix', c = 'Close', o = 'Open', p = 'Prev', n = 'Next' }
 
     M.f = {
         name = '+Fzf',
@@ -113,7 +114,7 @@ if packer_plugins['vim-which-key'] and packer_plugins['vim-which-key'].loaded th
             s = 'Status',
         },
 
-        t = {name = '+Treesitter', f = 'Treesitter'},
+        t = { name = '+Treesitter', f = 'Treesitter' },
     }
 
     -- Define prefix dictionary

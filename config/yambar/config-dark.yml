@@ -49,26 +49,21 @@ bar:
             spacing: 5
             items:
               - string:
-                  text: 襤
-                  font: *sfont
-                  foreground: *blue
-                  left-margin: 10
-                  on-click: /usr/bin/bash -c "wlogout"
-              - string: {<<: *separator}
-              - string:
                   text: 
                   font: *sfont
                   foreground: *blue
+                  left-margin: 10
                   on-click: /usr/bin/bash -c "fuzzel-run"
+              - string: {<<: *separator}
               - string:
                   text: 
                   font: *sfont
-                  foreground: *blue
+                  foreground: *base05
                   on-click: /usr/bin/bash -c "footclient nnn"
               - string:
                   text: 
                   font: *sfont
-                  foreground: *blue
+                  foreground: *base05
                   on-click: /usr/bin/bash -c "footclient nvim"
               - string: {<<: *separator}
 
@@ -123,28 +118,6 @@ bar:
                   font: *sfont
               - string:
                   text: '{cpu}'
-
-    - script:
-        path: /home/novakane/.config/yambar/modules/pacman.sh
-        args: []
-        content:
-          map:
-            tag: pkg
-            default:
-              list:
-                spacing: 3
-                items:
-                  - string:
-                      text: 
-                      font: *sfont
-                  - string:
-                      text: '{pkg}'
-                      font: *myfont
-            values:
-              0:
-                string:
-                  text:  no updates
-                  font: *sfont
 
     - alsa:
         card: default
@@ -266,7 +239,7 @@ bar:
                         font: *myfont
 
     - network:
-        name: wlan0
+        name: wlp1s0
         content:
           map:
             tag: state

@@ -8,10 +8,5 @@ local bind = require 'nk.bind.default'
 -- [ Plugins settings ]
 local plugins = require 'nk.plugins'
 
-return {
-    options = options,
-    autocmd = autocmd,
-    bind = bind,
-    plugins = plugins,
-}
+return { options = options, autocmd = autocmd, bind = bind, plugins = plugins }
 

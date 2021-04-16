@@ -48,7 +48,7 @@ if packer_plugins['telescope.nvim'] and packer_plugins['telescope.nvim'].loaded 
             },
             color_devicons = true,
             use_less = true,
-            set_env = {['COLORTERM'] = 'truecolor'},
+            set_env = { ['COLORTERM'] = 'truecolor' },
             scroll_strategy = 'cycle',
             file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
             grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep
@@ -62,7 +62,7 @@ if packer_plugins['telescope.nvim'] and packer_plugins['telescope.nvim'].loaded 
                     ['<C-h>'] = actions.select_horizontal,
                     ['<Esc>'] = actions.close, -- Close instead of normal mode
                 },
-                n = {['<C-h>'] = actions.select_horizontal},
+                n = { ['<C-h>'] = actions.select_horizontal },
             },
 
         },

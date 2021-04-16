@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+#
+# Launch River
+# USAGE: river-run [-log]
+
+
+# [  Wayland env variables ]
+#Session
+export XDG_SESSION_TYPE=wayland
+export XDG_CURRENT_DESKTOP=river
+
+# Firefox
+export MOZ_ENABLE_WAYLAND=1
+
+# Force GTK to use wayland
+export CLUTTER_BACKEND=wayland
+
+# Qt 5
+export QT_QPA_PLATFORM=wayland-egl
+
+# Java
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+
+river-run() {
+  local log_date
+
+  log_date=$(date +"%Y_%m_%d-%H_%M_%S")
+
+  if [[ $# -eq 0 ]]; then
+    exec dbus-run-session river >/dev/null 2>&1
+  else
+    case "$1" in
+      -log)
+        exec dbus-run-session river -l 6 \
+          > "$HOME"/.cache/log/river-"${log_date}".log 2>&1
+      ;;
+      *) exit 1 ;;
+    esac
+  fi
+}
+
+river-run "$@"
+

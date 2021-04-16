@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#
+# Autostart programm with dwl
+# USAGE: dwl -s dwl-autostart
+
+
+dwl-autostart() {
+  local yambar_conf
+  local -a swaybg_opts
+
+  yambar_conf="$HOME"/.config/yambar/config-dwl.yml
+  swaybg_opts=(
+    -o eDP-1
+    -i "$HOME"/img/wal/tonton_revolver_john_wick_01.jpg
+    -m fill
+  )
+
+
+  swaybg "${swaybg_opts[@]}" >/dev/null 2>&1 &
+  yambar -c "${yambar_conf}" >/dev/null 2>&1 &
+
+  exec runsvdir "${SVDIR}"
+}
+
+dwl-autostart "$@"
+
+

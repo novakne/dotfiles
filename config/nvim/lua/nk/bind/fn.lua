@@ -27,7 +27,7 @@ end
 -- Be aware of whether you are right or left vertical split
 -- so you can use arrows more naturally.
 -- Inspired by https://github.com/ethagnawl
-M.vertical_resize = function(direction)
+M.vertical_resize = function( direction )
     local window_resize_count = 5
     local current_window = vim.call('winnr')
     local last_window = vim.call('winnr', '$')
@@ -58,7 +58,7 @@ end
 
 -- Move to the split in the direction shown, or create a new split
 -- ( https://aonemd.github.io/blog/handy-keymaps-in-vim )
-M.win_move = function(key)
+M.win_move = function( key )
     local current_window = vim.call('winnr')
     vim.cmd('wincmd ' .. key)
     if current_window == vim.call('winnr') then

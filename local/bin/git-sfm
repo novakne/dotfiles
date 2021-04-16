@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 #
-# Update the main/master upstream branch
+# Switch/fetch/merge the main/master upstream branch
+# USAGE: git-sfm <options>
 
 
 # Help
 _usage() {
   cat <<-END
-  Usage: git-pu [OPTION...]
+  Usage: git-sfm [OPTION...]
 
     -master    Fullscreen
     -main      Select an area

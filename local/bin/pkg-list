@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 #
 # List installed packages on Arch Linux
-
+#
+# USAGE: pkg-list <options>
+# REQUIREMENTS: pacman
 
 # Help
 _usage() {
@@ -28,7 +30,6 @@ END
 
 
 main() {
-
   local pkg_dir file_date
 
   pkg_dir="$HOME"/doc/bkup/pkg
@@ -62,7 +63,6 @@ main() {
       ;;
   esac
 
-  unset -v pkg_dir file_date
   unset -f _usage
 }
 

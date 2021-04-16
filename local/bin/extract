@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 #
 # Extract archive
+# USAGE: extract <archive>
 
 
 _err() {
   printf -- '%s\n' "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $*" >&2
 }
 
-extract () {
+extract() {
   printf -- '%s\n' "Extracting $1 ..."
 
   if [ -f "$1" ]; then
@@ -33,4 +34,6 @@ extract () {
     exit 1
   fi
 }
+
+extract "$@"
 

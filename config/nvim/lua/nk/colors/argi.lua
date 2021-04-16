@@ -27,7 +27,7 @@ local colors = {
 }
 
 -- [ Highlighting function ]
-local highlight = function(group, color)
+local highlight = function( group, color )
     local guifg = color.fg and 'guifg=' .. color.fg or 'guifg=NONE'
     local guibg = color.bg and 'guibg=' .. color.bg or 'guibg=NONE'
     local attr = color.attr and 'gui=' .. color.attr or 'gui=NONE'
@@ -49,29 +49,29 @@ argi.set_syntax = function()
         -- ( :so $VIMRUNTIME/syntax/hitest.vim )
 
         -- [ Attributes ]
-        Bold = {attr = 'bold'},
-        Italic = {attr = 'italic'},
-        Underline = {attr = 'underline'},
+        Bold = { attr = 'bold' },
+        Italic = { attr = 'italic' },
+        Underline = { attr = 'underline' },
 
         -- [ Editor ]
-        ColorColumn = {fg = colors.dark01},
-        Cursor = {fg = colors.light00, bg = colors.dark03},
-        CursorLine = {bg = colors.light03},
-        Error = {fg = colors.red01, bg = colors.light00},
-        iCursor = {fg = colors.light00, bg = colors.dark07},
-        LineNr = {fg = colors.dark06, bg = colors.light00},
-        MatchParen = {fg = colors.light03, bg = colors.dark03},
-        NonText = {fg = colors.dark03},
-        Normal = {fg = colors.dark00, bg = colors.light00},
-        PMenu = {fg = colors.dark00, bg = colors.light01},
-        PmenuSbar = {fg = colors.dark00, bg = colors.light01},
-        PMenuSel = {fg = colors.light00, bg = colors.dark03},
-        PmenuThumb = {fg = colors.dark03, bg = colors.light00},
-        RedrawDebugNormal = {fg = colors.light00, bg = colors.dark00},
-        RedrawDebugClear = {fg = colors.light00, bg = colors.dark01},
-        RedrawDebugComposed = {fg = colors.light00, bg = colors.dark02},
-        RedrawDebugRecompose = {fg = colors.light00, bg = colors.dark03},
-        SpecialKey = {fg = colors.dark03},
+        ColorColumn = { fg = colors.dark01 },
+        Cursor = { fg = colors.light00, bg = colors.dark03 },
+        CursorLine = { bg = colors.light03 },
+        Error = { fg = colors.red01, bg = colors.light00 },
+        iCursor = { fg = colors.light00, bg = colors.dark07 },
+        LineNr = { fg = colors.dark06, bg = colors.light00 },
+        MatchParen = { fg = colors.light03, bg = colors.dark03 },
+        NonText = { fg = colors.dark03 },
+        Normal = { fg = colors.dark00, bg = colors.light00 },
+        PMenu = { fg = colors.dark00, bg = colors.light01 },
+        PmenuSbar = { fg = colors.dark00, bg = colors.light01 },
+        PMenuSel = { fg = colors.light00, bg = colors.dark03 },
+        PmenuThumb = { fg = colors.dark03, bg = colors.light00 },
+        RedrawDebugNormal = { fg = colors.light00, bg = colors.dark00 },
+        RedrawDebugClear = { fg = colors.light00, bg = colors.dark01 },
+        RedrawDebugComposed = { fg = colors.light00, bg = colors.dark02 },
+        RedrawDebugRecompose = { fg = colors.light00, bg = colors.dark03 },
+        SpecialKey = { fg = colors.dark03 },
         SpellBad = {
             fg = colors.red01,
             bg = colors.light00,
@@ -96,59 +96,61 @@ argi.set_syntax = function()
             attr = 'undercurl',
             sp = colors.red00,
         },
-        Visual = {fg = colors.dark00, bg = colors.light03, attr = 'bold'},
-        VisualNOS = {fg = colors.light03},
+        Visual = { fg = colors.dark00, bg = colors.light03, attr = 'bold' },
+        VisualNOS = { fg = colors.light03 },
 
         -- [ Neovim support ]
-        NvimInternalError = {fg = colors.light00, bg = colors.red00},
-        healthError = {fg = colors.red00, bg = colors.light00},
-        healthSuccess = {fg = colors.dark00, bg = colors.light00},
-        healthWarning = {fg = colors.yellow00, bg = colors.light00},
-        TermCursorNC = {fg = colors.dark01},
+        NvimInternalError = { fg = colors.light00, bg = colors.red00 },
+        healthError = { fg = colors.red00, bg = colors.light00 },
+        healthSuccess = { fg = colors.dark00, bg = colors.light00 },
+        healthWarning = { fg = colors.yellow00, bg = colors.light00 },
+        TermCursorNC = { fg = colors.dark01 },
 
         -- [ Gutter ]
-        CursorColumn = {fg = colors.dark03},
-        CursorLineNr = {fg = colors.dark03, bg = colors.light00, attr = 'bold'},
-        Folded = {fg = colors.dark03, bg = colors.light03, attr = 'bold'},
-        FoldColumn = {fg = colors.dark05, bg = colors.light00},
-        SignColumn = {fg = colors.dark05, bg = colors.light00},
+        CursorColumn = { fg = colors.dark03 },
+        CursorLineNr = { fg = colors.dark03, bg = colors.light00, attr = 'bold' },
+        Folded = { fg = colors.dark03, bg = colors.light03, attr = 'bold' },
+        FoldColumn = { fg = colors.dark05, bg = colors.light00 },
+        SignColumn = { fg = colors.dark05, bg = colors.light00 },
 
         -- [ Navigation ]
-        Directory = {fg = colors.dark05, attr = 'bold'},
+        Directory = { fg = colors.dark05, attr = 'bold' },
 
         -- [ Prompt / Status ]
-        EndOfBuffer = {fg = colors.light03},
-        ErrorMsg = {fg = colors.light00, bg = colors.red00},
-        ModeMsg = {fg = colors.dark02},
-        MoreMsg = {fg = colors.dark02},
-        Question = {fg = colors.dark02},
-        StatusLine = {fg = colors.light00, bg = colors.dark01},
-        StatusLineNC = {fg = colors.light00, bg = colors.dark01},
-        StatusLineTerm = {fg = colors.light00, bg = colors.bdark01},
-        StatusLineTermNC = {fg = colors.light00, bg = colors.dark01},
-        WarningMsg = {fg = colors.light00, bg = colors.yellow00},
-        WildMenu = {fg = colors.dark03, bg = colors.base01},
+        EndOfBuffer = { fg = colors.light03 },
+        ErrorMsg = { fg = colors.light00, bg = colors.red00 },
+        ModeMsg = { fg = colors.dark02 },
+        MoreMsg = { fg = colors.dark02 },
+        Question = { fg = colors.dark02 },
+        StatusLine = { fg = colors.light00, bg = colors.dark01 },
+        StatusLineNC = { fg = colors.light00, bg = colors.dark01 },
+        StatusLineTerm = { fg = colors.light00, bg = colors.bdark01 },
+        StatusLineTermNC = { fg = colors.light00, bg = colors.dark01 },
+        WarningMsg = { fg = colors.light00, bg = colors.yellow00 },
+        WildMenu = { fg = colors.dark03, bg = colors.base01 },
 
         -- [ Search ]
-        IncSearch = {fg = colors.light00, bg = colors.blue00},
-        Search = {fg = colors.light00, bg = colors.red00},
+        IncSearch = { fg = colors.light00, bg = colors.blue00 },
+        Search = { fg = colors.light00, bg = colors.red00 },
 
         -- [ Tabs ]
-        TabLine = {fg = colors.dark02, bg = colors.light00},
-        TabLineFill = {fg = colors.dark02, bg = colors.light00},
-        TabLineSel = {fg = colors.light00, bg = colors.dark02},
+        TabLine = { fg = colors.dark02, bg = colors.light00 },
+        TabLineFill = { fg = colors.dark02, bg = colors.light00 },
+        TabLineSel = { fg = colors.light00, bg = colors.dark02 },
 
         -- [ Window ]
-        Title = {fg = colors.dark02},
-        VertSplit = {fg = colors.dark01, bg = colors.light00},
+        Title = { fg = colors.dark02 },
+        VertSplit = { fg = colors.dark01, bg = colors.light00 },
 
         -- [ Diff ]
-        DiffAdd = {fg = colors.dark02, bg = colors.light00, attr = 'inverse'},
-        DiffChange = {fg = colors.dark01, bg = colors.light00, attr = 'inverse'},
-        DiffDelete = {fg = colors.dark00, bg = colors.light00, attr = 'inverse'},
-        DiffText = {fg = colors.dark03, bg = colors.light00, attr = 'inverse'},
+        DiffAdd = { fg = colors.dark02, bg = colors.light00, attr = 'inverse' },
+        DiffChange = { fg = colors.dark01, bg = colors.light00,
+                       attr = 'inverse' },
+        DiffDelete = { fg = colors.dark00, bg = colors.light00,
+                       attr = 'inverse' },
+        DiffText = { fg = colors.dark03, bg = colors.light00, attr = 'inverse' },
         -- Legacy groups for official git.vim and diff.vim syntax
-        diffAdded = {fg = colors.dark02, bg = colors.light00, attr = 'inverse'},
+        diffAdded = { fg = colors.dark02, bg = colors.light00, attr = 'inverse' },
         diffChanged = {
             fg = colors.dark01,
             bg = colors.light00,
@@ -161,64 +163,64 @@ argi.set_syntax = function()
         },
 
         -- [ Quickfix / Location list ]
-        qfLineNr = {fg = colors.dark03},
+        qfLineNr = { fg = colors.dark03 },
 
         -- [ Neovim lsp ]
-        LspDiagnosticsDefaultError = {fg = colors.red00},
-        LspDiagnosticsDefaultWarning = {fg = colors.yellow00},
-        LspDiagnosticsDefaultInformation = {fg = colors.blue00},
-        LspDiagnosticsDefaultHint = {fg = colors.blue01},
-        LspDiagnosticsUnderlineError = {fg = colors.red00},
-        LspDiagnosticsUnderlineWarning = {fg = colors.yellow00},
-        LspDiagnosticsUnderlineInformation = {fg = colors.blue00},
-        LspDiagnosticsUnderlineHint = {fg = colors.blue01},
-        LspDiagErrorBorder = {fg = colors.red00},
-        LspDiagWarnBorder = {fg = colors.yellow00},
-        LspDiagInforBorder = {fg = colors.blue00},
-        LspDiagHintBorder = {fg = colors.blue01},
+        LspDiagnosticsDefaultError = { fg = colors.red00 },
+        LspDiagnosticsDefaultWarning = { fg = colors.yellow00 },
+        LspDiagnosticsDefaultInformation = { fg = colors.blue00 },
+        LspDiagnosticsDefaultHint = { fg = colors.blue01 },
+        LspDiagnosticsUnderlineError = { fg = colors.red00 },
+        LspDiagnosticsUnderlineWarning = { fg = colors.yellow00 },
+        LspDiagnosticsUnderlineInformation = { fg = colors.blue00 },
+        LspDiagnosticsUnderlineHint = { fg = colors.blue01 },
+        LspDiagErrorBorder = { fg = colors.red00 },
+        LspDiagWarnBorder = { fg = colors.yellow00 },
+        LspDiagInforBorder = { fg = colors.blue00 },
+        LspDiagHintBorder = { fg = colors.blue01 },
 
         -- -------------------------------------------
         -- [ LANGUAGE argi.BASE GROUPS ]
         -- -------------------------------------------
         -- ( :help w18 )
 
-        Comment = {fg = colors.light03, attr = 'italic'},
+        Comment = { fg = colors.light03, attr = 'italic' },
 
-        Constant = {fg = colors.dark01, attr = 'bold'},
-        String = {fg = colors.dark07, attr = 'italic'},
-        Character = {fg = colors.dark03, attr = 'bold'},
-        Number = {fg = colors.dark04},
-        Boolean = {fg = colors.dark04, attr = 'bold'},
-        Float = {fg = colors.dark04, attr = 'italic'},
+        Constant = { fg = colors.dark01, attr = 'bold' },
+        String = { fg = colors.dark07, attr = 'italic' },
+        Character = { fg = colors.dark03, attr = 'bold' },
+        Number = { fg = colors.dark04 },
+        Boolean = { fg = colors.dark04, attr = 'bold' },
+        Float = { fg = colors.dark04, attr = 'italic' },
 
-        Identifier = {fg = colors.dark03},
-        Function = {fg = colors.dark00, attr = 'bold'},
+        Identifier = { fg = colors.dark03 },
+        Function = { fg = colors.dark00, attr = 'bold' },
 
-        Statement = {fg = colors.dark02},
-        Conditional = {fg = colors.dark01, attr = 'bold'},
-        Repeat = {fg = colors.dark01, attr = 'italic'},
-        Label = {fg = colors.dark03},
-        Operator = {fg = colors.dark03},
-        Keyword = {fg = colors.dark02, attr = 'bold'},
-        Exception = {fg = colors.dark03},
+        Statement = { fg = colors.dark02 },
+        Conditional = { fg = colors.dark01, attr = 'bold' },
+        Repeat = { fg = colors.dark01, attr = 'italic' },
+        Label = { fg = colors.dark03 },
+        Operator = { fg = colors.dark03 },
+        Keyword = { fg = colors.dark02, attr = 'bold' },
+        Exception = { fg = colors.dark03 },
 
-        PreProc = {fg = colors.dark06},
-        Include = {fg = colors.dark06},
-        Define = {fg = colors.dark07},
-        Macro = {fg = colors.dark07},
-        PreCondit = {fg = colors.dark07},
+        PreProc = { fg = colors.dark06 },
+        Include = { fg = colors.dark06 },
+        Define = { fg = colors.dark07 },
+        Macro = { fg = colors.dark07 },
+        PreCondit = { fg = colors.dark07 },
 
-        Type = {fg = colors.dark03, atrr = 'italic'},
-        StorageClass = {fg = colors.dark01},
-        Structure = {fg = colors.dark01, attr = 'bold'},
-        Typedef = {fg = colors.dark01, attr = 'italic'},
+        Type = { fg = colors.dark03, atrr = 'italic' },
+        StorageClass = { fg = colors.dark01 },
+        Structure = { fg = colors.dark01, attr = 'bold' },
+        Typedef = { fg = colors.dark01, attr = 'italic' },
 
-        Special = {fg = colors.dark05},
-        SpecialChar = {fg = colors.dark05},
-        Tag = {fg = colors.dark05},
-        Delimiter = {fg = colors.dark05},
-        SpecialComment = {fg = colors.dark05, attr = 'italic'},
-        Todo = {fg = colors.dark02, attr = 'underline'},
+        Special = { fg = colors.dark05 },
+        SpecialChar = { fg = colors.dark05 },
+        Tag = { fg = colors.dark05 },
+        Delimiter = { fg = colors.dark05 },
+        SpecialComment = { fg = colors.dark05, attr = 'italic' },
+        Todo = { fg = colors.dark02, attr = 'underline' },
 
         -- ------------------------------------------
         -- [ LANGUAGES SPECIFIC ]
@@ -525,7 +527,7 @@ argi.set_syntax = function()
     return syntax
 end
 
-argi.setup = function(opts)
+argi.setup = function( opts )
     local user_colors = opts or {}
     colors = vim.tbl_deep_extend('force', colors, user_colors.colors or {})
 

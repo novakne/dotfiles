@@ -3,7 +3,7 @@ if packer_plugins['fzf.vim'] and packer_plugins['fzf.vim'].loaded then
 
     local map = require'nk.utils'.bind
 
-    vim.g.fzf_layout = {window = {width = 0.8, height = 0.9}}
+    vim.g.fzf_layout = { window = { width = 0.8, height = 0.9 } }
     vim.g.fzf_buffers_jump = 1
     vim.g.fzf_action = {
         ['ctrl-t'] = 'tab split',

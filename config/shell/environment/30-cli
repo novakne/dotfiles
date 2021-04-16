@@ -56,7 +56,7 @@ _is_command notmuch && export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/config
 
 # [ Nnn ]
 if _is_command nnn; then
-    export NNN_OPTS="ceEHr"
+    export NNN_OPTS="eEHr"
     export NNN_COLORS='3415'
     export NNN_FCOLORS='070704030f05060808010301'
     export NNN_TRASH=1
@@ -92,6 +92,8 @@ _is_command pass && export PASSWORD_STORE_DIR="$HOME"/.private/pass
 # [ Ripgrep ]
 _is_command rg && export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/rc
 
+# [ Weechat ]
+export WEECHAT_HOME="$XDG_CONFIG_HOME"/weechat
 
 # [ Misc ]
 # Cleanup $HOME dir

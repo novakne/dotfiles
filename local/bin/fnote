@@ -1,21 +1,24 @@
 #!/usr/bin/env bash
 #
 # Search for header in markdown files
-#     - Requirements: ripgrep fzf nvim
+#
+# USAGE: fnote
+# REQUIREMENTS: ripgrep fzf nvim
 
 
-declare file line notes_dir
-declare -a rg_opts
+fnote() {
+  local file line notes_dir
+  local -a rg_opts
 
-notes_dir="$XDG_DATA_HOME"/notes
-rg_opts=( --color=always --no-heading --line-number --smart-case --only-matching )
+  notes_dir="${XDG_DATA_HOME:-$HOME/.local/share}"/notes
+  rg_opts=( --color=always --no-heading --line-number --smart-case --only-matching )
 
-read -r file line <<<"$(rg "${rg_opts[@]}" -- '^\#+\s.*$' "${notes_dir}"  2>/dev/null \
+  read -r file line <<<"$(rg "${rg_opts[@]}" -- '^\#+\s.*$' "${notes_dir}"  2>/dev/null \
     | fzf -0 -1 --query="$1" \
     | awk -F: '{print $1, $2}')"
 
-[[ -n "${file}" ]] && "${EDITOR:-nvim}" "${file}" +"${line}"
+  [[ -n "${file}" ]] && "${EDITOR:-nvim}" "${file}" +"${line}"
+}
 
-unset -v file line
-unset rg_opts
+fnote "$@"
 

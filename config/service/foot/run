@@ -1,0 +1,4 @@
+#!/bin/sh
+
+exec /usr/bin/foot --server 2>&1
+

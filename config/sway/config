@@ -4,8 +4,8 @@
 # xwayland disable
 
 # [ AUTOSTART ]
-exec fnott
-exec foot --server
+# exec fnott
+# exec foot --server
 # exec persway -a -w -o 1
 
 
@@ -34,7 +34,7 @@ font pango: Overpass 11
 # find /usr/share/icons ~/.local/share/icons -type d -name "cursors"
 # fd -t d cursors /usr/share/icons ~/.local/share/icons
 seat seat0 {
-    xcursor_theme capitaine-cursors 24
+    # xcursor_theme capitaine-cursors 24
     # hide_cursor 1000
 }
 
@@ -98,7 +98,7 @@ set $term footclient
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu-run | xargs swaymsg exec --
+set $menu fuzzel-run | xargs swaymsg exec --
 set $menu-desktop dmenu-desktop | xargs swaymsg exec --
 
 
@@ -110,7 +110,7 @@ output eDP-1 {
     position 0 0
     bg $wal_dir/tonton_revolver_john_wick_01.jpg fill
     # bg $wal_dir/red_hood_01.jpg fill
-    #  bg $wal_dir/wonder_woman_04.jpg fill
+    # bg $wal_dir/wonder_woman_04.jpg fill
 }
 
 
@@ -166,7 +166,7 @@ bindsym $mod+d exec $menu
 bindsym $mod+o exec $menu-desktop
 
 # Start browser
-bindsym $mod+b exec firefox
+bindsym $mod+b exec firefox-wayland
 
 # Start nnn
 # bindsym $mod+n exec $term nnn

@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 #
 # Fuzzy search with fzf and ripgrep and opent in neovim
-#     - Requirements: fzf, rg, neovim
+#
+# USAGE: ferg <pattern>
+# REQUIREMENTS: fzf rg neovim
 
 
 ferg() {

@@ -21,23 +21,27 @@ source "${river_dir}"/autostart
 # [ Options ]
 # ------------------------------------------------
 
-riverctl set-repeat 50 300      # Set repeat rate
+# Set repeat rate <rate> <delay>
+riverctl set-repeat 50 300
+
 # Set the layout on startup
+riverctl set-option -focused-output layout
 riverctl spawn rivertile
 riverctl set-option -focused-output layout tile-left
+
 riverctl attach-mode bottom
 riverctl focus-follows-cursor normal
 
+# Colors
 source "${river_dir}"/themes/kosmikoa
 
 # Set app-ids of views which should float
 riverctl float-filter-add "float"
 riverctl float-filter-add "popup"
-riverctl float-filter-add "imv"
 riverctl float-filter-add "mpv"
+# riverctl float-filter-add "imv"
 
 # Set app-ids of views which should use client side decorations
-# riverctl csd-filter-add "gedit"
 # riverctl csd-filter-add "firefox"
 
 
@@ -52,10 +56,11 @@ browser=firefox
 # [ App ]
 riverctl map normal $mod Return spawn $term
 riverctl map normal Control+Shift Return spawn $term
-riverctl map normal $mod D spawn dmenu-run
-riverctl map normal $mod B spawn $browser
-riverctl map normal $mod O spawn fuzzel-run
+riverctl map normal $mod D spawn fuzzel-run
+riverctl map normal $mod O spawn dmenu-run
+riverctl map normal $mod B spawn $browser >/dev/null 2>&1
 riverctl map normal $mod S spawn foot-float
+riverctl map normal $mod T spawn fmenu
 
 
 # Mod+E to exit river
@@ -173,13 +178,15 @@ for mode in normal locked; do
 	# Brighness
 	riverctl map $mode None XF86MonBrightnessUp spawn brightnessctl set 5%-
 	riverctl map $mode None XF86MonBrightnessDown spawn brightnessctl set +5%
-
 done
 
 # Screenshot
 riverctl map normal $mod Print spawn 'snap -f'
 riverctl map normal $mod+Shift Print spawn 'snap -s'
 
+
+# Start runit user services
+exec runsvdir "${SVDIR}"
 
 unset -v river_dir
 unset -v azerty tags main_fctr main_amt

@@ -3,8 +3,8 @@
 # Autostart prpgram at river launch
 
 
-riverctl spawn 'swaybg -i ~/img/wal/tonton_revolver_john_wick_01.jpg >/dev/null 2>&1'
-riverctl spawn 'foot --server >/dev/null 2>&1'
-riverctl spawn 'fnott >/dev/null 2>&1'
+# riverctl spawn 'swaybg -i ~/img/wal/tonton_revolver_john_wick_01.jpg >/dev/null 2>&1'
 riverctl spawn 'yambar -c "$HOME/.config/yambar/config-dark.yml" >/dev/null 2>&1'
+# riverctl spawn 'foot --server >/dev/null 2>&1'
+# riverctl spawn 'fnott >/dev/null 2>&1'
 

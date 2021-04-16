@@ -27,10 +27,6 @@ _prepend_path() {
 }
 
 
-# [ Wayland ]
-[[ "$XDG_SESSION_TYPE" == "wayland" ]] && . "$HOME"/.local/bin/wayland-env
-
-
 # [ Bash options ]
 shopt -s autocd 2> /dev/null   # Prepend cd to directory names automatically
 shopt -s dirspell 2> /dev/null # Correct spelling errors during tab-completion

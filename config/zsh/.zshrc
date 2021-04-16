@@ -31,10 +31,6 @@ _append_path() { PATH="${PATH:+${PATH}:}$1"; }
 _prepend_path() { PATH="$1${PATH:+:${PATH}}"; }
 
 
-# [ Wayland ]
-[[ "$XDG_SESSION_TYPE" == "wayland" ]] && . "$HOME"/.local/bin/wayland-env
-
-
 # ------------------------------------------------
 # [ Zsh options ]
 # ------------------------------------------------

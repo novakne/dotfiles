@@ -5,7 +5,7 @@ if packer_plugins['galaxyline.nvim'] and
     local gl = require('galaxyline')
     local gls = gl.section
 
-    gl.short_line_list = {'NvimTree', 'vista', 'dbui'}
+    gl.short_line_list = { 'NvimTree', 'vista', 'dbui' }
 
     local colors = {
         base00 = '#23222b',
@@ -43,26 +43,26 @@ if packer_plugins['galaxyline.nvim'] and
         ViMode = {
             provider = function()
                 local mode = {
-                    n = {color = colors.yellow, name = 'N'},
-                    i = {color = colors.pink00, name = 'I'},
-                    v = {color = colors.green, name = 'V'},
-                    [''] = {color = colors.green, name = 'V'},
-                    V = {color = colors.green, name = 'V'},
-                    c = {color = colors.orange, name = 'C'},
-                    no = {color = colors.yellow, name = 'No'},
-                    s = {color = colors.pink01, name = 'S'},
-                    S = {color = colors.pink01, name = 'S'},
-                    [''] = {color = colors.pink01, name = 'S'},
-                    ic = {color = colors.pink00, name = 'Ic'},
-                    R = {color = colors.blue, name = 'R'},
-                    Rv = {color = colors.blue, name = 'R'},
-                    cv = {color = colors.orange, name = 'Cv'},
-                    ce = {color = colors.orange, name = 'Ce'},
-                    r = {color = colors.cyan, name = 'R'},
-                    rm = {color = colors.cyan, name = 'Rm'},
-                    ['r?'] = {color = colors.cyan, name = 'R?'},
-                    ['!'] = {color = colors.magenta, name = '!'},
-                    t = {color = colors.magenta, name = 'T'},
+                    n = { color = colors.yellow, name = 'N' },
+                    i = { color = colors.pink00, name = 'I' },
+                    v = { color = colors.green, name = 'V' },
+                    [''] = { color = colors.green, name = 'V' },
+                    V = { color = colors.green, name = 'V' },
+                    c = { color = colors.orange, name = 'C' },
+                    no = { color = colors.yellow, name = 'No' },
+                    s = { color = colors.pink01, name = 'S' },
+                    S = { color = colors.pink01, name = 'S' },
+                    [''] = { color = colors.pink01, name = 'S' },
+                    ic = { color = colors.pink00, name = 'Ic' },
+                    R = { color = colors.blue, name = 'R' },
+                    Rv = { color = colors.blue, name = 'R' },
+                    cv = { color = colors.orange, name = 'Cv' },
+                    ce = { color = colors.orange, name = 'Ce' },
+                    r = { color = colors.cyan, name = 'R' },
+                    rm = { color = colors.cyan, name = 'Rm' },
+                    ['r?'] = { color = colors.cyan, name = 'R?' },
+                    ['!'] = { color = colors.magenta, name = '!' },
+                    t = { color = colors.magenta, name = 'T' },
                 }
 
                 vim.api.nvim_command('hi GalaxyViMode guifg=' ..
@@ -70,7 +70,7 @@ if packer_plugins['galaxyline.nvim'] and
                 return ' ' .. mode[vim.fn.mode()].name .. '  '
             end,
 
-            highlight = {colors.pink01, colors.base00, 'bold'},
+            highlight = { colors.pink01, colors.base00, 'bold' },
         },
     }
 
@@ -84,7 +84,7 @@ if packer_plugins['galaxyline.nvim'] and
                 return str:format(fileicon, filename)
             end,
             condition = buffer_not_empty,
-            highlight = {colors.blue, colors.base00},
+            highlight = { colors.blue, colors.base00 },
         },
     }
 
@@ -94,7 +94,7 @@ if packer_plugins['galaxyline.nvim'] and
                 return '  ( '
             end,
             condition = require('galaxyline.provider_vcs').check_git_workspace,
-            highlight = {colors.base05, colors.base00},
+            highlight = { colors.base05, colors.base00 },
         },
     }
 
@@ -103,7 +103,7 @@ if packer_plugins['galaxyline.nvim'] and
             provider = 'GitBranch',
             condition = require('galaxyline.provider_vcs').check_git_workspace,
             icon = ' ',
-            highlight = {colors.base05, colors.base00},
+            highlight = { colors.base05, colors.base00 },
         },
     }
 
@@ -112,7 +112,7 @@ if packer_plugins['galaxyline.nvim'] and
             provider = 'DiffAdd',
             condition = checkwidth,
             icon = ' +',
-            highlight = {colors.base05, colors.base00},
+            highlight = { colors.base05, colors.base00 },
         },
     }
     gls.left[6] = {
@@ -120,7 +120,7 @@ if packer_plugins['galaxyline.nvim'] and
             provider = 'DiffModified',
             condition = checkwidth,
             icon = ' »',
-            highlight = {colors.base05, colors.base00},
+            highlight = { colors.base05, colors.base00 },
         },
     }
     gls.left[7] = {
@@ -128,7 +128,7 @@ if packer_plugins['galaxyline.nvim'] and
             provider = 'DiffRemove',
             condition = checkwidth,
             icon = ' ✗',
-            highlight = {colors.base05, colors.base00},
+            highlight = { colors.base05, colors.base00 },
         },
     }
 
@@ -138,7 +138,7 @@ if packer_plugins['galaxyline.nvim'] and
                 return ' )'
             end,
             condition = require('galaxyline.provider_vcs').check_git_workspace,
-            highlight = {colors.base05, colors.base00},
+            highlight = { colors.base05, colors.base00 },
         },
     }
 
@@ -148,14 +148,14 @@ if packer_plugins['galaxyline.nvim'] and
         DiagnosticError = {
             provider = 'DiagnosticError',
             icon = '  ',
-            highlight = {colors.pink00, colors.base00},
+            highlight = { colors.pink00, colors.base00 },
         },
     }
     gls.right[2] = {
         DiagnosticWarn = {
             provider = 'DiagnosticWarn',
             icon = '  ',
-            highlight = {colors.yellow, colors.base00},
+            highlight = { colors.yellow, colors.base00 },
         },
     }
 
@@ -163,7 +163,7 @@ if packer_plugins['galaxyline.nvim'] and
         DiagnosticHint = {
             provider = 'DiagnosticHint',
             icon = '  ',
-            highlight = {colors.blue, colors.base00},
+            highlight = { colors.blue, colors.base00 },
         },
     }
 
@@ -171,7 +171,7 @@ if packer_plugins['galaxyline.nvim'] and
         DiagnosticInfo = {
             provider = 'DiagnosticInfo',
             icon = '  ',
-            highlight = {colors.cyan, colors.base00},
+            highlight = { colors.cyan, colors.base00 },
         },
     }
 
@@ -185,7 +185,7 @@ if packer_plugins['galaxyline.nvim'] and
                 return str:format(line, total, col)
             end,
             condition = buffer_not_empty,
-            highlight = {colors.base05, colors.base00},
+            highlight = { colors.base05, colors.base00 },
         },
     }
 
@@ -201,14 +201,14 @@ if packer_plugins['galaxyline.nvim'] and
                 return str:format(fileicon, filename)
             end,
             condition = buffer_not_empty,
-            highlight = {colors.base05, colors.base00},
+            highlight = { colors.base05, colors.base00 },
         },
     }
 
     gls.short_line_right[1] = {
         BufferIcon = {
             provider = 'BufferIcon',
-            highlight = {colors.base05, colors.base00},
+            highlight = { colors.base05, colors.base00 },
         },
     }
 

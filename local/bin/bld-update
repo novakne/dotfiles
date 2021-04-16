@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 #
 # Update different repo to latest commit
+# USAGE: bld-update <option>
 
 
 # Help
 _usage() {
   cat <<-END
-  Usage: update-bld [OPTION...]
+  Usage: bld-update [OPTION...]
 
-    -fennel,   Update fennel [ main ]
+    -fennel,  Update fennel [ main ]
     -fzf,     Update fzf [ master ]
     -foot,    Update foot [ master ]
     -nvim,    Update neovim [ master ]
@@ -51,7 +52,8 @@ _foot() {
   export CFLAGS="$CFLAGS -O3"
   meson --buildtype=release --prefix=/usr -Db_lto=true ../..
   meson configure -Db_pgo=generate
-  ninja all test
+  ninja
+  ninja test
 
   ./footclient --version
   foot_tmp_file=$(mktemp)
@@ -59,6 +61,8 @@ _foot() {
   rm "${foot_tmp_file}"
   meson configure -Db_pgo=use
   ninja
+  ninja test
+
 
   sudo ninja install
 }
@@ -88,8 +92,10 @@ _lua_lsp() {
 _zig() {
   cd "${lib_dir}"/zig/zig-master || exit
 
+  [[ -d build ]] && trash-put build
   git pull origin master
-  cd build || exit
+  mkdir build && cd build || exit
+
   cmake .. -DCMAKE_BUILD_TYPE=None -DCMAKE_INSTALL_PREFIX=/usr -DZIG_PREFER_CLANG_CPP_DYLIB=ON
   sudo make install
 }

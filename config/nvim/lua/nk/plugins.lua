@@ -1,13 +1,16 @@
 -- [ Plugins ]
 local execute = vim.api.nvim_command
+local fn = vim.fn
 
--- Ensure that packer.nvim is installed
-local install_path = vim.fn.stdpath('data') ..
-                         '/site/pack/packer/opt/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/opt/packer.nvim'
 
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    execute('!git clone https://github.com/wbthomason/packer.nvim ' ..
-                install_path)
+if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({
+        'git',
+        'clone',
+        'https://github.com/wbthomason/packer.nvim',
+        install_path,
+    })
     execute 'packadd packer.nvim'
 end
 
@@ -16,7 +19,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require'packer'.startup(function()
     -- Packer can manage itself as an optional plugin
-    use {'wbthomason/packer.nvim', opt = true}
+    use { 'wbthomason/packer.nvim', opt = true }
 
     -- ---------------------------------------------
     -- [ LSP ]
@@ -63,13 +66,13 @@ return require'packer'.startup(function()
     use {
         'nvim-treesitter/nvim-treesitter',
         requires = {
-            {'romgrk/nvim-treesitter-context', after = 'nvim-treesitter'},
-            {'p00f/nvim-ts-rainbow', after = 'nvim-treesitter'},
+            { 'romgrk/nvim-treesitter-context', after = 'nvim-treesitter' },
+            { 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter' },
             {
                 'nvim-treesitter/nvim-treesitter-refactor',
                 after = 'nvim-treesitter',
             },
-            {'nvim-treesitter/playground', cmd = 'TSPlaygroundToggle'},
+            { 'nvim-treesitter/playground', cmd = 'TSPlaygroundToggle' },
             {
                 'nvim-treesitter/nvim-treesitter-textobjects',
                 after = 'nvim-treesitter',
@@ -88,7 +91,7 @@ return require'packer'.startup(function()
     -- ---------------------------------------------
     use {
         'nvim-telescope/telescope.nvim',
-        requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'},
+        requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim' },
         config = function()
             require 'nk.plugins.telescope'
         end,
@@ -96,7 +99,7 @@ return require'packer'.startup(function()
 
     use {
         'mcchrish/nnn.vim',
-        cmd = {'Np', 'NnnPicker'},
+        cmd = { 'Np', 'NnnPicker' },
         keys = '<F6>',
         config = function()
             require 'nk.plugins.nnn'
@@ -135,7 +138,7 @@ return require'packer'.startup(function()
     use {
         'glepnir/galaxyline.nvim',
         branch = 'main',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
         config = function()
             require 'nk.plugins.galaxyline'
         end,
@@ -155,7 +158,7 @@ return require'packer'.startup(function()
         'terrortylor/nvim-comment',
         keys = 'gc',
         config = function()
-            require'nvim_comment'.setup({comment_empty = false})
+            require'nvim_comment'.setup({ comment_empty = false })
         end,
     }
 
@@ -199,7 +202,7 @@ return require'packer'.startup(function()
     use {
         'akinsho/nvim-toggleterm.lua',
         keys = '<C-e>',
-        cmd = {'ToggleTerm', 'TermExec'},
+        cmd = { 'ToggleTerm', 'TermExec' },
         config = function()
             require 'nk.plugins.toggleterm'
         end,

@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 #
 # Take screenshot with grim & slurp on Wayland
-#   or with maim & slop on X11
-#     - Requirements: grim & slurp or maim & slop
+# or with maim & slop on X11
+#
+# USAGE: snap <options>
+# REQUIREMENTS: grim & slurp or maim & slop
 
 
+# [ Utils ]
 # Error message in STDERR
 _err() {
   printf -- '%s\n' "[$(date +'%Y-%m-%d %H:%M:%S')]: $*" >&2
@@ -34,6 +37,14 @@ if ! _is_grim && ! _is_maim; then
   exit 1
 fi
 
+# Send notification before or after screenshot
+_pre_notif() {
+  notify-send $* -i "${icon_path}" -t 2000
+}
+
+_post_notif() {
+  notify-send 'Screenshot taken !' -i "${icon_path}"
+}
 
 # Help
 _usage() {
@@ -71,60 +82,60 @@ main() {
     -f | --fullscreen)
       if _is_grim; then
         grim -t png "${screen_file}"
-        notify-send 'Screenshot taken !' -i "${icon_path}"
+        _post_notif
       elif _is_maim; then
         maim -d 5 -u -m 3 "${screen_file}"
-        notify-send 'Screenshot taken !' -i "${icon_path}"
+        _post_notif
       fi
-      ;;
+    ;;
     -s | --select)
       if _is_grim; then
         if ! _is_slurp; then
           _err "You need to install slurp."
           exit 1
         else
-          notify-send 'Select an area...' -i "${icon_path}" -t 2000
+          _pre_notif 'Select an area...'
           grim -t png -g "$(slurp)" "${screen_file}"
-          notify-send 'Screenshot taken !' -i "${icon_path}"
+          _post_notif
         fi
       elif _is_maim; then
         if ! _is_slop; then
           _err "You need to install slop."
           exit 1
         else
-          notify-send 'Select an area...' -i "${icon_path}" -t 2000
+          _pre_notif 'Select an area...'
           maim -s -u -m 3 "${screen_file}"
-          notify-send 'Screenshot taken !' -i "${icon_path}"
+          _post_notif
         fi
       fi
-      ;;
+    ;;
     -w | --window )
       if _is_grim; then
         _err "Not available with grim."
         exit 1
       elif _is_maim; then
         maim -d 5 -u -m 3 -i "$(xdotool getactivewindow)" "${screen_file}"
-        notify-send 'Screenshot taken !' -i "${icon_path}"
+        _post_notif
       fi
-      ;;
+    ;;
     -c | --click )
       if _is_grim; then
         _err "Not available with grim."
         exit 1
       elif _is_maim; then
-        notify-send 'Click on a window to select it...' -i "${icon_path}" -t 2000
+        _pre_notif 'Click on a window to select it...'
         maim -st 9999999 -u -m 3 "${screen_file}"
-        notify-send 'Screenshot taken !' -i "${icon_path}"
+        _post_notif
       fi
-      ;;
+    ;;
     *)
       _usage
       exit 1
-      ;;
+    ;;
   esac
 
-  unset -v screen_dir icon_path screen_date screen_file
-  unset -f _err _is_grim _is_maim _is_slop _is_slurp _usage
+  unset -f _err _is_grim _is_maim _is_slop _is_slurp 
+  unset -f _pre_notif _post_notif _usage
 }
 
 main "$@"

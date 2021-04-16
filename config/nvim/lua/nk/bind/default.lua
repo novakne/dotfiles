@@ -10,8 +10,8 @@ map('i', 'jk', '<esc>')
 map('i', 'kj', '<esc>')
 
 -- Move updown by visual (wrapped) lines
-map('n', 'j', [[v:count == 0 ? 'gj' : 'j']], {noremap = true, expr = true})
-map('n', 'k', [[v:count == 0 ? 'gk' : 'k']], {noremap = true, expr = true})
+map('n', 'j', [[v:count == 0 ? 'gj' : 'j']], { noremap = true, expr = true })
+map('n', 'k', [[v:count == 0 ? 'gk' : 'k']], { noremap = true, expr = true })
 
 -- Easier start & end of the line
 map('n', 'H', '^')
@@ -45,11 +45,11 @@ map('x', '>', '>gv')
 
 -- Copy, move or delete the first occurence of the search
 -- e.g. /word$t
-map('c', '$t', [[<CR>:t''<CR>]], {noremap = true})
-map('c', '$T', [[<CR>:T''<CR>]], {noremap = true})
-map('c', '$m', [[<CR>:m''<CR>]], {noremap = true})
-map('c', '$M', [[<CR>:M''<CR>]], {noremap = true})
-map('c', '$d', [[<CR>:d<CR>``]], {noremap = true})
+map('c', '$t', [[<CR>:t''<CR>]], { noremap = true })
+map('c', '$T', [[<CR>:T''<CR>]], { noremap = true })
+map('c', '$m', [[<CR>:m''<CR>]], { noremap = true })
+map('c', '$M', [[<CR>:M''<CR>]], { noremap = true })
+map('c', '$d', [[<CR>:d<CR>``]], { noremap = true })
 
 -- [ Windows ]
 -- Move to the split in the direction shown, or create a new split

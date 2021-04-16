@@ -4,6 +4,5 @@
     ~/.local/share/applications: local/share/applications
     ~/.local/share/fonts: local/share/fonts
     ~/.local/share/gnupg/gpg-agent.conf: local/share/gnupg/gpg-agent.conf
+    ~/.local/share/gnupg/gpg.conf: local/share/gnupg/gpg.conf
 
-- create:
-    - ~/.private

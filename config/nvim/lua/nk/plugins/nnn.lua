@@ -4,7 +4,7 @@ if packer_plugins['nnn.vim'] then
     local map = require'nk.utils'.bind
 
     vim.g['nnn#layout'] = {
-        window = {width = 0.5, height = 0.6, highlight = 'Debug'},
+        window = { width = 0.5, height = 0.6, highlight = 'Debug' },
     }
     vim.g['nnn#set_default_mappings'] = 0
     vim.g['nnn#action'] = {

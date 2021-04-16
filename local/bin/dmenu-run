@@ -1,21 +1,24 @@
 #!/usr/bin/env bash
 #
 # Launch dmenu-wl
+# USAGE: dmenu-run
 
 
-declare -a dmenu_opts
+dmenu-run() {
+  local -a dmenu_opts
 
-dmenu_opts=(
-  -i -h 28
-  -p 'App: '
-  -fn 'Overpass'
-  -nb '#23222b'
-  -nf '#d2ccd6'
-  -sb '#e8ec77'
-  -sf '#23222b'
-)
+  dmenu_opts=(
+    -i -h 28
+    -p 'App: '
+    -fn 'Overpass'
+    -nb '#23222b'
+    -nf '#d2ccd6'
+    -sb '#e8ec77'
+    -sf '#23222b'
+  )
 
-dmenu-wl_run "${dmenu_opts[@]}"
+  dmenu-wl_run "${dmenu_opts[@]}"
+}
 
-unset dmenu_opts
+dmenu-run "$@"
 

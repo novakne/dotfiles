@@ -14,7 +14,7 @@ if packer_plugins['nvim-autopairs'] and packer_plugins['nvim-autopairs'].loaded 
             ['{'] = '}',
             ['`'] = '`',
         },
-        disable_filetype = {'TelescopePrompt'},
+        disable_filetype = { 'TelescopePrompt' },
         html_break_line_filetype = {
             'html',
             'vue',
@@ -29,7 +29,7 @@ if packer_plugins['nvim-autopairs'] and packer_plugins['nvim-autopairs'].loaded 
     vim.g.completion_confirm_key = ''
 
     map('i', '<CR>', 'v:lua.MUtils.completion_confirm()',
-        {expr = true, noremap = true})
+        { expr = true, noremap = true })
 
 end
 

@@ -4,12 +4,12 @@ _G.MUtils = {}
 
 -- [ Global ]
 -- Inspect api & co
-MUtils.inspect = function(stuff)
+MUtils.inspect = function( stuff )
     return print(vim.inspect(stuff))
 end
 
 -- Vim-compe
-local t = function(str)
+local t = function( str )
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
@@ -63,12 +63,13 @@ end
 
 -- [ Create augroup ]
 -- Source: https://github.com/norcalli/nvim_utils
-M.create_augroups = function(definitions)
+M.create_augroups = function( definitions )
     for group_name, definition in pairs(definitions) do
         vim.cmd('augroup ' .. group_name)
         vim.cmd('autocmd!')
         for _, def in ipairs(definition) do
-            local command = table.concat(vim.tbl_flatten {'autocmd', def}, ' ')
+            local command =
+                table.concat(vim.tbl_flatten { 'autocmd', def }, ' ')
             vim.cmd(command)
         end
         vim.cmd('augroup END')
@@ -76,13 +77,13 @@ M.create_augroups = function(definitions)
 end
 
 -- [ Bind key ]
-M.bind = function(mode, lhs, rhs, opts)
-    opts = opts or {noremap = true, silent = true}
+M.bind = function( mode, lhs, rhs, opts )
+    opts = opts or { noremap = true, silent = true }
     vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
 end
 
-M.bind_bufnr = function(mode, lhs, rhs, opts)
-    opts = opts or {noremap = true, silent = true}
+M.bind_bufnr = function( mode, lhs, rhs, opts )
+    opts = opts or { noremap = true, silent = true }
     vim.api.nvim_buf_set_keymap(0, mode, lhs, rhs, opts)
 end
 

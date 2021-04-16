@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+#
+#
+
+_message() {
+  cat <<-END
+#!/usr/bin/env bash
+#
+# <description>
+#
+# USAGE:
+# REQUIREMENTS:
+
+
+$1() {}
+
+$1 "\$@"
+
+END
+}
+
+script-template() {
+  local template
+  
+  template="$(_message "$1")"
+  printf -- '%s\n' "${template}" > "$1"
+}
+
+script-template "$@"
+

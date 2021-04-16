@@ -15,6 +15,9 @@ export XKB_DEFAULT_LAYOUT=fr
 [[ -z "$XDG_CONFIG_HOME" ]] && export XDG_CONFIG_HOME="$HOME"/.config
 [[ -z "$XDG_DATA_HOME" ]]   && export XDG_DATA_HOME="$HOME"/.local/share
 
+# [ Runit ]
+export SVDIR="$XDG_CONFIG_HOME"/service
+
 # [ Dotfiles ]
 export DOTFILES_DIR="$XDG_DATA_HOME"/dotfiles
 
@@ -29,16 +32,15 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 GPG_TTY=$(tty)
 export GPG_TTY
 
-[[ -n "$SSH_CONNECTION" ]] && export PINENTRY_USER_DATA="USE_CURSES=1"
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+  export SSH_AUTH_SOCK
+fi
 
-# [ Systemd ]
-# Wrap lines in journalctl
-export SYSTEMD_LESS=FRXMK
+[[ -n "$SSH_CONNECTION" ]] && export PINENTRY_USER_DATA="USE_CURSES=1"
 
 # [ System bin ]
 PATH="/usr/local/bin${PATH:+:${PATH}}"
 PATH="/usr/local/sbin${PATH:+:${PATH}}"
-
-# Send environment variables to dbus and systemd
-dbus-update-activation-environment --systemd --all
 

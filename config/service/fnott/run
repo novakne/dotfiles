@@ -1,0 +1,4 @@
+#!/bin/sh
+
+exec /usr/bin/fnott 2>&1
+

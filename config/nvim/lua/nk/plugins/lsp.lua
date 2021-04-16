@@ -19,7 +19,7 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
                 update_in_insert = false,
                 -- Use a function to dynamically turn signs off
                 -- and on, using buffer local variables
-                signs = function(bufnr, client_id)
+                signs = function( bufnr, client_id )
                     local ok, result = pcall(vim.api.nvim_buf_get_var, bufnr,
                                              'show_signs')
 
@@ -31,9 +31,9 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
             })
     end
 
-    local on_attach = function(client)
+    local on_attach = function( client )
         M.handler_init()
-        vim.lsp.diagnostic.set_loclist({open_loclist = false})
+        vim.lsp.diagnostic.set_loclist({ open_loclist = false })
 
         -- ---------------------------------------------
         -- Mappings
@@ -75,15 +75,17 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
         end
 
         vim.fn.sign_define('LspDiagnosticsSignError',
-                           {text = '', texthl = 'LspDiagnosticsSignError'})
-        vim.fn.sign_define('LspDiagnosticsSignWarning',
-                           {text = '', texthl = 'LspDiagnosticsSignWarning'})
+                           { text = '', texthl = 'LspDiagnosticsSignError' })
+        vim.fn.sign_define('LspDiagnosticsSignWarning', {
+            text = '',
+            texthl = 'LspDiagnosticsSignWarning',
+        })
         vim.fn.sign_define('LspDiagnosticsSignInformation', {
             text = '',
             texthl = 'LspDiagnosticsSignInformation',
         })
         vim.fn.sign_define('LspDiagnosticsSignHint',
-                           {text = '', texthl = 'LspDiagnosticsSignHint'})
+                           { text = '', texthl = 'LspDiagnosticsSignHint' })
 
         vim.api.nvim_exec([[
     augroup DiagnosticRefresh
@@ -118,7 +120,7 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
             },
 
             sumneko_lua = {
-                cmd = {lua_bin, '-E', lua_main},
+                cmd = { lua_bin, '-E', lua_main },
                 settings = {
                     Lua = {
                         runtime = {
@@ -149,7 +151,7 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
             rust_analyzer = {},
             vimls = {},
             yamlls = {},
-            zls = {cmd = {lsp_dir .. 'zls/zig-cache/bin/zls'}},
+            zls = { cmd = { lsp_dir .. 'zls/zig-cache/bin/zls' } },
         }
 
         for server, config in pairs(configs) do

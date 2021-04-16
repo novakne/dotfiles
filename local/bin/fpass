@@ -1,33 +1,37 @@
 #!/usr/bin/env bash
 #
 # Search passwords in pass and copy it
-#     - Requirements: fzf pass
+#
+# USAGE: fpass
+# REQUIREMENTS: fzf pass
 
 
-shopt -s nullglob globstar
-declare prefix password_files password
+fpass() {
+  shopt -s nullglob globstar
+  local prefix password_files password
 
-typeit=0
-if [[ $1 == "--type" ]]; then
-	typeit=1
-	shift
-fi
+  typeit=0
+  if [[ $1 == "--type" ]]; then
+    typeit=1
+    shift
+  fi
 
-prefix=${PASSWORD_STORE_DIR:-~/.password-store}
-password_files=( "${prefix}"/**/*.gpg )
-password_files=( "${password_files[@]#"$prefix"/}" )
-password_files=( "${password_files[@]%.gpg}" )
+  prefix=${PASSWORD_STORE_DIR:-~/.password-store}
+  password_files=( "${prefix}"/**/*.gpg )
+  password_files=( "${password_files[@]#"$prefix"/}" )
+  password_files=( "${password_files[@]%.gpg}" )
 
-password=$(printf -- '%s\n' "${password_files[@]}" | fzf "$@")
+  password=$(printf -- '%s\n' "${password_files[@]}" | fzf "$@")
 
-[[ -n "${password}" ]] || exit
+  [[ -n "${password}" ]] || exit
 
-if [[ "${typeit}" -eq 0 ]]; then
-	pass show -c "${password}" 2>/dev/null
-else
-	pass show "${password}" \
+  if [[ "${typeit}" -eq 0 ]]; then
+    pass show -c "${password}" 2>/dev/null
+  else
+    pass show "${password}" \
       | { IFS= read -r pass; printf -- '%s' "${pass}"; }
-fi
+  fi
+}
 
-unset -v prefix password_files password
+fpass "$@"
 

@@ -1,12 +1,24 @@
 #!/usr/bin/env bash
 #
 # Sync mails with isync then use notmuch to tag it
-#     - Requirements: isync notmuch
+#
+# USAGE: new-mail
+# REQUIREMENTS: isync notmuch
 
 
-printf -- '\e[31m%s\n\e[0m' "==> Sync mail..."
-mbsync -c "$HOME"/.config/isync/mbsyncrc -Va
+_print() {
+  printf -- '\e[31m%s\n\e[0m' "==> $*..." 
+}
 
-printf -- '\e[31m%s\n\e[0m' "==> Tagging new mail..."
-notmuch new
+new-mail() {
+  _print 'Sync mail'
+  mbsync -c "$HOME"/.config/isync/mbsyncrc -Va
+
+  _print 'Tagging new mail'
+  notmuch new
+
+  unset -f _print
+}
+
+new-mail "$@"
 

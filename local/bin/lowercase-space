@@ -3,6 +3,9 @@
 # Replace:
 #   uppercase with lowercase
 #   '_' and'-' with 'space'
+#
+# USAGE: lowercase-space <file>
+
 
 _lower() {
     printf -- '%s\n' "${1,,}"

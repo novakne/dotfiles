@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 #
 # Open an exit menu with confirmation in dmenu-wl
+#
+# USAGE: dmenu-power
+# REQUIREMENTS: dmenu
 
 
 declare -a dmenu_opts
@@ -14,9 +17,9 @@ dmenu_opts=(
   -sf '#23222b'
 )
 
-confirm() {
+_confirm() {
     printf -- '%s\n%s\n' "Yes" "No" \
-      | dmenu-wl "${dmenu_opts[@]}" -p "${1:-Confirm:}"
+      | dmenu-wl "${dmenu_opts[@]}" -p "${1:-_confirm:}"
 }
 
 quit=" Quit River"
@@ -29,11 +32,11 @@ options="${quit}\n${shutdown}\n${reboot}\n${suspend}\n${hibernate}"
 selection=$(echo -e "${options}" | dmenu-wl "${dmenu_opts[@]}" -p 'Exit: ')
 
 case ${selection} in
-    "$quit") riverctl exit ;;
-    "$shutdown") [[ $(confirm "$@") = 1 ]] && (systemctl poweroff) ;;
-    "$reboot") [[ $(confirm "$@") = 1 ]] && (systemctl reboot) ;;
-    "$suspend") [[ $(confirm "$@") = 1 ]] && (systemctl suspend) ;;
-    "$hibernate") [[ $(confirm "$@") = 1 ]] && (systemctl hibernate) ;;
+  "$quit") riverctl exit ;;
+  "$shutdown") [[ $(_confirm "$@") = 1 ]] && (systemctl poweroff) ;;
+  "$reboot") [[ $(_confirm "$@") = 1 ]] && (systemctl reboot) ;;
+  "$suspend") [[ $(_confirm "$@") = 1 ]] && (systemctl suspend) ;;
+  "$hibernate") [[ $(_confirm "$@") = 1 ]] && (systemctl hibernate) ;;
 esac
 
 unset dmenu_opts

@@ -14,3 +14,14 @@ packer_compiled.vim
 .netrwhist
 tags
 default.target.wants
+
+# Some bin/appimage
+# freetube
+# waterfox
+chardetect
+futurize
+jsonschema
+pasteurize
+pygmentize
+pwiz.py
+

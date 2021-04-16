@@ -38,10 +38,10 @@ if packer_plugins['nvim-compe'] and packer_plugins['nvim-compe'].loaded then
         },
     }
 
-    map('i', '<Tab>', 'v:lua.MUtils.tab_complete()', {expr = true})
-    map('s', '<Tab>', 'v:lua.MUtils.tab_complete()', {expr = true})
-    map('i', '<S-Tab>', 'v:lua.MUtils.s_tab_complete()', {expr = true})
-    map('s', '<S-Tab>', 'v:lua.MUtils.s_tab_complete()', {expr = true})
+    map('i', '<Tab>', 'v:lua.MUtils.tab_complete()', { expr = true })
+    map('s', '<Tab>', 'v:lua.MUtils.tab_complete()', { expr = true })
+    map('i', '<S-Tab>', 'v:lua.MUtils.s_tab_complete()', { expr = true })
+    map('s', '<S-Tab>', 'v:lua.MUtils.s_tab_complete()', { expr = true })
 
     local autocmd = {
         InlayHints = {

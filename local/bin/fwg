@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#
+# Start/stop a mullvad wireguard server
+#
+# USAGE:
+# REQUIREMENTS:
+
+
+fwg() {
+  local mullvad_dir files
+  mullvad_dir="${XDG_CONFIG_HOME:-$HOME/.config}"/mullvad_wireguard
+  mapfile -t files < <(fd . "${mullvad_dir}")
+}
+
+fwg "$@"
+
