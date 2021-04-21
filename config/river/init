@@ -21,13 +21,11 @@ source "${river_dir}"/autostart
 # [ Options ]
 # ------------------------------------------------
 
+# Set the layout on startup
+riverctl set-option layout rivertile
+
 # Set repeat rate <rate> <delay>
 riverctl set-repeat 50 300
-
-# Set the layout on startup
-riverctl set-option -focused-output layout
-riverctl spawn rivertile
-riverctl set-option -focused-output layout tile-left
 
 riverctl attach-mode bottom
 riverctl focus-follows-cursor normal
@@ -81,12 +79,12 @@ riverctl map normal $mod+Shift J swap next
 riverctl map normal $mod+Shift K swap previous
 
 # Mod+Period and Mod+Comma to focus the next/previous output
-riverctl map normal $mod Period focus-output next
-riverctl map normal $mod Comma focus-output previous
+riverctl map normal $mod semicolon focus-output next
+riverctl map normal $mod comma focus-output previous
 
 # Mod+Shift+{Period,Comma} to send the focused view to the next/previous output
-riverctl map normal $mod+Shift Period send-to-output next
-riverctl map normal $mod+Shift Comma send-to-output previous
+riverctl map normal $mod+Shift semicolon send-to-output next
+riverctl map normal $mod+Shift comma send-to-output previous
 
 # Mod+Return to bump the focused view to the top of the layout stack
 riverctl map normal $mod+Shift Return zoom
@@ -121,10 +119,10 @@ riverctl map normal $mod Space toggle-float  # Mod+Space to toggle float
 riverctl map normal $mod F toggle-fullscreen # Mod+F to toggle fullscreen
 
 # Mod+{Up,Right,Down,Left} to change layout orientation
-riverctl map normal $mod Up spawn riverctl set-option -focused-output layout tile-up
-riverctl map normal $mod Right spawn riverctl set-option -focused-output layout tile-right
-riverctl map normal $mod Down spawn riverctl set-option -focused-output layout tile-down
-riverctl map normal $mod Left spawn riverctl set-option -focused-output layout tile-left
+riverctl map normal $mod Up    spawn riverctl set-option -focused-output main_location top
+riverctl map normal $mod Right spawn riverctl set-option -focused-output main_location right
+riverctl map normal $mod Down  spawn riverctl set-option -focused-output main_location bottom
+riverctl map normal $mod Left  spawn riverctl set-option -focused-output main_location left
 
 for i in {0..9}; do
   # Decrease/increase the main factor

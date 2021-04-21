@@ -1,0 +1,5 @@
+#!/bin/sh
+
+exec rivertile 2>&1
+exec riverctl set-option -focused-output main_location left
+
