@@ -47,7 +47,8 @@ riverctl float-filter-add "mpv"
 # [ Keybind ]
 # ------------------------------------------------
 
-mod="Mod4" # Logo key
+# Logo key
+mod="Mod4"
 term=footclient
 browser=firefox
 
@@ -124,7 +125,7 @@ riverctl map normal $mod Right spawn riverctl set-option -focused-output main_lo
 riverctl map normal $mod Down  spawn riverctl set-option -focused-output main_location bottom
 riverctl map normal $mod Left  spawn riverctl set-option -focused-output main_location left
 
-for i in {0..9}; do
+for i in {0..8}; do
   # Decrease/increase the main factor
   # If using rivertile(1) this determines the width of the main stack.
   riverctl map normal $mod+Mod1 "${azerty[i]}" spawn riverctl set-option \
@@ -135,7 +136,7 @@ for i in {0..9}; do
 done
 
 # [ Tags ]
-for i in {0..9}; do
+for i in {0..8}; do
   riverctl map normal $mod "${azerty[i]}" set-focused-tags "${tags[i]}"
   riverctl map normal $mod+Shift "${azerty[i]}" set-view-tags "${tags[i]}"
   riverctl map normal $mod+Control "${azerty[i]}" toggle-focused-tags "${tags[i]}"
