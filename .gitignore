@@ -16,8 +16,8 @@ tags
 default.target.wants
 
 # Some bin/appimage
-# freetube
-# waterfox
+freetube
+waterfox
 chardetect
 futurize
 jsonschema
