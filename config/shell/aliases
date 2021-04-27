@@ -16,19 +16,27 @@ alias ea='exa -lah --group-directories-first --git --icons'
 alias et='exa -lah -TL2 --group-directories-first --git --icons'
 
 # [ Git ]
+alias g='git status'
+alias ga='git add'
+alias gb='git branch'
 alias gc='git clone'
-alias gcm='git commit -m'
+alias gco='git checkout'
+alias gd='git diff'
+alias gf='git fetch'
+alias gl='git log'
+alias gp='git push'
+alias gr='git rebase'
 alias gs='git switch'
-alias gpo='git pull origin'
+alias gu='git pull'
 
 # [ Neovim ]
-alias sedit='sudo -E "${EDITOR:-nvim}"'
+alias sedit='sudo -E nvim'
 alias enote='cd "$XDG_DATA_HOME"/notes && nvim'
 alias qnote='nvim "$XDG_DATA_HOME"/notes/quick.md'
 alias e='nvim'
 
 # [ Nnn ]
-alias N='sudo -E nnn -e'
+alias N='sudo -E nnn'
 
 # [ Ripgrep]
 alias rgi='rg --no-ignore'

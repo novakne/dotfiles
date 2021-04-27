@@ -82,8 +82,7 @@ i:imgview;\
 o:open;\
 c:cmx;\
 e:exec;\
-n:nvr;\
-a:_unar ${nnn}*"
+n:nvr"\
 fi
 
 # [ Pass ]

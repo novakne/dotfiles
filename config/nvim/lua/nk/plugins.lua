@@ -59,6 +59,7 @@ return require'packer'.startup(function()
     }
 
     use 'nvim-lua/lsp_extensions.nvim'
+    use 'gfanto/fzf-lsp.nvim'
 
     -- ---------------------------------------------
     -- [ TREESITTER ]

@@ -3,26 +3,13 @@
 # [ River Config ]
 
 
-declare river_dir
-declare -a azerty tags main_fctr main_amt
-
-# Workaround for azerty keyboard
-azerty=( ampersand eacute quotedbl apostrophe parenleft minus egrave underscore ccedilla )
-tags=( 1 2 4 8 16 32 64 128 256 )
-main_fctr=( 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 )
-main_amt=( 1 2 3 4 5 6 7 8 9 )
-
-river_dir="$XDG_CONFIG_HOME"/river
-
-source "${river_dir}"/autostart
-
+# [ Autostart ]
+# riverctl spawn 'swaybg -i ~/img/wal/tonton_revolver_john_wick_01.jpg >/dev/null 2>&1'
+riverctl spawn 'yambar -c "$HOME/.config/yambar/config-dark.yml" >/dev/null 2>&1'
 
 # ------------------------------------------------
 # [ Options ]
 # ------------------------------------------------
-
-# Set the layout on startup
-riverctl set-option layout rivertile
 
 # Set repeat rate <rate> <delay>
 riverctl set-repeat 50 300
@@ -31,7 +18,9 @@ riverctl attach-mode bottom
 riverctl focus-follows-cursor normal
 
 # Colors
-source "${river_dir}"/themes/kosmikoa
+themes_dir="$XDG_CONFIG_HOME"/river/themes
+theme=kosmikoa
+source "${themes_dir}"/"${theme}"
 
 # Set app-ids of views which should float
 riverctl float-filter-add "float"
@@ -47,10 +36,13 @@ riverctl float-filter-add "mpv"
 # [ Keybind ]
 # ------------------------------------------------
 
-# Logo key
 mod="Mod4"
 term=footclient
 browser=firefox
+
+# Mod+E to exit river
+riverctl map normal $mod+Shift E exit
+
 
 # [ App ]
 riverctl map normal $mod Return spawn $term
@@ -58,12 +50,7 @@ riverctl map normal Control+Shift Return spawn $term
 riverctl map normal $mod D spawn fuzzel-run
 riverctl map normal $mod O spawn dmenu-run
 riverctl map normal $mod B spawn $browser >/dev/null 2>&1
-riverctl map normal $mod S spawn foot-float
-riverctl map normal $mod T spawn fmenu
-
-
-# Mod+E to exit river
-riverctl map normal $mod+Shift E exit
+riverctl map normal $mod T spawn foot-float
 
 
 # [ Views ]
@@ -90,6 +77,13 @@ riverctl map normal $mod+Shift comma send-to-output previous
 # Mod+Return to bump the focused view to the top of the layout stack
 riverctl map normal $mod+Shift Return zoom
 
+# Tiling
+riverctl map normal $mod H mod-layout-value rivertile fixed main_factor -0.05
+riverctl map normal $mod L mod-layout-value rivertile fixed main_factor +0.05
+riverctl map normal $mod+Shift H mod-layout-value rivertile int main_count +1
+riverctl map normal $mod+Shift L mod-layout-value rivertile int main_count -1
+
+# Floating
 # Mod+Alt+{H,J,K,L} to move views
 riverctl map normal $mod+Mod1 H move left 100
 riverctl map normal $mod+Mod1 J move down 100
@@ -120,22 +114,17 @@ riverctl map normal $mod Space toggle-float  # Mod+Space to toggle float
 riverctl map normal $mod F toggle-fullscreen # Mod+F to toggle fullscreen
 
 # Mod+{Up,Right,Down,Left} to change layout orientation
-riverctl map normal $mod Up    spawn riverctl set-option -focused-output main_location top
-riverctl map normal $mod Right spawn riverctl set-option -focused-output main_location right
-riverctl map normal $mod Down  spawn riverctl set-option -focused-output main_location bottom
-riverctl map normal $mod Left  spawn riverctl set-option -focused-output main_location left
-
-for i in {0..8}; do
-  # Decrease/increase the main factor
-  # If using rivertile(1) this determines the width of the main stack.
-  riverctl map normal $mod+Mod1 "${azerty[i]}" spawn riverctl set-option \
-    -focused-output main_factor "${main_fctr[i]}"
-  # Increment/decrement the number of main views in the layout
-  riverctl map normal $mod+Mod1+Shift "${azerty[i]}" spawn riverctl set-option \
-    -focused-output main_amount "${main_amt[i]}"
-done
+riverctl map normal $mod Up    set-layout-value rivertile string main_location top
+riverctl map normal $mod Right set-layout-value rivertile string main_location right
+riverctl map normal $mod Down  set-layout-value rivertile string main_location bottom
+riverctl map normal $mod Left  set-layout-value rivertile string main_location left
 
 # [ Tags ]
+# Workaround for azerty keyboard
+declare -a azerty tags
+azerty=( ampersand eacute quotedbl apostrophe parenleft minus egrave underscore ccedilla )
+tags=( 1 2 4 8 16 32 64 128 256 )
+
 for i in {0..8}; do
   riverctl map normal $mod "${azerty[i]}" set-focused-tags "${tags[i]}"
   riverctl map normal $mod+Shift "${azerty[i]}" set-view-tags "${tags[i]}"
@@ -143,11 +132,14 @@ for i in {0..8}; do
   riverctl map normal $mod+Shift+Control "${azerty[i]}" toggle-view-tags "${tags[i]}"
 done
 
+unset -v azerty tags
+
+# Use a tag as a scratchpad
+riverctl map normal $mod S set-focused-tags 512
+riverctl map normal $mod+Shift S set-view-tags 512
+riverctl map normal $mod+Control S toggle-focused-tags 512
+
 # Mod+0 to focus all tags
-# Mod+Shift+0 to tag focused view with all tags
-# all_tags=$(((1 << 32) - 1))
-# riverctl map normal $mod agrave set-focused-tags $all_tags
-# riverctl map normal $mod+Shift agrave set-view-tags $all_tags
 tags1to9=$(((1 << 9) - 1))
 riverctl map normal $mod agrave set-focused-tags $tags1to9
 riverctl map normal $mod+Shift agrave set-view-tags $tags1to9
@@ -184,8 +176,9 @@ riverctl map normal $mod Print spawn 'snap -f'
 riverctl map normal $mod+Shift Print spawn 'snap -s'
 
 
-# Start runit user services
-exec runsvdir "${SVDIR}"
+# Set and exec into the default layout generator, rivertile.
+# River will send the process group of the init executable SIGTERM on exit.
+riverctl default-layout rivertile
 
-unset -v river_dir
-unset -v azerty tags main_fctr main_amt
+# Start runit user services
+exec runsvdir "${SVDIR}" \ 'log: ...........................................................................................................................................................................................................................................................................................................................................................................................................'

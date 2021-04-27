@@ -28,13 +28,9 @@ cyan='#00cfd0'
 
 # [ Theme ]
 riverctl background-color "${base00}"
-riverctl border-color-focused "${blue}"
+riverctl border-color-focused "${base04}"
 riverctl border-color-unfocused "${base01}"
 riverctl border-width 2
-riverctl set-option outer_padding
-riverctl set-option view_padding
-riverctl set-option -focused-output outer_padding 0
-riverctl set-option -focused-output view_padding 3
 riverctl xcursor-theme capitaine-cursors 24
 
 # Set opacity and fade effect
