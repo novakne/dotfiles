@@ -41,20 +41,22 @@ return require'packer'.startup(function()
     use {
         'glepnir/lspsaga.nvim',
         config = function()
-            require'lspsaga'.init_lsp_saga()
+            require'lspsaga'.init_lsp_saga {
+                code_action_prompt = {
+                    enable = true,
+                    sign = true,
+                    sign_priority = 20,
+                    virtual_text = false,
+                },
+            }
         end,
     }
 
     use {
-        'kosayoda/nvim-lightbulb',
+        'folke/lsp-trouble.nvim',
+        requires = 'kyazdani42/nvim-web-devicons',
         config = function()
-            vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
-            vim.fn.sign_define('LightBulbSign', {
-                text = '',
-                texthl = '',
-                linehl = '',
-                numhl = '',
-            })
+            require 'nk.plugins.lsptrouble'
         end,
     }
 
@@ -250,7 +252,7 @@ return require'packer'.startup(function()
 
     -- [ /tmp ]
     -- use 'dstein64/vim-startuptime'
-    use 'tweekmonster/startuptime.vim'
+    -- use 'tweekmonster/startuptime.vim'
 
 end)
 

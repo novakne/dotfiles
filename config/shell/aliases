@@ -7,7 +7,8 @@
 alias xi='sudo xbps-install'
 alias xq='xbps-query -Rs'
 alias xu='sudo xbps-install -Su'
-alias xr='sudo xbps-remove -ROo'
+alias xr='sudo xbps-remove -Ro'
+alias xclean='sudo xbps-remove -Oo'
 alias xinfo='xbps-query'
 
 # [ Exa ]
