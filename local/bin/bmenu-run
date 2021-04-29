@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+#
+# Launch bemenu
+# USAGE: bemenu-run
+
+BEMENU_BACKEND=wayland
+
+bmenu-run() {
+  local -a bemenu_opts
+  bemenu_opts=(
+    -p 'Run => '
+    -i -H 28
+    # -l 5
+    --fn 'Overpass' 16
+    --tb '#d2ccd6'
+    --tf '#23222b'
+    --fb '#d2ccd6'
+    --ff '#23222b'
+    --nb '#d2ccd6'
+    --nf '#23222b'
+    --hb '#23222b'
+    --hf '#d2ccd6'
+    --sb '#e8ec77'
+    --sf '#23222b'
+  )
+
+  bemenu-run "${bemenu_opts[@]}" <&0
+}
+
+bmenu-run "$@"
+
