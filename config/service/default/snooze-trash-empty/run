@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Purge trashed file once a week
+exec 2>&1
+exec snooze -v -w0 -s 6d -t ./timefile sh -c 'trash-empty 7 && touch timefile'
+
