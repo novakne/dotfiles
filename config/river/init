@@ -5,7 +5,7 @@
 
 # [ Autostart ]
 # riverctl spawn 'swaybg -i ~/img/wal/tonton_revolver_john_wick_01.jpg >/dev/null 2>&1'
-riverctl spawn 'yambar -c "$HOME/.config/yambar/config-dark.yml" >/dev/null 2>&1'
+riverctl spawn 'yambar -c "$HOME/.config/yambar/config-river.yml" >/dev/null 2>&1'
 
 # ------------------------------------------------
 # [ Options ]
@@ -31,7 +31,6 @@ riverctl float-filter-add "imv"
 # Set app-ids of views which should use client side decorations
 # riverctl csd-filter-add "firefox"
 
-
 # ------------------------------------------------
 # [ Keybind ]
 # ------------------------------------------------
@@ -39,6 +38,7 @@ riverctl float-filter-add "imv"
 mod="Mod4"
 term=footclient
 browser=firefox
+fm=$(footclient --app-id 'footfloat' nnn-float )
 
 # Mod+E to exit river
 riverctl map normal $mod+Shift E exit
@@ -48,9 +48,11 @@ riverctl map normal $mod+Shift E exit
 riverctl map normal $mod Return spawn $term
 riverctl map normal Control+Shift Return spawn $term
 riverctl map normal $mod D spawn fuzzel-run
-riverctl map normal $mod O spawn dmenu-run
+riverctl map normal $mod O spawn bmenu-run
 riverctl map normal $mod B spawn $browser >/dev/null 2>&1
 riverctl map normal $mod T spawn foot-float
+riverctl map normal $mod N spawn "$fm" >/dev/null 2>&1
+riverctl map normal $mod E spawn footclient "$EDITOR" >/dev/null 2>&1
 
 
 # [ Views ]
@@ -162,9 +164,9 @@ riverctl map passthrough $mod F11 enter-mode normal
 # not have a modifier
 for mode in normal locked; do
 	# Volume
-	riverctl map $mode None XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +5%
-	riverctl map $mode None XF86AudioLowerVolume spawn pactl set-sink-volume @DEFAULT_SINK@ -5%
-	riverctl map $mode None XF86AudioMute spawn pactl set-sink-mute @DEFAULT_SINK@ toggle
+	riverctl map $mode None XF86AudioRaiseVolume spawn pamixer --increase 5
+	riverctl map $mode None XF86AudioLowerVolume spawn pamixer --decrease 5
+	riverctl map $mode None XF86AudioMute spawn pamixer --toggle-mute
 
 	# Brighness
 	riverctl map $mode None XF86MonBrightnessUp spawn brightnessctl set 5%-
@@ -181,4 +183,5 @@ riverctl map normal $mod+Shift Print spawn 'snap -s'
 riverctl default-layout rivertile
 
 # Start runit user services
-exec runsvdir "${SVDIR}" \ 'log: ...........................................................................................................................................................................................................................................................................................................................................................................................................'
+exec runsvdir "${SVDIR}"/default \ 'log: ...........................................................................................................................................................................................................................................................................................................................................................................................................'
+
