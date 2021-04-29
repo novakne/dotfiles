@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Fstrim once a week
+exec 2>&1
+exec snooze -v -w0 -s 6d -t ./timefile sh -c 'fstrim -v / && touch timefile'

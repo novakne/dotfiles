@@ -11,6 +11,6 @@
     '~/.local':
         recursive: true
 
-- shell:
-    - [git submodule update --init --remote, Installing submodules]
+# - shell:
+#     - [git submodule update --init --remote, Installing submodules]
 
