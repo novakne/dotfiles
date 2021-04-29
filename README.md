@@ -45,9 +45,7 @@ _Dotfiles managed with [dotbot](https://github.com/anishathalye/dotbot)_
 
 ### River
 
-|                                                               |                                                                  |
-| ------------------------------------------------------------- | ---------------------------------------------------------------- |
-| ![river_busy](.previews/river_busy.png?raw=true "river_busy") | ![river_clean](.previews/river_clean.png?raw=true "river_clean") |
+<p align="center"><img src=".previews/river.png?raw=true "river""/></a></p>
 
 ## Shell
 
