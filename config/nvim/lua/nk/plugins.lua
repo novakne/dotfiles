@@ -41,27 +41,19 @@ return require'packer'.startup(function()
     use {
         'glepnir/lspsaga.nvim',
         config = function()
-            require'lspsaga'.init_lsp_saga {
-                code_action_prompt = {
-                    enable = true,
-                    sign = true,
-                    sign_priority = 20,
-                    virtual_text = false,
-                },
-            }
+            require 'nk.plugins.lspsaga'
         end,
     }
 
     use {
         'folke/lsp-trouble.nvim',
-        requires = 'kyazdani42/nvim-web-devicons',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
         config = function()
             require 'nk.plugins.lsptrouble'
         end,
     }
 
     use 'nvim-lua/lsp_extensions.nvim'
-    use 'gfanto/fzf-lsp.nvim'
 
     -- ---------------------------------------------
     -- [ TREESITTER ]
@@ -116,14 +108,6 @@ return require'packer'.startup(function()
         end,
     }
 
-    use '~/.local/share/bld/fzf'
-    use {
-        'junegunn/fzf.vim',
-        config = function()
-            require 'nk.plugins.fzf'
-        end,
-    }
-
     use 'kevinhwang91/nvim-bqf'
 
     -- ---------------------------------------------
@@ -148,7 +132,7 @@ return require'packer'.startup(function()
     }
 
     use {
-        'liuchengxu/vim-which-key',
+        'folke/which-key.nvim',
         config = function()
             require 'nk.plugins.whichkey'
         end,
@@ -174,7 +158,7 @@ return require'packer'.startup(function()
 
     use {
         'junegunn/vim-easy-align',
-        keys = '<Plug>(EasyAlign)',
+        keys = 'ga',
         cmd = 'EasyAlign',
         config = function()
             require 'nk.plugins.easyalign'
@@ -213,6 +197,7 @@ return require'packer'.startup(function()
 
     use {
         'moll/vim-bbye',
+        keys = '<Leader>q',
         cmd = 'Bdelete',
         config = function()
             require 'nk.plugins.bbye'
@@ -221,6 +206,7 @@ return require'packer'.startup(function()
 
     use {
         'norcalli/nvim-colorizer.lua',
+        keys = '<Leader>h',
         cmd = 'ColorizerToggle',
         config = function()
             require 'nk.plugins.colorizer'

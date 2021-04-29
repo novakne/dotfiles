@@ -1,9 +1,5 @@
 " [ User commands ]
 
-command! -nargs=* VTerm vsplit | terminal <args>
-command! -nargs=* STerm split | terminal <args>
-command! -nargs=* TTerm tabnew | terminal <args>
-
 " Make current buffer executable
 command! Chmodx :!chmod 774 %
 
