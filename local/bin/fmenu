@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+fmenu() {
+  local app
+  app=$(bin-list | fzf)
+
+  "${app}" >/dev/null 2>&1 &
+}
+
+fmenu "$@"
+

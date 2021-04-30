@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+bin-list() {
+  local -a fd_opts
+
+  fd_opts=(
+    . "$HOME"/.local/bin
+    --no-ignore
+    --type executable
+    --exclude colors
+    --exec printf '%s\n' "{/}"
+  )
+
+   fd "${fd_opts[@]}" 2>/dev/null | sort -u
+}
+
+bin-list "$@"
+
