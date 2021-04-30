@@ -13,6 +13,7 @@
 # [ C ]
 # Prerequisites
 *.d
+!xbps.d
 
 # Object files
 *.o

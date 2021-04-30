@@ -194,9 +194,6 @@ fi
 # [ Fast syntax highlighting ]
 source "${_zsh_plugins_dir}"/fsh/fast-syntax-highlighting.plugin.zsh
 
-# [ Forgit ]
-source "${_zsh_plugins_dir}"/forgit/forgit.plugin.zsh
-
 # [ Zsh-completions ]
 fpath+=("${_zsh_plugins_dir}"/zsh-completions/src)
 
