@@ -168,8 +168,8 @@ for mode in normal locked; do
 	riverctl map $mode None XF86AudioMute spawn pamixer --toggle-mute
 
 	# Brighness
-	riverctl map $mode None XF86MonBrightnessUp spawn brightnessctl set 5%-
-	riverctl map $mode None XF86MonBrightnessDown spawn brightnessctl set +5%
+	riverctl map $mode None XF86MonBrightnessUp spawn brightnessctl set +5%
+	riverctl map $mode None XF86MonBrightnessDown spawn brightnessctl set 5%-
 done
 
 # Screenshot

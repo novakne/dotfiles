@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
+#
+# Fuzzy find bin
+#
+# USAGE: script-template <name>
+# REQUIREMENTS: fzf bin-list
 
 fmenu() {
   local app
   app=$(bin-list | fzf)
 
-  "${app}" >/dev/null 2>&1 &
+  "${app}" >/dev/null 2>&1 & disown
 }
 
 fmenu "$@"

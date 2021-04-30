@@ -5,7 +5,7 @@
 
 
 # [ Global env ]
-[[ -f "$HOME"/.config/shell/env-global ]] && . "$HOME"/.config/shell/env-global
+[[ -f "$HOME"/.config/shell/environment/00_global ]] && . "$HOME"/.config/shell/environment/00_global
 
 # [ Zsh configuration path ]
 export ZDOTDIR="$DOTFILES_DIR"/config/zsh

@@ -3,7 +3,7 @@
 [[ -f "$HOME"/.bashrc ]] && . "$HOME"/.bashrc
 
 # [ Global env ]
-[[ -f "$HOME"/.config/shell/env-global ]] && . "$HOME"/.config/shell/env-global
+[[ -f "$HOME"/.config/shell/environment/00_global ]] && . "$HOME"/.config/shell/environment/00_global
 
 # Temporary Files
 if [[ ! -d "$TMPDIR" ]]; then

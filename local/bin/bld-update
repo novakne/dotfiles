@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 #
-# Update different repo to latest commit
+# Update differents repos to latest commit
+#
 # USAGE: bld-update <option>
-
+# REQUIREMENTS:
 
 # Help
 _usage() {

@@ -5,7 +5,6 @@
 # USAGE: fnote
 # REQUIREMENTS: ripgrep fzf nvim
 
-
 fnote() {
   local file line notes_dir
   local -a rg_opts

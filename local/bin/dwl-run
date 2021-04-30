@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 #
 # Launch dwl
+#
 # USAGE: dwl-run [-log]
+# REQUIREMENTS: dwl dbus
 
 # [ Wayland env variables ]
 # Session
@@ -24,7 +26,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 dwl-run() {
   local log_date log_dir
 
-  log_date=$(date +"%Y_%m_%d-%H_%M_%S")
+  log_date=$(date +"%Y_%m_%dT%H_%M_%S")
   log_dir="$HOME"/.cache/log
 
   if [[ $# -eq 0 ]]; then

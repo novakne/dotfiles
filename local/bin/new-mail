@@ -5,7 +5,6 @@
 # USAGE: new-mail
 # REQUIREMENTS: isync notmuch
 
-
 _print() {
   printf -- '\e[31m%s\n\e[0m' "==> $*..." 
 }

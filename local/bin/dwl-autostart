@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 #
 # Autostart programm with dwl
+#
 # USAGE: dwl -s dwl-autostart
-
+# REQUIREMENTS: dwl swaybg yambar
 
 dwl-autostart() {
   local yambar_conf

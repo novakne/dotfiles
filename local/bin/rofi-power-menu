@@ -5,7 +5,6 @@
 # USAGE: rofi-power-menu
 # REQUIREMENTS: rofi
 
-
 _confirm() {
   local -a rofi_opts
 

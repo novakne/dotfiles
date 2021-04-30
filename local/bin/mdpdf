@@ -5,7 +5,6 @@
 # USAGE: mdpdf <input_file> <output_file>
 # REQUIREMENTS: pandoc
 
-
 # Error message in STDERR
 _err() {
   printf -- '%s\n' "[$(date +'%Y-%m-%d %H:%M:%S')]: $*" >&2

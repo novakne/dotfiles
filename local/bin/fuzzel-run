@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 #
 # Launch fuzzel
+#
 # USAGE: fuzzel-run
-
+# REQUIREMENTS: fuzzel
 
 fuzzel-run() {
   local -a fuzzel_opts

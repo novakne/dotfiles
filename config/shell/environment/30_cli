@@ -46,7 +46,7 @@ if _is_command less; then
 fi
 
 # [ Neovim ]
-export DIFFPROG="nvim -d" # Use neovim instead of vim for pacdiff
+export DIFFPROG='nvim -d' # Use neovim instead of vim for pacdiff
 
 # Give a name to nvim server to start with neovim-remote
 _is_command nvr && export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim
@@ -56,37 +56,30 @@ _is_command notmuch && export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/config
 
 # [ Nnn ]
 if _is_command nnn; then
-    export NNN_OPTS="eEHr"
+    export NNN_OPTS='eEHr'
     export NNN_COLORS='3415'
     export NNN_FCOLORS='070704030f05060808010301'
     export NNN_TRASH=1
     export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$"
     export NNN_SEL='/tmp/.sel'
     export NNN_FIFO='/tmp/nnn.fifo'
-    export NNN_BMS="\
-c:~/.config;\
-n:~/.config/nvim;\
-z:~/.config/zsh;\
-a:~/.config/awesome;\
-s:~/.config/shell;\
-r:~/.config/river;\
-i:~/img;\
-g:~/dev;\
-b:~/.local/share/bld;\
-e:~/.local/share/notes;\
-l:~/.local;\
-d:~/.local/share/dotfiles;"
-    export NNN_PLUG="\
-f:fuzzy;\
-i:imgview;\
-o:open;\
-c:cmx;\
-e:exec;\
-n:nvr"
+
+    NNN_BMS_CONFIG='c:~/.config;n:~/.config/nvim;z:~/.config/zsh;s:~/.config/shell;r:~/.config/river'
+    NNN_BMS_LOCAL='b:~/.local/share/bld;l:~/.local;d:~/.local/share/dotfiles'
+    NNN_BMS_DEV='g:~/dev'
+    NNN_BMS_MEDIA='m:~/media;i:~/media/img;e:~/media/notes'
+    NNN_BMS="$NNN_BMS_CONFIG;$NNN_BMS_LOCAL;$NNN_BMS_DEV;$NNN_BMS_MEDIA"
+    export NNN_BMS
+
+    NNN_PLUG_EDIT='b:cleanfilename;c:cmx;e:exec'
+    NNN_PLUG_FUZZY='f:fuzzy;a:autojump;g:rg;s:fd'
+    NNN_PLUG_OPEN='n:nvr;u:suedit'
+    NNN_PLUG="$NNN_PLUG_EDIT;$NNN_PLUG_FUZZY;$NNN_PLUG_OPEN"
+    export NNN_PLUG
 fi
 
 # [ Pass ]
-_is_command pass && export PASSWORD_STORE_DIR="$HOME"/.private/pass
+_is_command pass && export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/private/pass
 
 # [ Ripgrep ]
 _is_command rg && export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/rc

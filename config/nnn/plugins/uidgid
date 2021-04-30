@@ -10,5 +10,4 @@
 # Authors: Arun Prakash Jana, superDuperCyberTechno
 
 # shellcheck disable=SC2012
-# ls -lah --group-directories-first | less
-exa -lah --group-directories-first --git --icons | less
+ls -lah --group-directories-first | less

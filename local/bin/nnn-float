@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 #
 # Launch nnn in floating mode
+#
 # USAGE: nnn-float
+# REQUIREMENTS: nnn river
 
 nnn-float() {
     # Block nesting of nnn in subshells

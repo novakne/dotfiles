@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 #
+# Generate a template script
 #
+# USAGE: script-template <name>
+# REQUIREMENTS:
 
 _message() {
   cat <<-END

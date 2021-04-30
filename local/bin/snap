@@ -6,7 +6,6 @@
 # USAGE: snap <options>
 # REQUIREMENTS: grim & slurp or maim & slop
 
-
 # [ Utils ]
 # Error message in STDERR
 _err() {

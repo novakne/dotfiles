@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+#
+# Get a list of executable in .local/bin
+#
+# USAGE: bin-list | fzf
+# REQUIREMENTS: fd
 
 bin-list() {
   local -a fd_opts
@@ -6,6 +11,8 @@ bin-list() {
   fd_opts=(
     . "$HOME"/.local/bin
     --no-ignore
+    --ignore-case
+    --type symlink
     --type executable
     --exclude colors
     --exec printf '%s\n' "{/}"

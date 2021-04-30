@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 #
 # Switch/fetch/merge the main/master upstream branch
+#
 # USAGE: git-sfm <options>
-
+# REQUIREMENTS: git
 
 # Help
 _usage() {

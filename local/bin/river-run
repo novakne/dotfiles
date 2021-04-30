@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 #
 # Launch River
+#
 # USAGE: river-run [-log]
-
+# REQUIREMENTS: river dbus
 
 # [  Wayland env variables ]
 #Session
@@ -25,7 +26,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 river-run() {
   local log_date
 
-  log_date=$(date +"%Y_%m_%d-%H_%M_%S")
+  log_date=$(date +"%Y_%m_%dT%H_%M_%S")
 
   if [[ $# -eq 0 ]]; then
     exec dbus-run-session river >/dev/null 2>&1

@@ -1,23 +1,18 @@
 #!/usr/bin/env bash
 #
 # Write STDERR to a file
+#
 # USAGE: logwrite <command>
-
+# REQUIREMENTS:
 
 logwrite() {
-  local log_dir log_file log_date log_cmd
-
-  log_dir="${XDG_CACHE_HOME:-$HOME/.cache}/log"
-
-  # Make the log dir if it doesn't exist
-  [[ ! -d "${log_dir}" ]] >/dev/null 2>&1 && mkdir -p "${log_dir}"
+  local log_file log_date log_cmd
 
   log_cmd="$1"
-  log_date=$(date +"%Y_%m_%d-%H_%M_%S")
-  log_file=${log_dir}/${log_cmd}-${log_date}.log
-  
+  log_date=$(date +"%Y_%m_%dT%H_%M_%S")
+  log_file=$(mktemp -t "${log_cmd}"-"${log_date}".XXXXXXXXXX.log) 
 
-  "$@" 2> "${log_file}"
+  "$@" >"${log_file}" 2>&1
 }
 
 logwrite "$@"

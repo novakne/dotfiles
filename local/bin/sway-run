@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 #
 # Launch Sway
+#
 # USAGE: sway-run [-log]
-
+# REQUIREMENTS: sway dbus
 
 # [  Wayland env variables ]
 # Session

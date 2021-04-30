@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 #
 # Search for '@tag' in markdown files
-# Usage: ftnote
-#     - Requirements: ripgrep fzf nvim
-
+#
+# USAGE: ftnote
+# REQUIREMENTS ripgrep fzf nvim
 
 ftnote() {
   local file line notes_dir

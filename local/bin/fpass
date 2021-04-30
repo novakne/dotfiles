@@ -5,7 +5,6 @@
 # USAGE: fpass
 # REQUIREMENTS: fzf pass
 
-
 fpass() {
   shopt -s nullglob globstar
   local prefix password_files password

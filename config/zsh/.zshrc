@@ -97,7 +97,7 @@ zstyle ':completion:*:approximate:*' max-errors 1 numeric
 [[ ! -d "$XDG_CACHE_HOME"/zsh ]] && mkdir -p "$XDG_CACHE_HOME"/zsh
 
 export HISTSIZE=10000 SAVEHIST=10000 HISTFILE="$XDG_CACHE_HOME"/zsh/zhistory
-export HISTORY_IGNORE="(ls|cd *|pwd|exit|:q|;q|q:|e *|ea|et|z *|fe|clear|n|update|up *)"
+export HISTORY_IGNORE="(ls|cd|cd *|pwd|exit|:q|;q|q:|e|e *|ea|et|z *|fe|clear|n|N|update|up *|xi *|xr *| xq *|xu|curl *)"
 export HISTTIMEFORMAT="%F %T:  "
 
 # setopt APPEND_HISTORY
@@ -155,7 +155,7 @@ fi
 # shell is opened each day.
 autoload -Uz compinit
 
-_comp_path="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
+_comp_path="${XDG_CACHE_HOME:-$HOME/.cache}"/zsh/zcompdump
 
 # #q expands globs in conditional expressions
 if [[ $_comp_path(#qNmh-20) ]]; then

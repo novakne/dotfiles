@@ -1,24 +1,40 @@
 #!/usr/bin/env bash
+#
+# Interactive ripgrep search with preview
+#
+# USAGE: igr
+# REQUIREMENTS: fzf ripgrep bat
 
-declare preview='bat --color=always --style=header,numbers -H {2} {1} | grep -C3 {q}'
+igr() {
+  local preview
+  local -a fzf_opts
 
-while getopts ':l' x; do
-  case "$x" in
-    l) list_files=1
-      preview='bat --color=always --style=header,numbers {1} | grep -C3 {q}'
-      ;;
-    *) exit 1 ;;
-  esac
-done
-shift $(( OPTIND - 1 ))
-unset x OPTARG OPTIND
+  preview='bat --color=always --style=header,numbers -H {2} {1} | grep -C3 {q}'
 
-rg --color=always -n ${list_files:+-l} "$1" 2> /dev/null |
-fzf -d: \
---ansi \
---query="$1" \
---phony \
---bind="change:reload:rg -n ${list_files:+-l} --color=always {q}" \
---bind='enter:execute:v {1}' \
---preview="[[ -n {1} ]] && $preview"
+  fzf_opts=(
+    -d:
+    --ansi
+    --query="$1"
+    --phony
+    --bind="change:reload:rg -n ${list_files:+-l} --color=always {q}"
+    --bind='enter:execute:v {1}'
+    --preview="[[ -n {1} ]] && $preview"
+  )
+
+  while getopts ':l' x; do
+    case "$x" in
+      l) list_files=1
+        preview='bat --color=always --style=header,numbers {1} | grep -C3 {q}'
+        ;;
+      *) exit 1 ;;
+    esac
+  done
+  shift $(( OPTIND - 1 ))
+  unset x OPTARG OPTIND
+
+  rg --color=always -n ${list_files:+-l} "$1" 2> /dev/null \
+    | fzf "${fzf_opts[@]}"
+}
+
+igr "$@"
 
