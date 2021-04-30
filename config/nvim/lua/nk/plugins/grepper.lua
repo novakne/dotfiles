@@ -7,7 +7,7 @@ if packer_plugins['vim-grepper'] and packer_plugins['vim-grepper'].loaded then
         tools = { 'rg', 'grep', 'git' },
         grepper = 0,
         greppers = 0,
-        highlight = 1,
+        highlight = 0,
         quickfix = 1, -- 0 = location list
         open = 1,
         switch = 1,

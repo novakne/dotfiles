@@ -53,7 +53,7 @@ return require'packer'.startup(function()
         end,
     }
 
-    use 'nvim-lua/lsp_extensions.nvim'
+    use { 'nvim-lua/lsp_extensions.nvim', ft = 'rust' }
 
     -- ---------------------------------------------
     -- [ TREESITTER ]
@@ -63,11 +63,11 @@ return require'packer'.startup(function()
         requires = {
             { 'romgrk/nvim-treesitter-context', after = 'nvim-treesitter' },
             { 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter' },
+            { 'nvim-treesitter/playground', cmd = 'TSPlaygroundToggle' },
             {
                 'nvim-treesitter/nvim-treesitter-refactor',
                 after = 'nvim-treesitter',
             },
-            { 'nvim-treesitter/playground', cmd = 'TSPlaygroundToggle' },
             {
                 'nvim-treesitter/nvim-treesitter-textobjects',
                 after = 'nvim-treesitter',
@@ -103,12 +103,13 @@ return require'packer'.startup(function()
 
     use {
         'mhinz/vim-grepper',
+        keys = '<Leader>s',
         config = function()
             require 'nk.plugins.grepper'
         end,
     }
 
-    use 'kevinhwang91/nvim-bqf'
+    use { 'kevinhwang91/nvim-bqf', keys = '<Leader>c' }
 
     -- ---------------------------------------------
     -- [ UI ]
@@ -136,6 +137,10 @@ return require'packer'.startup(function()
         config = function()
             require 'nk.plugins.whichkey'
         end,
+    }
+
+    use {
+      'RRethy/vim-illuminate'
     }
 
     -- ---------------------------------------------
@@ -215,6 +220,7 @@ return require'packer'.startup(function()
 
     use {
         'phaazon/hop.nvim',
+        keys = 'f',
         config = function()
             require 'nk.plugins.hop'
         end,

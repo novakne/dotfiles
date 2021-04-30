@@ -26,6 +26,9 @@ local autocmd = {
         { 'BufRead,BufNewFile', '*.log,*_log,*.LO,G*_LOG', 'set filetype=log' },
         { 'BufRead,BufNewFile', '*.rasi', 'setlocal filetype=css' },
     },
+    Illuminate = {
+      { 'VimEnter', '*', 'hi link illuminatedWord underline'}
+    }
 }
 
 utils.create_augroups(autocmd)
