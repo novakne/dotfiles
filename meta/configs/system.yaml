@@ -8,4 +8,6 @@
     /etc/sv/snooze-fstrim: system/etc/sv/snooze-fstrim
     /etc/atool.conf: system/etc/atool.conf
     /etc/chrony.conf: system/etc/chrony.conf
+    /etc/iwd: system/etc/iwd
+    /etc/xbps.d: system/etc/xbps.d
 
