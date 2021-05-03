@@ -4,7 +4,7 @@
 
 
 # [ Profiling ]
-# zmodload zsh/zprof
+zmodload zsh/zprof
 
 
 # [ Variables ]
@@ -25,11 +25,8 @@ _fzf_dir="$XDG_DATA_HOME"/bld/fzf
 
 # [ Helpers ]
 _is_command() { hash "$1" >/dev/null 2>&1; }
-
 _append_path() { PATH="${PATH:+${PATH}:}$1"; }
-
 _prepend_path() { PATH="$1${PATH:+:${PATH}}"; }
-
 
 # ------------------------------------------------
 # [ Zsh options ]
@@ -123,20 +120,12 @@ setopt NO_BEEP
 setopt NO_HIST_BEEP
 setopt NO_LIST_BEEP
 
-
 # ------------------------------------------------
 # [ User custom ]
 # ------------------------------------------------
 
-# [ Aliases ]
-[[ -r "${_shell_dir}"/aliases ]] && . "${_shell_dir}"/aliases
-
 # [ Environment variables ]
-if [[ -d "${_shell_env_dir}" ]]; then
-  for var in "${_shell_env_dir}"/*; do
-    source "${var}"
-  done
-fi
+[[ -r "${_shell_env_dir}"/10_interactive ]] && . "${_shell_env_dir}"/10_interactive
 
 # [ Functions ]
 if [[ -d "${_shell_fun_dir}" ]]; then
@@ -185,7 +174,6 @@ if [[ "$TERM" == (alacritty*|foot*|kitty*|screen*|tmux*|xterm*) ]]; then
 	add-zsh-hook -Uz precmd xterm_title_precmd
 	add-zsh-hook -Uz preexec xterm_title_preexec
 fi
-
 
 # ------------------------------------------------
 # [ Plugins ]

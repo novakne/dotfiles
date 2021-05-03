@@ -1,0 +1,140 @@
+#!/usr/bin/env bash
+
+
+# [ Helpers ]
+_is_command() { hash "$1" >/dev/null 2>&1; }
+_append_path() { PATH="${PATH:+${PATH}:}$1"; }
+_prepend_path() { PATH="$1${PATH:+:${PATH}}"; }
+
+# ------------------------------------------------
+# [ SYSTEM ]
+# ------------------------------------------------
+
+# [ Language ]
+export LANG=fr_FR.UTF-8
+export LANGUAGE=fr_FR.UTF-8
+export LC_COLLATE=C
+
+# [ Keyboard ]
+export XKB_DEFAULT_MODEL=pc105
+export XKB_DEFAULT_LAYOUT=fr
+
+# [ Defaults Apps ]
+export BROWSER=firefox
+export EDITOR=nvim
+export VISUAL=nvim
+export PAGER=less
+
+# [ Xdg ]
+[[ -z "$XDG_CACHE_HOME" ]]  && export XDG_CACHE_HOME="$HOME"/.cache
+[[ -z "$XDG_CONFIG_HOME" ]] && export XDG_CONFIG_HOME="$HOME"/.config
+[[ -z "$XDG_DATA_HOME" ]]   && export XDG_DATA_HOME="$HOME"/.local/share
+
+# [ Runit ]
+export SVDIR="$XDG_CONFIG_HOME"/service
+
+# [ Dotfiles ]
+export DOTFILES_DIR="$XDG_DATA_HOME"/dotfiles
+
+# [ Gpg ] 
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+GPG_TTY=$(tty)
+export GPG_TTY
+
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+  export SSH_AUTH_SOCK
+fi
+
+[[ -n "$SSH_CONNECTION" ]] && export PINENTRY_USER_DATA="USE_CURSES=1"
+
+# Ssh-agent
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# [ System bin ]
+PATH="/usr/local/bin${PATH:+:${PATH}}"
+PATH="/usr/local/sbin${PATH:+:${PATH}}"
+
+# ------------------------------------------------
+# [ USER ]
+# ------------------------------------------------
+
+# [ User bin ]
+if [[ -d "$HOME"/.local/bin ]]; then
+    _prepend_path "$HOME"/.local/bin
+    _prepend_path "$HOME"/.local/bin/app
+fi
+
+# [ User lib ]
+[[ -z "$LIB_HOME" ]] && export LIB_HOME="$HOME"/.local/lib
+
+# ------------------------------------------------
+# [ CLI ]
+# ------------------------------------------------
+
+# [ Less ]
+# Set the default Less options.
+if _is_command less; then
+    export LESS='-g -i -M -R -S -w -z-4'
+    export LESSHISTFILE="$XGG_CACHE_HOME"/less
+
+    # Colors
+    export LESS_TERMCAP_md=$'\e[1;31m'
+    export LESS_TERMCAP_me=$'\e[0m'
+    export LESS_TERMCAP_se=$'\e[0m'
+    export LESS_TERMCAP_so=$'\e[1;40;36m'
+    export LESS_TERMCAP_ue=$'\e[0m'
+    export LESS_TERMCAP_us=$'\e[1;33m'
+fi
+
+# [ Neovim ]
+export DIFFPROG='nvim -d' # Use neovim instead of vim for pacdiff
+
+# Give a name to nvim server to start with neovim-remote
+_is_command nvr && export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim
+
+# [ Notmuch ]
+_is_command notmuch && export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/config
+
+# [ Pass ]
+_is_command pass && export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/private/pass
+
+# [ Ripgrep ]
+_is_command rg && export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/rc
+
+# [ Weechat ]
+export WEECHAT_HOME="$XDG_CONFIG_HOME"/weechat
+
+# [ Misc ]
+# Cleanup $HOME dir
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+export PARALLEL_HOME="$XDG_CACHE_HOME"/parallel
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+
+# ------------------------------------------------
+# [ PROGRAMMING ]
+# ------------------------------------------------
+
+# [ C ]
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+#  [ Go ]
+_is_command go && { export GOPATH="$LIB_HOME"/go; _append_path "$LIB_HOME"/go/bin; }
+
+# [ Lua ]
+_is_command luarocks && _append_path "$LIB_HOME"/luarocks/bin
+
+# [ Npm ]
+if _is_command npm; then
+    export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+    _append_path "$LIB_HOME"/npm/bin
+fi
+
+# [ Rust ]
+if [[ -d "$XDG_DATA_HOME"/rustup && -d "$LIB_HOME"/cargo ]]; then
+    export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+    export CARGO_HOME="$LIB_HOME"/cargo
+    _append_path "$CARGO_HOME"/bin
+fi
+

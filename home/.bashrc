@@ -14,17 +14,9 @@ _shell_plugins_dir="$_shell_dir"/plugins
 _fzf_dir="$HOME"/bld/fzf
 
 # [ Helpers ]
-_is_command() {
-  hash "$1" >/dev/null 2>&1
-}
-
-_append_path() {
-  PATH="${PATH:+${PATH}:}$1"
-}
-
-_prepend_path() {
-  PATH="$1${PATH:+:${PATH}}"
-}
+_is_command() { hash "$1" >/dev/null 2>&1; }
+_append_path() { PATH="${PATH:+${PATH}:}$1"; }
+_prepend_path() { PATH="$1${PATH:+:${PATH}}"; }
 
 
 # [ Bash options ]
@@ -42,14 +34,10 @@ HISTCONTROL="erasedups:ignoreboth:ignorespace" # Avoid duplicate entries
 export HISTFILE="$HOME"/.cache/bash/bash_history
 
 # [ Aliases ]
-[[ -r "$_shell_dir"/aliases ]] && . "$_shell_dir"/aliases
+[[ -r "$_shell_plugins_dir"/aliases ]] && . "$_shell_plugins_dir"/aliases
 
 # [ Environment variables ]
-if [[ -d "$_shell_env_dir" ]]; then
-  for var in "$_shell_env_dir"/*; do
-    source "${var}"
-  done
-fi
+[[ -r "$_shell_env_dir"/10_interactive ]] && . "$_shell_env_dir"/10_interactive
 
 # [ Functions ]
 if [[ -d "$_shell_fun_dir" ]]; then
@@ -69,7 +57,7 @@ fi
 [[ -r "$_shell_plugins_dir"/starship.toml ]] && eval "$(starship init bash)"
 
 # [ Zoxide ]
-_is_command  zoxide && eval "$(zoxide init bash)"
+_is_command zoxide && eval "$(zoxide init bash)"
 
 
 # [ User plugins ]

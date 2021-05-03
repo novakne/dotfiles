@@ -6,7 +6,7 @@
 #
 # REQUIREMENTS:
 #  - inotifywait ( 'inotify-tools' on arch )
-#  - Launch dwl with `dwl 1> ~.cache/log/dwltags.log` or change $fname
+#  - Launch dwl with `dwl 1> /tmp/$USER/dwl-tags.log` or change $fname
 #
 # TAGS:
 #  Name                 Type    Return
@@ -74,7 +74,7 @@
 # Variables
 declare output title layout activetags selectedtags
 declare -a tags name
-readonly fname="$HOME"/.cache/log/dwltags.log
+readonly fname=/tmp/"$USER"/dwl-tags.log
 
 
 _cycle() {
