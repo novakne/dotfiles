@@ -88,20 +88,17 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
                            { text = '', texthl = 'LspDiagnosticsSignHint' })
 
         vim.api.nvim_exec([[
-    augroup DiagnosticRefresh
-    autocmd!
-    autocmd BufWinEnter,TabEnter <buffer>, lua require'nk.plugins.lsp'.handler_init()
-    augroup END
-    ]], false)
+          augroup DiagnosticRefresh
+            autocmd!
+            autocmd BufWinEnter,TabEnter <buffer>, lua require'nk.plugins.lsp'.handler_init()
+          augroup END
+        ]], false)
 
     end
 
     -- -----------------------------------------------
     -- [ Servers ]
     -- -----------------------------------------------
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
-
     M.init = function()
         local lsp_dir = os.getenv('HOME') .. '/.local/lib/lsp/'
         local lua_bin = lsp_dir .. 'lua/bin/Linux/lua-language-server'
@@ -148,7 +145,6 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
                 },
             },
 
-            rust_analyzer = {},
             vimls = {},
             yamlls = {},
             zls = { cmd = { lsp_dir .. 'zls/zig-cache/bin/zls' } },
@@ -156,7 +152,6 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
 
         for server, config in pairs(configs) do
             config.on_attach = on_attach
-            config.capabilities = capabilities
             lspconfig[server].setup(config)
         end
 

@@ -13,6 +13,7 @@ if packer_plugins['nvim-toggleterm.lua'] then
         shading_factor = 1,
         start_in_insert = true,
         persist_size = true,
+        close_on_exit = true, -- close the terminal window when the process exits
         direction = 'horizontal',
     }
 

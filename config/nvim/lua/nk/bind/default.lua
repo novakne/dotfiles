@@ -16,7 +16,6 @@ map('n', 'L', '$')
 -- [ Editing ]
 map('n', '<Leader>w', '<CMD>w<CR>')
 map('n', '<Leader>z', '<CMD>q<CR>')
-map('n', '<Leader>x', '<CMD>xa<CR>')
 map('n', '<Leader>!', '<CMD>q!<CR>')
 
 -- Apend ;/, at the end of the line

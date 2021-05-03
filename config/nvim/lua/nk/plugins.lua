@@ -53,8 +53,6 @@ return require'packer'.startup(function()
         end,
     }
 
-    use { 'nvim-lua/lsp_extensions.nvim', ft = 'rust' }
-
     -- ---------------------------------------------
     -- [ TREESITTER ]
     -- ---------------------------------------------
@@ -109,7 +107,11 @@ return require'packer'.startup(function()
         end,
     }
 
-    use { 'kevinhwang91/nvim-bqf', keys = '<Leader>c' }
+    use {
+        'kevinhwang91/nvim-bqf',
+        cmd = { 'Grepper' },
+        keys = '<Leader>c',
+    }
 
     -- ---------------------------------------------
     -- [ UI ]
@@ -139,9 +141,7 @@ return require'packer'.startup(function()
         end,
     }
 
-    use {
-      'RRethy/vim-illuminate'
-    }
+    use { 'RRethy/vim-illuminate' }
 
     -- ---------------------------------------------
     -- [ EDITING ]
@@ -239,10 +239,14 @@ return require'packer'.startup(function()
         end,
     }
 
+    use { 'sakhnik/nvim-gdb', run = './install.sh', ft = { 'c', 'zig' } }
+
     use 'sheerun/vim-polyglot'
     use 'editorconfig/editorconfig-vim'
 
-    -- [ /tmp ]
+    -- ---------------------------------------------
+    -- [ /TMP ]
+    -- ---------------------------------------------
     -- use 'dstein64/vim-startuptime'
     -- use 'tweekmonster/startuptime.vim'
 

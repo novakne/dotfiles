@@ -43,17 +43,5 @@ if packer_plugins['nvim-compe'] and packer_plugins['nvim-compe'].loaded then
     map('i', '<S-Tab>', 'v:lua.MUtils.s_tab_complete()', { expr = true })
     map('s', '<S-Tab>', 'v:lua.MUtils.s_tab_complete()', { expr = true })
 
-    local autocmd = {
-        InlayHints = {
-            {
-                'InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost',
-                '*.rs',
-                'lua require"lsp_extensions".inlay_hints{ prefix = " » ", highlight = "NonText", enabled = {"ChainingHint"} }',
-            },
-        },
-    }
-
-    utils.create_augroups(autocmd)
-
 end
 

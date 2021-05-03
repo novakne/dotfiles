@@ -58,21 +58,6 @@ MUtils.completion_confirm = function()
     end
 end
 
--- [ Create augroup ]
--- Source: https://github.com/norcalli/nvim_utils
-M.create_augroups = function( definitions )
-    for group_name, definition in pairs(definitions) do
-        vim.cmd('augroup ' .. group_name)
-        vim.cmd('autocmd!')
-        for _, def in ipairs(definition) do
-            local command =
-                table.concat(vim.tbl_flatten { 'autocmd', def }, ' ')
-            vim.cmd(command)
-        end
-        vim.cmd('augroup END')
-    end
-end
-
 -- [ Bind key ]
 M.bind = function( mode, lhs, rhs, opts )
     opts = opts or { noremap = true, silent = true }

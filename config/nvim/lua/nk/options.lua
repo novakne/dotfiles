@@ -43,6 +43,7 @@ opt.completeopt = 'menuone,noselect,noinsert' -- options for Insert mode complet
 opt.pumheight = 10 -- Maximum number of items to show in the popup menu
 
 -- [ Search ]
+opt.hlsearch = false
 opt.ignorecase = true -- Case insensitive searching
 opt.smartcase = true -- Override ignorecase if upper case typed
 opt.grepprg = [[rg --vimgrep --no-heading --smart-case --only-matching]]
