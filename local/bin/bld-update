@@ -85,7 +85,7 @@ _lua_lsp() {
   git pull origin master
   git submodule update --init --recursive
   cd 3rd/luamake || exit
-  ninja -f ninja/linux.ninja
+  compile/install.sh
   cd ../..
   ./3rd/luamake/luamake rebuild
 }

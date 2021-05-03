@@ -25,18 +25,17 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 
 main() {
-  local  log_date
-  log_date=$(date +"%Y_%m_%d-%H_%M_%S")
+  local log_date log_file
+
+  log_date=$(date +"%Y_%m_%dT%H_%M_%S")
+  log_file=$(mktemp -t sway-"${log_date}".XXXXXXXXXX.log) 
 
   if [[ $# -eq 0 ]]; then
     exec dbus-run-session sway >/dev/null 2>&1
   else
     case "$1" in
-      -log)
-        exec dbus-run-session sway \
-          > "$HOME"/.cache/log/sway-"${log_date}".log 2>&1
-      ;;
-      *) exit 1 ;;
+      -log) exec dbus-run-session sway > "${log_file}" 2>&1 ;;
+      *) exec dbus-run-session sway >/dev/null 2>&1 ;;
     esac
   fi
 }
