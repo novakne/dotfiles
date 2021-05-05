@@ -3,6 +3,7 @@
 - link:
     ~/.config/zsh: config/zsh
     ~/.zshenv: home/.zshenv
+    ~/.local/share/zsh: local/share/zsh/
 
 # - create:
 #     - ~/.cache/zsh

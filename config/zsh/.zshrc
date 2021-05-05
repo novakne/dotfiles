@@ -94,7 +94,7 @@ zstyle ':completion:*:approximate:*' max-errors 1 numeric
 [[ ! -d "$XDG_CACHE_HOME"/zsh ]] && mkdir -p "$XDG_CACHE_HOME"/zsh
 
 export HISTSIZE=10000 SAVEHIST=10000 HISTFILE="$XDG_CACHE_HOME"/zsh/zhistory
-export HISTORY_IGNORE="(ls|cd|cd *|pwd|exit|:q|;q|q:|e|e *|ea|et|z *|fe|clear|n|N|update|up *|xi *|xr *| xq *|xu|curl *)"
+export HISTORY_IGNORE="(ls|cd|cd *|pwd|exit|:q|;q|q:|e|e *|ea|et|z *|fe|clear|n|N|update|up *|xi *|xr *|xq *|xu|curl *)"
 export HISTTIMEFORMAT="%F %T:  "
 
 # setopt APPEND_HISTORY
@@ -137,7 +137,8 @@ if [[ -d "${_shell_fun_dir}" ]]; then
 fi
 
 # [ Completions ]
-[[ -d "$ZDOTDIR"/completions ]] && fpath+=("$ZDOTDIR"/completions)
+[[ -d "$XDG_DATA_HOME"/zsh/site-functions ]] &&
+	fpath+=("$XDG_DATA_HOME"/zsh/site-functions)
 
 # Load and initialize the completion system ignoring insecure directories with a
 # cache time of 20 hours, so it should almost always regenerate the first time a
