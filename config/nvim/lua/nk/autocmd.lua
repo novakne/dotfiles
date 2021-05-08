@@ -6,7 +6,7 @@ ex([[
   augroup CompletAuto
     autocmd!
     autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
-    augroup end
+    augroup END
 ]], false)
 
 -- Fix Neovim opening at te wrong size
@@ -15,7 +15,7 @@ ex([[
   augroup FixNvim
     autocmd!
     autocmd VimEnter * :silent exec "!kill -s SIGWINCH $PPID"
-    augroup end
+    augroup END
 ]], false)
 
 -- Highlight on yank
@@ -23,7 +23,7 @@ vim.api.nvim_exec([[
   augroup YankHighlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="Comment", timeout=500}()
-  augroup end
+  augroup END
 ]], false)
 
 ex([[
@@ -31,7 +31,7 @@ ex([[
     autocmd!
     autocmd BufEnter * let g:compe_enabled = v:true
     autocmd FileType TelescopePrompt let g:compe_enabled = v:false
-    augroup end
+    augroup END
 ]], false)
 
 ex([[
@@ -41,14 +41,14 @@ ex([[
     autocmd BufRead,BufNewFile *.jsx setlocal filetype=javascript.jsx
     autocmd BufRead,BufNewFile *.log,*_log,*.LO,G*_LOG set filetype=log
     autocmd BufRead,BufNewFile *.rasi setlocal filetype=css
-    augroup end
+    augroup END
 ]], false)
 
 ex([[
   augroup Illuminate
     autocmd!
     autocmd VimEnter * hi link illuminatedWord underline
-    augroup end
+    augroup END
 ]], false)
 
 -- Remap escape to leave terminal mode
@@ -57,6 +57,13 @@ ex([[
     autocmd!
     autocmd TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
     autocmd TermOpen * set nonu
-  augroup end
+  augroup END
+]], false)
+
+ex([[
+  augroup Grepper
+    autocmd!
+    autocmd User Grepper call setqflist([], 'r', {'context': {'bqf': {'pattern_hl': histget('/')}}}) | botright copen
+  augroup END
 ]], false)
 

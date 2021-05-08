@@ -109,8 +109,7 @@ return require'packer'.startup(function()
 
     use {
         'kevinhwang91/nvim-bqf',
-        cmd = { 'Grepper' },
-        keys = '<Leader>c',
+        requires = '~/.local/share/bld/fzf',
     }
 
     -- ---------------------------------------------
@@ -120,9 +119,9 @@ return require'packer'.startup(function()
         '~/dev/_personnal/kosmikoa.nvim',
         -- 'novakne/kosmikoa.nvim',
         -- branch = 'main',
-        config = function()
-            require'kosmikoa'.setup()
-        end,
+        -- config = function()
+        --     require'kosmikoa'.setup()
+        -- end,
     }
 
     use {
@@ -240,15 +239,14 @@ return require'packer'.startup(function()
     }
 
     use { 'sakhnik/nvim-gdb', run = './install.sh', ft = { 'c', 'zig' } }
-
     use 'sheerun/vim-polyglot'
     use 'editorconfig/editorconfig-vim'
 
     -- ---------------------------------------------
     -- [ /TMP ]
     -- ---------------------------------------------
-    -- use 'dstein64/vim-startuptime'
-    -- use 'tweekmonster/startuptime.vim'
+    use { 'tweekmonster/startuptime.vim', cmd = 'StartupTime' }
+    -- use { 'dstein64/vim-startuptime', cmd = 'StartupTime' }
 
 end)
 

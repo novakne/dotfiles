@@ -16,6 +16,16 @@ tags
 default.target.wants
 
 # Some bin/appimage
+*/bin/lswt
+*/bin/nvim
+*/bin/nvr
+*/bin/river
+*/bin/rivercarro
+*/bin/riverctl
+*/bin/rivertile
+*/bin/dwl
+*/bin/app/starship
+
 freetube
 waterfox
 chardetect

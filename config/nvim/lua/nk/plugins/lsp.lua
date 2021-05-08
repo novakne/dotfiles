@@ -147,7 +147,7 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
 
             vimls = {},
             yamlls = {},
-            zls = { cmd = { lsp_dir .. 'zls/zig-cache/bin/zls' } },
+            zls = { cmd = { lsp_dir .. 'zls/zig-out/bin/zls' } },
         }
 
         for server, config in pairs(configs) do

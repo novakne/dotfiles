@@ -9,7 +9,7 @@ if packer_plugins['vim-grepper'] and packer_plugins['vim-grepper'].loaded then
         greppers = 0,
         highlight = 0,
         quickfix = 1, -- 0 = location list
-        open = 1,
+        open = 0,
         switch = 1,
         jump = 0,
         prompt_text = '$t $c => ',
