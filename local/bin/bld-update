@@ -73,9 +73,9 @@ _nvim() {
   cd "${bld_dir}"/neovim || exit
 
   git pull
-  sudo make clean
-  sudo make distclean
-  sudo make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=/usr install
+  make clean
+  make distclean
+  make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=~/.local install
 }
 
 # [ https://github.com/sumneko/lua-language-server ]
@@ -97,8 +97,8 @@ _zig() {
   git pull origin master
   mkdir build && cd build || exit
 
-  cmake .. -DCMAKE_BUILD_TYPE=None -DCMAKE_INSTALL_PREFIX=/usr -DZIG_PREFER_CLANG_CPP_DYLIB=ON
-  sudo make install
+  cmake .. -DCMAKE_INSTALL_PREFIX=~/.local
+  make install
 }
 
 main() {

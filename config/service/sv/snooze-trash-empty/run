@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Purge trashed files older than a week
+# Purge trashed files older than 1 day
 exec 2>&1
-exec snooze -v -H0 -s 1d -t ./timefile sh -c 'trash-empty 7 && touch timefile'
+exec snooze -v -H10 -s 1d -t ./timefile sh -c 'trash-empty 1 && touch timefile'
 

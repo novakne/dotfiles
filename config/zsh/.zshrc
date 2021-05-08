@@ -4,7 +4,7 @@
 
 
 # [ Profiling ]
-zmodload zsh/zprof
+# zmodload zsh/zprof
 
 
 # [ Variables ]

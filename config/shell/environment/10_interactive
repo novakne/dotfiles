@@ -18,7 +18,8 @@ _is_command zoxide && { export _ZO_ECHO=1; export _ZO_RESOLVE_SYMLINKS=1; }
 
 # [ Personnal custom ]
 # Colors
-[[ -d "${_shell_plugins_dir}"/colors ]] && . "${_shell_plugins_dir}"/colors/kosmikoa
+[[ -d "${_shell_plugins_dir}"/colors ]] && . "${_shell_plugins_dir}"/colors/argi
+# [[ -d "${_shell_plugins_dir}"/colors ]] && . "${_shell_plugins_dir}"/colors/kosmikoa
 
 # Configure shell to emit the OSC 7 escape sequence
 [[ -r "${_shell_plugins_dir}"/osc7 ]] && . "${_shell_plugins_dir}"/osc7
@@ -33,9 +34,9 @@ if [[ -d "${_fzf_dir}" ]]; then
 
   _gen_fzf_default_opts() {
     export FZF_DEFAULT_OPTS="
-    --color=bg+:${base00},bg:${base00},spinner:${pink},hl:${green}
-    --color=fg:${base05},header:${pink},info:${pink},pointer:${yellow}
-    --color=marker:${blue},fg+:${base07},prompt:${pink},hl+:${yellow}
+    --color=bg+:${base00},bg:${base00},spinner:${blue},hl:${blue}
+    --color=fg:${base07},header:${blue},info:${blue},pointer:${red}
+    --color=marker:${red},fg+:${base07},prompt:${blue},hl+:${red}
     --height 50% --reverse --margin 2% --cycle --multi --ansi
     "
   }
@@ -70,7 +71,8 @@ if _is_command nnn; then
     NNN_PLUG_EDIT='b:cleanfilename;c:cmx;e:exec'
     NNN_PLUG_FUZZY='f:fuzzy;a:autojump;g:rg;s:fd'
     NNN_PLUG_OPEN='n:nvr;u:suedit'
-    NNN_PLUG="$NNN_PLUG_EDIT;$NNN_PLUG_FUZZY;$NNN_PLUG_OPEN"
+    NNN_PLUG_GIT='l:_git log;u:_git status'
+    NNN_PLUG="$NNN_PLUG_EDIT;$NNN_PLUG_FUZZY;$NNN_PLUG_OPEN;$NNN_PLUG_GIT"
     export NNN_PLUG
 fi
 

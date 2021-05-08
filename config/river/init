@@ -4,8 +4,8 @@
 
 
 # [ Autostart ]
-# riverctl spawn 'swaybg -i ~/img/wal/tonton_revolver_john_wick_01.jpg >/dev/null 2>&1'
-riverctl spawn 'yambar -c "$HOME/.config/yambar/config-river.yml" >/dev/null 2>&1'
+riverctl spawn 'swaybg -i ~/media/img/wal/red_hood_outlaws_01.jpg >/dev/null 2>&1'
+# riverctl spawn 'yambar -c "$HOME/.config/yambar/config-river.yml" >/dev/null 2>&1'
 
 # ------------------------------------------------
 # [ Options ]
@@ -19,7 +19,7 @@ riverctl focus-follows-cursor normal
 
 # Colors
 themes_dir="$XDG_CONFIG_HOME"/river/themes
-theme=kosmikoa
+theme=argi
 source "${themes_dir}"/"${theme}"
 
 # Set app-ids of views which should float
@@ -45,7 +45,7 @@ riverctl map normal $mod+Shift E exit
 
 # [ App ]
 riverctl map normal $mod Return spawn $term
-riverctl map normal Control+Shift Return spawn $term
+riverctl map normal Control+Shift Return spawn foot -c ~/.config/foot/foot-light.ini
 riverctl map normal $mod D spawn fuzzel-run
 riverctl map normal $mod O spawn footclient --app-id 'float' fmenu >/dev/null 2>&1
 riverctl map normal $mod B spawn $browser >/dev/null 2>&1

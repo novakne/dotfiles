@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+#
+
+svstop() {
+  local id
+  id=$(id -u)
+  rm -i /tmp/"$id"-sv-"${WAYLAND_DISPLAY}"/$1
+}
+
+svstop "$@"
+

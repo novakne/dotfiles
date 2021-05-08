@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#
+# [ Argi colors ]
+
+
+declare base00 base01 base06 base07
+declare red blue
+
+# [ Colors ]
+base07='#252524'
+base06='#464645'
+base01='#e4e4e3'
+base00='#f1f1f0'
+
+red='#842a4d'
+blue='#2a4d84'
+

@@ -44,3 +44,5 @@
 	program = gpg2
 [sendemail]
     smtpserver = /usr/bin/msmtp
+[fetch]
+	prune = true

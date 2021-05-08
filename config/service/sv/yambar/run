@@ -1,0 +1,5 @@
+#!/bin/sh
+
+exec 2>&1
+exec yambar -c "$HOME"/.config/yambar/config-river.yml
+

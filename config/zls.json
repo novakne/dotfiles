@@ -1,6 +1,6 @@
 {
-    "zig_exe_path":"/home/novakane/.local/bin/app/zig-master",
-    "zig_lib_path":"/home/novakane/.local/lib/zig",
+    "zig_exe_path":"/home/novakane/.local/bin/zig-master",
+    "zig_lib_path":"/home/novakane/.local/lib/zig-master/lib",
     "enable_snippets":true,
     "warn_style":true,
     "enable_semantic_tokens":false,
