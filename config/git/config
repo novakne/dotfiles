@@ -16,7 +16,7 @@
     wow = log --all --graph --decorate --oneline --simplify-by-decoration
     sbu = submodule update --remote --merge
 [diff]
-    tool = nvimdiff
+    tool = delta
 	submodule = log
     colorMoved = default
 [core]

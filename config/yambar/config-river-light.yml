@@ -32,8 +32,10 @@ bar:
     - river:
         anchors:
           - string: &default { text: "{id}" }
-          - focused: &focused { foreground: *base07 }
-          - invisible: &invisible { foreground: *base01 }
+          - focused: &focused
+              foreground: *base07
+              deco: { background: { color: *blue } }
+          - invisible: &invisible { foreground: *base06 }
         content:
           - map:
               tag: occupied
@@ -178,5 +180,9 @@ bar:
               - string: { <<: *separator }
               - string: { text: "{date}", font: *sfont }
               - string: { <<: *separator }
-              - string: { margin: 10, text: "{time}", foreground: *base07 }
+              - string:
+                  margin: 10
+                  text: "{time}"
+                  foreground: *base07
+                  deco: { background: { color: *blue } }
 

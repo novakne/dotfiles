@@ -1,5 +1,6 @@
 #!/bin/sh
 
 exec 2>&1
+exec pgrep -f "^ssh-agent" && echo "ssh-agent already running"
 exec ssh-agent -D -a "$SSH_AUTH_SOCK"
 
