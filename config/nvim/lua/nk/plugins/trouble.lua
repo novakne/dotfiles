@@ -1,6 +1,6 @@
 -- [ Lsp-trouble ]
-if packer_plugins['lsp-trouble.nvim'] and
-    packer_plugins['lsp-trouble.nvim'].loaded then
+if packer_plugins['trouble.nvim'] and
+    packer_plugins['trouble.nvim'].loaded then
 
     local map = require'nk.utils'.bind
 
@@ -41,11 +41,11 @@ if packer_plugins['lsp-trouble.nvim'] and
         use_lsp_diagnostic_signs = true, -- enabling this will use the signs defined in your lsp client
     }
 
-    map('n', '<Leader>xw', '<CMD>LspTroubleToggle lsp_workspace_diagnostics<CR>')
-    map('n', '<Leader>xd', '<CMD>LspTroubleToggle lsp_document_diagnostics<CR>')
-    map('n', '<Leader>xl', '<CMD>LspTroubleToggle loclist<CR>')
-    map('n', '<Leader>xq', '<CMD>LspTroubleToggle quickfix<CR>')
-    map('n', '<Leader>xr', '<CMD>LspTroubleToggle lsp_references<CR>')
+    map('n', '<Leader>xw', '<CMD>TroubleToggle lsp_workspace_diagnostics<CR>')
+    map('n', '<Leader>xd', '<CMD>TroubleToggle lsp_document_diagnostics<CR>')
+    map('n', '<Leader>xl', '<CMD>TroubleToggle loclist<CR>')
+    map('n', '<Leader>xq', '<CMD>TroubleToggle quickfix<CR>')
+    map('n', '<Leader>xr', '<CMD>TroubleToggle lsp_references<CR>')
 
 end
 

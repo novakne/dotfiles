@@ -15,7 +15,7 @@ local colors = {
 
     blue00 = '#2a4d84',
     blue01 = '#3769a4',
-    red00 = '#842a4d',
+    red00 = '#bb2a6d',
     red01 = '#aa3255',
 }
 
@@ -53,7 +53,7 @@ argi.set_syntax = function()
         Error = { fg = colors.red00, bg = colors.light00 },
         iCursor = { fg = colors.light00, bg = colors.dark03 },
         LineNr = { fg = colors.dark00, bg = colors.light00 },
-        MatchParen = { bg = colors.dark02 },
+        MatchParen = { fg = colors.blue00, bg = colors.light02 },
         NonText = { fg = colors.dark03 },
         Normal = { fg = colors.dark00, bg = colors.light00 },
         PMenu = { fg = colors.dark00, bg = colors.light01 },
@@ -190,11 +190,11 @@ argi.set_syntax = function()
         Function = { fg = colors.dark00, attr = 'italic' },
 
         Statement = { fg = colors.dark01 },
-        Conditional = { fg = colors.dark01, attr = 'bold' },
-        Repeat = { fg = colors.dark01, attr = 'italic' },
+        Conditional = { fg = colors.blue00, attr = 'bold' },
+        Repeat = { fg = colors.blue01, attr = 'italic' },
         Label = { fg = colors.dark01 },
         Operator = { fg = colors.dark02, attr = 'bold' },
-        Keyword = { fg = colors.dark01, attr = 'bold' },
+        Keyword = { fg = colors.blue00, attr = 'bold' },
         Exception = { fg = colors.dark02 },
 
         PreProc = { fg = colors.dark02 },
@@ -401,9 +401,9 @@ argi.set_syntax = function()
 
         --     -- [ Zig ]
         zigBuiltinFn = { fg = colors.dark00, attr = 'underline' },
-        -- zigExecution = { fg = colors.color02 },
-        -- zigKeyword = { fg = colors.color01 },
-        -- zigVarDecl = { fg = colors.color00 },
+        zigExecution = { fg = colors.red00 },
+        -- zigKeyword = { fg = colors.red00 },
+        zigVarDecl = { fg = colors.dark00, attr = 'bold' },
 
         --     -- [ Zsh ]
         --     zshDelimiter = {fg = colors.color02},
@@ -446,6 +446,14 @@ argi.set_syntax = function()
         --     LspSagaSignatureHelpBorder= {fg = colors.color02},
         --     ProviderTruncateLine = {fg = colors.base02},
         --     SagaShadow = {fg = colors.base08, bg = colors.light00},
+
+        -- [ Neogit ]
+        -- ( https://github.com/TimUntersberger/neogit )
+        NeogitDiffAddHighlight = {fg = colors.light00, bg = colors.blue00 },
+        NeogitDiffDeleteHighlight = {fg = colors.light00, bg = colors.red00 },
+        NeogitDiffContextHighlight = {fg = colors.dark00, bg = colors.light00 },
+        NeogitHunkHeader = {fg = colors.light00, bg = colors.red01 },
+        NeogitHunkHeaderHighlight = {fg = colors.light00, bg = colors.blue01 },
 
         --     -- [ Signify ]
         --     -- ( http//github.com/mhinz/vim-signify )

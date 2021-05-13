@@ -51,7 +51,7 @@ bar:
 
     - script:
         path: /home/novakane/.config/yambar/modules/dwl-tags.sh
-        args: [1]
+        args: []
         anchors:
           - occupied: &occupied {foreground: *blue}
           - focused: &focused {foreground: *pink}

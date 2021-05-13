@@ -69,7 +69,7 @@ main() {
 
   local screen_dir icon_path screen_date screen_file
 
-  screen_dir="$HOME"/img/screenshot
+  screen_dir="$HOME"/media/img/screenshot
   icon_path=/usr/share/icons/Arc/devices/128@2x/camera.png
   screen_date=$(date +"%Y_%m_%d-%H_%M_%S")
   screen_file=${screen_dir}/${screen_date}.png

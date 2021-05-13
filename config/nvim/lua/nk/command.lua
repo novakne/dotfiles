@@ -16,3 +16,6 @@ vim.cmd [[command! FixTs write | edit | TSBufEnable highlight]]
 -- Grep '[ word ]'
 vim.cmd [[command! Gpart :grep '\[{1}\s+\w.*\s+\]{1}$' %]]
 
+-- Search with ripgrep, open in fzf, select, and display in quickfix to use `cfdo`
+vim.cmd [[command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --follow --hidden --glob "!{.git/*,*.lock}" --color "always" -- ' . shellescape(<q-args>), 1, <bang>0)]]
+

@@ -8,7 +8,7 @@
 # Help
 _usage() {
   cat <<-END
-  pkg_dir = $HOME/doc/bkup/pkg
+  pkg_dir = $HOME/media/doc/bkup/pkg
 
   Usage: pkg-list [OPTION...]
 
@@ -32,7 +32,7 @@ END
 main() {
   local pkg_dir file_date
 
-  pkg_dir="$HOME"/doc/bkup/pkg
+  pkg_dir="$HOME"/media/doc/bkup/pkg
   file_date=$(date +"%Y_%m_%d")
 
   # Create pkg_dir if it doesn't exists

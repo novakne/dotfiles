@@ -3,7 +3,8 @@
 # https://github.com/sharkdp/bat#configuration-file
 
 # Theme
---theme="kosmikoa"
+# --theme="kosmikoa"
+--theme="argi"
 
 # Use italic text on the terminal (not supported on all terminals)
 --italic-text=always

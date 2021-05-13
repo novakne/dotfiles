@@ -31,9 +31,10 @@
 [init]
 	defaultBranch = main
 [delta]
-    plus-color = "#2fe5b5"
-    minus-color = "#e98fc2"
-    syntax-theme = kosmikoa
+    ; features = light
+    ; plus-color = "#2fe5b5"
+    ; minus-color = "#e98fc2"
+    syntax-theme = argi
     line-numbers = true
     side-by-side = true
 [interactive]

@@ -17,21 +17,14 @@ _is_command zoxide && { export _ZO_ECHO=1; export _ZO_RESOLVE_SYMLINKS=1; }
 
 
 # [ Personnal custom ]
-# Colors
-[[ -d "${_shell_plugins_dir}"/colors ]] && . "${_shell_plugins_dir}"/colors/argi
-# [[ -d "${_shell_plugins_dir}"/colors ]] && . "${_shell_plugins_dir}"/colors/kosmikoa
+# [ Theme ]
+[[ ! -d "${_shell_plugins_dir}"/colors ]] && echo "No themes folder found"
+export USER_THEME=argi
 
-# Configure shell to emit the OSC 7 escape sequence
-[[ -r "${_shell_plugins_dir}"/osc7 ]] && . "${_shell_plugins_dir}"/osc7
+if [[ "$USER_THEME" = argi ]]; then
+  source "${_shell_plugins_dir}"/colors/argi
 
-# [ Fzf ]
-if [[ -d "${_fzf_dir}" ]]; then
-  _append_path "${_fzf_dir}"/bin
-
-  export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden -E .git --color=always'
-  # Uses tree command to show the entries of the directory
-  export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
-
+  # Fzf
   _gen_fzf_default_opts() {
     export FZF_DEFAULT_OPTS="
     --color=bg+:${base00},bg:${base00},spinner:${blue},hl:${blue}
@@ -41,7 +34,32 @@ if [[ -d "${_fzf_dir}" ]]; then
     "
   }
 
+elif [[ "$USER_THEME" == kosmikoa ]]; then
+  source "${_shell_plugins_dir}"/colors/kosmikoa
+
+  # Fzf
+  _gen_fzf_default_opts() {
+      export FZF_DEFAULT_OPTS="
+    --color=bg+:${base00},bg:${base00},spinner:${pink},hl:${green}
+    --color=fg:${base05},header:${pink},info:${pink},pointer:${yellow}
+    --color=marker:${blue},fg+:${base07},prompt:${pink},hl+:${yellow}
+    "
+  }
+
+fi
+
+# Configure shell to emit the OSC 7 escape sequence
+[[ -r "${_shell_plugins_dir}"/osc7 ]] && . "${_shell_plugins_dir}"/osc7
+
+# [ Fzf ]
+if [[ -d "${_fzf_dir}" ]]; then
+  _append_path "${_fzf_dir}"/bin
   _gen_fzf_default_opts
+
+  export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden -E .git --color=always'
+
+  # Uses tree command to show the entries of the directory
+  export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
   # Use fd instead of the default find
   _fzf_compgen_path() { fd --hidden --follow --exclude ".git" . "$1"; }
@@ -71,7 +89,7 @@ if _is_command nnn; then
     NNN_PLUG_EDIT='b:cleanfilename;c:cmx;e:exec'
     NNN_PLUG_FUZZY='f:fuzzy;a:autojump;g:rg;s:fd'
     NNN_PLUG_OPEN='n:nvr;u:suedit'
-    NNN_PLUG_GIT='l:_git log;u:_git status'
+    NNN_PLUG_GIT='l:_git log;t:_git status'
     NNN_PLUG="$NNN_PLUG_EDIT;$NNN_PLUG_FUZZY;$NNN_PLUG_OPEN;$NNN_PLUG_GIT"
     export NNN_PLUG
 fi

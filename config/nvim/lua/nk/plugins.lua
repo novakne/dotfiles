@@ -46,10 +46,10 @@ return require'packer'.startup(function()
     }
 
     use {
-        'folke/lsp-trouble.nvim',
+        'folke/trouble.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
         config = function()
-            require 'nk.plugins.lsptrouble'
+            require 'nk.plugins.trouble'
         end,
     }
 
@@ -106,11 +106,17 @@ return require'packer'.startup(function()
             require 'nk.plugins.grepper'
         end,
     }
-
     use {
-        'kevinhwang91/nvim-bqf',
-        requires = '~/.local/share/bld/fzf',
+        'TimUntersberger/neogit',
+        requires = 'nvim-lua/plenary.nvim',
+        config = function()
+            require'neogit'.setup()
+        end,
     }
+
+    use { 'kevinhwang91/nvim-bqf', requires = '~/.local/share/bld/fzf' }
+
+    use 'junegunn/fzf.vim'
 
     -- ---------------------------------------------
     -- [ UI ]

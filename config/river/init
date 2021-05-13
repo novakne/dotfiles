@@ -3,9 +3,33 @@
 # [ River Config ]
 
 
-# [ Autostart ]
-riverctl spawn 'swaybg -i ~/media/img/wal/red_hood_outlaws_01.jpg >/dev/null 2>&1'
-# riverctl spawn 'yambar -c "$HOME/.config/yambar/config-river.yml" >/dev/null 2>&1'
+# ------------------------------------------------
+# [ SERVICES ]
+# ------------------------------------------------
+# Use differents svdir for every instance of river
+declare id
+id=$(id -u)
+svdir=/tmp/"${id}"-sv-"$WAYLAND_DISPLAY"
+
+pgrep -f "^runsvdir ${svdir}" &&
+    exec echo "runsvdir already running for wayland session"
+
+cp -rLpT "${SVDIR}"/current "${svdir}"
+
+# ------------------------------------------------
+# [ THEME ]
+# ------------------------------------------------
+themes_dir="$XDG_CONFIG_HOME"/river/themes
+
+if [[ "$USER_THEME" == argi ]]; then
+  theme=argi
+  riverctl spawn 'swaybg -i ~/media/img/wal/red_hood_outlaws_01.jpg >/dev/null 2>&1'
+  ln -s "$SVDIR"/sv/yambar-light "${svdir}"/
+elif [[ "$USER_THEME" == kosmikoa ]]; then
+  theme=kosmikoa
+  ln -s "$SVDIR"/sv/yambar-dark "${svdir}"/
+fi
+source "${themes_dir}"/"${theme}"
 
 # ------------------------------------------------
 # [ Options ]
@@ -17,16 +41,12 @@ riverctl set-repeat 50 300
 riverctl attach-mode bottom
 riverctl focus-follows-cursor normal
 
-# Colors
-themes_dir="$XDG_CONFIG_HOME"/river/themes
-theme=argi
-source "${themes_dir}"/"${theme}"
-
 # Set app-ids of views which should float
 riverctl float-filter-add "float"
 riverctl float-filter-add "popup"
 riverctl float-filter-add "mpv"
 riverctl float-filter-add "imv"
+riverctl float-filter-add "Developer Tools - New Tab - about:home"
 
 # Set app-ids of views which should use client side decorations
 # riverctl csd-filter-add "firefox"
@@ -45,7 +65,7 @@ riverctl map normal $mod+Shift E exit
 
 # [ App ]
 riverctl map normal $mod Return spawn $term
-riverctl map normal Control+Shift Return spawn foot -c ~/.config/foot/foot-light.ini
+riverctl map normal Control+Shift Return spawn $term
 riverctl map normal $mod D spawn fuzzel-run
 riverctl map normal $mod O spawn footclient --app-id 'float' fmenu >/dev/null 2>&1
 riverctl map normal $mod B spawn $browser >/dev/null 2>&1
@@ -182,14 +202,6 @@ riverctl map normal $mod+Shift Print spawn 'snap -s'
 # Set and exec into the default layout generator, rivertile.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivercarro
-
-# Use differents svdir for every instance of river
-svdir="/tmp/$(id -u)-sv-${WAYLAND_DISPLAY}"
-
-pgrep -f "^runsvdir ${svdir}" &&
-    exec echo "runsvdir already running for wayland session"
-
-cp -rLpT "${SVDIR}"/current "${svdir}"
 
 # Start runit user services
 exec runsvdir "${svdir}" \ 'log: ...........................................................................................................................................................................................................................................................................................................................................................................................................'

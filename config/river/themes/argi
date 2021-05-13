@@ -28,8 +28,8 @@ cyan='#00cfd0'
 
 # [ Theme ]
 riverctl background-color "${base07}"
-riverctl border-color-focused "${blue}"
-riverctl border-color-unfocused "${base01}"
+riverctl border-color-focused "${red}"
+riverctl border-color-unfocused "${base00}"
 riverctl border-width 2
 riverctl xcursor-theme Adwaita
 
