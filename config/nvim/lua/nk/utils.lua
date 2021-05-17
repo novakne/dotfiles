@@ -43,21 +43,6 @@ MUtils.s_tab_complete = function()
     end
 end
 
--- Nvim-autopairs & vim-compe
-MUtils.completion_confirm = function()
-    local npairs = require 'nvim-autopairs'
-
-    if vim.fn.pumvisible() ~= 0 then
-        if vim.fn.complete_info()['selected'] ~= -1 then
-            return vim.fn['compe#confirm'](npairs.esc('<cr>'))
-        else
-            return npairs.esc('<cr>')
-        end
-    else
-        return npairs.autopairs_cr()
-    end
-end
-
 -- [ Bind key ]
 M.bind = function( mode, lhs, rhs, opts )
     opts = opts or { noremap = true, silent = true }

@@ -5,18 +5,29 @@ local argi = {}
 
 local colors = {
     light00 = '#f1f1f0',
-    light01 = '#e4e4e3',
-    light02 = '#c2c2c1',
+    light01 = '#dfe1e3',
+    light02 = '#d1d3d6',
 
     dark00 = '#252524',
-    dark01 = '#464645',
-    dark02 = '#656565',
-    dark03 = '#7a7a79',
+    dark01 = '#39404a',
+    dark02 = '#656d78',
 
-    blue00 = '#2a4d84',
-    blue01 = '#3769a4',
-    red00 = '#bb2a6d',
-    red01 = '#aa3255',
+    blue00 = '#1f4357',
+    blue01 = '#2d397e',
+    red00 = '#692652',
+    red01 = '#6e2732',
+
+    purple = '#61266b',
+
+    warn = '#9d5b38',
+    success = '#19463f',
+    comment = '#416c84',
+    string = '#354418',
+
+    hblue = '#dbf1fd',
+    hyellow = '#faefb1',
+    hred = '#fde7f6',
+    hgreen = '#c0fbd5',
 }
 
 -- [ Highlighting function ]
@@ -48,23 +59,23 @@ argi.set_syntax = function()
 
         -- [ Editor ]
         ColorColumn = { fg = colors.dark01 },
-        Cursor = { bg = colors.dark03 },
+        -- Cursor = { bg = colors.dark02 },
         CursorLine = { bg = colors.light01 },
         Error = { fg = colors.red00, bg = colors.light00 },
-        iCursor = { fg = colors.light00, bg = colors.dark03 },
+        iCursor = { fg = colors.light00, bg = colors.dark02 },
         LineNr = { fg = colors.dark00, bg = colors.light00 },
-        MatchParen = { fg = colors.blue00, bg = colors.light02 },
-        NonText = { fg = colors.dark03 },
+        MatchParen = { fg = colors.comment, bg = colors.light02 },
+        NonText = { fg = colors.dark02 },
         Normal = { fg = colors.dark00, bg = colors.light00 },
         PMenu = { fg = colors.dark00, bg = colors.light01 },
         PmenuSbar = { fg = colors.dark00, bg = colors.light02 },
         PMenuSel = { fg = colors.dark00, bg = colors.light02 },
-        PmenuThumb = { fg = colors.dark03, bg = colors.light00 },
+        PmenuThumb = { fg = colors.dark02, bg = colors.light00 },
         RedrawDebugNormal = { fg = colors.light00, bg = colors.dark00 },
         RedrawDebugClear = { fg = colors.light00, bg = colors.dark01 },
         RedrawDebugComposed = { fg = colors.light00, bg = colors.dark02 },
-        RedrawDebugRecompose = { fg = colors.light00, bg = colors.dark03 },
-        SpecialKey = { fg = colors.dark03 },
+        RedrawDebugRecompose = { fg = colors.light00, bg = colors.dark02 },
+        SpecialKey = { fg = colors.dark02 },
         SpellBad = {
             fg = colors.red00,
             bg = colors.light00,
@@ -90,27 +101,27 @@ argi.set_syntax = function()
             sp = colors.red00,
         },
         Visual = { fg = colors.dark00, bg = colors.light01, attr = 'bold' },
-        VisualNOS = { fg = colors.light01 },
+        VisualNOS = { fg = colors.dark00, bg = colors.light01, attr = 'bold' },
 
         -- [ Neovim support ]
         NvimInternalError = { fg = colors.light00, bg = colors.red00 },
         healthError = { fg = colors.red00, bg = colors.light00 },
-        healthSuccess = { fg = colors.blue00, bg = colors.light00 },
-        healthWarning = { fg = colors.red01, bg = colors.light00 },
+        healthSuccess = { fg = colors.success, bg = colors.light00 },
+        healthWarning = { fg = colors.warn, bg = colors.light00 },
         TermCursorNC = { fg = colors.dark01 },
 
         -- [ Gutter ]
-        CursorColumn = { fg = colors.dark03 },
+        CursorColumn = { fg = colors.dark02 },
         CursorLineNr = { fg = colors.blue00, bg = colors.light00, attr = 'bold' },
-        Folded = { fg = colors.dark03, bg = colors.light01, attr = 'bold' },
-        FoldColumn = { fg = colors.dark03, bg = colors.light00 },
-        SignColumn = { fg = colors.dark03, bg = colors.light00 },
+        Folded = { fg = colors.dark02, bg = colors.light01, attr = 'bold' },
+        FoldColumn = { fg = colors.dark02, bg = colors.light00 },
+        SignColumn = { fg = colors.dark02, bg = colors.light00 },
 
         -- [ Navigation ]
         Directory = { fg = colors.dark02, attr = 'bold' },
 
         -- [ Prompt / Status ]
-        EndOfBuffer = { fg = colors.dark03 },
+        EndOfBuffer = { fg = colors.dark02 },
         ErrorMsg = { fg = colors.light00, bg = colors.red00 },
         ModeMsg = { fg = colors.dark02 },
         MoreMsg = { fg = colors.dark02 },
@@ -119,12 +130,12 @@ argi.set_syntax = function()
         StatusLineNC = { fg = colors.light00, bg = colors.dark01 },
         StatusLineTerm = { fg = colors.light00, bg = colors.dark01 },
         StatusLineTermNC = { fg = colors.light00, bg = colors.dark01 },
-        WarningMsg = { fg = colors.light00, bg = colors.red01 },
-        WildMenu = { fg = colors.dark03, bg = colors.light01 },
+        WarningMsg = { fg = colors.light00, bg = colors.warn },
+        WildMenu = { fg = colors.dark02, bg = colors.light01 },
 
         -- [ Search ]
-        IncSearch = { fg = colors.light00, bg = colors.blue00 },
-        Search = { fg = colors.light00, bg = colors.red00 },
+        IncSearch = { fg = colors.dark00, bg = colors.hgreen },
+        Search = { fg = colors.dark00, bg = colors.hblue },
 
         -- [ Tabs ]
         TabLine = { fg = colors.dark02, bg = colors.light00 },
@@ -133,17 +144,17 @@ argi.set_syntax = function()
 
         -- [ Window ]
         Title = { fg = colors.dark02 },
-        VertSplit = { fg = colors.dark01, bg = colors.light00 },
+        VertSplit = { fg = colors.light02, bg = colors.light00 },
 
         -- [ Diff ]
-        DiffAdd = { fg = colors.dark02, bg = colors.light00, attr = 'inverse' },
+        DiffAdd = { fg = colors.dark02, bg = colors.success, attr = 'inverse' },
         DiffChange = { fg = colors.dark01, bg = colors.light00,
                        attr = 'inverse' },
         DiffDelete = { fg = colors.dark00, bg = colors.light00,
                        attr = 'inverse' },
-        DiffText = { fg = colors.dark03, bg = colors.light00, attr = 'inverse' },
+        DiffText = { fg = colors.dark02, bg = colors.light00, attr = 'inverse' },
         -- Legacy groups for official git.vim and diff.vim syntax
-        diffAdded = { fg = colors.dark02, bg = colors.light00, attr = 'inverse' },
+        diffAdded = { fg = colors.success, bg = colors.light00, attr = 'inverse' },
         diffChanged = {
             fg = colors.dark01,
             bg = colors.light00,
@@ -156,15 +167,15 @@ argi.set_syntax = function()
         },
 
         -- [ Quickfix / Location list ]
-        qfLineNr = { fg = colors.dark03 },
+        qfLineNr = { fg = colors.dark02 },
 
         -- [ Neovim lsp ]
         LspDiagnosticsDefaultError = { fg = colors.red00 },
-        LspDiagnosticsDefaultWarning = { fg = colors.red01 },
+        LspDiagnosticsDefaultWarning = { fg = colors.warn },
         LspDiagnosticsDefaultInformation = { fg = colors.blue00 },
         LspDiagnosticsDefaultHint = { fg = colors.blue01 },
         LspDiagnosticsUnderlineError = { fg = colors.red00 },
-        LspDiagnosticsUnderlineWarning = { fg = colors.red01 },
+        LspDiagnosticsUnderlineWarning = { fg = colors.warn },
         LspDiagnosticsUnderlineInformation = { fg = colors.blue00 },
         LspDiagnosticsUnderlineHint = { fg = colors.blue01 },
         LspDiagErrorBorder = { fg = colors.red00 },
@@ -177,25 +188,25 @@ argi.set_syntax = function()
         -- -------------------------------------------
         -- ( :help w18 )
 
-        Comment = { fg = colors.dark03, attr = 'italic' },
+        Comment = { fg = colors.comment },
 
-        Constant = { fg = colors.dark00, attr = 'bold' },
-        String = { fg = colors.dark02, attr = 'italic' },
+        Constant = { fg = colors.dark00 },
+        String = { fg = colors.string, attr = 'italic' },
         Character = { fg = colors.dark02, attr = 'bold' },
-        Number = { fg = colors.dark02, attr = 'bold' },
-        Boolean = { fg = colors.dark02, attr = 'bold' },
-        Float = { fg = colors.light01, attr = 'bold' },
+        Number = { fg = colors.dark01, attr = 'bold' },
+        Boolean = { fg = colors.dark01, attr = 'bold' },
+        Float = { fg = colors.dark01, attr = 'bold' },
 
-        Identifier = { fg = colors.dark02 },
-        Function = { fg = colors.dark00, attr = 'italic' },
+        Identifier = { fg = colors.dark00, attr = 'bold' },
+        Function = { fg = colors.dark00, attr = 'bold' },
 
         Statement = { fg = colors.dark01 },
-        Conditional = { fg = colors.blue00, attr = 'bold' },
-        Repeat = { fg = colors.blue01, attr = 'italic' },
-        Label = { fg = colors.dark01 },
-        Operator = { fg = colors.dark02, attr = 'bold' },
-        Keyword = { fg = colors.blue00, attr = 'bold' },
-        Exception = { fg = colors.dark02 },
+        Conditional = { fg = colors.purple },
+        Repeat = { fg = colors.purple, attr = 'italic' },
+        Label = { fg = colors.red00 },
+        Operator = { fg = colors.dark00 },
+        Keyword = { fg = colors.blue00 },
+        Exception = { fg = colors.red01 },
 
         PreProc = { fg = colors.dark02 },
         Include = { fg = colors.dark02 },
@@ -203,17 +214,17 @@ argi.set_syntax = function()
         Macro = { fg = colors.dark02 },
         PreCondit = { fg = colors.dark02 },
 
-        Type = { fg = colors.dark01, attr = 'underline' },
+        Type = { fg = colors.success, attr = 'italic' },
         StorageClass = { fg = colors.dark01 },
-        Structure = { fg = colors.dark01, attr = 'bold' },
+        Structure = { fg = colors.dark01 },
         Typedef = { fg = colors.dark01, attr = 'italic' },
 
         Special = { fg = colors.dark02 },
         SpecialChar = { fg = colors.dark02 },
         Tag = { fg = colors.dark02 },
         Delimiter = { fg = colors.dark02 },
-        SpecialComment = { fg = colors.dark03, attr = 'italic' },
-        Todo = { fg = colors.light00, bg = colors.blue00 },
+        SpecialComment = { bg = colors.hyellow },
+        Todo = { fg = colors.dark00, bg = colors.hyellow },
 
         -- ------------------------------------------
         -- [ LANGUAGES SPECIFIC ]
@@ -262,12 +273,12 @@ argi.set_syntax = function()
         --     htmlArg = {fg = colors.color01},
         --     htmlBold = {fg = colors.base07, attr = 'bold'},
         --     htmlEndTag = {fg = colors.color02},
-        htmlH1 = { fg = colors.light00, bg = colors.blue00 },
-        htmlH2 = { fg = colors.light00, bg = colors.blue00 },
-        htmlH3 = { fg = colors.light00, bg = colors.blue00 },
-        htmlH4 = { fg = colors.light00, bg = colors.blue00 },
-        htmlH5 = { fg = colors.light00, bg = colors.blue00 },
-        htmlH6 = { fg = colors.light00, bg = colors.blue00 },
+        htmlH1 = { bg = colors.hblue },
+        htmlH2 = { bg = colors.hblue },
+        htmlH3 = { bg = colors.hblue },
+        htmlH4 = { bg = colors.hblue },
+        htmlH5 = { bg = colors.hblue },
+        htmlH6 = { bg = colors.hblue },
         --     htmlItalic = {fg = colors.base07, attr = 'italic'},
         --     htmlLink = {fg = colors.base07, attr = 'underline'},
         --     htmlTag = {fg = colors.color02},
@@ -316,7 +327,7 @@ argi.set_syntax = function()
         -- mkdCodeDelimiter = {fg = colors.color02},
         -- mkdCodeEnd = {fg = colors.color02},
         -- mkdCodeStart = {fg = colors.color02},
-        mkdHeading = { fg = colors.light00, bg = colors.blue00 },
+        mkdHeading = { bg = colors.hblue },
         mkdItalic = { attr = 'italic' },
         mkdLink = { fg = colors.blue00, attr = 'underline' },
         mkdListItem = { fg = colors.red00 },
@@ -400,10 +411,11 @@ argi.set_syntax = function()
         --     yamlFlowMappingMerge = {fg = colors.color01},
 
         --     -- [ Zig ]
-        zigBuiltinFn = { fg = colors.dark00, attr = 'underline' },
+        zigBuiltinFn = { fg = colors.dark00 },
         zigExecution = { fg = colors.red00 },
         -- zigKeyword = { fg = colors.red00 },
-        zigVarDecl = { fg = colors.dark00, attr = 'bold' },
+        -- zigVarDecl = { fg = colors.dark00 },
+        zigMultilineStringDelimiter = { fg = colors.dark02, attr = 'bold' },
 
         --     -- [ Zsh ]
         --     zshDelimiter = {fg = colors.color02},

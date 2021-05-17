@@ -119,6 +119,7 @@ if packer_plugins['which-key.nvim'] and packer_plugins['which-key.nvim'].loaded 
                 q = 'Quickfix',
                 r = 'Current buffer fuzzy find',
                 t = 'Tags',
+                p = 'Registers',
             },
 
             l = {

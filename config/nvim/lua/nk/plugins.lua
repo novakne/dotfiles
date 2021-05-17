@@ -70,6 +70,10 @@ return require'packer'.startup(function()
                 'nvim-treesitter/nvim-treesitter-textobjects',
                 after = 'nvim-treesitter',
             },
+            {
+                'nvim-telescope/telescope-fzf-native.nvim',
+                run = 'make',
+            },
         },
         run = function()
             vim.cmd [[TSUpdate]]
@@ -114,9 +118,8 @@ return require'packer'.startup(function()
         end,
     }
 
-    use { 'kevinhwang91/nvim-bqf', requires = '~/.local/share/bld/fzf' }
-
-    use 'junegunn/fzf.vim'
+    use { '~/.local/share/bld/fzf', requires = 'junegunn/fzf.vim' }
+    use 'kevinhwang91/nvim-bqf'
 
     -- ---------------------------------------------
     -- [ UI ]
@@ -160,9 +163,9 @@ return require'packer'.startup(function()
     }
 
     use {
-        'windwp/nvim-autopairs',
+        'steelsojka/pears.nvim',
         config = function()
-            require 'nk.plugins.autopairs'
+            require 'nk.plugins.pears'
         end,
     }
 
