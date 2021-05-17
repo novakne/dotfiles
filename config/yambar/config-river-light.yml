@@ -2,18 +2,18 @@
 # [ YAMBAR ]
 
 # [ Variables ]
-base00: &base00 252524ff
-base01: &base01 464645ff
-base06: &base06 e4e4e3ff
-base07: &base07 f1f1f0ff
+dark00: &dark00 252524ff
+dark01: &dark01 39404aff
+light01: &light01 dfe1e3ff
+light00: &light00 f1f1f0ff
 
-red: &red 842a4dff
-blue: &blue 2a4d84ff
+red: &red 692652ff
+blue: &blue 1f4357ff
 
 myfont: &myfont Overpass:style=Regular:pixelsize=16
 sfont: &sfont Overpass:style=Regular:pixelsize=12
 
-separator: &separator { text: , font: *sfont, foreground: *base01 }
+separator: &separator { text: , font: *sfont, foreground: *dark01 }
 
 # [ Bar ]
 bar:
@@ -23,8 +23,8 @@ bar:
 
   # Default
   font: *myfont
-  foreground: *base07
-  background: *base00
+  foreground: *light00
+  background: *dark00
   border: { width: 0 }
 
   # [ Left ]
@@ -33,9 +33,9 @@ bar:
         anchors:
           - string: &default { text: "{id}" }
           - focused: &focused
-              foreground: *base07
+              foreground: *light00
               deco: { background: { color: *blue } }
-          - invisible: &invisible { foreground: *base06 }
+          - invisible: &invisible { foreground: *light01 }
         content:
           - map:
               tag: occupied
@@ -56,9 +56,9 @@ bar:
   center:
     - river:
         title:
-          - string: { text: "[ ", foreground: *base06 }
-          - string: { text: "{title}", foreground: *base06, max: 80 }
-          - string: { text: " ]", foreground: *base06 }
+          - string: { text: "[ ", foreground: *light01 }
+          - string: { text: "{title}", foreground: *light01, max: 80 }
+          - string: { text: " ]", foreground: *light01 }
         content: { string: { text: "" } }
 
   # [ Right ]
@@ -183,6 +183,6 @@ bar:
               - string:
                   margin: 10
                   text: "{time}"
-                  foreground: *base07
+                  foreground: *light00
                   deco: { background: { color: *blue } }
 

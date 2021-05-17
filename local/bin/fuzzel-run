@@ -9,14 +9,14 @@ fuzzel-run() {
   local -a fuzzel_opts
 
   fuzzel_opts=(
-    -I
-    -f 'Overpass'
-    -T 'footclient'
-    -b '23222bff'
-    -s '474557ff'
-    -t 'eae9eeff'
-    -m 'e8ec77ff'
-    -C '57bbf4ff'
+    --no-icons
+    --font 'Overpass'
+    --terminal 'footclient'
+    --background 'f1f1f0ff'
+    --selection-color 'fde7f6ff'
+    --text-color '252524ff'
+    --match-color '656d78ff'
+    --border-color '252524ff'
     -x 10 -y 5 -r 4 -l 5
   )
 

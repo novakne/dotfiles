@@ -31,9 +31,9 @@
 [init]
 	defaultBranch = main
 [delta]
-    ; features = light
-    ; plus-color = "#2fe5b5"
-    ; minus-color = "#e98fc2"
+    light = true
+    plus-style = "normal #c0fbd5"
+    minus-style = "normal #fde7f6"
     syntax-theme = argi
     line-numbers = true
     side-by-side = true

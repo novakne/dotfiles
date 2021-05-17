@@ -3,33 +3,26 @@
 # [ Kosmikoa theme ]
 
 
-declare base00 base01 base02 base03 base04 base05 base06 base07
-declare red pink orange yellow green blue magenta cyan
+declare light00 light01 light02 dark00 dark01 dark02
+declare red blue
 
 # [ Colors ]
-base00='#252524'
-base01='#464645'
-base02='#59566d'
-base03='#6b6883'
-base04='#7e7b97'
-base05='#bfbdcb'
-base06='#d4d3dc'
-base07='#f1f1f0'
+light00='#f1f1f0'
+light01='#dfe1e3'
+light02='#d1d3d6'
 
-red='#842a4d'
-pink='#fc65b0'
-orange='#f08c89'
-yellow='#e8ec77'
-green='#62e89e'
-blue='#2a4d84'
-magenta='#be8fde'
-cyan='#00cfd0'
+dark00='#252524'
+dark01='#39404a'
+dark02='#656d78'
+
+red='#692652'
+blue='#1f4357'
 
 
 # [ Theme ]
-riverctl background-color "${base07}"
+riverctl background-color "${light00}"
 riverctl border-color-focused "${red}"
-riverctl border-color-unfocused "${base00}"
+riverctl border-color-unfocused "${dark00}"
 riverctl border-width 2
 riverctl xcursor-theme Adwaita
 
@@ -37,6 +30,6 @@ riverctl xcursor-theme Adwaita
 # riverctl opacity 1.0 0.75 0.0 0.1 20
 
 
-unset -v base00 base01 base02 base03 base04 base05 base06 base07
-unset -v red pink orange yellow green blue magenta cyan
+unset -v light00 light01 light02 dark00 dark01 dark02
+unset -v red blue
 

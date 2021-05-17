@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+rto_opts=(
+  --border-width 2
+  --tag-amount 9
+  --square-size 30
+  --square-inner-padding 5
+  --square-padding 5
+  --square-border-width 0
+  # --background-colour 0xf1f1f0
+  # --border-colour 0xdfe1e3
+  # --square-active-background-colour 0x92652
+  # --square-active-border-colour 0x92652
+  # --square-active-occupied-colour 0x92652
+  # --square-inactive-background-colour 0x1f4357
+  # --square-inactive-border-colour 0x1f4357
+  # --square-inactive-occupied-colour 0x1f4357
+)
+
+river-tag-overlay "${rto_opts[@]}"
+

@@ -25,6 +25,7 @@ default.target.wants
 */bin/rivertile
 */bin/dwl
 */bin/app/starship
+*/bin/river-tag-overlay
 
 freetube
 waterfox
