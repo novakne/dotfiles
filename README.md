@@ -25,7 +25,7 @@ __Mail__ . [aerc](https://git.sr.ht/~sircmpwn/aerc)
 
 __Media__
 - _Image_ . [imv](https://github.com/eXeC64/imv)
-- _Music_ . [spotifyd](https://github.com/Spotifyd/spotifyd) . [spotify-tui](https://github.com/Rigellute/spotify-tui)
+- _Music_ . spotify
 - _Video_ . [mpv](https://github.com/mpv-player/mpv)
 - _Pdf_ . [zathura](https://pwmt.org/projects/zathura/)
 
@@ -33,16 +33,12 @@ __Notification__ . [fnott](https://codeberg.org/dnkl/fnott)
 
 __Rss__ . [newsboat](https://newsboat.org/)
 
-__Screenshot__
-. [grim](https://github.com/emersion/grim)
-. [slurp](https://github.com/emersion/slurp)
+__Screenshot__ . [grim](https://github.com/emersion/grim) . [slurp](https://github.com/emersion/slurp)
 
 __Terminal__ . [foot](https://codeberg.org/dnkl/foot)
 
 __Fonts__
-- _System_
-  . [Overpass](https://overpassfont.org/)
-  . [Inter](https://github.com/rsms/inter)
+- _System_ . [Overpass](https://overpassfont.org/)
 - _Terminal_ . [JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts)
 
 __Theme__
@@ -53,7 +49,8 @@ __Theme__
 
 ### River
 
-<p align="center"><img src=".previews/river.png?raw=true "river""/></a></p>
+<p align="left"><img src=".previews/river-dark.png?raw=true "river dark""/></a></p>
+<p align="right"><img src=".previews/river-light.png?raw=true "river light""/></a></p>
 
 ## Shell
 
@@ -64,14 +61,10 @@ Prompt\_ [Starship](https://github.com/starship/starship)
 #### Global
 
 **$HOME/.config/shell/** - Common config for `bash` and `zsh`
-- _aliases_ - Shell aliases
 
 **environment/** - Environment variables
-- `00_global` - Environment for login shell
-- `10_user` - User bin & co
-- `20_plugins` - Variables for shell plugins
-- `30_cli` - Variables for cli program
-- `40_programming` - Variables for programming language
+- `00_login` - Environment for login shell
+- `10_interactive` - Environment for interactive shell
 
 **functions/**
 - `cl` - Cd to a dir and list files with _exa_ or _ls_
@@ -97,7 +90,7 @@ Prompt\_ [Starship](https://github.com/starship/starship)
 - `up` - Go up N dir `(e.g. up 2)`
 - `zn` - Jump to a directory with _zoxide_ and open it in _neovim_
 
-**plugins/** - Personnal colors, dircolors, osc7 and starship config
+**plugins/** - Personnal colors, aliases, dircolors, osc7 and starship config
 
 #### Bash
 
@@ -109,7 +102,6 @@ Prompt\_ [Starship](https://github.com/starship/starship)
 #### Zsh
 
 **$HOME/**
-
 - _.zshenv_ - Login shell
 
 **$HOME/.config/zsh/**
@@ -117,7 +109,7 @@ Prompt\_ [Starship](https://github.com/starship/starship)
 - _.zprofile_ - Login pre .zshrc
 - _.zshrc_ - Everything
 
-**completions/** - User auto completions for some cli tools
+**$HOME/.local/share/zsh/site-functions/** - User auto completions for some cli tools
 
 **plugins/** - Submodules
 - [fast-syntax-highlighting](https://github.com/zdharma/fast-syntax-highlighting)
