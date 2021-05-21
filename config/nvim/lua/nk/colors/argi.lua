@@ -4,25 +4,25 @@
 local argi = {}
 
 local colors = {
-    light00 = '#f1f1f0',
-    light01 = '#dfe1e3',
-    light02 = '#d1d3d6',
+    light00 = '#f9f9fa',
+    light01 = '#dce1e4',
+    light02 = '#cdd4d8',
 
-    dark00 = '#252524',
-    dark01 = '#39404a',
-    dark02 = '#656d78',
+    dark00 = '#202325',
+    dark01 = '#3a4043',
+    dark02 = '#646e73',
 
-    blue00 = '#1f4357',
-    blue01 = '#2d397e',
-    red00 = '#692652',
-    red01 = '#6e2732',
+    blue00 = '#2d397e',
+    blue01 = '#1f4357',
+    red00 = '#b3408a',
+    purple00 = '#4b2e81',
 
-    purple = '#61266b',
+    err = '#ba4255',
+    warn = '#786c2b',
+    success = '#2c7a47',
 
-    warn = '#9d5b38',
-    success = '#19463f',
-    comment = '#416c84',
-    string = '#354418',
+    comment = '#357294',
+    string = '#19463f',
 
     hblue = '#dbf1fd',
     hyellow = '#faefb1',
@@ -61,7 +61,7 @@ argi.set_syntax = function()
         ColorColumn = { fg = colors.dark01 },
         -- Cursor = { bg = colors.dark02 },
         CursorLine = { bg = colors.light01 },
-        Error = { fg = colors.red00, bg = colors.light00 },
+        Error = { fg = colors.err, bg = colors.light00 },
         iCursor = { fg = colors.light00, bg = colors.dark02 },
         LineNr = { fg = colors.dark00, bg = colors.light00 },
         MatchParen = { fg = colors.comment, bg = colors.light02 },
@@ -77,25 +77,25 @@ argi.set_syntax = function()
         RedrawDebugRecompose = { fg = colors.light00, bg = colors.dark02 },
         SpecialKey = { fg = colors.dark02 },
         SpellBad = {
-            fg = colors.red00,
+            fg = colors.err,
             bg = colors.light00,
             attr = 'undercurl',
             sp = colors.red00,
         },
         SpellCap = {
-            fg = colors.red00,
+            fg = colors.err,
             bg = colors.light00,
             attr = 'undercurl',
             sp = colors.red00,
         },
         SpellLocal = {
-            fg = colors.red00,
+            fg = colors.err,
             bg = colors.light00,
             attr = 'undercurl',
             sp = colors.red00,
         },
         SpellRare = {
-            fg = colors.red00,
+            fg = colors.err,
             bg = colors.light00,
             attr = 'undercurl',
             sp = colors.red00,
@@ -104,8 +104,8 @@ argi.set_syntax = function()
         VisualNOS = { fg = colors.dark00, bg = colors.light01, attr = 'bold' },
 
         -- [ Neovim support ]
-        NvimInternalError = { fg = colors.light00, bg = colors.red00 },
-        healthError = { fg = colors.red00, bg = colors.light00 },
+        NvimInternalError = { fg = colors.light00, bg = colors.err },
+        healthError = { fg = colors.err, bg = colors.light00 },
         healthSuccess = { fg = colors.success, bg = colors.light00 },
         healthWarning = { fg = colors.warn, bg = colors.light00 },
         TermCursorNC = { fg = colors.dark01 },
@@ -122,7 +122,7 @@ argi.set_syntax = function()
 
         -- [ Prompt / Status ]
         EndOfBuffer = { fg = colors.dark02 },
-        ErrorMsg = { fg = colors.light00, bg = colors.red00 },
+        ErrorMsg = { fg = colors.light00, bg = colors.err },
         ModeMsg = { fg = colors.dark02 },
         MoreMsg = { fg = colors.dark02 },
         Question = { fg = colors.dark02 },
@@ -147,41 +147,29 @@ argi.set_syntax = function()
         VertSplit = { fg = colors.light02, bg = colors.light00 },
 
         -- [ Diff ]
-        DiffAdd = { fg = colors.dark02, bg = colors.success, attr = 'inverse' },
-        DiffChange = { fg = colors.dark01, bg = colors.light00,
+        DiffAdd = { fg = colors.dark00, bg = colors.hgreen, attr = 'inverse' },
+        DiffChange = { fg = colors.dark00, bg = colors.hyellow,
                        attr = 'inverse' },
-        DiffDelete = { fg = colors.dark00, bg = colors.light00,
+        DiffDelete = { fg = colors.dark00, bg = colors.hred,
                        attr = 'inverse' },
-        DiffText = { fg = colors.dark02, bg = colors.light00, attr = 'inverse' },
-        -- Legacy groups for official git.vim and diff.vim syntax
-        diffAdded = { fg = colors.success, bg = colors.light00, attr = 'inverse' },
-        diffChanged = {
-            fg = colors.dark01,
-            bg = colors.light00,
-            attr = 'inverse',
-        },
-        diffRemoved = {
-            fg = colors.dark00,
-            bg = colors.light00,
-            attr = 'inverse',
-        },
+        DiffText = { fg = colors.dark00, bg = colors.light00, attr = 'inverse' },
 
         -- [ Quickfix / Location list ]
         qfLineNr = { fg = colors.dark02 },
 
         -- [ Neovim lsp ]
-        LspDiagnosticsDefaultError = { fg = colors.red00 },
+        LspDiagnosticsDefaultError = { fg = colors.err },
         LspDiagnosticsDefaultWarning = { fg = colors.warn },
         LspDiagnosticsDefaultInformation = { fg = colors.blue00 },
-        LspDiagnosticsDefaultHint = { fg = colors.blue01 },
-        LspDiagnosticsUnderlineError = { fg = colors.red00 },
+        LspDiagnosticsDefaultHint = { fg = colors.blue00 },
+        LspDiagnosticsUnderlineError = { fg = colors.err },
         LspDiagnosticsUnderlineWarning = { fg = colors.warn },
         LspDiagnosticsUnderlineInformation = { fg = colors.blue00 },
-        LspDiagnosticsUnderlineHint = { fg = colors.blue01 },
-        LspDiagErrorBorder = { fg = colors.red00 },
-        LspDiagWarnBorder = { fg = colors.red01 },
+        LspDiagnosticsUnderlineHint = { fg = colors.blue00 },
+        LspDiagErrorBorder = { fg = colors.err },
+        LspDiagWarnBorder = { fg = colors.warn },
         LspDiagInforBorder = { fg = colors.blue00 },
-        LspDiagHintBorder = { fg = colors.blue01 },
+        LspDiagHintBorder = { fg = colors.blue00 },
 
         -- -------------------------------------------
         -- [ LANGUAGE argi.BASE GROUPS ]
@@ -193,20 +181,20 @@ argi.set_syntax = function()
         Constant = { fg = colors.dark00 },
         String = { fg = colors.string, attr = 'italic' },
         Character = { fg = colors.dark02, attr = 'bold' },
-        Number = { fg = colors.dark01, attr = 'bold' },
-        Boolean = { fg = colors.dark01, attr = 'bold' },
-        Float = { fg = colors.dark01, attr = 'bold' },
+        Number = { fg = colors.dark01 },
+        Boolean = { fg = colors.dark01 },
+        Float = { fg = colors.dark01 },
 
         Identifier = { fg = colors.dark00, attr = 'bold' },
         Function = { fg = colors.dark00, attr = 'bold' },
 
         Statement = { fg = colors.dark01 },
-        Conditional = { fg = colors.purple },
-        Repeat = { fg = colors.purple, attr = 'italic' },
+        Conditional = { fg = colors.blue01, attr = 'italic' },
+        Repeat = { fg = colors.purple00, attr = 'italic' },
         Label = { fg = colors.red00 },
         Operator = { fg = colors.dark00 },
         Keyword = { fg = colors.blue00 },
-        Exception = { fg = colors.red01 },
+        Exception = { fg = colors.red00 },
 
         PreProc = { fg = colors.dark02 },
         Include = { fg = colors.dark02 },
@@ -214,7 +202,7 @@ argi.set_syntax = function()
         Macro = { fg = colors.dark02 },
         PreCondit = { fg = colors.dark02 },
 
-        Type = { fg = colors.success, attr = 'italic' },
+        Type = { fg = colors.blue00, attr = 'italic' },
         StorageClass = { fg = colors.dark01 },
         Structure = { fg = colors.dark01 },
         Typedef = { fg = colors.dark01, attr = 'italic' },
@@ -223,7 +211,7 @@ argi.set_syntax = function()
         SpecialChar = { fg = colors.dark02 },
         Tag = { fg = colors.dark02 },
         Delimiter = { fg = colors.dark02 },
-        SpecialComment = { bg = colors.hyellow },
+        SpecialComment = { fg = colors.dark00, bg = colors.hyellow },
         Todo = { fg = colors.dark00, bg = colors.hyellow },
 
         -- ------------------------------------------
@@ -411,10 +399,10 @@ argi.set_syntax = function()
         --     yamlFlowMappingMerge = {fg = colors.color01},
 
         --     -- [ Zig ]
-        zigBuiltinFn = { fg = colors.dark00 },
-        zigExecution = { fg = colors.red00 },
-        -- zigKeyword = { fg = colors.red00 },
-        -- zigVarDecl = { fg = colors.dark00 },
+        zigBuiltinFn = { fg = colors.dark00, attr = 'bold' },
+        zigExecution = { fg = colors.blue01 },
+        zigKeyword = { fg = colors.red00 },
+        zigVarDecl = { fg = colors.dark00 },
         zigMultilineStringDelimiter = { fg = colors.dark02, attr = 'bold' },
 
         --     -- [ Zsh ]
@@ -464,8 +452,8 @@ argi.set_syntax = function()
         NeogitDiffAddHighlight = {fg = colors.light00, bg = colors.blue00 },
         NeogitDiffDeleteHighlight = {fg = colors.light00, bg = colors.red00 },
         NeogitDiffContextHighlight = {fg = colors.dark00, bg = colors.light00 },
-        NeogitHunkHeader = {fg = colors.light00, bg = colors.red01 },
-        NeogitHunkHeaderHighlight = {fg = colors.light00, bg = colors.blue01 },
+        NeogitHunkHeader = {fg = colors.light00, bg = colors.red00 },
+        NeogitHunkHeaderHighlight = {fg = colors.light00, bg = colors.blue00 },
 
         --     -- [ Signify ]
         --     -- ( http//github.com/mhinz/vim-signify )

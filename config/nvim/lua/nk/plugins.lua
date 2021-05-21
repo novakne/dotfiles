@@ -70,10 +70,8 @@ return require'packer'.startup(function()
                 'nvim-treesitter/nvim-treesitter-textobjects',
                 after = 'nvim-treesitter',
             },
-            {
-                'nvim-telescope/telescope-fzf-native.nvim',
-                run = 'make',
-            },
+            { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+            { 'jvgrootveld/telescope-zoxide' },
         },
         run = function()
             vim.cmd [[TSUpdate]]

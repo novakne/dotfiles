@@ -12,11 +12,11 @@ fuzzel-run() {
     --no-icons
     --font 'Overpass'
     --terminal 'footclient'
-    --background 'f1f1f0ff'
-    --selection-color 'fde7f6ff'
-    --text-color '252524ff'
-    --match-color '656d78ff'
-    --border-color '252524ff'
+    --background 'f9f9faff'
+    --selection-color 'dbf1fdff'
+    --text-color '202325ff'
+    --match-color 'b3408aff'
+    --border-color '202325ff'
     -x 10 -y 5 -r 4 -l 5
   )
 

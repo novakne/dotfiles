@@ -1,11 +1,11 @@
 [options]
-background = 252524
+background = 202325
 width = 1720
 height = 880
 overlay_font = Overpass:14
-overlay_text_color = f1f1f0
+overlay_text_color = f9f9fa
 overlay_text_alpha = e6
-overlay_background_color = 252524
+overlay_background_color = 3a4043
 overlay_background_alpha = 73
 overlay_position_bottom = true
 scaling_mode = full

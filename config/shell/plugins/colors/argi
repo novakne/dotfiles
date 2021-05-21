@@ -7,11 +7,11 @@ declare base00 base01 base06 base07
 declare red blue
 
 # [ Colors ]
-base07='#252524'
-base06='#39404a'
-base01='#dfe1e3'
-base00='#f1f1f0'
+base07='#202325'
+base06='#3a4043'
+base01='#dce1e4'
+base00='#f9f9fa'
 
-red='#692652'
-blue='#1f4357'
+red='#b3408a'
+blue='#2d397e'
 

@@ -68,6 +68,7 @@ riverctl map normal $mod Return spawn $term
 riverctl map normal Control+Shift Return spawn $term
 riverctl map normal $mod D spawn fuzzel-run
 riverctl map normal $mod O spawn footclient --app-id 'float' fmenu >/dev/null 2>&1
+riverctl map normal $mod P spawn footclient --app-id 'float' fpass >/dev/null 2>&1
 riverctl map normal $mod B spawn $browser >/dev/null 2>&1
 riverctl map normal $mod T spawn foot-float
 riverctl map normal $mod N spawn footclient --app-id 'float' nnn-float >/dev/null 2>&1

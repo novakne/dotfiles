@@ -29,6 +29,7 @@ default.target.wants
 
 freetube
 waterfox
+librewolf
 chardetect
 futurize
 jsonschema
@@ -36,4 +37,5 @@ pasteurize
 pygmentize
 pwiz.py
 zig-master
+zig7
 .lastd

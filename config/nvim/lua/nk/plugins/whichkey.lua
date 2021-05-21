@@ -110,6 +110,8 @@ if packer_plugins['which-key.nvim'] and packer_plugins['which-key.nvim'].loaded 
         t = {
             name = '+Telescope',
 
+            e = { name = '+Extensions', z = 'Zoxide' },
+
             v = {
                 name = '+Vim',
                 ['='] = 'Spell suggest',

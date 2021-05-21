@@ -71,12 +71,12 @@ if packer_plugins['telescope.nvim'] and packer_plugins['telescope.nvim'].loaded 
                 override_generic_sorter = false, -- override the generic sorter
                 override_file_sorter = true, -- override the file sorter
                 case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
-                -- the default case_mode is "smart_case"
             },
         },
     }
 
     telescope.load_extension('fzf')
+    telescope.load_extension('zoxide')
 
     -- -----------------------------------------------
     -- [ Mapping ]
@@ -138,6 +138,10 @@ if packer_plugins['telescope.nvim'] and packer_plugins['telescope.nvim'].loaded 
     -- treesitter pickers
     map('n', '<Leader>ttf',
         [[<CMD>lua require'telescope.builtin'.treesitter()<CR>]])
+
+    -- Extensions
+    map('n', '<Leader>ez',
+        [[<CMD>lua require'telescope'.extensions.zoxide.list{}<CR>]])
 
 end
 
