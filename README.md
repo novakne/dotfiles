@@ -49,8 +49,8 @@ __Theme__
 
 ### River
 
-<p align="left"><img src=".previews/river-dark.png?raw=true "river dark""/></a></p>
-<p align="right"><img src=".previews/river-light.png?raw=true "river light""/></a></p>
+<p align="left"><img src="meta/previews/river-dark.png?raw=true "river dark""/></a></p>
+<p align="right"><img src="meta/previews/river-light.png?raw=true "river light""/></a></p>
 
 ## Shell
 
