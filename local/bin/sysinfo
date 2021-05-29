@@ -1,15 +1,21 @@
 #!/usr/bin/env bash
 
 sysinfo() {
-  local bat_status bat_percent clock volume mute
+  local bat_status bat_percent clock volume mute volume_percent fmt
 
   bat_status=$(cat /sys/class/power_supply/BAT1/status)
   bat_percent=$(cat /sys/class/power_supply/BAT1/capacity)
   clock=$(date +"%H:%M")
   mute=$(pamixer --get-mute)
-  volume=$(pamixer --get-volume)
+  volume_percent=$(pamixer --get-volume)
 
-  printf -- '%s\n%s\n%s\n' "$clock" "Bat: $bat_status $bat_status" "Vol: $mute $volume"
+  case $mute in
+    true) volume=" Mute" ;;
+    *) volume=" ${volume_percent}%" ;;
+  esac
+
+  fmt=$(printf -- '%s\n%s\n%s\n' " ${clock}" "  ${bat_status} ${bat_percent}%" "${volume}")
+  notify-send "${fmt}"
 }
 
 sysinfo "$@"

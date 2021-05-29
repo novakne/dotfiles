@@ -11,12 +11,12 @@ rto_opts=(
   --border-colour 0x3a4043
   --square-active-background-colour 0x2e3f9f
   --square-active-border-colour 0x2e3f9f
-  --square-active-occupied-colour 0x646e73
+  --square-active-occupied-colour 0xdce1e4
   --square-inactive-background-colour 0x646e73
   --square-inactive-border-colour 0xcdd4d8
   --square-inactive-occupied-colour 0xdce1e4
-  --location 7
-  --margin-vertical 10
+  --anchors "0:0:1:0"
+  --margins "0:0:10:0"
 )
 
 river-tag-overlay "${rto_opts[@]}"
