@@ -245,8 +245,11 @@ return require'packer'.startup(function()
         end,
     }
 
+    use 'MTDL9/vim-log-highlighting'
+    use 'ziglang/zig.vim'
+
     use { 'sakhnik/nvim-gdb', run = './install.sh', ft = { 'c', 'zig' } }
-    use 'sheerun/vim-polyglot'
+    -- use 'sheerun/vim-polyglot'
     use 'editorconfig/editorconfig-vim'
 
     -- ---------------------------------------------

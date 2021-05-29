@@ -1,17 +1,5 @@
 -- [ Options ]
-local opts_info = vim.api.nvim_get_all_options_info()
-
-local opt = setmetatable({}, {
-    __newindex = function( self, key, value )
-        vim.o[key] = value
-        local scope = opts_info[key].scope
-        if scope == 'win' then
-            vim.wo[key] = value
-        elseif scope == 'buf' then
-            vim.bo[key] = value
-        end
-    end,
-})
+local opt = vim.opt
 
 -- [ General ] ( :help nvim-defaults )
 vim.g.mapleader = ' ' -- Change leader key to '<space>'

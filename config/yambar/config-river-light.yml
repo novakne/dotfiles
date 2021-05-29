@@ -7,8 +7,8 @@ dark01: &dark01 3a4043ff
 light01: &light01 dce1e4ff
 light00: &light00 f9f9faff
 
-red: &red b3408aff
-blue: &blue 2d397eff
+red: &red 9e2f59ff
+blue: &blue 2e3f9fff
 
 myfont: &myfont Overpass:style=Regular:pixelsize=16
 sfont: &sfont Overpass:style=Regular:pixelsize=12

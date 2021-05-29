@@ -47,3 +47,5 @@
     smtpserver = /usr/bin/msmtp
 [fetch]
 	prune = true
+[submodule]
+    recurse = true

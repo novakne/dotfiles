@@ -23,11 +23,13 @@ themes_dir="$XDG_CONFIG_HOME"/river/themes
 
 if [[ "$USER_THEME" == argi ]]; then
   theme=argi
-  riverctl spawn 'swaybg -i ~/media/img/wal/red_hood_outlaws_01.jpg >/dev/null 2>&1'
-  ln -s "$SVDIR"/sv/yambar-light "${svdir}"/
+  # riverctl spawn 'swaybg -i ~/media/img/wal/red_hood_outlaws_01.jpg >/dev/null 2>&1'
+  riverctl spawn 'swaybg -i ~/media/img/wal/green_lantern_01.jpg >/dev/null 2>&1'
+  riverctl spawn 'rivertag >/dev/null 2>&1'
+  # ln -s "$SVDIR"/sv/yambar-light "${svdir}"/
 elif [[ "$USER_THEME" == kosmikoa ]]; then
   theme=kosmikoa
-  ln -s "$SVDIR"/sv/yambar-dark "${svdir}"/
+  # ln -s "$SVDIR"/sv/yambar-dark "${svdir}"/
 fi
 source "${themes_dir}"/"${theme}"
 
@@ -73,6 +75,7 @@ riverctl map normal $mod B spawn $browser >/dev/null 2>&1
 riverctl map normal $mod T spawn foot-float
 riverctl map normal $mod N spawn footclient --app-id 'float' nnn-float >/dev/null 2>&1
 riverctl map normal $mod E spawn footclient "$EDITOR" >/dev/null 2>&1
+riverctl map normal $mod W spawn sysinfo
 
 
 # [ Views ]

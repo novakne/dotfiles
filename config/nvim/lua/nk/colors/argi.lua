@@ -12,17 +12,16 @@ local colors = {
     dark01 = '#3a4043',
     dark02 = '#646e73',
 
-    blue00 = '#2d397e',
-    blue01 = '#1f4357',
-    red00 = '#b3408a',
-    purple00 = '#4b2e81',
+    blue = '#2e3f9f',
+    red = '#9e2f59',
+    purple = '#6b2e9f',
 
-    err = '#ba4255',
-    warn = '#786c2b',
-    success = '#2c7a47',
+    err = '#9f2e2f',
+    warn = '#9f5a2e',
+    success = '#577433',
 
-    comment = '#357294',
-    string = '#19463f',
+    comment = '#29748a',
+    string = '#254550',
 
     hblue = '#dbf1fd',
     hyellow = '#faefb1',
@@ -80,25 +79,25 @@ argi.set_syntax = function()
             fg = colors.err,
             bg = colors.light00,
             attr = 'undercurl',
-            sp = colors.red00,
+            sp = colors.red,
         },
         SpellCap = {
             fg = colors.err,
             bg = colors.light00,
             attr = 'undercurl',
-            sp = colors.red00,
+            sp = colors.red,
         },
         SpellLocal = {
             fg = colors.err,
             bg = colors.light00,
             attr = 'undercurl',
-            sp = colors.red00,
+            sp = colors.red,
         },
         SpellRare = {
             fg = colors.err,
             bg = colors.light00,
             attr = 'undercurl',
-            sp = colors.red00,
+            sp = colors.red,
         },
         Visual = { fg = colors.dark00, bg = colors.light01, attr = 'bold' },
         VisualNOS = { fg = colors.dark00, bg = colors.light01, attr = 'bold' },
@@ -112,7 +111,7 @@ argi.set_syntax = function()
 
         -- [ Gutter ]
         CursorColumn = { fg = colors.dark02 },
-        CursorLineNr = { fg = colors.blue00, bg = colors.light00, attr = 'bold' },
+        CursorLineNr = { fg = colors.blue, bg = colors.light00, attr = 'bold' },
         Folded = { fg = colors.dark02, bg = colors.light01, attr = 'bold' },
         FoldColumn = { fg = colors.dark02, bg = colors.light00 },
         SignColumn = { fg = colors.dark02, bg = colors.light00 },
@@ -150,8 +149,7 @@ argi.set_syntax = function()
         DiffAdd = { fg = colors.dark00, bg = colors.hgreen, attr = 'inverse' },
         DiffChange = { fg = colors.dark00, bg = colors.hyellow,
                        attr = 'inverse' },
-        DiffDelete = { fg = colors.dark00, bg = colors.hred,
-                       attr = 'inverse' },
+        DiffDelete = { fg = colors.dark00, bg = colors.hred, attr = 'inverse' },
         DiffText = { fg = colors.dark00, bg = colors.light00, attr = 'inverse' },
 
         -- [ Quickfix / Location list ]
@@ -160,16 +158,16 @@ argi.set_syntax = function()
         -- [ Neovim lsp ]
         LspDiagnosticsDefaultError = { fg = colors.err },
         LspDiagnosticsDefaultWarning = { fg = colors.warn },
-        LspDiagnosticsDefaultInformation = { fg = colors.blue00 },
-        LspDiagnosticsDefaultHint = { fg = colors.blue00 },
+        LspDiagnosticsDefaultInformation = { fg = colors.blue },
+        LspDiagnosticsDefaultHint = { fg = colors.blue },
         LspDiagnosticsUnderlineError = { fg = colors.err },
         LspDiagnosticsUnderlineWarning = { fg = colors.warn },
-        LspDiagnosticsUnderlineInformation = { fg = colors.blue00 },
-        LspDiagnosticsUnderlineHint = { fg = colors.blue00 },
+        LspDiagnosticsUnderlineInformation = { fg = colors.blue },
+        LspDiagnosticsUnderlineHint = { fg = colors.blue },
         LspDiagErrorBorder = { fg = colors.err },
         LspDiagWarnBorder = { fg = colors.warn },
-        LspDiagInforBorder = { fg = colors.blue00 },
-        LspDiagHintBorder = { fg = colors.blue00 },
+        LspDiagInforBorder = { fg = colors.blue },
+        LspDiagHintBorder = { fg = colors.blue },
 
         -- -------------------------------------------
         -- [ LANGUAGE argi.BASE GROUPS ]
@@ -189,12 +187,12 @@ argi.set_syntax = function()
         Function = { fg = colors.dark00, attr = 'bold' },
 
         Statement = { fg = colors.dark01 },
-        Conditional = { fg = colors.blue01, attr = 'italic' },
-        Repeat = { fg = colors.purple00, attr = 'italic' },
-        Label = { fg = colors.red00 },
-        Operator = { fg = colors.dark00 },
-        Keyword = { fg = colors.blue00 },
-        Exception = { fg = colors.red00 },
+        Conditional = { fg = colors.purple, attr = 'italic' },
+        Repeat = { fg = colors.purple, attr = 'italic' },
+        Label = { fg = colors.red },
+        Operator = { fg = colors.dark01, attr = 'bold' },
+        Keyword = { fg = colors.blue },
+        Exception = { fg = colors.red },
 
         PreProc = { fg = colors.dark02 },
         Include = { fg = colors.dark02 },
@@ -202,7 +200,7 @@ argi.set_syntax = function()
         Macro = { fg = colors.dark02 },
         PreCondit = { fg = colors.dark02 },
 
-        Type = { fg = colors.blue00, attr = 'italic' },
+        Type = { fg = colors.blue, attr = 'italic' },
         StorageClass = { fg = colors.dark01 },
         Structure = { fg = colors.dark01 },
         Typedef = { fg = colors.dark01, attr = 'italic' },
@@ -317,9 +315,9 @@ argi.set_syntax = function()
         -- mkdCodeStart = {fg = colors.color02},
         mkdHeading = { bg = colors.hblue },
         mkdItalic = { attr = 'italic' },
-        mkdLink = { fg = colors.blue00, attr = 'underline' },
-        mkdListItem = { fg = colors.red00 },
-        mkdListItemLine = { fg = colors.red00 },
+        mkdLink = { fg = colors.blue, attr = 'underline' },
+        mkdListItem = { fg = colors.red },
+        mkdListItemLine = { fg = colors.red },
 
         --     -- [ Nim ]
         --     nimBuiltin = {fg = colors.color02},
@@ -400,8 +398,8 @@ argi.set_syntax = function()
 
         --     -- [ Zig ]
         zigBuiltinFn = { fg = colors.dark00, attr = 'bold' },
-        zigExecution = { fg = colors.blue01 },
-        zigKeyword = { fg = colors.red00 },
+        zigExecution = { fg = colors.red },
+        zigKeyword = { fg = colors.red },
         zigVarDecl = { fg = colors.dark00 },
         zigMultilineStringDelimiter = { fg = colors.dark02, attr = 'bold' },
 
@@ -449,11 +447,11 @@ argi.set_syntax = function()
 
         -- [ Neogit ]
         -- ( https://github.com/TimUntersberger/neogit )
-        NeogitDiffAddHighlight = {fg = colors.light00, bg = colors.blue00 },
-        NeogitDiffDeleteHighlight = {fg = colors.light00, bg = colors.red00 },
-        NeogitDiffContextHighlight = {fg = colors.dark00, bg = colors.light00 },
-        NeogitHunkHeader = {fg = colors.light00, bg = colors.red00 },
-        NeogitHunkHeaderHighlight = {fg = colors.light00, bg = colors.blue00 },
+        NeogitDiffAddHighlight = { fg = colors.light00, bg = colors.blue },
+        NeogitDiffDeleteHighlight = { fg = colors.light00, bg = colors.red },
+        NeogitDiffContextHighlight = { fg = colors.dark00, bg = colors.light00 },
+        NeogitHunkHeader = { fg = colors.light00, bg = colors.red },
+        NeogitHunkHeaderHighlight = { fg = colors.light00, bg = colors.blue },
 
         --     -- [ Signify ]
         --     -- ( http//github.com/mhinz/vim-signify )
@@ -476,27 +474,27 @@ argi.set_syntax = function()
 
         --     -- [ Treesitter ]
         --     -- ( https://github.com/nvim-treesitter/nvim-treesitter )
-        --     TSConstBuiltin = {fg = colors.color02},
-        --     TSConstMacro = {fg = colors.color02},
-        --     TSConstant = {fg = colors.color00},
-        --     TSConstructor = {fg = colors.color00},
+        TSConstBuiltin = { fg = colors.dark00, attr = 'bold' },
+        TSConstMacro = { fg = colors.dark02 },
+        TSConstant = { fg = colors.dark00, attr = 'italic' },
+        TSConstructor = { fg = colors.dark00 },
         TSFuncBuiltin = { fg = colors.dark00, attr = 'bold' },
-        --     TSFuncMacro = {fg = colors.color02},
-        TSFunction = { fg = colors.light00, bg = colors.blue00 },
-        --     TSInclude = {fg = colors.color02},
-        --     TSKeyword = {fg = colors.color01},
-        -- TSKeywordFunction = {fg = colors.color00},
-        --     TSKeywordOperator = {fg = colors.color02},
-        --     TSMethod = {fg = colors.color01},
-        --     TSParameter = {fg = colors.color01, attr = 'italic'},
-        --     TSParametcolor00eference = {fg = colors.color01, attr = 'italic'},
-        --     TSProperty = {fg = colors.color02, attr = 'italic'},
-        --     TSStringEscape = {fg = colors.color02, attr = 'italic'},
-        --     TSStringRegex = {fg = colors.color02, attr = 'italic'},
-        --     TSType = {fg = colors.color00},
-        --     TSTypeBuiltin = {fg = colors.color02},
-        --     TSVariable = {fg = colors.base07, attr = 'italic'},
-        --     TSVariableBuiltin = {fg = colors.base07, attr = 'bold'},
+        TSFuncMacro = { fg = colors.dark02 },
+        TSFunction = { fg = colors.light00, bg = colors.blue },
+        TSInclude = { fg = colors.dark02 },
+        TSKeyword = { fg = colors.red },
+        TSKeywordFunction = { fg = colors.red },
+        TSKeywordOperator = { fg = colors.blue },
+        TSMethod = { fg = colors.dark00, attr = 'bold' },
+        TSParameter = { fg = colors.dark01, attr = 'italic' },
+        TSParametcolor00eference = { fg = colors.dark01, attr = 'italic' },
+        TSProperty = { fg = colors.dark02, attr = 'italic' },
+        TSStringEscape = { fg = colors.blue, attr = 'italic' },
+        TSStringRegex = { fg = colors.dark00, attr = 'italic' },
+        TSType = { fg = colors.blue },
+        TSTypeBuiltin = { fg = colors.blue, attr = 'bold' },
+        TSVariable = { fg = colors.dark00, attr = 'italic' },
+        TSVariableBuiltin = { fg = colors.dark00, attr = 'bold' },
 
         --     -- Nvim-ts-rainbow ( https://github.com/p00f/nvim-ts-rainbow )
         --     rainbowcol1 = {fg = colors.color02},

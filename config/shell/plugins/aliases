@@ -76,4 +76,6 @@ alias :q='exit'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME"/wget-hsts'
 alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
 alias myip='curl ifconfig.co/json'
+alias pastebin="curl -F'file=@-' https://0x0.st"
+alias zigbin="curl -F'file=@-' https://zigbin.io"
 
