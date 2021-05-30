@@ -48,9 +48,8 @@ __Theme__
 ## Screenshots
 
 ### River
-
-<p align="left"><img src="meta/previews/river-dark.png?raw=true "river dark""/></a></p>
-<p align="right"><img src="meta/previews/river-light.png?raw=true "river light""/></a></p>
+<p align="left"><img src="https://git.sr.ht/~novakane/dotfiles/blob/main/meta/previews/river-dark.png"river dark""/></a></p>
+<p align="right"><img src="https://git.sr.ht/~novakane/dotfiles/blob/main/meta/previews/river-light.png"river light""/></a></p>
 
 ## Shell
 
