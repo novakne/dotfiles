@@ -4,56 +4,43 @@ _Dotfiles managed with [dotbot](https://github.com/anishathalye/dotbot)_
 
 ## Infos
 
-|      | Main | Others |
--------|------|--------|
-__os__ | Void Linux | Arch Linux ( _see arch branch_ )
-__wm__ | [river](https://github.com/ifreund/river) | [dwl](https://github.com/djpohly/dwl)
+- os _[void Linux](https://voidlinux.org/)_
+- wm _[river](https://github.com/ifreund/river)_
 
 ### Applications
 
-__Browser__ . firefox
-
-__Bar__ . [yambar](https://codeberg.org/dnkl/yambar)
-
-__Editor__ . [neovim 5.x](https://github.com/neovim/neovim) ( _prerelease build_ )
-
-__Files manager__ . [nnn](https://github.com/jarun/nnn) ( _build with nerd icons_ )
-
-__Launcher__ . [fuzzel](https://codeberg.org/dnkl/fuzzel)
-
-__Mail__ . [aerc](https://git.sr.ht/~sircmpwn/aerc)
-
-__Media__
-- _Image_ . [imv](https://github.com/eXeC64/imv)
-- _Music_ . spotify
-- _Video_ . [mpv](https://github.com/mpv-player/mpv)
-- _Pdf_ . [zathura](https://pwmt.org/projects/zathura/)
-
-__Notification__ . [fnott](https://codeberg.org/dnkl/fnott)
-
-__Rss__ . [newsboat](https://newsboat.org/)
-
-__Screenshot__ . [grim](https://github.com/emersion/grim) . [slurp](https://github.com/emersion/slurp)
-
-__Terminal__ . [foot](https://codeberg.org/dnkl/foot)
-
-__Fonts__
-- _System_ . [Overpass](https://overpassfont.org/)
-- _Terminal_ . [JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts)
-
-__Theme__
-- _Icons_ . [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
-- _Gtk_ . [Materia](https://github.com/nana-4/materia-theme)
+- browser . _firefox_
+- bar . _[yambar](https://codeberg.org/dnkl/yambar)_
+- editor . _[neovim 5.x](https://github.com/neovim/neovim)_
+- files manager . _[nnn](https://github.com/jarun/nnn)_
+- launcher . _[fuzzel](https://codeberg.org/dnkl/fuzzel)_
+- mail . _[aerc](https://git.sr.ht/~sircmpwn/aerc)_
+- media:
+  * image . _[imv](https://github.com/eXeC64/imv)_
+  * music . _spotify_
+  * video . _[mpv](https://github.com/mpv-player/mpv)_
+  * pdf . _[zathura](https://pwmt.org/projects/zathura/)_
+- notification . _[fnott](https://codeberg.org/dnkl/fnott)_
+- rss . _[newsboat](https://newsboat.org/)_
+- screenshot . _[grim](https://github.com/emersion/grim)_ . _[slurp](https://github.com/emersion/slurp)_
+- terminal . _[foot](https://codeberg.org/dnkl/foot)_
+- fonts:
+  * system . _[Overpass](https://overpassfont.org/)_
+  * terminal . _[JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts)_
+- theme:
+  * icons . _[Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)_
+  * gtk . _[Materia](https://github.com/nana-4/materia-theme)_
 
 ## Screenshots
 
 ### River
+
 <p align="left"><img src="https://git.sr.ht/~novakane/dotfiles/blob/main/meta/previews/river-dark.png"river dark""/></a></p>
 <p align="right"><img src="https://git.sr.ht/~novakane/dotfiles/blob/main/meta/previews/river-light.png"river light""/></a></p>
 
 ## Shell
 
-Prompt\_ [Starship](https://github.com/starship/starship)
+- prompt: [Starship](https://github.com/starship/starship)
 
 ### File structure
 
