@@ -11,11 +11,14 @@ _usage() {
   Usage: bld-update [OPTION...]
 
     -fennel,  Update fennel [ main ]
-    -fzf,     Update fzf [ master ]
+    -fnott,   Update fnott [ master ]
     -foot,    Update foot [ master ]
-    -nvim,    Update neovim [ master ]
+    -fuzzel,  Update fuzzel [ master ]
+    -fzf,     Update fzf [ master ]
     -lualsp,  Update lua lsp [ master ]
+    -nvim,    Update neovim [ master ]
     -zig,     Update zig [ master ]
+    -zls,     Update zls [ master ]
 
 END
 }
@@ -27,7 +30,7 @@ lib_dir="$HOME"/.local/lib
 
 # [ https://git.sr.ht/~technomancy/fennel ]
 _fennel() {
-  cd "${bld_dir}"/fennel || exit
+  cd "${bld_dir}"/pkg/fennel || exit
 
   git pull
   make fennel
@@ -35,15 +38,24 @@ _fennel() {
 
 # [ https://github.com/junegunn/fzf ]
 _fzf() {
-  cd "${bld_dir}"/fzf || exit
+  cd "${bld_dir}"/pkg/fzf || exit
 
   git pull
   ./install --bin --no-update-rc
 }
 
+_fnott() {
+  cd "${bld_dir}"/pkg/fnott || exit
+  git pull
+  
+  cd "${bld_dir}"/pkg/fnott/bld/release || exit
+  ninja
+  sudo ninja install
+}
+
 # [ https://codeberg.org/dnkl/foot ]
 _foot() {
-  cd "${bld_dir}"/foot || exit
+  cd "${bld_dir}"/pkg/foot || exit
 
   [[ -d bld/release ]] && trash-put bld/release
 
@@ -58,7 +70,7 @@ _foot() {
 
   ./footclient --version
   foot_tmp_file=$(mktemp)
-  ./foot --config=/dev/null --term=alacritty sh -c "$HOME/.local/share/bld/foot/scripts/generate-alt-random-writes.py --scroll --scroll-region --colors-regular --colors-bright --colors-256 --colors-rgb --attr-bold --attr-italic --attr-underline --sixel ${foot_tmp_file} && cat ${foot_tmp_file}"
+  ./foot --config=/dev/null --term=alacritty sh -c "$HOME/.local/share/bld/pkg/foot/scripts/generate-alt-random-writes.py --scroll --scroll-region --colors-regular --colors-bright --colors-256 --colors-rgb --attr-bold --attr-italic --attr-underline --sixel ${foot_tmp_file} && cat ${foot_tmp_file}"
   rm "${foot_tmp_file}"
   meson configure -Db_pgo=use
   ninja
@@ -68,9 +80,18 @@ _foot() {
   sudo ninja install
 }
 
+_fuzzel() {
+  cd "${bld_dir}"/pkg/fuzzel || exit
+  git pull
+  
+  cd "${bld_dir}"/pkg/fuzzel/bld/release || exit
+  ninja
+  sudo ninja install
+}
+
 # [ https://github.com/neovim/neovim ]
 _nvim() {
-  cd "${bld_dir}"/neovim || exit
+  cd "${bld_dir}"/pkg/neovim || exit
 
   git pull
   make clean
@@ -91,24 +112,33 @@ _lua_lsp() {
 }
 
 _zig() {
-  cd "${lib_dir}"/zig/zig-master || exit
+  cd "${bld_dir}"/pkg/zig/zig-master || exit
 
   [[ -d build ]] && trash-put build
-  git pull origin master
+  git pull origin
   mkdir build && cd build || exit
 
   cmake .. -DCMAKE_INSTALL_PREFIX=~/.local
   make install
 }
 
+_zls() {
+  cd "${lib_dir}"/lsp/zls || exit
+  git pull
+  zig build -Drelease-safe
+}
+
 main() {
   case "$1" in
     -fennel) _fennel ;;
+    -fnott) _fnott ;;
     -fzf) _fzf ;;
     -foot) _foot ;;
+    -fuzzel) _fuzzel ;;
     -nvim) _nvim ;;
     -lualsp) _lua_lsp ;;
     -zig) _zig ;;
+    -zls) _zls ;;
     *)
       _usage
       exit 1

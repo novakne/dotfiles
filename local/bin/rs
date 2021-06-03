@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+#
+# Manage runnit services
+#
+# USAGE: rs <option> <service>
+
+declare id
+id=$(id -u)
+
+# Help
+_usage() {
+  cat <<-END
+  Usage: rs [OPTION...] [SERVICE...]
+
+    System:
+    -senable <service>  Enable a system service at boot
+    -sdisable <service> Disable a system service
+    -sstatus            Get system services status
+    
+    User:
+    -ustart <service>   Start a user service only for the session
+    -ustop <service>    Stop a user service
+    -ustatus            Get user service status
+END
+}
+
+# ------------------------------------------------
+# [ SYSTEM ]
+# ------------------------------------------------
+
+# Enable a system service at boot
+_system_enable() {
+  sudo ln -s /etc/sv/"$1" /var/service
+}
+
+# Disable a system service
+_system_disable() {
+  sudo rm -i /var/service/"$1"
+}
+
+# Get system services status
+_system_status() {
+  sudo sv status /var/service/*
+}
+
+# ------------------------------------------------
+# [ USER ]
+# ------------------------------------------------
+
+# Start a user service only for the session
+_user_start() {
+  ln -s "$SVDIR"/sv/"$1" /tmp/"$id"-sv-"${WAYLAND_DISPLAY}"/
+}
+
+# Stop a user service
+_user_stop() {
+  rm -i /tmp/"$id"-sv-"${WAYLAND_DISPLAY}"/"$1"
+}
+
+# Get user service status
+_user_status() {
+  sv status /tmp/"$id"-sv-"${WAYLAND_DISPLAY}"/*
+}
+
+main() {
+  case "$1" in
+    -senable) _system_enable "$2" ;;
+    -sdisable) _system_disable "$2" ;;
+    -sstatus) _system_status ;;
+    -ustart) _user_start "$2" ;;
+    -ustop) _user_stop "$2" ;;
+    -ustatus) _user_status ;;
+    *)
+      _usage
+      exit 1
+    ;;
+  esac
+
+  unset -v id
+}
+
+main "$@"
+
+

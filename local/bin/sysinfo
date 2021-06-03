@@ -6,6 +6,7 @@ sysinfo() {
   bat_status=$(cat /sys/class/power_supply/BAT1/status)
   bat_percent=$(cat /sys/class/power_supply/BAT1/capacity)
   clock=$(date +"%H:%M")
+  day=$(date +"%A %d %B")
   mute=$(pamixer --get-mute)
   volume_percent=$(pamixer --get-volume)
 
@@ -14,7 +15,7 @@ sysinfo() {
     *) volume=" ${volume_percent}%" ;;
   esac
 
-  fmt=$(printf -- '%s\n%s\n%s\n' " ${clock}" "  ${bat_status} ${bat_percent}%" "${volume}")
+  fmt=$(printf -- '%s\n%s\n%s\n%s\n' " ${clock}" " ${day}" "  ${bat_status} ${bat_percent}%" "${volume}")
   notify-send "${fmt}"
 }
 

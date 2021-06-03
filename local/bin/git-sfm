@@ -10,8 +10,8 @@ _usage() {
   cat <<-END
   Usage: git-sfm [OPTION...]
 
-    -master    Fullscreen
-    -main      Select an area
+    -master    Update master branch
+    -main      Update main branch
 END
 }
 
