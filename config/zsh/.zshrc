@@ -2,26 +2,19 @@
 #
 # ( interactive: post-zshenv )
 
-
 # [ Profiling ]
 # zmodload zsh/zprof
 
-
 # [ Variables ]
 # Ensure path arrays do not contain duplicates.
-declare -gU path PATH cdpath CDPATH fpath FPATH manpath MANPATH mailpath
-declare -U _shell_dir _shell_env_dir _shell_fun_dir _shell_plugins_dir 
-declare -U _zsh_plugins_dir _fzf_dir
-
-_shell_dir="$XDG_CONFIG_HOME"/shell
-_shell_env_dir="$_shell_dir"/environment
-_shell_fun_dir="$_shell_dir"/functions
-_shell_plugins_dir="$_shell_dir"/plugins
+typeset -gU path PATH cdpath CDPATH fpath FPATH manpath MANPATH mailpath
+typeset -U _zsh_plugins_dir _zsh_env_dir _zsh_share_dir _fzf_dir
 
 _zsh_plugins_dir="$ZDOTDIR"/plugins
-_zsh_opts_dir="$ZDOTDIR"/config
+_zsh_env_dir="$ZDOTDIR"/environment
+_zsh_share_dir="$XDG_DATA_HOME"/zsh
 
-_fzf_dir="$XDG_DATA_HOME"/bld/fzf
+_fzf_dir="$XDG_DATA_HOME"/bld/pkg/fzf
 
 # [ Helpers ]
 _is_command() { hash "$1" >/dev/null 2>&1; }
@@ -40,11 +33,11 @@ setopt COMPLETE_IN_WORD # Complete from both ends of a word
 setopt EXTENDEDGLOB     # Enable extended globbing
 
 # If there are more than 5 options allow selecting from a menu
-	# else don't use any menus at all
+# else don't use any menus at all
 if [[ "$NOMENU" -eq 0 ]]; then
-	zstyle ':completion:*' menu select=5
+    zstyle ':completion:*' menu select=5
 else
-	setopt NO_AUTO_MENU
+    setopt NO_AUTO_MENU
 fi
 
 # Fallback to built in ls colors
@@ -89,12 +82,11 @@ zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
-
 # [ History ]
 [[ ! -d "$XDG_CACHE_HOME"/zsh ]] && mkdir -p "$XDG_CACHE_HOME"/zsh
 
 export HISTSIZE=10000 SAVEHIST=10000 HISTFILE="$XDG_CACHE_HOME"/zsh/zhistory
-export HISTORY_IGNORE="(ls|cd|cd *|pwd|exit|:q|;q|q:|e|e *|ea|et|z *|fe|clear|n|N|update|up *|xi *|xr *|xq *|xu|curl *)"
+export HISTORY_IGNORE="(ls|cd|cd *|pwd|exit|:q|;q|q:|e|e *|ea|et|z *|fe|clear|n|N|update|up *|xbi *|xbr *|xbq *|xbu|curl *)"
 export HISTTIMEFORMAT="%F %T:  "
 
 # setopt APPEND_HISTORY
@@ -106,7 +98,6 @@ setopt HIST_IGNORE_SPACE       # Do not record an event starting with a space
 setopt HIST_SAVE_NO_DUPS       # Do not write a duplicate event to the history file
 setopt INC_APPEND_HISTORY      # Add commands to the history immediately
 setopt SHARE_HISTORY           # Share history between all sessions
-
 
 # [ Misc ]
 setopt AUTO_CD           # Go to folder path without using cd
@@ -125,20 +116,20 @@ setopt NO_LIST_BEEP
 # ------------------------------------------------
 
 # [ Environment variables ]
-[[ -r "${_shell_env_dir}"/10_interactive ]] && . "${_shell_env_dir}"/10_interactive
+[[ -r "${_zsh_env_dir}"/10_interactive ]] && . "${_zsh_env_dir}"/10_interactive
 
 # [ Functions ]
-if [[ -d "${_shell_fun_dir}" ]]; then
-    fpath+=("${_shell_fun_dir}")
+if [[ -d "${_zsh_share_dir}"/functions ]]; then
+    fpath+=("${_zsh_share_dir}"/functions)
 
-    for fun in "${_shell_fun_dir}"/*; do
+    for fun in "${_zsh_share_dir}"/functions/*; do
         autoload -Uz ${fun:t}
     done
 fi
 
 # [ Completions ]
-[[ -d "$XDG_DATA_HOME"/zsh/site-functions ]] &&
-	fpath+=("$XDG_DATA_HOME"/zsh/site-functions)
+[[ -d "${_zsh_share_dir}"/site-functions ]] &&
+    fpath+=("$_zsh_share_dir"/site-functions)
 
 # Load and initialize the completion system ignoring insecure directories with a
 # cache time of 20 hours, so it should almost always regenerate the first time a
@@ -149,11 +140,11 @@ _comp_path="${XDG_CACHE_HOME:-$HOME/.cache}"/zsh/zcompdump
 
 # #q expands globs in conditional expressions
 if [[ $_comp_path(#qNmh-20) ]]; then
-  # -C (skip function check) implies -i (skip security check).
-  compinit -C -d "$_comp_path"
+    # -C (skip function check) implies -i (skip security check).
+    compinit -C -d "$_comp_path"
 else
-  mkdir -p "$_comp_path:h"
-  compinit -i -d "$_comp_path"
+    mkdir -p "$_comp_path:h"
+    compinit -i -d "$_comp_path"
 fi
 
 unset _comp_path
@@ -161,60 +152,27 @@ unset _comp_path
 # Change terminal title
 autoload -Uz add-zsh-hook
 
-xterm_title_precmd () {
-	print -Pn -- '\e]2;%n@%m %~\a'
-	[[ "$TERM" == 'screen'* ]] && print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-}\e\\'
+xterm_title_precmd() {
+    print -Pn -- '\e]2;%n@%m %~\a'
+    [[ "$TERM" == 'screen'* ]] &&
+        print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-}\e\\'
 }
 
-xterm_title_preexec () {
-	print -Pn -- '\e]2;%n@%m %~ %# ' && print -n -- "${(q)1}\a"
-	[[ "$TERM" == 'screen'* ]] && { print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-} %# ' && print -n -- "${(q)1}\e\\"; }
+xterm_title_preexec() {
+    print -Pn -- '\e]2;%n@%m %~ %# ' && print -n -- "${(q)1}\a"
+    [[ "$TERM" == 'screen'* ]] &&
+        { print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-} %# ' &&
+            print -n -- "${(q)1}\e\\"; }
 }
 
 if [[ "$TERM" == (alacritty*|foot*|kitty*|screen*|tmux*|xterm*) ]]; then
-	add-zsh-hook -Uz precmd xterm_title_precmd
-	add-zsh-hook -Uz preexec xterm_title_preexec
+    add-zsh-hook -Uz precmd xterm_title_precmd
+    add-zsh-hook -Uz preexec xterm_title_preexec
 fi
 
-# ------------------------------------------------
-# [ Plugins ]
-# ------------------------------------------------
-
-# [ Fast syntax highlighting ]
-source "${_zsh_plugins_dir}"/fsh/fast-syntax-highlighting.plugin.zsh
-
-# [ Zsh-completions ]
-fpath+=("${_zsh_plugins_dir}"/zsh-completions/src)
-
-# [ Zsh-autosuggestions ]
-source "${_zsh_plugins_dir}"/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_USE_ASYNC=true
-
-# [ Fzf ]
-if [[ -d "${_fzf_dir}" ]]; then
-    source "${_fzf_dir}"/shell/completion.zsh 2> /dev/null
-    source "${_fzf_dir}"/shell/key-bindings.zsh
-fi
-
-# [ Starship ]
-[[ -r "${_shell_plugins_dir}"/starship.toml ]] && eval "$(starship init zsh)"
-
-# [ Zoxide ]
-_is_command zoxide && eval "$(zoxide init zsh)"
-
-# [ Osc ]
-# Configure shell to emit the OSC 7 escape sequence
-if [[ -r "${_shell_plugins_dir}"/osc7 ]]; then
-    autoload -Uz add-zsh-hook
-    add-zsh-hook -Uz chpwd osc7_cwd
-fi
-
-
-unset -v _shell_dir _shell_env_dir _shell_fun_dir _shell_plugins_dir 
-unset -v _zsh_plugins_dir _fzf_dir
-
+# Unset variables
+unset -v _zsh_plugins_dir _zsh_env_dir _zsh_share_dir _fzf_dir
 unset -v base00 base01 base02 base03 base04 base05 base06 base07
 unset -v red pink orange yellow green blue magenta cyan
-
 unset -f _is_command _append_path _prepend_path
 

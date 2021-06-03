@@ -1,0 +1,16 @@
+# Search with rg and open in neovim quicklist
+#
+# REQUIREMENTS: ripgrep, neovim
+
+emulate -L zsh
+setopt extendedglob
+
+if [[ "$#" -eq 0 ]]; then
+    printf -- '%s\n' \
+        "[$(date +'%Y-%m-%d %H:%M:%S')]: Require at least one argument" >&2
+fi
+
+nvim -c "silent grep $1" -c "copen"
+
+# vim set ft=zsh
+

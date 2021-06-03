@@ -1,0 +1,16 @@
+# cd to selected directory
+#
+# REQUIREMENTS: fzf
+
+emulate -L zsh
+setopt extendedglob
+
+local dir
+
+dir=$(find "${1:-.}" -path '*/\.*' -prune -o -type d -print 2> /dev/null \
+    | fzf +m) &&
+
+    cd "${dir}" || exit
+
+# vim set ft=zsh
+

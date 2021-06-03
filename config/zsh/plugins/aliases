@@ -1,15 +1,12 @@
-#!/usr/bin/env bash
-#
 # [ ALIASES ]
 
-
 # [ xbps ]
-alias xi='sudo xbps-install'
-alias xq='xbps-query -Rs'
-alias xu='sudo xbps-install -Su'
-alias xr='sudo xbps-remove -Ro'
-alias xclean='sudo xbps-remove -Oo'
-alias xinfo='xbps-query'
+alias xbi='sudo xbps-install'
+alias xbq='xbps-query -Rs'
+alias xbu='sudo xbps-install -Su'
+alias xbr='sudo xbps-remove -Ro'
+alias xbclean='sudo xbps-remove -Oo'
+alias xbinfo='xbps-query'
 
 # [ Exa ]
 alias exa='exa --group-directories-first --icons'
@@ -42,22 +39,11 @@ alias N='sudo -E nnn'
 # [ Ripgrep]
 alias rgi='rg --no-ignore'
 
-# [ Runit ]
-alias renable='sudo ln -s etc/sv/"$1" /var/service'
-alias rdisable='sudo rm /var/service/"$1"'
-alias rstatus='sudo sv s /var/service/"$@"'
-alias rustatus='sv s "$SVDIR"/"$@"'
-
 # [ Trash-cli ]
 alias del='trash-put'
 alias restore='trash-restore'
 
-# [ Wireguard ]
-alias wgup='wg-quick up'
-alias wgdown='wg-quick down'
-
 # [ Lang ]
-alias z7='zig-0.7.1v'
 alias cargou='cargo-install-update install-update'
 
 # [ Files ]
@@ -74,8 +60,9 @@ alias perm='stat -c "%A %a %n"'
 # [ Misc ]
 alias :q='exit'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME"/wget-hsts'
-alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
 alias myip='curl ifconfig.co/json'
 alias pastebin="curl -F'file=@-' https://0x0.st"
 alias zigbin="curl -F'file=@-' https://zigbin.io"
+
+# vim set ft=zsh
 

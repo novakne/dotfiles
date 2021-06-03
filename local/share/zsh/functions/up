@@ -1,0 +1,20 @@
+# Go up N directories
+
+emulate -L zsh
+setopt extendedglob
+
+
+local str count
+
+str=""
+count=0
+
+while [ "${count}" -lt "$1" ]; do
+    str=${str}"../"
+    (( count++ ))
+done
+
+cd "${str}" || exit
+
+# vim set ft⁼zsh
+

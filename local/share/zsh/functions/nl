@@ -1,0 +1,21 @@
+# Open a file in neovim at given line
+#
+# REQUIREMENTS: neovim
+
+emulate -L zsh
+setopt extendedglob
+
+local file line
+
+if [[ $# -ne 2 ]]; then
+    printf -- '%s\n' \
+        "[$(date +'%Y-%m-%d %H:%M:%S')]: Require two arguments" >&2
+fi
+
+file="$1"
+line="$2"
+
+[[ -n "${file}" ]] && nvim "${file}" +"${line}"
+
+# vim set ft=zsh
+

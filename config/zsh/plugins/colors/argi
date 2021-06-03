@@ -1,10 +1,7 @@
-#!/usr/bin/env bash
-#
 # [ Argi colors ]
 
-
-declare base00 base01 base06 base07
-declare red blue
+typeset -U base00 base01 base06 base07
+typeset -U red blue
 
 # [ Colors ]
 base07='#202325'
@@ -14,4 +11,6 @@ base00='#f9f9fa'
 
 red='#b3408a'
 blue='#2d397e'
+
+# vim set ft=zsh
 

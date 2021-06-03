@@ -1,8 +1,11 @@
-#!/usr/bin/env bash
-#
 # Jump to a dir with zoxide and open it in neovim
-#     - Requirements: zoxide neovim
+#
+# REQUIREMENTS: zoxide, neovim
 
+emulate -L zsh
+setopt extendedglob
 
 zn() { z "$1" && "${EDITOR:-nvim}"; }
+
+# vim set ft=zsh
 

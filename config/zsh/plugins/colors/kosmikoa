@@ -1,10 +1,7 @@
-#!/usr/bin/env bash
-#
 # [ Kosmikoa colors ]
 
-
-declare base00 base01 base02 base03 base04 base05 base06 base07
-declare red pink orange yellow green blue magenta cyan
+typeset -U base00 base01 base02 base03 base04 base05 base06 base07
+typeset -U red pink orange yellow green blue magenta cyan
 
 # [ Colors ]
 base00='#23222b'
@@ -24,4 +21,6 @@ green='#62e89e'
 blue='#57bbf4'
 magenta='#be8fde'
 cyan='#00cfd0'
+
+# vim set ft=zsh
 

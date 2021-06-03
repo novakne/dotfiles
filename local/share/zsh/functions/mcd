@@ -1,7 +1,9 @@
-#!/usr/bin/env bash
-#
 # Make directory and change into it.
 
+emulate -L zsh
+setopt extendedglob
 
 mcd() { mkdir -p "$1" && cd "$1" || exit; }
+
+# vim set ft=zsh
 

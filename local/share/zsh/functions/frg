@@ -1,0 +1,20 @@
+# fuzzy grep via rg and open in neovim with line number
+#
+# REQUIREMENTS: fzf, ripgrep, neovim
+
+emulate -L zsh
+setopt extendedglob
+
+local file
+local line
+
+read -r file line <<<"$(rg --no-heading --line-number 2> /dev/null "$@" | fzf -0 -1 | awk -F: '{print $1, $2}')"
+
+if (( $+commands[nv] )); then
+    [[ -n "$file" ]] && nv "$file" +"$line"
+else
+    [[ -n "$file" ]] && ${EDITOR:-nvim} "$file" +"$line"
+fi
+
+# vim set ft=zsh
+
