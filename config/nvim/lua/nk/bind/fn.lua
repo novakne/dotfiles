@@ -11,18 +11,6 @@ M.toggle_number = function()
     end
 end
 
--- Get color group name of the syntax group where the cursor is
--- Don't work with treesitter
-M.syntax_group = function()
-    local line = vim.fn.line('.')
-    local col = vim.fn.col('.')
-    local group = vim.fn.synID(line, col, 1)
-    local id_attr = vim.fn.synIDattr(group, 'name')
-    local id_trans = vim.fn.synIDtrans(group)
-
-    print(id_attr .. ' => ' .. vim.fn.synIDattr(id_trans, 'name'))
-end
-
 -- [ Window management ]
 -- Be aware of whether you are right or left vertical split
 -- so you can use arrows more naturally.

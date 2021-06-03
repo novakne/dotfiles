@@ -20,7 +20,7 @@ if packer_plugins['telescope.nvim'] and packer_plugins['telescope.nvim'].loaded 
                 '--column',
                 '--smart-case',
             },
-            prompt_position = 'top',
+            prompt_position = 'bottom',
             prompt_prefix = '  ',
             selection_strategy = 'reset',
             sorting_strategy = 'ascending',

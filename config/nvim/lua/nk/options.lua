@@ -20,8 +20,6 @@ vim.o.lazyredraw = true -- Do not redraw screen in the middle of a macro
 vim.o.swapfile = false -- No swap file
 vim.o.updatetime = 100 -- Smaller updatetime for CursorHold & CursorHoldI
 vim.o.modelines = 1
--- vim.o.foldmethod = 'expr'
--- vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 
 -- [ Completion ] ( :help 'complete' )
 vim.o.wildignorecase = true -- Ignore case when completing file and directory
@@ -33,7 +31,7 @@ vim.o.hlsearch = false
 vim.o.ignorecase = true -- Case insensitive searching
 vim.o.smartcase = true -- Override ignorecase if upper case typed
 vim.o.grepprg = [[rg --vimgrep --no-heading --smart-case --only-matching]]
-vim.o.grepformat = [[%f:%l:%c:%m,%f:%l:%m]]
+vim.o.grepformat = [[%f:%l:%c:%m,%f]]
 
 -- [ Ui ]
 vim.o.termguicolors = true
@@ -74,5 +72,6 @@ vim.g.loaded_zip = 1
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- Load colorscheme
 vim.cmd [[colorscheme argi]]
 

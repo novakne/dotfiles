@@ -71,7 +71,7 @@ map('n', 'tz', '<CMD>tabnew %<CR>') -- Fake zoom, open current file in a new tab
 map('n', '+', '<CMD>bn<CR>') -- Next buffers
 map('n', '_', '<CMD>bp<CR>') -- Prev buffers
 
-map('n', '<esc>', '<CMD>noh<CR>') -- Clear serach results
+map('n', '<esc>', '<CMD>noh<CR>') -- Clear search results
 
 -- Quickfix window
 map('n', '<Leader>cc', ':cclose<CR>')
@@ -84,7 +84,7 @@ map('n', '<F9>', '<CMD>setlocal spell! spelllang=en<CR>')
 map('n', '<F10>', '<CMD>setlocal spell! spelllang=fr<CR>')
 
 -- Get color group name of the syntax group where the cursor is
-map('n', '<F12>', [[<CMD>lua require'nk.bind.fn'.syntax_group()<CR>]])
+map('n', '<F12>', [[<CMD>TSHighlightCapturesUnderCursor<CR>]])
 
 -- Toggle between number and relative number
 map('n', '<Leader>à', [[<CMD>lua require'nk.bind.fn'.toggle_number()<CR>]])

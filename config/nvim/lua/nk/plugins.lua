@@ -45,14 +45,6 @@ return require'packer'.startup(function()
         end,
     }
 
-    use {
-        'folke/trouble.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-        config = function()
-            require 'nk.plugins.trouble'
-        end,
-    }
-
     -- ---------------------------------------------
     -- [ TREESITTER ]
     -- ---------------------------------------------
@@ -61,17 +53,14 @@ return require'packer'.startup(function()
         requires = {
             { 'romgrk/nvim-treesitter-context', after = 'nvim-treesitter' },
             { 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter' },
-            { 'nvim-treesitter/playground', cmd = 'TSPlaygroundToggle' },
+            {
+                'nvim-treesitter/playground',
+                cmd = { 'TSPlaygroundToggle', 'TSHighlightCapturesUnderCursor' },
+            },
             {
                 'nvim-treesitter/nvim-treesitter-refactor',
                 after = 'nvim-treesitter',
             },
-            {
-                'nvim-treesitter/nvim-treesitter-textobjects',
-                after = 'nvim-treesitter',
-            },
-            { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-            { 'jvgrootveld/telescope-zoxide' },
         },
         run = function()
             vim.cmd [[TSUpdate]]
@@ -86,7 +75,12 @@ return require'packer'.startup(function()
     -- ---------------------------------------------
     use {
         'nvim-telescope/telescope.nvim',
-        requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim' },
+        requires = {
+            'nvim-lua/popup.nvim',
+            'nvim-lua/plenary.nvim',
+            'jvgrootveld/telescope-zoxide',
+            { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+        },
         config = function()
             require 'nk.plugins.telescope'
         end,
@@ -108,6 +102,7 @@ return require'packer'.startup(function()
             require 'nk.plugins.grepper'
         end,
     }
+
     use {
         'TimUntersberger/neogit',
         requires = 'nvim-lua/plenary.nvim',
@@ -116,19 +111,20 @@ return require'packer'.startup(function()
         end,
     }
 
-    use { '~/.local/share/bld/fzf', requires = 'junegunn/fzf.vim' }
+    use { '~/.local/share/bld/pkg/fzf', requires = 'junegunn/fzf.vim' }
     use 'kevinhwang91/nvim-bqf'
 
     -- ---------------------------------------------
     -- [ UI ]
     -- ---------------------------------------------
     use {
-        '~/dev/_personnal/kosmikoa.nvim',
-        -- 'novakne/kosmikoa.nvim',
-        -- branch = 'main',
-        -- config = function()
-        --     require'kosmikoa'.setup()
-        -- end,
+        '~/.local/share/bld/projects/kosmikoa.nvim',
+        -- 'https://git.sr.ht/~novakane/kosmikoa.nvim',
+    }
+
+    use {
+        '~/.local/share/bld/projects/argi.nvim',
+        -- 'https://git.sr.ht/~novakane/argi.nvim',
     }
 
     use {
@@ -224,13 +220,7 @@ return require'packer'.startup(function()
         end,
     }
 
-    use {
-        'phaazon/hop.nvim',
-        keys = 'f',
-        config = function()
-            require 'nk.plugins.hop'
-        end,
-    }
+    use 'matbme/JABS.nvim'
 
     -- ---------------------------------------------
     -- [ LANG ]
@@ -246,16 +236,16 @@ return require'packer'.startup(function()
     }
 
     use 'MTDL9/vim-log-highlighting'
+    use 'euclidianAce/BetterLua.vim'
     use 'ziglang/zig.vim'
 
     use { 'sakhnik/nvim-gdb', run = './install.sh', ft = { 'c', 'zig' } }
-    -- use 'sheerun/vim-polyglot'
     use 'editorconfig/editorconfig-vim'
 
     -- ---------------------------------------------
     -- [ /TMP ]
     -- ---------------------------------------------
-    use { 'tweekmonster/startuptime.vim', cmd = 'StartupTime' }
+    -- use { 'tweekmonster/startuptime.vim', cmd = 'StartupTime' }
     -- use { 'dstein64/vim-startuptime', cmd = 'StartupTime' }
 
 end)

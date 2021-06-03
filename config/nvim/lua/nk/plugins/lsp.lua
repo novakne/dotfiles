@@ -21,7 +21,7 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
                 -- and on, using buffer local variables
                 signs = function( bufnr, client_id )
                     local ok, result = pcall(vim.api.nvim_buf_get_var, bufnr,
-                                             'show_signs')
+                        'show_signs')
 
                     -- No buffer local variable set, so just enable by default
                     if not ok then return true end
@@ -40,28 +40,28 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
         -- ---------------------------------------------
         -- Lspsaga.nvim
         bmap('n', '<Leader>lk',
-             [[<CMD>lua require'lspsaga.hover'.render_hover_doc()<CR>]])
-        bmap('n', '<Leader>ld',
-             [[<CMD>lua require'lspsaga.provider'.lsp_finder()<CR>]])
+            [[<CMD>lua require'lspsaga.hover'.render_hover_doc()<CR>]])
+        bmap('n', '<Leader>lD',
+            [[<CMD>lua require'lspsaga.provider'.lsp_finder()<CR>]])
         bmap('n', '<Leader>lc',
-             [[<CMD>lua require'lspsaga.codeaction'.code_action()<CR>]])
+            [[<CMD>lua require'lspsaga.codeaction'.code_action()<CR>]])
         bmap('v', '<Leader>lc',
-             [[<CMD>'<,'>lua require'lspsaga.codeaction'.range_code_action()<CR>]])
+            [[<CMD>'<,'>lua require'lspsaga.codeaction'.range_code_action()<CR>]])
         bmap('n', '<Leader>lK',
-             [[<CMD>lua require'lspsaga.signaturehelp'.signature_help()<CR>]])
+            [[<CMD>lua require'lspsaga.signaturehelp'.signature_help()<CR>]])
         bmap('n', '<Leader>lt',
-             [[<CMD>lua require'lspsaga.provider'.preview_definition()<CR>]])
+            [[<CMD>lua require'lspsaga.provider'.preview_definition()<CR>]])
         bmap('n', '<Leader>ll',
-             [[<CMD>lua require'lspsaga.rename'.rename()<CR>]])
+            [[<CMD>lua require'lspsaga.rename'.rename()<CR>]])
+        bmap('n', '<Leader>le',
+            [[<CMD>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>]])
         bmap('n', '<Leader>lp',
-             [[<CMD>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>]])
+            [[<CMD>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>]])
         bmap('n', '<Leader>ln',
-             [[<CMD>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>]])
+            [[<CMD>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>]])
 
         -- Builtin
-        bmap('n', '<Leader>le',
-             '<CMD>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-        bmap('n', '<Leader>lD', '<CMD>lua vim.lsp.buf.declaration()<CR>')
+        bmap('n', '<Leader>ld', '<CMD>lua vim.lsp.buf.declaration()<CR>')
         bmap('n', '<Leader>li', '<CMD>lua vim.lsp.buf.implementation()<CR>')
         bmap('n', '<Leader>lr', '<CMD>lua vim.lsp.buf.references()<CR>')
         bmap('n', '<Leader>ls', '<CMD>lua vim.lsp.buf.document_symbol()<CR>')
@@ -75,7 +75,7 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
         end
 
         vim.fn.sign_define('LspDiagnosticsSignError',
-                           { text = '', texthl = 'LspDiagnosticsSignError' })
+            { text = '', texthl = 'LspDiagnosticsSignError' })
         vim.fn.sign_define('LspDiagnosticsSignWarning', {
             text = '',
             texthl = 'LspDiagnosticsSignWarning',
@@ -85,7 +85,7 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
             texthl = 'LspDiagnosticsSignInformation',
         })
         vim.fn.sign_define('LspDiagnosticsSignHint',
-                           { text = '', texthl = 'LspDiagnosticsSignHint' })
+            { text = '', texthl = 'LspDiagnosticsSignHint' })
 
         vim.api.nvim_exec([[
           augroup DiagnosticRefresh
@@ -93,7 +93,6 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
             autocmd BufWinEnter,TabEnter <buffer>, lua require'nk.plugins.lsp'.handler_init()
           augroup END
         ]], false)
-
     end
 
     -- -----------------------------------------------
