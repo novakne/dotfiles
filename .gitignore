@@ -33,6 +33,4 @@ default.target.wants
 */bin/rivercarro
 */bin/riverctl
 */bin/rivertile
-*/bin/zig
-*/bin/zig-master
-*/bin/zig7
+*/bin/zig*

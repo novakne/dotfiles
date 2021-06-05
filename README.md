@@ -51,7 +51,7 @@ _Dotfiles managed with [dotbot](https://github.com/anishathalye/dotbot)_
   * [fast-syntax-highlighting](https://github.com/zdharma/fast-syntax-highlighting)
   * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
   * [zsh-completions](https://github.com/zsh-users/zsh-completions)
-  * Personnal colors, aliases, dircolors, osc7 and starship config
+  * Personal colors, aliases, dircolors, osc7 and starship config
 - _.zlogin_ - Post .zshrc
 - _.zprofile_ - Login pre .zshrc
 - _.zshrc_ - Everything
