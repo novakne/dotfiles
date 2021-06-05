@@ -19,7 +19,7 @@ vim.o.selection = 'exclusive' -- Dont select newline in visual mode ( v$ )
 vim.o.lazyredraw = true -- Do not redraw screen in the middle of a macro
 vim.o.swapfile = false -- No swap file
 vim.o.updatetime = 100 -- Smaller updatetime for CursorHold & CursorHoldI
-vim.o.modelines = 1
+-- vim.o.modelines = 1
 
 -- [ Completion ] ( :help 'complete' )
 vim.o.wildignorecase = true -- Ignore case when completing file and directory

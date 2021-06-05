@@ -140,7 +140,7 @@ if packer_plugins['telescope.nvim'] and packer_plugins['telescope.nvim'].loaded 
         [[<CMD>lua require'telescope.builtin'.treesitter()<CR>]])
 
     -- Extensions
-    map('n', '<Leader>ez',
+    map('n', '<Leader>tez',
         [[<CMD>lua require'telescope'.extensions.zoxide.list{}<CR>]])
 
 end

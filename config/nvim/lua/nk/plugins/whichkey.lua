@@ -69,6 +69,18 @@ if packer_plugins['which-key.nvim'] and packer_plugins['which-key.nvim'].loaded 
             p = 'Prev',
         },
 
+        f = {
+            name = '+Fzf',
+            o = 'Search files recursively',
+            b = 'Search between open buffers',
+            r = 'Ripgrep',
+            l = 'Search lines in buffer',
+            L = 'Search lines in dir',
+            t = 'Search tags in buffer',
+            T = 'Search tags in dir',
+            k = 'Search current word',
+        },
+
         g = {
             name = '+GitSign',
             b = 'Blame line',

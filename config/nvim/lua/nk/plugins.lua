@@ -111,7 +111,14 @@ return require'packer'.startup(function()
         end,
     }
 
-    use { '~/.local/share/bld/pkg/fzf', requires = 'junegunn/fzf.vim' }
+    use '~/.local/share/bld/pkg/fzf'
+    use {
+        'junegunn/fzf.vim',
+        config = function()
+            require 'nk.plugins.fzf'
+        end,
+    }
+
     use 'kevinhwang91/nvim-bqf'
 
     -- ---------------------------------------------
@@ -238,6 +245,7 @@ return require'packer'.startup(function()
     use 'MTDL9/vim-log-highlighting'
     use 'euclidianAce/BetterLua.vim'
     use 'ziglang/zig.vim'
+    use 'arzg/vim-sh'
 
     use { 'sakhnik/nvim-gdb', run = './install.sh', ft = { 'c', 'zig' } }
     use 'editorconfig/editorconfig-vim'
