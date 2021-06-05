@@ -1,0 +1,29 @@
+#  [ NEWSBOAT ]
+
+# Theme
+include "~/.config/newsboat/kosmikoa"
+
+# Options
+auto-reload yes
+reload-threads 50
+feed-sort-order firsttag
+delete-read-articles-on-quit yes
+download-full-page yes
+articlelist-format "%4i %f %D   %?T?|%-17T|  ?%t"
+cache-file "~/.cache/newsboat/cache.db"
+feedlist-format " %n %4i %10u - %t %> [%T]"
+pager "less -g -i -M -R -S -w -z-4 %f"
+text-width 72
+
+# Bind
+bind-key k up
+bind-key j down
+bind-key h prev
+bind-key l next
+bind-key c cmdline
+
+# Macros
+# Open youtube in mpv
+macro y set browser "mpv %u" ; open-in-browser ; set browser "elinks %u"
+# img in imv
+macro i set browser "imv %u"; open-in-browser; set browser "elinks %u"

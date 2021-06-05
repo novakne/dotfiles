@@ -1,0 +1,15 @@
+http://www.archlinux.org/feeds/news/ news
+https://voidlinux.org/atom.xml news
+https://sourcehut.org/blog/index.xml news
+https://blog.codeberg.org/feeds/all.atom.xml news
+
+https://emersion.fr/blog/atom.xml blog blog
+https://drewdevault.com/blog/index.xml blog
+https://leon_plickat.srht.site/index.xml blog
+https://andrewkelley.me/rss.xml blog
+https://devlog.hexops.com/feed.xml blog
+https://msfjarvis.dev/index.xml blog
+
+https://git.sr.ht/~leon_plickat/river-tag-overlay/log/master/rss.xml sr.ht
+https://git.sr.ht/~sircmpwn/aerc/log/master/rss.xml sr.ht
+
