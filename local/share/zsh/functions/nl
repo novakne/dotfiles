@@ -17,5 +17,5 @@ line="$2"
 
 [[ -n "${file}" ]] && nvim "${file}" +"${line}"
 
-# vim set ft=zsh
+# vim: ft=zsh
 

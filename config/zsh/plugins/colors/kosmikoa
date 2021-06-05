@@ -22,5 +22,5 @@ blue='#57bbf4'
 magenta='#be8fde'
 cyan='#00cfd0'
 
-# vim set ft=zsh
+# vim: ft=zsh
 

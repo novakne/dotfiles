@@ -12,5 +12,5 @@ fi
 
 nvim -c "silent grep $1" -c "copen"
 
-# vim set ft=zsh
+# vim: ft=zsh
 

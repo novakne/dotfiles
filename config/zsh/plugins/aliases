@@ -58,11 +58,12 @@ alias cmx='chmod 774'
 alias perm='stat -c "%A %a %n"'
 
 # [ Misc ]
-alias :q='exit'
+alias q='exit'
+alias c='clear'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME"/wget-hsts'
 alias myip='curl ifconfig.co/json'
 alias pastebin="curl -F'file=@-' https://0x0.st"
 alias zigbin="curl -F'file=@-' https://zigbin.io"
 
-# vim set ft=zsh
+# vim: ft=zsh
 

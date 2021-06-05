@@ -57,6 +57,30 @@ if [[ -d "${_fzf_dir}" ]]; then
     # Use fd to generate the list for directory completion
     _fzf_compgen_dir() { fd --type d --hidden --follow --exclude ".git" . "$1"; }
 
+    # Completion for pass
+    _fzf_complete_pass() {
+        _fzf_complete +m -- "$@" < <(
+            local prefix
+            prefix="${PASSWORD_STORE_DIR:-$HOME/.password-store}"
+            command find -L "$prefix" \
+                -name "*.gpg" -type f | \
+                sed -e "s#${prefix}/\{0,1\}##" -e 's#\.gpg##' -e 's#\\#\\\\#' | sort
+        )
+    }
+    # Completion for bldup
+    _fzf_complete_bldup() {
+        _fzf_complete +m --prompt="update => " -- "$@" < <(
+                echo -fennel
+                echo -fnott
+                echo -foot
+                echo -fuzzel
+                echo -fzf
+                echo -lualsp
+                echo -nvim
+                echo -zig
+                echo -zls
+        )
+    }
 fi
 
 # [ Nnn ]
@@ -112,5 +136,5 @@ fpath+=("${_zsh_plugins_dir}"/zsh-completions/src)
 source "${_zsh_plugins_dir}"/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 
-# vim set ft=zsh
+# vim: ft=zsh
 

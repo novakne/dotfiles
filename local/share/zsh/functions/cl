@@ -11,5 +11,5 @@ else
     cd "$1" && ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F
 fi
 
-# vim set ft=zsh
+# vim: ft=zsh
 

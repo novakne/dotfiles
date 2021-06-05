@@ -130,5 +130,5 @@ if [[ -d "$XDG_DATA_HOME"/rustup && -d "$LIB_HOME"/cargo ]]; then
     _append_path "$CARGO_HOME"/bin
 fi
 
-# vim set ft=zsh
+# vim: ft=zsh
 

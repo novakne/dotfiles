@@ -5,5 +5,5 @@ setopt extendedglob
 
 mcd() { mkdir -p "$1" && cd "$1" || exit; }
 
-# vim set ft=zsh
+# vim: ft=zsh
 

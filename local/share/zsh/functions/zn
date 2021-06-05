@@ -7,5 +7,5 @@ setopt extendedglob
 
 zn() { z "$1" && "${EDITOR:-nvim}"; }
 
-# vim set ft=zsh
+# vim: ft=zsh
 

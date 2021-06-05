@@ -16,5 +16,5 @@ else
     [[ -n "$file" ]] && ${EDITOR:-nvim} "$file" +"$line"
 fi
 
-# vim set ft=zsh
+# vim: ft=zsh
 

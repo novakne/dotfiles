@@ -15,5 +15,5 @@ local line
     ) && "${EDITOR:-nvim}" "$(cut -f3 <<< "${line}")" -c "set nocst" \
                 -c "silent tag $(cut -f2 <<< "${line}")"
 
-# vim set ft=zsh
+# vim: ft=zsh
 

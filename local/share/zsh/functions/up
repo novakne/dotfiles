@@ -16,5 +16,5 @@ done
 
 cd "${str}" || exit
 
-# vim set ft⁼zsh
+# vim: ft⁼zsh
 

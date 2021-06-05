@@ -2,16 +2,26 @@
 # - Bypass fuzzy finder if there's only one match (--select-1)
 # - Exit if there's no match (--exit-0)
 #
-# REQUIREMENTS: fzf, neovim
+# REQUIREMENTS: fzf
 
 emulate -L zsh
 setopt extendedglob
 
-local files
+local IFS=$'\n'
+local -a files fzf_opts
 
-IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+fzf_opts=(
+    --query="$1"
+    --multi
+    --select-1
+    --exit-0
+    --bind=ctrl-x:toggle-sort
+    --header='Open in $EDITOR - [ctrl-x: sort]'
+)
 
-[[ -n "${files[*]}" ]] && "${EDITOR:-nvim}" "${files[@]}"
+files=("$(fzf "${fzf_opts[@]}")") || return
 
-# vim set ft=zsh
+"${EDITOR:-nvim}" "${files[@]}"
+
+# vim: ft=zsh
 

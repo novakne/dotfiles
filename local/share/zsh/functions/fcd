@@ -12,5 +12,5 @@ dir=$(find "${1:-.}" -path '*/\.*' -prune -o -type d -print 2> /dev/null \
 
     cd "${dir}" || exit
 
-# vim set ft=zsh
+# vim: ft=zsh
 

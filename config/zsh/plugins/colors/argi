@@ -12,5 +12,5 @@ base00='#f9f9fa'
 red='#b3408a'
 blue='#2d397e'
 
-# vim set ft=zsh
+# vim: ft=zsh
 

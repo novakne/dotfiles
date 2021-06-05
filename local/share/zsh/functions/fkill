@@ -18,5 +18,5 @@ then
     printf -- '%s\n' "${pid}" | xargs kill -"${1:-9}"
 fi
 
-# vim set ft=zsh
+# vim: ft=zsh
 
