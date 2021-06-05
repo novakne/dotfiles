@@ -2,7 +2,7 @@
 #
 # Fuzzy find bin
 #
-# USAGE: script-template <name>
+# USAGE: fmenu
 # REQUIREMENTS: fzf bin-list
 
 fmenu() {
