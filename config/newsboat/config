@@ -4,15 +4,16 @@
 include "~/.config/newsboat/kosmikoa"
 
 # Options
+articlelist-format "%4i %f %D   %?T?|%-17T|  ?%t"
 auto-reload yes
-reload-threads 50
-feed-sort-order firsttag
 delete-read-articles-on-quit yes
 download-full-page yes
-articlelist-format "%4i %f %D   %?T?|%-17T|  ?%t"
-cache-file "~/.cache/newsboat/cache.db"
+feed-sort-order firsttag
 feedlist-format " %n %4i %10u - %t %> [%T]"
 pager "less -g -i -M -R -S -w -z-4 %f"
+reload-threads 50
+show-read-articles no
+show-read-feeds no
 text-width 72
 
 # Bind

@@ -16,12 +16,10 @@
     wow = log --all --graph --decorate --oneline --simplify-by-decoration
     sbu = submodule update --remote --merge
 [diff]
-    tool = delta
 	submodule = log
     colorMoved = default
 [core]
     editor = nvim
-    pager = delta
 [include]
     path = config.user
 [credential]
@@ -30,13 +28,32 @@
 	rebase = true
 [init]
 	defaultBranch = main
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
 [delta]
+    commit-decoration-style = blue ol
+    ; commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue ol ul
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#6b2e9f"
+    hunk-header-style = file line-number syntax
     light = true
-    plus-style = "normal #c0fbd5"
-    minus-style = "normal #fde7f6"
-    syntax-theme = argi
     line-numbers = true
-    side-by-side = true
+    minus-emph-style = normal "#d1bfcb"
+    minus-empty-line-marker-style = normal "#e1cddb"
+    minus-non-emph-style = normal "#e1cddb"
+    minus-style = "normal #fde7f6"
+    plus-emph-style = syntax "#91bda1"
+    plus-empty-line-marker-style = normal "#aadfbd"
+    plus-non-emph-style = syntax "#aadfbd"
+    plus-style = syntax "#c0fbd5"
+    side-by-side = false
+    syntax-theme = argi
+    zero-style = syntax
 [interactive]
     diffFilter = delta --color-only
 [commit]

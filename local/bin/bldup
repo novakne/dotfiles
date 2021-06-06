@@ -118,14 +118,14 @@ _zig() {
   git pull origin
   mkdir build && cd build || exit
 
-  cmake .. -DCMAKE_INSTALL_PREFIX=~/.local
+  cmake ..
   make install
 }
 
 _zls() {
   cd "${lib_dir}"/lsp/zls || exit
   git pull
-  zig build -Drelease-safe
+  zig-master build -Drelease-safe
 }
 
 main() {
