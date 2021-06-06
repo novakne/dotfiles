@@ -4,7 +4,14 @@ if packer_plugins['nvim-toggleterm.lua'] then
     local tt = require 'toggleterm'
 
     tt.setup {
-        size = 15,
+        -- size can be a number or function which is passed the current terminal
+        size = function(term)
+            if term.direction == 'horizontal' then
+                return 15
+            elseif term.direction == 'vertical' then
+                return vim.o.columns * 0.4
+            end
+        end,
         open_mapping = [[<C-e>]],
         shade_filetypes = {},
         shade_terminals = false,
@@ -14,7 +21,7 @@ if packer_plugins['nvim-toggleterm.lua'] then
         start_in_insert = true,
         persist_size = true,
         close_on_exit = true, -- close the terminal window when the process exits
-        direction = 'horizontal',
+        direction = 'vertical',
     }
 
 end

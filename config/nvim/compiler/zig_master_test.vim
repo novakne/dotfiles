@@ -1,15 +1,15 @@
-if polyglot#init#is_disabled(expand('<sfile>:p'), 'zig', 'compiler/zig_build_exe.vim')
+if polyglot#init#is_disabled(expand('<sfile>:p'), 'zig', 'compiler/zig_test.vim')
   finish
 endif
 
 " Vim compiler file
-" Compiler: Zig Compiler (zig build-exe)
+" Compiler: Zig Compiler (zig test)
 
 if exists('current_compiler')
   finish
 endif
 runtime compiler/zig.vim
-let current_compiler = 'zig_build_exe'
+let current_compiler = 'zig_test'
 
 let s:save_cpo = &cpo
 set cpo&vim
@@ -20,9 +20,9 @@ if exists(':CompilerSet') != 2
 endif
 
 if has('patch-7.4.191')
-  CompilerSet makeprg=zig7\ build-exe\ \%:S\ \$* 
+  CompilerSet makeprg=zig-master\ test\ \%:S\ \$* 
 else
-  CompilerSet makeprg=zig7\ build-exe\ \"%\"\ \$* 
+  CompilerSet makeprg=zig-master\ test\ \"%\"\ \$* 
 endif
 
 let &cpo = s:save_cpo

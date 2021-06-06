@@ -20,9 +20,9 @@ if exists(':CompilerSet') != 2
 endif
 
 if exists('g:zig_build_makeprg_params')
-	execute 'CompilerSet makeprg=zig7\ build\ '.escape(g:zig_build_makeprg_params, ' \|"').'\ $*'
+	execute 'CompilerSet makeprg=zig-master\ build\ '.escape(g:zig_build_makeprg_params, ' \|"').'\ $*'
 else
-	CompilerSet makeprg=zig7\ build\ $*
+	CompilerSet makeprg=zig-master\ build\ $*
 endif
 
 " TODO: anything to add to errorformat for zig build specifically?
