@@ -1,0 +1,27 @@
+# Open the selected file in running neovim session if exists
+# - Bypass fuzzy finder if there's only one match (--select-1)
+# - Exit if there's no match (--exit-0)
+#
+# REQUIREMENTS: fzf, neovim-remote
+
+emulate -L zsh
+setopt extendedglob
+
+local IFS=$'\n'
+local -a files fzf_opts
+
+fzf_opts=(
+    --query="$1"
+    --multi
+    --select-1
+    --exit-0
+    --bind=ctrl-x:toggle-sort
+    --header='Open in $EDITOR - [ctrl-x: sort]'
+)
+
+files=("$(fzf "${fzf_opts[@]}")") || return
+
+nvr "${files[@]}"
+
+# vim: ft=zsh
+

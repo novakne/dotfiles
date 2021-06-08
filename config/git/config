@@ -62,6 +62,7 @@
 	program = gpg2
 [sendemail]
     smtpserver = /usr/bin/msmtp
+	annotate = yes
 [fetch]
 	prune = true
 [submodule]
