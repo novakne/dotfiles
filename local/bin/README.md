@@ -1,9 +1,5 @@
 # Scripts
 
-**$HOME/.local/bin/**
-
-**app/** - appimage or compiled
-
 - `bin-list` - Get a list of executable in _~/.local/bin_
 - `bldup` - Update differents repos
 - `bmenu-run` - Launch **bmenu**
@@ -28,7 +24,7 @@
 - `mdpdf` - Convert markdown to pdf with [Pandoc](https://github.com/jgm/pandoc)
 - `new-mail` - Run **isync** and **notmuch**
 - `nnn-float` - Open a floating **nnn** window in **river**
-- `pkg-list` - List installed packages ( _all or explicitly or manually_ )
+- `pkg-list` - List installed packages in **arch** ( _all or explicitly or manually_ )
 - `river-run` - Launch **river**
 - `rivertag` - Launch **river-tag-overlay**
 - `rmshit.py` - Remove some trash in `$HOME`

@@ -33,7 +33,7 @@ river-run() {
     exec dbus-run-session river >/dev/null 2>&1
   else
     case "$1" in
-      -log) exec dbus-run-session river -l 6 > "${log_file}" 2>&1 ;;
+      -log) exec dbus-run-session river -l 7 > "${log_file}" 2>&1 ;;
       *) exec dbus-run-session river >/dev/null 2>&1 ;;
     esac
   fi

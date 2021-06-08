@@ -1,16 +1,17 @@
 # Dotfiles
 
+<p align="center"><img src="https://git.sr.ht/~novakane/dotfiles/blob/main/meta/previews/river.png"river""/></a></p>
+
 _Dotfiles managed with [dotbot](https://github.com/anishathalye/dotbot)_
 
-# Infos
+## Infos
 
 - os _[void Linux](https://voidlinux.org/)_
 - wm _[river](https://github.com/ifreund/river)_
 
-## Applications
+### Applications
 
 - browser . _firefox_
-- bar . _[yambar](https://codeberg.org/dnkl/yambar)_
 - editor . _[neovim 5.x](https://github.com/neovim/neovim)_
 - files manager . _[nnn](https://github.com/jarun/nnn)_
 - launcher . _[fuzzel](https://codeberg.org/dnkl/fuzzel)_
@@ -31,12 +32,7 @@ _Dotfiles managed with [dotbot](https://github.com/anishathalye/dotbot)_
   * icons . _[Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)_
   * gtk . _[Materia](https://github.com/nana-4/materia-theme)_
 
-## Screenshots
-
-<p align="left"><img src="https://git.sr.ht/~novakane/dotfiles/blob/main/meta/previews/river-dark.png"river dark""/></a></p>
-<p align="right"><img src="https://git.sr.ht/~novakane/dotfiles/blob/main/meta/previews/river-light.png"river light""/></a></p>
-
-# Shell
+## Shell
 
 - prompt: [Starship](https://github.com/starship/starship)
 
@@ -61,6 +57,7 @@ _Dotfiles managed with [dotbot](https://github.com/anishathalye/dotbot)_
   * `cl` - Cd to a dir and list files with _exa_ or _ls_
   * `fcd` - Interactive cd - `fzf`
   * `fe` - Open file in default editor - `fzf`
+  * `fer` - Open the selected file in running neovim session if exists - `fzf`
   * `fkill` - Kill processes - `fzf`
   * `frg` - Fuzzy grep with _ripgrep_ and open in default editor - `fzf`
   * `ft` - Search _ctags_ - `fzf`
@@ -73,7 +70,7 @@ _Dotfiles managed with [dotbot](https://github.com/anishathalye/dotbot)_
   * `zn` - Jump to a directory with _zoxide_ and open it in _neovim_
 - site-functions/ - User auto completions for some cli tools
 
-## Cli tools
+### Cli tools
 
 - [bat](https://github.com/sharkdp/bat) - A cat clone with wings
 - [bottom](https://github.com/ClementTsang/bottom) - A cross-platform graphical process/system monitor
@@ -88,5 +85,5 @@ _Dotfiles managed with [dotbot](https://github.com/anishathalye/dotbot)_
 - [teeldear](https://github.com/dbrgn/tealdeer) - A very fast implementation of tldr in Rust
 - [zoxide](https://github.com/ajeetdsouza/zoxide) - A faster way to navigate your filesystem
 
-# License
+## License
 [MIT](LICENSE)
