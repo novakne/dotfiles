@@ -10,11 +10,11 @@ alias xbinfo='xbps-query'
 
 # [ Exa ]
 alias exa='exa --group-directories-first --icons'
-alias ea='exa -lah --group-directories-first --git --icons'
-alias et='exa -lah -TL2 --group-directories-first --git --icons'
+alias ea='clear; exa -lah --group-directories-first --git --icons'
+alias et='clear; exa -lah -TL2 --group-directories-first --git --icons'
 
 # [ Git ]
-alias g='git status'
+alias g='clear; git status'
 alias ga='git add'
 alias gb='git branch'
 alias gc='git clone'
