@@ -33,6 +33,7 @@
     log = delta
     reflog = delta
     show = delta
+    branch = false
 [delta]
     commit-decoration-style = blue ol
     ; commit-style = raw
