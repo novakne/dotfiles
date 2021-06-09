@@ -243,9 +243,10 @@ return require'packer'.startup(function()
     }
 
     use 'MTDL9/vim-log-highlighting'
+    use 'arzg/vim-sh'
+    use 'bakpakin/fennel.vim'
     use 'euclidianAce/BetterLua.vim'
     use 'ziglang/zig.vim'
-    use 'arzg/vim-sh'
 
     use { 'sakhnik/nvim-gdb', run = './install.sh', ft = { 'c', 'zig' } }
     use 'editorconfig/editorconfig-vim'

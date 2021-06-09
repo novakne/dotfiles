@@ -4,7 +4,7 @@ if packer_plugins['fzf.vim'] and packer_plugins['fzf.vim'].loaded then
     local map = require'nk.utils'.bind
 
     vim.g.fzf_layout = {
-        window = { width = 1, height = 1, yoffset = 1.0 },
+        window = { width = 0.9, height = 0.9 },
     }
     vim.g.fzf_buffers_jump = 1
     vim.g.fzf_action = {

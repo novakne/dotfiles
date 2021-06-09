@@ -6,7 +6,7 @@ _Dotfiles managed with [dotbot](https://github.com/anishathalye/dotbot)_
 
 ## Infos
 
-- os _[void Linux](https://voidlinux.org/)_
+- os _[void linux](https://voidlinux.org/)_
 - wm _[river](https://github.com/ifreund/river)_
 
 ### Applications
