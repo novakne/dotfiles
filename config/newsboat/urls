@@ -4,7 +4,7 @@ https://voidlinux.org/atom.xml news
 https://sourcehut.org/blog/index.xml news
 https://blog.codeberg.org/feeds/all.atom.xml news
 
-[ blogs ]
+# [ blogs ]
 https://emersion.fr/blog/atom.xml blog blog
 https://drewdevault.com/blog/index.xml blog
 https://leon_plickat.srht.site/index.xml blog
@@ -12,7 +12,9 @@ https://andrewkelley.me/rss.xml blog
 https://devlog.hexops.com/feed.xml blog
 https://msfjarvis.dev/index.xml blog
 
-[ sr.ht ]
+# [ sr.ht ]
 https://git.sr.ht/~leon_plickat/river-tag-overlay/log/master/rss.xml sr.ht
 https://git.sr.ht/~sircmpwn/aerc/log/master/rss.xml sr.ht
+https://git.sr.ht/~technomancy/fennel/log/main/rss.xml
+https://git.sr.ht/~technomancy/fnlfmt/log/main/rss.xml
 

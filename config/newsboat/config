@@ -13,7 +13,7 @@ feedlist-format " %n %4i %10u - %t %> [%T]"
 pager "less -g -i -M -R -S -w -z-4 %f"
 reload-threads 50
 show-read-articles no
-show-read-feeds no
+# show-read-feeds no
 text-width 72
 
 # Bind
