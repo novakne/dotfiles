@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Librewolf
+Categories=Browser;
+Comment=A fork of Firefox, focused on privacy, security and freedom
+Exec=librewolf
+Type=Application
