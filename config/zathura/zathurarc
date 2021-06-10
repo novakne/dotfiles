@@ -1,34 +1,35 @@
-# COLORS
-set default-bg "#23222b"
-set default-fg "#eae9ee"
-set completion-bg "#23222b"
-set completion-fg "#eae9ee"
-set completion-group-bg "#23222b"
-set completion-group-fg "#eae9ee"
-set completion-highlight-bg "#57bbf4"
-set completion-highlight-fg "#23222b"
-set inputbar-bg "#23222b"
-set inputbar-fg "#eae9ee"
-set notification-bg "#23222b"
-set notification-fg "#eae9ee"
-set notification-error-bg "#fc65b0"
-set notification-error-fg "#23222b"
-set notification-warning-bg "#e8ec77"
-set notification-warning-fg "#23222b"
-# set tabbar-bg "#474557"
-# set tabbar-fg "#eae9ee"
-# set tabbar-focus-bg "#23222b"
-# set tabbar-focus-fg "#eae9ee"
-set statusbar-bg "#23222b"
-set statusbar-fg "#eae9ee"
-set highlight-color "#57bbf4"
-set highlight-active-color "#e8ec77"
-set highlight-transparency 0.5
+# [ ZATHURA ]
 
-# OPTIONS
-set font "Overpass 11"
-# 'c', the command line 's', the statusbar 'h', the horizontal scrollbar 'v', the vertical scrollbar
-set guioptions csh
+# [ Colors ]
+set default-bg "#f9f9fa"
+set default-fg "#202325"
+set completion-bg "#f9f9fa"
+set completion-fg "#202325"
+set completion-group-bg "#f9f9fa"
+set completion-group-fg "#202325"
+set completion-highlight-bg "#2e3f9f"
+set completion-highlight-fg "#f9f9fa"
+set inputbar-bg "#f9f9fa"
+set inputbar-fg "#202325"
+set notification-bg "#f9f9fa"
+set notification-fg "#202325"
+set notification-error-bg "#fde7f6"
+set notification-error-fg "#202325"
+set notification-warning-bg "#faefb1"
+set notification-warning-fg "#202325"
+set statusbar-bg "#f9f9fa"
+set statusbar-fg "#202325"
+set highlight-color "#2e3f9f"
+set highlight-active-color "#faefb1"
+set highlight-transparency 1
+
+# [ Options ]
+set font "Overpass 12"
+# 'c' - the command line,
+# 's' - the statusbar,
+# 'h' - the horizontal scrollbar,
+# 'v' - the vertical scrollbar,
+set guioptions cs
 set statusbar-v-padding 4
 set statusbar-h-padding 8
 set selection-clipboard clipboard

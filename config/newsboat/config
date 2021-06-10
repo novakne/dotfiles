@@ -1,9 +1,9 @@
 #  [ NEWSBOAT ]
 
-# Theme
+# [ Theme ]
 include "~/.config/newsboat/kosmikoa"
 
-# Options
+# [ Options ]
 articlelist-format "%4i %f %D   %?T?|%-17T|  ?%t"
 auto-reload yes
 delete-read-articles-on-quit yes
@@ -13,18 +13,17 @@ feedlist-format " %n %4i %10u - %t %> [%T]"
 pager "less -g -i -M -R -S -w -z-4 %f"
 reload-threads 50
 show-read-articles no
-# show-read-feeds no
 text-width 72
 
-# Bind
+# [ Bind ]
 bind-key k up
 bind-key j down
 bind-key h prev
 bind-key l next
 bind-key c cmdline
 
-# Macros
-# Open youtube in mpv
+# [ Macros ]
+# Videos with mpv
 macro v set browser "setsid -f mpv" ; open-in-browser ; set browser firefox
-# img in imv
+# Images with imv
 macro i set browser "setsid -f imv"; open-in-browser; set browser firefox

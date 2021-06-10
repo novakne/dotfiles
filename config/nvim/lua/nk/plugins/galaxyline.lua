@@ -1,7 +1,6 @@
 -- [ Galaxyline ]
 if packer_plugins['galaxyline.nvim'] and
     packer_plugins['galaxyline.nvim'].loaded then
-
     local gl = require('galaxyline')
     local gls = gl.section
 
@@ -35,7 +34,6 @@ if packer_plugins['galaxyline.nvim'] and
     end
 
     -- [ Left ]
-
     gls.left[1] = {
         ViMode = {
             provider = function()
@@ -140,7 +138,6 @@ if packer_plugins['galaxyline.nvim'] and
     }
 
     -- [ Right ]
-
     gls.right[1] = {
         DiagnosticError = {
             provider = 'DiagnosticError',
@@ -187,7 +184,6 @@ if packer_plugins['galaxyline.nvim'] and
     }
 
     -- [ Short ]
-
     gls.short_line_left[3] = {
         SFileName = {
             provider = function()
@@ -208,6 +204,5 @@ if packer_plugins['galaxyline.nvim'] and
             highlight = { colors.dark00, colors.light00 },
         },
     }
-
 end
 

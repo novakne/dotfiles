@@ -1,4 +1,3 @@
 # [ Ssh ]
-
 - link:
-    ~/.ssh/environnement: home/ssh/environnement
+      ~/.ssh/environnement: home/ssh/environnement

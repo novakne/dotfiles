@@ -11,12 +11,12 @@ local IFS=$'\n'
 local -a files fzf_opts
 
 fzf_opts=(
-    --query="$1"
-    --multi
-    --select-1
-    --exit-0
-    --bind=ctrl-x:toggle-sort
-    --header='Open in $EDITOR - [ctrl-x: sort]'
+	--query="$1"
+	--multi
+	--select-1
+	--exit-0
+	--bind=ctrl-x:toggle-sort
+	--header='Open in $EDITOR - [ctrl-x: sort]'
 )
 
 files=("$(fzf "${fzf_opts[@]}")") || return
@@ -24,4 +24,3 @@ files=("$(fzf "${fzf_opts[@]}")") || return
 "${EDITOR:-nvim}" "${files[@]}"
 
 # vim: ft=zsh
-

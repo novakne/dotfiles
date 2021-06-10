@@ -1,4 +1,8 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+#
+# Search inside file with rg
+#
+# REQUIREMENTS: ripgrep
 
 . "$(dirname "$0")"/.nnn-plugin-helper
 
@@ -6,6 +10,6 @@ printf "pattern: "
 read -r pattern
 
 if ! [ -z "$pattern" ]; then
-    printf "%s" "+l" > "$NNN_PIPE"
-    eval "rg -l0 --hidden -S $pattern" > "$NNN_PIPE"
+	printf "%s" "+l" >"$NNN_PIPE"
+	eval "rg -l0 --hidden -S $pattern" >"$NNN_PIPE"
 fi

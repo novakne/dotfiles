@@ -8,8 +8,8 @@ setopt extendedglob
 local file line
 
 if [[ $# -ne 2 ]]; then
-    printf -- '%s\n' \
-        "[$(date +'%Y-%m-%d %H:%M:%S')]: Require two arguments" >&2
+	printf -- '%s\n' \
+		"[$(date +'%Y-%m-%d %H:%M:%S')]: Require two arguments" >&2
 fi
 
 file="$1"
@@ -18,4 +18,3 @@ line="$2"
 [[ -n "${file}" ]] && nvim "${file}" +"${line}"
 
 # vim: ft=zsh
-

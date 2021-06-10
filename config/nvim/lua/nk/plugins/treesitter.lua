@@ -1,7 +1,6 @@
 -- [ Treesitter ]
 if packer_plugins['nvim-treesitter'] and
     packer_plugins['nvim-treesitter'].loaded then
-
     local ts = require 'nvim-treesitter.configs'
 
     ts.setup {
@@ -33,6 +32,5 @@ if packer_plugins['nvim-treesitter'] and
             },
         },
     }
-
 end
 

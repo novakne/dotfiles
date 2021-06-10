@@ -6,10 +6,9 @@ emulate -L zsh
 setopt extendedglob
 
 if hash exa >/dev/null 2>&1; then
-    cd "$1" && exa -lah --group-directories-first --git --icons
-else 
-    cd "$1" && ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F
+	cd "$1" && exa -lah --group-directories-first --git --icons
+else
+	cd "$1" && ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F
 fi
 
 # vim: ft=zsh
-

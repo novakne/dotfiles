@@ -1,22 +1,20 @@
-# Kill processes - list only the ones you can kill. 
+# Kill processes - list only the ones you can kill.
 #
 # REQUIREMENTS: fzf
 
 emulate -L zsh
 setopt extendedglob
 
-local pid 
+local pid
 
 if [ "$UID" != "0" ]; then
-    pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+	pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
 else
-    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
-fi  
+	pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+fi
 
-if [ "x${pid}" != "x" ]
-then
-    printf -- '%s\n' "${pid}" | xargs kill -"${1:-9}"
+if [ "x${pid}" != "x" ]; then
+	printf -- '%s\n' "${pid}" | xargs kill -"${1:-9}"
 fi
 
 # vim: ft=zsh
-

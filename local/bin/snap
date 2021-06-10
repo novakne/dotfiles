@@ -8,134 +8,140 @@
 
 # [ Utils ]
 # Error message in STDERR
-_err() {
-  printf -- '%s\n' "[$(date +'%Y-%m-%d %H:%M:%S')]: $*" >&2
+_err()
+{
+	printf -- '%s\n' "[$(date +'%Y-%m-%d %H:%M:%S')]: $*" >&2
 }
 
 # Test installed programs
-_is_grim() {
-  if hash grim >/dev/null 2>&1; then return 0; fi
+_is_grim()
+{
+	if hash grim >/dev/null 2>&1; then return 0; fi
 }
 
-_is_slurp() {
-  if hash slurp >/dev/null 2>&1; then return 0; fi
+_is_slurp()
+{
+	if hash slurp >/dev/null 2>&1; then return 0; fi
 }
 
-_is_maim() {
-  if hash maim >/dev/null 2>&1; then return 0; fi
+_is_maim()
+{
+	if hash maim >/dev/null 2>&1; then return 0; fi
 }
 
-_is_slop() {
-  if hash slop >/dev/null 2>&1; then return 0; fi
+_is_slop()
+{
+	if hash slop >/dev/null 2>&1; then return 0; fi
 }
-
 
 # Need at least one of grim or maim
 if ! _is_grim && ! _is_maim; then
-  _err "You need to install grim or maim."
-  exit 1
+	_err "You need to install grim or maim."
+	exit 1
 fi
 
 # Send notification before or after screenshot
-_pre_notif() {
-  notify-send $* -i "${icon_path}" -t 2000
+_pre_notif()
+{
+	notify-send $* -i "${icon_path}" -t 2000
 }
 
-_post_notif() {
-  notify-send 'Screenshot taken !' -i "${icon_path}"
+_post_notif()
+{
+	notify-send 'Screenshot taken !' -i "${icon_path}"
 }
 
 # Help
-_usage() {
-  cat <<-END
-  screen_dir = $HOME/img/screenshot
+_usage()
+{
+	cat <<-END
+		  screen_dir = $HOME/img/screenshot
 
-  Usage: snap [OPTION...]
+		  Usage: snap [OPTION...]
 
-  With grim & slurp (Wayland):
-    -f, --fullscreen    Fullscreen
-    -s, --select        Select an area
+		  With grim & slurp (Wayland):
+		    -f, --fullscreen    Fullscreen
+		    -s, --select        Select an area
 
-  With maim & slop (X11):
-    -f, --fullscreen    Fullscreen
-    -s, --select        Select an area
-    -w, --window        Active window
-    -c, --click         Click to select a window
-END
+		  With maim & slop (X11):
+		    -f, --fullscreen    Fullscreen
+		    -s, --select        Select an area
+		    -w, --window        Active window
+		    -c, --click         Click to select a window
+	END
 }
 
+main()
+{
 
-main() {
+	local screen_dir icon_path screen_date screen_file
 
-  local screen_dir icon_path screen_date screen_file
+	screen_dir="$HOME"/media/img/screenshot
+	icon_path=/usr/share/icons/Arc/devices/128@2x/camera.png
+	screen_date=$(date +"%Y_%m_%d-%H_%M_%S")
+	screen_file=${screen_dir}/${screen_date}.png
 
-  screen_dir="$HOME"/media/img/screenshot
-  icon_path=/usr/share/icons/Arc/devices/128@2x/camera.png
-  screen_date=$(date +"%Y_%m_%d-%H_%M_%S")
-  screen_file=${screen_dir}/${screen_date}.png
+	# Make the screenshot dir if it doesn't exist
+	[[ ! -d ${screen_dir} ]] >/dev/null 2>&1 && mkdir -p "${screen_dir}"
 
-  # Make the screenshot dir if it doesn't exist
-  [[ ! -d ${screen_dir} ]] >/dev/null 2>&1 && mkdir -p "${screen_dir}"
+	case "$1" in
+	-f | --fullscreen)
+		if _is_grim; then
+			grim -t png "${screen_file}"
+			_post_notif
+		elif _is_maim; then
+			maim -d 5 -u -m 3 "${screen_file}"
+			_post_notif
+		fi
+		;;
+	-s | --select)
+		if _is_grim; then
+			if ! _is_slurp; then
+				_err "You need to install slurp."
+				exit 1
+			else
+				_pre_notif 'Select an area...'
+				grim -t png -g "$(slurp)" "${screen_file}"
+				_post_notif
+			fi
+		elif _is_maim; then
+			if ! _is_slop; then
+				_err "You need to install slop."
+				exit 1
+			else
+				_pre_notif 'Select an area...'
+				maim -s -u -m 3 "${screen_file}"
+				_post_notif
+			fi
+		fi
+		;;
+	-w | --window)
+		if _is_grim; then
+			_err "Not available with grim."
+			exit 1
+		elif _is_maim; then
+			maim -d 5 -u -m 3 -i "$(xdotool getactivewindow)" "${screen_file}"
+			_post_notif
+		fi
+		;;
+	-c | --click)
+		if _is_grim; then
+			_err "Not available with grim."
+			exit 1
+		elif _is_maim; then
+			_pre_notif 'Click on a window to select it...'
+			maim -st 9999999 -u -m 3 "${screen_file}"
+			_post_notif
+		fi
+		;;
+	*)
+		_usage
+		exit 1
+		;;
+	esac
 
-  case "$1" in
-    -f | --fullscreen)
-      if _is_grim; then
-        grim -t png "${screen_file}"
-        _post_notif
-      elif _is_maim; then
-        maim -d 5 -u -m 3 "${screen_file}"
-        _post_notif
-      fi
-    ;;
-    -s | --select)
-      if _is_grim; then
-        if ! _is_slurp; then
-          _err "You need to install slurp."
-          exit 1
-        else
-          _pre_notif 'Select an area...'
-          grim -t png -g "$(slurp)" "${screen_file}"
-          _post_notif
-        fi
-      elif _is_maim; then
-        if ! _is_slop; then
-          _err "You need to install slop."
-          exit 1
-        else
-          _pre_notif 'Select an area...'
-          maim -s -u -m 3 "${screen_file}"
-          _post_notif
-        fi
-      fi
-    ;;
-    -w | --window )
-      if _is_grim; then
-        _err "Not available with grim."
-        exit 1
-      elif _is_maim; then
-        maim -d 5 -u -m 3 -i "$(xdotool getactivewindow)" "${screen_file}"
-        _post_notif
-      fi
-    ;;
-    -c | --click )
-      if _is_grim; then
-        _err "Not available with grim."
-        exit 1
-      elif _is_maim; then
-        _pre_notif 'Click on a window to select it...'
-        maim -st 9999999 -u -m 3 "${screen_file}"
-        _post_notif
-      fi
-    ;;
-    *)
-      _usage
-      exit 1
-    ;;
-  esac
-
-  unset -f _err _is_grim _is_maim _is_slop _is_slurp 
-  unset -f _pre_notif _post_notif _usage
+	unset -f _err _is_grim _is_maim _is_slop _is_slurp
+	unset -f _pre_notif _post_notif _usage
 }
 
 main "$@"
-

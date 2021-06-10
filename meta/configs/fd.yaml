@@ -1,4 +1,3 @@
 # [ Fd ]
-
 - link:
-    ~/.fdignore: home/.fdignore
+      ~/.fdignore: home/.fdignore

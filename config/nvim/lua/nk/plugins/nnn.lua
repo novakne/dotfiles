@@ -1,6 +1,5 @@
 -- [ Nnn ]
 if packer_plugins['nnn.vim'] and packer_plugins['nnn.vim'].loaded then
-
     local map = require'nk.utils'.bind
 
     require'nnn'.setup {
@@ -17,6 +16,5 @@ if packer_plugins['nnn.vim'] and packer_plugins['nnn.vim'].loaded then
 
     -- Start in the current file's directory
     map('n', '<F6>', '<CMD>NnnPicker %:p:h<CR>')
-
 end
 

@@ -1,4 +1,3 @@
 # [ Sway ]
-
 - link:
-    ~/.config/sway: config/sway
+      ~/.config/sway: config/sway

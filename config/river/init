@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 #
-# [ River Config ]
-
+# [ River ]
 
 # ------------------------------------------------
 # [ SERVICES ]
@@ -12,7 +11,7 @@ id=$(id -u)
 svdir=/tmp/"${id}"-sv-"$WAYLAND_DISPLAY"
 
 pgrep -f "^runsvdir ${svdir}" &&
-    exec echo "runsvdir already running for wayland session"
+	exec echo "runsvdir already running for wayland session"
 
 cp -rLpT "${SVDIR}"/current "${svdir}"
 
@@ -22,24 +21,18 @@ cp -rLpT "${SVDIR}"/current "${svdir}"
 themes_dir="$XDG_CONFIG_HOME"/river/themes
 
 if [[ "$USER_THEME" == argi ]]; then
-  theme=argi
-  # riverctl spawn 'swaybg -i ~/media/img/wal/red_hood_outlaws_01.jpg >/dev/null 2>&1'
-  riverctl spawn 'swaybg -i ~/media/img/wal/green_lantern_01.jpg >/dev/null 2>&1'
-  riverctl spawn 'rivertag >/dev/null 2>&1'
-  # ln -s "$SVDIR"/sv/yambar-light "${svdir}"/
+	theme=argi
+	riverctl spawn 'swaybg -i ~/media/img/wal/green_lantern_01.jpg >/dev/null 2>&1'
 elif [[ "$USER_THEME" == kosmikoa ]]; then
-  theme=kosmikoa
-  # ln -s "$SVDIR"/sv/yambar-dark "${svdir}"/
+	theme=kosmikoa
 fi
 source "${themes_dir}"/"${theme}"
+riverctl spawn 'rivertag >/dev/null 2>&1'
 
 # ------------------------------------------------
 # [ Options ]
 # ------------------------------------------------
-
-# Set repeat rate <rate> <delay>
-riverctl set-repeat 50 300
-
+riverctl set-repeat 50 300 # Set repeat rate <rate> <delay>
 riverctl attach-mode bottom
 riverctl focus-follows-cursor normal
 
@@ -52,15 +45,10 @@ riverctl float-filter-add "float"
 riverctl float-filter-add "popup"
 riverctl float-filter-add "mpv"
 riverctl float-filter-add "imv"
-riverctl float-filter-add "Developer Tools - New Tab - about:home"
-
-# Set app-ids of views which should use client side decorations
-# riverctl csd-filter-add "firefox"
 
 # ------------------------------------------------
 # [ Keybind ]
 # ------------------------------------------------
-
 mod="Mod4"
 term=footclient
 browser=firefox
@@ -68,19 +56,17 @@ browser=firefox
 # Mod+E to exit river
 riverctl map normal $mod+Shift E exit
 
-
 # [ App ]
 riverctl map normal $mod Return spawn $term
 riverctl map normal Control+Shift Return spawn $term
 riverctl map normal $mod D spawn fuzzel-run
-riverctl map normal $mod O spawn footclient --app-id 'float' fmenu >/dev/null 2>&1
-riverctl map normal $mod P spawn footclient --app-id 'float' fpass >/dev/null 2>&1
+riverctl map normal $mod O spawn footclient --app-id 'float' fmenu
+riverctl map normal $mod P spawn footclient --app-id 'float' fpass
 riverctl map normal $mod B spawn $browser >/dev/null 2>&1
 riverctl map normal $mod T spawn foot-float
-riverctl map normal $mod N spawn footclient --app-id 'float' nnn-float >/dev/null 2>&1
-riverctl map normal $mod E spawn footclient "$EDITOR" >/dev/null 2>&1
+riverctl map normal $mod N spawn footclient --app-id 'float' nnn-float
+riverctl map normal $mod E spawn footclient "$EDITOR"
 riverctl map normal $mod W spawn sysinfo
-
 
 # [ Views ]
 # Mod+Q to close the focused view
@@ -137,30 +123,29 @@ riverctl map-pointer normal $mod BTN_LEFT move-view
 # Mod + Right Mouse Button to resize views
 riverctl map-pointer normal $mod BTN_RIGHT resize-view
 
-
 # [ Layouts ]
 riverctl map normal $mod Space toggle-float  # Mod+Space to toggle float
 riverctl map normal $mod F toggle-fullscreen # Mod+F to toggle fullscreen
 
 # Mod+{Up,Right,Down,Left} to change layout orientation
-riverctl map normal $mod Up    set-layout-value rivercarro string main_location top
+riverctl map normal $mod Up set-layout-value rivercarro string main_location top
 riverctl map normal $mod Right set-layout-value rivercarro string main_location right
-riverctl map normal $mod Down  set-layout-value rivercarro string main_location bottom
-riverctl map normal $mod Left  set-layout-value rivercarro string main_location left
+riverctl map normal $mod Down set-layout-value rivercarro string main_location bottom
+riverctl map normal $mod Left set-layout-value rivercarro string main_location left
 
-riverctl map normal $mod M     set-layout-value rivercarro string main_location monocle
+riverctl map normal $mod M set-layout-value rivercarro string main_location monocle
 
 # [ Tags ]
 # Workaround for azerty keyboard
 declare -a azerty tags
-azerty=( ampersand eacute quotedbl apostrophe parenleft minus egrave underscore ccedilla )
-tags=( 1 2 4 8 16 32 64 128 256 )
+azerty=(ampersand eacute quotedbl apostrophe parenleft minus egrave underscore ccedilla)
+tags=(1 2 4 8 16 32 64 128 256)
 
 for i in {0..8}; do
-  riverctl map normal $mod "${azerty[i]}" set-focused-tags "${tags[i]}"
-  riverctl map normal $mod+Shift "${azerty[i]}" set-view-tags "${tags[i]}"
-  riverctl map normal $mod+Control "${azerty[i]}" toggle-focused-tags "${tags[i]}"
-  riverctl map normal $mod+Shift+Control "${azerty[i]}" toggle-view-tags "${tags[i]}"
+	riverctl map normal $mod "${azerty[i]}" set-focused-tags "${tags[i]}"
+	riverctl map normal $mod+Shift "${azerty[i]}" set-view-tags "${tags[i]}"
+	riverctl map normal $mod+Control "${azerty[i]}" toggle-focused-tags "${tags[i]}"
+	riverctl map normal $mod+Shift+Control "${azerty[i]}" toggle-view-tags "${tags[i]}"
 done
 
 unset -v azerty tags
@@ -175,7 +160,6 @@ tags1to9=$(((1 << 9) - 1))
 riverctl map normal $mod agrave set-focused-tags $tags1to9
 riverctl map normal $mod+Shift agrave set-view-tags $tags1to9
 
-
 # [ Passthrough ]
 # Declare a passthrough mode. This mode has only a single mapping to return to
 # normal mode. This makes it useful for testing a nested wayland compositor
@@ -186,7 +170,6 @@ riverctl map normal $mod F11 enter-mode passthrough
 
 # Mod+F11 to return to normal mode
 riverctl map passthrough $mod F11 enter-mode normal
-
 
 # [ Special keys ]
 # Various media key mapping examples for both normal and locked mode which do
@@ -206,11 +189,9 @@ done
 riverctl map normal $mod Print spawn 'snap -f'
 riverctl map normal $mod+Shift Print spawn 'snap -s'
 
-
 # Set and exec into the default layout generator, rivertile.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivercarro
 
 # Start runit user services
 exec runsvdir "${svdir}" \ 'log: ...........................................................................................................................................................................................................................................................................................................................................................................................................'
-

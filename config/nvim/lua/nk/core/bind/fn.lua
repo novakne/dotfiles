@@ -1,4 +1,4 @@
--- [ Function to bind ]
+-- [ Functions to bind ]
 local M = {}
 
 -- Toggle between relativenumber and number

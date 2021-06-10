@@ -1,5 +1,5 @@
-#!/usr/bin/env sh
-
+#!/usr/bin/env bash
+#
 # Make exec
-[ -f "$1" ] && chmod 774 "$1"
 
+[ -f "$1" ] && chmod 774 "$1"

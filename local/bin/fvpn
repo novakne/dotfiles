@@ -5,21 +5,21 @@
 # USAGE: fvpn
 # REQUIREMENTS: fd fzf mullvad configs wireguard
 
-fvpn() {
-  local -a fd_opts conf_dir conf_file
+fvpn()
+{
+	local -a fd_opts conf_dir conf_file
 
-  conf_dir="$HOME"/.config/mullvad_wireguard
-  fd_opts=(
-    . "${conf_dir}"
-    --no-ignore
-    --ignore-case
-    --extension .conf
-    --exec printf '%s\n' "{/}"
-  )
+	conf_dir="$HOME"/.config/mullvad_wireguard
+	fd_opts=(
+		. "${conf_dir}"
+		--no-ignore
+		--ignore-case
+		--extension .conf
+		--exec printf '%s\n' "{/}"
+	)
 
-  conf_file=$(fd "${fd_opts[@]}" 2>/dev/null | sort -u | fzf --query="$1")
-  wg-quick up "${conf_dir}"/"${conf_file}"
+	conf_file=$(fd "${fd_opts[@]}" 2>/dev/null | sort -u | fzf --query="$1")
+	wg-quick up "${conf_dir}"/"${conf_file}"
 }
 
 fvpn "$@"
-

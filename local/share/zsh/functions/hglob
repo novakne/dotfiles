@@ -44,4 +44,3 @@ print **/*(g:users:)  # Recursively match all files that are owned by group 'use
 echo /proc/*/cwd(:h:t:s/self//) # Analogous to >ps ax | awk '{print $1}'<"
 
 # vim set ft=zsh
-

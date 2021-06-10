@@ -52,7 +52,7 @@ return require'packer'.startup(function()
         'nvim-treesitter/nvim-treesitter',
         requires = {
             { 'romgrk/nvim-treesitter-context', after = 'nvim-treesitter' },
-            { 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter' },
+            { 'p00f/nvim-ts-rainbow', ft = 'fennel' },
             {
                 'nvim-treesitter/playground',
                 cmd = { 'TSPlaygroundToggle', 'TSHighlightCapturesUnderCursor' },
@@ -74,19 +74,6 @@ return require'packer'.startup(function()
     -- [ FILES ]
     -- ---------------------------------------------
     use {
-        'nvim-telescope/telescope.nvim',
-        requires = {
-            'nvim-lua/popup.nvim',
-            'nvim-lua/plenary.nvim',
-            'jvgrootveld/telescope-zoxide',
-            { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-        },
-        config = function()
-            require 'nk.plugins.telescope'
-        end,
-    }
-
-    use {
         'mcchrish/nnn.vim',
         cmd = { 'Np', 'NnnPicker' },
         keys = '<F6>',
@@ -106,6 +93,7 @@ return require'packer'.startup(function()
     use {
         'TimUntersberger/neogit',
         requires = 'nvim-lua/plenary.nvim',
+        cmd = 'Neogit',
         config = function()
             require'neogit'.setup()
         end,
@@ -143,13 +131,6 @@ return require'packer'.startup(function()
         end,
     }
 
-    use {
-        'folke/which-key.nvim',
-        config = function()
-            require 'nk.plugins.whichkey'
-        end,
-    }
-
     use { 'RRethy/vim-illuminate' }
 
     -- ---------------------------------------------
@@ -175,14 +156,10 @@ return require'packer'.startup(function()
         keys = 'ga',
         cmd = 'EasyAlign',
         config = function()
-            require 'nk.plugins.easyalign'
-        end,
-    }
-
-    use {
-        'nacro90/numb.nvim',
-        config = function()
-            require'numb'.setup()
+            require'nk.utils'.bind('n', 'ga', '<Plug>(EasyAlign)',
+                { silent = true })
+            require'nk.utils'.bind('x', 'ga', '<Plug>(EasyAlign)',
+                { silent = true })
         end,
     }
 
@@ -214,7 +191,7 @@ return require'packer'.startup(function()
         keys = '<Leader>q',
         cmd = 'Bdelete',
         config = function()
-            require 'nk.plugins.bbye'
+            require'nk.utils'.bind('n', '<Leader>q', '<CMD>Bdelete<CR>')
         end,
     }
 
@@ -223,15 +200,20 @@ return require'packer'.startup(function()
         keys = '<Leader>h',
         cmd = 'ColorizerToggle',
         config = function()
-            require 'nk.plugins.colorizer'
+            require'nk.utils'.bind('n', '<Leader>h', '<CMD>ColorizerToggle<CR>')
         end,
     }
-
-    use 'matbme/JABS.nvim'
 
     -- ---------------------------------------------
     -- [ LANG ]
     -- ---------------------------------------------
+    use { 'MTDL9/vim-log-highlighting', ft = 'log' }
+    use { 'arzg/vim-sh', ft = { 'sh', 'zsh' } }
+    use { 'bakpakin/fennel.vim', ft = 'fennel' }
+    use { 'euclidianAce/BetterLua.vim', ft = 'lua' }
+    use { 'ziglang/zig.vim', ft = 'zig' }
+
+    -- Tools
     use {
         'euclio/vim-markdown-composer',
         opt = true,
@@ -242,12 +224,6 @@ return require'packer'.startup(function()
         end,
     }
 
-    use 'MTDL9/vim-log-highlighting'
-    use 'arzg/vim-sh'
-    use 'bakpakin/fennel.vim'
-    use 'euclidianAce/BetterLua.vim'
-    use 'ziglang/zig.vim'
-
     use { 'sakhnik/nvim-gdb', run = './install.sh', ft = { 'c', 'zig' } }
     use 'editorconfig/editorconfig-vim'
 
@@ -255,7 +231,5 @@ return require'packer'.startup(function()
     -- [ /TMP ]
     -- ---------------------------------------------
     -- use { 'tweekmonster/startuptime.vim', cmd = 'StartupTime' }
-    -- use { 'dstein64/vim-startuptime', cmd = 'StartupTime' }
-
 end)
 

@@ -1,4 +1,3 @@
 # [ Npm ]
-
 - link:
-    ~/.config/npm: config/npm
+      ~/.config/npm: config/npm

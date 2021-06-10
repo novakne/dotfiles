@@ -1,4 +1,3 @@
 # [ Newsboat ]
-
 - link:
-    ~/.config/newsboat: config/newsboat
+      ~/.config/newsboat: config/newsboat

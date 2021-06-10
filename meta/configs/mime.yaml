@@ -1,5 +1,3 @@
 # [ Mime ]
-
 - link:
-    ~/.config/mimeapps.list: config/mimeapps.list
-
+      ~/.config/mimeapps.list: config/mimeapps.list

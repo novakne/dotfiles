@@ -2,7 +2,6 @@
 #
 # [ Kosmikoa theme ]
 
-
 declare base00 base01 base02 base03 base04 base05 base06 base07
 declare red pink orange yellow green blue magenta cyan
 
@@ -25,7 +24,6 @@ blue='#57bbf4'
 magenta='#be8fde'
 cyan='#00cfd0'
 
-
 # [ Theme ]
 riverctl background-color "${base00}"
 riverctl border-color-focused "${base04}"
@@ -33,10 +31,5 @@ riverctl border-color-unfocused "${base01}"
 riverctl border-width 2
 riverctl xcursor-theme Adwaita
 
-# Set opacity and fade effect
-# riverctl opacity 1.0 0.75 0.0 0.1 20
-
-
 unset -v base00 base01 base02 base03 base04 base05 base06 base07
 unset -v red pink orange yellow green blue magenta cyan
-

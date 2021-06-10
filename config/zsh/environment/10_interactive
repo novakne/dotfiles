@@ -3,29 +3,31 @@
 export USER_THEME=argi
 
 if [[ "$USER_THEME" = argi ]]; then
-    source "${_zsh_plugins_dir}"/colors/argi
+	source "${_zsh_plugins_dir}"/colors/argi
 
-    # Fzf
-    _gen_fzf_default_opts() {
-        export FZF_DEFAULT_OPTS="
+	# Fzf
+	_gen_fzf_default_opts()
+	{
+		export FZF_DEFAULT_OPTS="
             --color=bg+:${base00},bg:${base00},spinner:${blue},hl:${blue}
             --color=fg:${base07},header:${blue},info:${blue},pointer:${red}
             --color=marker:${red},fg+:${base07},prompt:${blue},hl+:${red}
             --reverse --margin 2% --cycle --multi --ansi
         "
-    }
+	}
 elif [[ "$USER_THEME" == kosmikoa ]]; then
-    source "${_zsh_plugins_dir}"/colors/kosmikoa
+	source "${_zsh_plugins_dir}"/colors/kosmikoa
 
-    # Fzf
-    _gen_fzf_default_opts() {
-        export FZF_DEFAULT_OPTS="
+	# Fzf
+	_gen_fzf_default_opts()
+	{
+		export FZF_DEFAULT_OPTS="
             --color=bg+:${base00},bg:${base00},spinner:${pink},hl:${green}
             --color=fg:${base05},header:${pink},info:${pink},pointer:${yellow}
             --color=marker:${blue},fg+:${base07},prompt:${pink},hl+:${yellow}
             --height 90% --reverse --margin 2% --cycle --multi --ansi
         "
-    }
+	}
 fi
 
 # [ Aliases ]
@@ -33,100 +35,108 @@ fi
 
 # [ Dircolors ]
 [[ -r "${_zsh_plugins_dir}"/dircolors ]] &&
-    eval "$(dircolors -b "${_zsh_plugins_dir}"/dircolors)"
+	eval "$(dircolors -b "${_zsh_plugins_dir}"/dircolors)"
 
 # [ Fast syntax highlighting ]
 source "${_zsh_plugins_dir}"/fsh/fast-syntax-highlighting.plugin.zsh
 
 # [ Fzf ]
 if [[ -d "${_fzf_dir}" ]]; then
-    _append_path "${_fzf_dir}"/bin
-    _gen_fzf_default_opts
+	_append_path "${_fzf_dir}"/bin
+	_gen_fzf_default_opts
 
-    source "${_fzf_dir}"/shell/completion.zsh 2> /dev/null
-    source "${_fzf_dir}"/shell/key-bindings.zsh
+	source "${_fzf_dir}"/shell/completion.zsh 2>/dev/null
+	source "${_fzf_dir}"/shell/key-bindings.zsh
 
-    export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden -E .git --color=always'
+	export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden -E .git --color=always'
 
-    # Uses tree command to show the entries of the directory
-    export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+	# Uses tree command to show the entries of the directory
+	export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
-    # Use fd instead of the default find
-    _fzf_compgen_path() { fd --hidden --follow --exclude ".git" . "$1"; }
+	# Use fd instead of the default find
+	_fzf_compgen_path()
+	{
+		fd --hidden --follow --exclude ".git" . "$1"
+	}
 
-    # Use fd to generate the list for directory completion
-    _fzf_compgen_dir() { fd --type d --hidden --follow --exclude ".git" . "$1"; }
+	# Use fd to generate the list for directory completion
+	_fzf_compgen_dir()
+	{
+		fd --type d --hidden --follow --exclude ".git" . "$1"
+	}
 
-    # Completion for pass
-    _fzf_complete_pass() {
-        _fzf_complete +m -- "$@" < <(
-            local prefix
-            prefix="${PASSWORD_STORE_DIR:-$HOME/.password-store}"
-            command find -L "$prefix" \
-                -name "*.gpg" -type f | \
-                sed -e "s#${prefix}/\{0,1\}##" -e 's#\.gpg##' -e 's#\\#\\\\#' | sort
-        )
-    }
-    # Completion for bldup
-    _fzf_complete_bldup() {
-        _fzf_complete +m --prompt="update => " -- "$@" < <(
-                echo -fennel
-                echo -fnott
-                echo -foot
-                echo -fuzzel
-                echo -fzf
-                echo -lualsp
-                echo -nvim
-                echo -zig
-                echo -zls
-        )
-    }
+	# Completion for pass
+	_fzf_complete_pass()
+	{
+		_fzf_complete +m -- "$@" < <(
+			local prefix
+			prefix="${PASSWORD_STORE_DIR:-$HOME/.password-store}"
+			command find -L "$prefix" \
+				-name "*.gpg" -type f |
+				sed -e "s#${prefix}/\{0,1\}##" -e 's#\.gpg##' -e 's#\\#\\\\#' | sort
+		)
+	}
+	# Completion for bldup
+	_fzf_complete_bldup()
+	{
+		_fzf_complete +m --prompt="update => " -- "$@" < <(
+			echo -fennel
+			echo -fnott
+			echo -foot
+			echo -fuzzel
+			echo -fzf
+			echo -lualsp
+			echo -nvim
+			echo -zig
+			echo -zls
+		)
+	}
 fi
 
 # [ Nnn ]
 if _is_command nnn; then
-    export NNN_OPTS='eEHr'
-    export NNN_COLORS='3415'
-    export NNN_FCOLORS='070704030f05060808010301'
-    export NNN_TRASH=1
-    export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$"
-    export NNN_SEL='/tmp/.sel'
-    export NNN_FIFO='/tmp/nnn.fifo'
+	export NNN_OPTS='eEHr'
+	export NNN_COLORS='3415'
+	export NNN_FCOLORS='070704030f05060808010301'
+	export NNN_TRASH=1
+	export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$"
+	export NNN_SEL='/tmp/.sel'
+	export NNN_FIFO='/tmp/nnn.fifo'
 
-    NNN_BMS_CONFIG='c:~/.config;n:~/.config/nvim;z:~/.config/zsh;s:~/.config/shell;r:~/.config/river'
-    NNN_BMS_LOCAL='b:~/.local/share/bld;l:~/.local;d:~/.local/share/dotfiles'
-    NNN_BMS_DEV='g:~/dev;t:/tmp'
-    NNN_BMS_MEDIA='m:~/media;i:~/media/img;e:~/media/notes'
-    NNN_BMS="$NNN_BMS_CONFIG;$NNN_BMS_LOCAL;$NNN_BMS_DEV;$NNN_BMS_MEDIA"
-    export NNN_BMS
+	NNN_BMS_CONFIG='c:~/.config;n:~/.config/nvim;z:~/.config/zsh;s:~/.config/shell;r:~/.config/river'
+	NNN_BMS_LOCAL='b:~/.local/share/bld;l:~/.local;d:~/.local/share/dotfiles'
+	NNN_BMS_DEV='g:~/dev;t:/tmp'
+	NNN_BMS_MEDIA='m:~/media;i:~/media/img;e:~/media/notes'
+	NNN_BMS="$NNN_BMS_CONFIG;$NNN_BMS_LOCAL;$NNN_BMS_DEV;$NNN_BMS_MEDIA"
+	export NNN_BMS
 
-    NNN_PLUG_EDIT='b:cleanfilename;c:cmx;e:exec'
-    NNN_PLUG_FUZZY='f:fuzzy;a:autojump;g:rg;s:fd'
-    NNN_PLUG_OPEN='n:nvr;u:suedit'
-    NNN_PLUG_GIT='l:_git log;t:_git status'
-    NNN_PLUG="$NNN_PLUG_EDIT;$NNN_PLUG_FUZZY;$NNN_PLUG_OPEN;$NNN_PLUG_GIT"
-    export NNN_PLUG
+	NNN_PLUG_EDIT='b:cleanfilename;c:cmx;e:exec'
+	NNN_PLUG_FUZZY='f:fuzzy;a:autojump;g:rg;s:fd'
+	NNN_PLUG_OPEN='n:nvr;u:suedit'
+	NNN_PLUG_GIT='l:_git log;t:_git status'
+	NNN_PLUG="$NNN_PLUG_EDIT;$NNN_PLUG_FUZZY;$NNN_PLUG_OPEN;$NNN_PLUG_GIT"
+	export NNN_PLUG
 fi
 
 # [ Osc ]
 # Configure shell to emit the OSC 7 escape sequence
 if [[ -r "${_zsh_plugins_dir}"/osc7 ]]; then
-    source "${_zsh_plugins_dir}"/osc7
-    autoload -Uz add-zsh-hook
-    add-zsh-hook -Uz chpwd osc7_cwd
+	source "${_zsh_plugins_dir}"/osc7
+	autoload -Uz add-zsh-hook
+	add-zsh-hook -Uz chpwd osc7_cwd
 fi
 
 # [ Starship ]
 if [[ -r "${_zsh_plugins_dir}"/starship.toml ]]; then
-    export STARSHIP_CONFIG="${_zsh_plugins_dir}"/starship.toml
-    eval "$(starship init zsh)"
+	export STARSHIP_CONFIG="${_zsh_plugins_dir}"/starship.toml
+	eval "$(starship init zsh)"
 fi
 
 # [ Zoxide ]
 if _is_command zoxide; then
-    export _ZO_ECHO=1
-    export _ZO_RESOLVE_SYMLINKS=1
-    eval "$(zoxide init zsh)"
+	export _ZO_ECHO=1
+	export _ZO_RESOLVE_SYMLINKS=1
+	eval "$(zoxide init zsh)"
 fi
 
 # [ Zsh-completions ]
@@ -137,4 +147,3 @@ source "${_zsh_plugins_dir}"/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 # vim: ft=zsh
-

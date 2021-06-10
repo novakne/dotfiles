@@ -3,12 +3,6 @@
 
 # xwayland disable
 
-# [ AUTOSTART ]
-# exec fnott
-# exec foot --server
-# exec persway -a -w -o 1
-
-
 # [ UI ]
 # [ Borders ]
 smart_borders on
@@ -84,7 +78,6 @@ client.focused_inactive $border $bg         $txt  $inactive  $inactive
 client.unfocused        $border $bg         $txt  $unfocused $unfocused
 client.urgent           $border $bg         $txt  $urgent    $urgent
 
-
 # [ VARIABLES ]
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -101,7 +94,6 @@ set $term footclient
 set $menu fuzzel-run | xargs swaymsg exec --
 set $menu-desktop dmenu-desktop | xargs swaymsg exec --
 
-
 # [ OUTPUT ]
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 set $wal_dir $HOME/media/img/wal
@@ -112,7 +104,6 @@ output eDP-1 {
     # bg $wal_dir/red_hood_01.jpg fill
     # bg $wal_dir/wonder_woman_04.jpg fill
 }
-
 
 # [ INPUT ]
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -131,7 +122,6 @@ input "1267:12352:ELAN0501:00_04F3:3040_Touchpad" {
     tap enabled
 }
 
-
 # [ IDLE ]
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -140,8 +130,6 @@ input "1267:12352:ELAN0501:00_04F3:3040_Touchpad" {
 #          timeout 300 'waylock' \
 #          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
 #          before-sleep 'waylock'
-
-
 
 # [ WINDOW ]
 # `swaymsg -t get_tree | grep "app_id"` or class or instance
@@ -152,7 +140,6 @@ for_window [app_id="mpv"] floating enable, resize set 1720px 880px
 for_window [app_id="imv"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [app_id="org.qbittorrent.qBittorrent"] floating enable
-
 
 # [ KEY BINDINGS ]
 # [ Apps ]
@@ -191,7 +178,6 @@ bindsym $mod+Ctrl+e exec wlogout
 bindsym $mod+Shift+e exec swaynag -t warning -m \
     'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' \
     -b 'Yes, exit sway' 'swaymsg exit'
-
 
 # [ Movements ]
 # Move your focus around
@@ -313,7 +299,6 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 # [ Screenshot ]
 bindsym Print exec snap -a
 bindsym Shift+Print exec snap -s
-
 
 # [ INCLUDE ]
 include /etc/sway/config.d/*

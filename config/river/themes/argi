@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 #
-# [ Kosmikoa theme ]
-
+# [ Argi theme ]
 
 declare light00 light01 light02 dark00 dark01 dark02
 declare red blue
@@ -18,7 +17,6 @@ dark02='#656d78'
 red='#9e2f59'
 blue='#2e3f9f'
 
-
 # [ Theme ]
 riverctl background-color "${light00}"
 riverctl border-color-focused "${red}"
@@ -26,10 +24,5 @@ riverctl border-color-unfocused "${dark00}"
 riverctl border-width 2
 riverctl xcursor-theme Adwaita
 
-# Set opacity and fade effect
-# riverctl opacity 1.0 0.75 0.0 0.1 20
-
-
 unset -v light00 light01 light02 dark00 dark01 dark02
 unset -v red blue
-

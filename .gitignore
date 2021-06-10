@@ -1,22 +1,16 @@
-# zinit
-config/zsh/plugins/zinit/completions
-config/zsh/plugins/zinit/plugins
-config/zsh/plugins/zinit/polaris
-config/zsh/plugins/zinit/service
-config/zsh/plugins/zinit/snippets
-
 # tmux
 config/tmux/plugins
 !config/tmux/plugins/tpm
 
-.zcompdump
-packer_compiled.vim
-.netrwhist
-tags
-default.target.wants
+# misc
 .lastd
+.netrwhist
+.zcompdump
+default.target.wants
+packer_compiled.vim
+tags
 
-# Some bin/appimage
+# some bin/appimage
 */bin/app/*
 */bin/chardetect
 */bin/dwl

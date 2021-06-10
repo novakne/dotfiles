@@ -1,6 +1,5 @@
 # [ STARSHIP ]
 
-
 format = "$all"
 command_timeout = 750
 
@@ -203,13 +202,4 @@ disabled = false
 [zig]
 format = "[⚡️Zig ](cyan)"
 disabled = false
-
-[custom]
-
-# [custom.tab]
-# description = "The current tab in the tab terminal multiplexer"
-# command = 'echo "$TAB"'
-# when = "tab --starship"
-# shell = ["sh"]
-# format = "[\\[ $output \\]](magenta) "
 

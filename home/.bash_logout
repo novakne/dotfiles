@@ -1,5 +1,4 @@
-# ~/.bash_logout
+# [ BASH_LOGOUT ]
 
 clear
 reset
-

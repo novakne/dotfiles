@@ -1,11 +1,9 @@
-#!/usr/bin/env sh
-
+#!/usr/bin/env bash
+#
 # Open file in a running neovim instance with neomim-remote
-#   - Dependencies: neovim, neovim-remote
-# Shell: POSIX compliant
+#
+# REQUIREMENTS: neovim, neovim-remote
 
 SERVICE='nvim'
- 
-if pgrep -f "$SERVICE" >/dev/null; then
-  nvr "$1"
-fi
+
+[[ pgrep -f "$SERVICE" >/dev/null ]] && nvr "$1"

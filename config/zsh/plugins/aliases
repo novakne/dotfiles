@@ -29,7 +29,8 @@ alias gu='git pull'
 # [ Neovim ]
 alias sedit='sudo -E nvim'
 alias enote='cd "$XDG_DATA_HOME"/notes && nvim'
-alias qnote='nvim "$XDG_DATA_HOME"/notes/quick.md'
+alias equick='nvim "$XDG_DATA_HOME"/notes/quick.md'
+alias etodo='nvim "$XDG_DATA_HOME"/notes/TODO.md'
 alias e='nvim'
 
 # [ Nnn ]
@@ -66,4 +67,3 @@ alias pastebin="curl -F'file=@-' https://0x0.st"
 alias zigbin="curl -F'file=@-' https://zigbin.io"
 
 # vim: ft=zsh
-

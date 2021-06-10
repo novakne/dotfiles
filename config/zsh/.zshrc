@@ -17,27 +17,37 @@ _zsh_share_dir="$XDG_DATA_HOME"/zsh
 _fzf_dir="$XDG_DATA_HOME"/bld/pkg/fzf
 
 # [ Helpers ]
-_is_command() { hash "$1" >/dev/null 2>&1; }
-_append_path() { PATH="${PATH:+${PATH}:}$1"; }
-_prepend_path() { PATH="$1${PATH:+:${PATH}}"; }
+_is_command()
+{
+	hash "$1" >/dev/null 2>&1
+}
+
+_append_path()
+{
+	PATH="${PATH:+${PATH}:}$1"
+}
+
+_prepend_path()
+{
+	PATH="$1${PATH:+:${PATH}}"
+}
 
 # ------------------------------------------------
 # [ Zsh options ]
 # ------------------------------------------------
-
 # [ Completions ]
-setopt ALWAYS_TO_END    # Move cursor to the end of a completed word
+setopt ALWAYS_TO_END	# Move cursor to the end of a completed word
 setopt AUTO_PARAM_SLASH # If completed parameter is a directory, add a trailing slash
 setopt COMPLETE_ALIASES
 setopt COMPLETE_IN_WORD # Complete from both ends of a word
-setopt EXTENDEDGLOB     # Enable extended globbing
+setopt EXTENDEDGLOB		# Enable extended globbing
 
 # If there are more than 5 options allow selecting from a menu
 # else don't use any menus at all
 if [[ "$NOMENU" -eq 0 ]]; then
-    zstyle ':completion:*' menu select=5
+	zstyle ':completion:*' menu select=5
 else
-    setopt NO_AUTO_MENU
+	setopt NO_AUTO_MENU
 fi
 
 # Fallback to built in ls colors
@@ -91,20 +101,20 @@ export HISTTIMEFORMAT="%F %T:  "
 
 # setopt APPEND_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST  # Expire a duplicate event first when trimming histor
-setopt HIST_FIND_NO_DUPS       # Do not display a previously found event
+setopt HIST_FIND_NO_DUPS	   # Do not display a previously found event
 setopt HIST_IGNORE_ALL_DUPS    # Delete an old recorded event if a new event is a duplicate
-setopt HIST_IGNORE_DUPS        # Do not record an event that was just recorded again
-setopt HIST_IGNORE_SPACE       # Do not record an event starting with a space
-setopt HIST_SAVE_NO_DUPS       # Do not write a duplicate event to the history file
-setopt INC_APPEND_HISTORY      # Add commands to the history immediately
-setopt SHARE_HISTORY           # Share history between all sessions
+setopt HIST_IGNORE_DUPS		   # Do not record an event that was just recorded again
+setopt HIST_IGNORE_SPACE	   # Do not record an event starting with a space
+setopt HIST_SAVE_NO_DUPS	   # Do not write a duplicate event to the history file
+setopt INC_APPEND_HISTORY	   # Add commands to the history immediately
+setopt SHARE_HISTORY		   # Share history between all sessions
 
 # [ Misc ]
-setopt AUTO_CD           # Go to folder path without using cd
-setopt AUTO_PUSHD        # Push the current directory visited on the stack
-setopt CORRECT           # Enable built-in command auto-correction
+setopt AUTO_CD			 # Go to folder path without using cd
+setopt AUTO_PUSHD		 # Push the current directory visited on the stack
+setopt CORRECT			 # Enable built-in command auto-correction
 setopt PUSHD_IGNORE_DUPS # Do not store duplicates in the stack
-setopt PUSHD_SILENT      # Do not print the directory stack after pushd or popd
+setopt PUSHD_SILENT		 # Do not print the directory stack after pushd or popd
 
 # No Beep
 setopt NO_BEEP
@@ -120,16 +130,16 @@ setopt NO_LIST_BEEP
 
 # [ Functions ]
 if [[ -d "${_zsh_share_dir}"/functions ]]; then
-    fpath+=("${_zsh_share_dir}"/functions)
+	fpath+=("${_zsh_share_dir}"/functions)
 
-    for fun in "${_zsh_share_dir}"/functions/*; do
-        autoload -Uz ${fun:t}
-    done
+	for fun in "${_zsh_share_dir}"/functions/*; do
+		autoload -Uz ${fun:t}
+	done
 fi
 
 # [ Completions ]
 [[ -d "${_zsh_share_dir}"/site-functions ]] &&
-    fpath+=("$_zsh_share_dir"/site-functions)
+	fpath+=("$_zsh_share_dir"/site-functions)
 
 # Load and initialize the completion system ignoring insecure directories with a
 # cache time of 20 hours, so it should almost always regenerate the first time a
@@ -140,11 +150,11 @@ _comp_path="${XDG_CACHE_HOME:-$HOME/.cache}"/zsh/zcompdump
 
 # #q expands globs in conditional expressions
 if [[ $_comp_path(#qNmh-20) ]]; then
-    # -C (skip function check) implies -i (skip security check).
-    compinit -C -d "$_comp_path"
+	# -C (skip function check) implies -i (skip security check).
+	compinit -C -d "$_comp_path"
 else
-    mkdir -p "$_comp_path:h"
-    compinit -i -d "$_comp_path"
+	mkdir -p "$_comp_path:h"
+	compinit -i -d "$_comp_path"
 fi
 
 unset _comp_path
@@ -152,22 +162,24 @@ unset _comp_path
 # Change terminal title
 autoload -Uz add-zsh-hook
 
-xterm_title_precmd() {
-    print -Pn -- '\e]2;%n@%m %~\a'
-    [[ "$TERM" == 'screen'* ]] &&
-        print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-}\e\\'
+xterm_title_precmd()
+{
+	print -Pn -- '\e]2;%n@%m %~\a'
+	[[ "$TERM" == 'screen'* ]] &&
+		print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-}\e\\'
 }
 
-xterm_title_preexec() {
-    print -Pn -- '\e]2;%n@%m %~ %# ' && print -n -- "${(q)1}\a"
-    [[ "$TERM" == 'screen'* ]] &&
-        { print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-} %# ' &&
-            print -n -- "${(q)1}\e\\"; }
+xterm_title_preexec()
+{
+	print -Pn -- '\e]2;%n@%m %~ %# ' && print -n -- "${(q)1}\a"
+	[[ "$TERM" == 'screen'* ]] &&
+		{ print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-} %# ' &&
+			print -n -- "${(q)1}\e\\"; }
 }
 
 if [[ "$TERM" == (alacritty*|foot*|kitty*|screen*|tmux*|xterm*) ]]; then
-    add-zsh-hook -Uz precmd xterm_title_precmd
-    add-zsh-hook -Uz preexec xterm_title_preexec
+	add-zsh-hook -Uz precmd xterm_title_precmd
+	add-zsh-hook -Uz preexec xterm_title_preexec
 fi
 
 # Unset variables

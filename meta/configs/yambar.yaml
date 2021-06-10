@@ -1,4 +1,3 @@
 # [ YAMBAR ]
-
 - link:
-    ~/.config/yambar: config/yambar
+      ~/.config/yambar: config/yambar

@@ -1,4 +1,3 @@
 # [ Alacritty ]
-
 - link:
-    ~/.config/alacritty: config/alacritty
+      ~/.config/alacritty: config/alacritty

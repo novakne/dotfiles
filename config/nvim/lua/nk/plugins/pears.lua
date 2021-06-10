@@ -12,5 +12,6 @@ if packer_plugins['pears.nvim'] and packer_plugins['pears.nvim'].loaded then
             end
         end)
     end)
+
 end
 

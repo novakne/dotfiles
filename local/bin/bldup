@@ -6,21 +6,22 @@
 # REQUIREMENTS:
 
 # Help
-_usage() {
-  cat <<-END
-  Usage: bld-update [OPTION...]
+_usage()
+{
+	cat <<-END
+		  Usage: bld-update [OPTION...]
 
-    -fennel,  Update fennel [ main ]
-    -fnott,   Update fnott [ master ]
-    -foot,    Update foot [ master ]
-    -fuzzel,  Update fuzzel [ master ]
-    -fzf,     Update fzf [ master ]
-    -lualsp,  Update lua lsp [ master ]
-    -nvim,    Update neovim [ master ]
-    -zig,     Update zig [ master ]
-    -zls,     Update zls [ master ]
+		    -fennel,  Update fennel [ main ]
+		    -fnott,   Update fnott [ master ]
+		    -foot,    Update foot [ master ]
+		    -fuzzel,  Update fuzzel [ master ]
+		    -fzf,     Update fzf [ master ]
+		    -lualsp,  Update lua lsp [ master ]
+		    -nvim,    Update neovim [ master ]
+		    -zig,     Update zig [ master ]
+		    -zls,     Update zls [ master ]
 
-END
+	END
 }
 
 declare bld_dir lib_dir
@@ -29,125 +30,133 @@ bld_dir="${XDG_DATA_HOME:-$HOME/.local/share}"/bld
 lib_dir="$HOME"/.local/lib
 
 # [ https://git.sr.ht/~technomancy/fennel ]
-_fennel() {
-  cd "${bld_dir}"/pkg/fennel || exit
+_fennel()
+{
+	cd "${bld_dir}"/pkg/fennel || exit
 
-  git pull
-  make fennel
+	git pull
+	make fennel
 }
 
 # [ https://github.com/junegunn/fzf ]
-_fzf() {
-  cd "${bld_dir}"/pkg/fzf || exit
+_fzf()
+{
+	cd "${bld_dir}"/pkg/fzf || exit
 
-  git pull
-  ./install --bin --no-update-rc
+	git pull
+	./install --bin --no-update-rc
 }
 
-_fnott() {
-  cd "${bld_dir}"/pkg/fnott || exit
-  git pull
-  
-  cd "${bld_dir}"/pkg/fnott/bld/release || exit
-  ninja
-  sudo ninja install
+_fnott()
+{
+	cd "${bld_dir}"/pkg/fnott || exit
+	git pull
+
+	cd "${bld_dir}"/pkg/fnott/bld/release || exit
+	ninja
+	sudo ninja install
 }
 
 # [ https://codeberg.org/dnkl/foot ]
-_foot() {
-  cd "${bld_dir}"/pkg/foot || exit
+_foot()
+{
+	cd "${bld_dir}"/pkg/foot || exit
 
-  [[ -d bld/release ]] && trash-put bld/release
+	[[ -d bld/release ]] && trash-put bld/release
 
-  git pull
+	git pull
 
-  mkdir -p bld/release && cd bld/release || exit
-  export CFLAGS="$CFLAGS -O3"
-  meson --buildtype=release --prefix=/usr -Db_lto=true ../..
-  meson configure -Db_pgo=generate
-  ninja
-  ninja test
+	mkdir -p bld/release && cd bld/release || exit
+	export CFLAGS="$CFLAGS -O3"
+	meson --buildtype=release --prefix=/usr -Db_lto=true ../..
+	meson configure -Db_pgo=generate
+	ninja
+	ninja test
 
-  ./footclient --version
-  foot_tmp_file=$(mktemp)
-  ./foot --config=/dev/null --term=alacritty sh -c "$HOME/.local/share/bld/pkg/foot/scripts/generate-alt-random-writes.py --scroll --scroll-region --colors-regular --colors-bright --colors-256 --colors-rgb --attr-bold --attr-italic --attr-underline --sixel ${foot_tmp_file} && cat ${foot_tmp_file}"
-  rm "${foot_tmp_file}"
-  meson configure -Db_pgo=use
-  ninja
-  ninja test
+	./footclient --version
+	foot_tmp_file=$(mktemp)
+	./foot --config=/dev/null --term=alacritty sh -c "$HOME/.local/share/bld/pkg/foot/scripts/generate-alt-random-writes.py --scroll --scroll-region --colors-regular --colors-bright --colors-256 --colors-rgb --attr-bold --attr-italic --attr-underline --sixel ${foot_tmp_file} && cat ${foot_tmp_file}"
+	rm "${foot_tmp_file}"
+	meson configure -Db_pgo=use
+	ninja
+	ninja test
 
-
-  sudo ninja install
+	sudo ninja install
 }
 
-_fuzzel() {
-  cd "${bld_dir}"/pkg/fuzzel || exit
-  git pull
-  
-  cd "${bld_dir}"/pkg/fuzzel/bld/release || exit
-  ninja
-  sudo ninja install
+_fuzzel()
+{
+	cd "${bld_dir}"/pkg/fuzzel || exit
+	git pull
+
+	cd "${bld_dir}"/pkg/fuzzel/bld/release || exit
+	ninja
+	sudo ninja install
 }
 
 # [ https://github.com/neovim/neovim ]
-_nvim() {
-  cd "${bld_dir}"/pkg/neovim || exit
+_nvim()
+{
+	cd "${bld_dir}"/pkg/neovim || exit
 
-  git pull
-  make clean
-  make distclean
-  make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=~/.local install
+	git pull
+	make clean
+	make distclean
+	make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=~/.local install
 }
 
 # [ https://github.com/sumneko/lua-language-server ]
-_lua_lsp() {
-  cd "${lib_dir}"/lsp/lua || exit
+_lua_lsp()
+{
+	cd "${lib_dir}"/lsp/lua || exit
 
-  git pull origin master
-  git submodule update --init --recursive
-  cd 3rd/luamake || exit
-  compile/install.sh
-  cd ../..
-  ./3rd/luamake/luamake rebuild
+	git pull origin master
+	git submodule update --init --recursive
+	cd 3rd/luamake || exit
+	compile/install.sh
+	cd ../..
+	./3rd/luamake/luamake rebuild
 }
 
-_zig() {
-  cd "${bld_dir}"/pkg/zig/zig-master || exit
+_zig()
+{
+	cd "${bld_dir}"/pkg/zig/zig-master || exit
 
-  [[ -d build ]] && trash-put build
-  git pull origin
-  mkdir build && cd build || exit
+	[[ -d build ]] && trash-put build
+	git pull origin
+	mkdir build && cd build || exit
 
-  cmake ..
-  make install
+	cmake ..
+	make install
 }
 
-_zls() {
-  cd "${lib_dir}"/lsp/zls || exit
-  git pull
-  zig-master build -Drelease-safe
+_zls()
+{
+	cd "${lib_dir}"/lsp/zls || exit
+	git pull
+	zig-master build -Drelease-safe
 }
 
-main() {
-  case "$1" in
-    -fennel) _fennel ;;
-    -fnott) _fnott ;;
-    -fzf) _fzf ;;
-    -foot) _foot ;;
-    -fuzzel) _fuzzel ;;
-    -nvim) _nvim ;;
-    -lualsp) _lua_lsp ;;
-    -zig) _zig ;;
-    -zls) _zls ;;
-    *)
-      _usage
-      exit 1
-    ;;
-  esac
+main()
+{
+	case "$1" in
+	-fennel) _fennel ;;
+	-fnott) _fnott ;;
+	-fzf) _fzf ;;
+	-foot) _foot ;;
+	-fuzzel) _fuzzel ;;
+	-nvim) _nvim ;;
+	-lualsp) _lua_lsp ;;
+	-zig) _zig ;;
+	-zls) _zls ;;
+	*)
+		_usage
+		exit 1
+		;;
+	esac
 
-  unset -v bld_dir lib_dir
-  unset -f _fennel _fzf _foot _nvim _lua_lsp _zig
+	unset -v bld_dir lib_dir
+	unset -f _fennel _fzf _foot _nvim _lua_lsp _zig
 }
 
 main "$@"
-

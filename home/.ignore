@@ -14,7 +14,6 @@
 .config/pulse/
 .config/spotify/
 .config/yarn/
-.config/zsh/zinit/
 plug.vim
 .netrwhist
 

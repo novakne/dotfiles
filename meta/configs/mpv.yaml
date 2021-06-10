@@ -1,4 +1,3 @@
 # [ Mpv ]
-
 - link:
-    ~/.config/mpv: config/mpv
+      ~/.config/mpv: config/mpv

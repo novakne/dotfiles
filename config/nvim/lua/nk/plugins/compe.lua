@@ -1,6 +1,5 @@
 -- [ Compe ]
 if packer_plugins['nvim-compe'] and packer_plugins['nvim-compe'].loaded then
-
     local utils = require 'nk.utils'
     local map = utils.bind
 
@@ -42,6 +41,5 @@ if packer_plugins['nvim-compe'] and packer_plugins['nvim-compe'].loaded then
     map('s', '<Tab>', 'v:lua.MUtils.tab_complete()', { expr = true })
     map('i', '<S-Tab>', 'v:lua.MUtils.s_tab_complete()', { expr = true })
     map('s', '<S-Tab>', 'v:lua.MUtils.s_tab_complete()', { expr = true })
-
 end
 

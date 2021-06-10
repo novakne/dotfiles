@@ -6,4 +6,3 @@
 # REQUIREMENTS: foot
 
 foot -c "$HOME"/.config/foot/foot-light.ini >/dev/null 2>&1
-

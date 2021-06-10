@@ -28,383 +28,636 @@ sfont: &sfont Overpass:style=Regular:pixelsize=12
 
 # [ BAR ]
 bar:
-  height: 28
-  location: top
-  spacing: 5
+    height: 28
+    location: top
+    spacing: 5
 
-  # Default
-  font: *myfont
-  foreground: *base07
-  background: *base00
-  border:
-    width: 0
+    # Default
+    font: *myfont
+    foreground: *base07
+    background: *base00
+    border:
+        width: 0
 
-  # [ LEFT ]
-  left:
-    - label:
-        content:
-          - string:
-              text: 襤
-              foreground: *cyan
-              left-margin: 5
-              on-click: /usr/bin/bash -c "wlogout"
-
-    - script:
-        path: /home/novakane/.config/yambar/modules/dwl-tags.sh
-        args: []
-        anchors:
-          - occupied: &occupied {foreground: *blue}
-          - focused: &focused {foreground: *pink}
-          - default: &default {foreground: *base07}
-        content:
-          - map:
-              margin: 4
-              tag: tag_0_occupied
-              values:
-                true:
-                  map:
-                    tag: tag_0_focused
-                    values:
-                      true: {string: {text: '{tag_0}', <<: *focused}}
-                      false: {string: {text: '{tag_0}', <<: *occupied}}
-                false:
-                  map:
-                    tag: tag_0_focused
-                    values:
-                      true: {string: {text: '{tag_0}', <<: *focused}}
-                      false: {string: {text: '{tag_0}', <<: *default}}
-          - map:
-              margin: 4
-              tag: tag_1_occupied
-              values:
-                true:
-                  map:
-                    tag: tag_1_focused
-                    values:
-                      true: {string: {text: '{tag_1}', <<: *focused}}
-                      false: {string: {text: '{tag_1}', <<: *occupied}}
-                false:
-                  map:
-                    tag: tag_1_focused
-                    values:
-                      true: {string: {text: '{tag_1}', <<: *focused}}
-                      false: {string: {text: '{tag_1}', <<: *default}}
-          - map:
-              margin: 4
-              tag: tag_2_occupied
-              values:
-                true:
-                  map:
-                    tag: tag_2_focused
-                    values:
-                      true: {string: {text: '{tag_2}', <<: *focused}}
-                      false: {string: {text: '{tag_2}', <<: *occupied}}
-                false:
-                  map:
-                    tag: tag_2_focused
-                    values:
-                      true: {string: {text: '{tag_2}', <<: *focused}}
-                      false: {string: {text: '{tag_2}', <<: *default}}
-          - map:
-              margin: 4
-              tag: tag_3_occupied
-              values:
-                true:
-                  map:
-                    tag: tag_3_focused
-                    values:
-                      true: {string: {text: '{tag_3}', <<: *focused}}
-                      false: {string: {text: '{tag_3}', <<: *occupied}}
-                false:
-                  map:
-                    tag: tag_3_focused
-                    values:
-                      true: {string: {text: '{tag_3}', <<: *focused}}
-                      false: {string: {text: '{tag_3}', <<: *default}}
-          - map:
-              margin: 4
-              tag: tag_4_occupied
-              values:
-                true:
-                  map:
-                    tag: tag_4_focused
-                    values:
-                      true: {string: {text: '{tag_4}', <<: *focused}}
-                      false: {string: {text: '{tag_4}', <<: *occupied}}
-                false:
-                  map:
-                    tag: tag_4_focused
-                    values:
-                      true: {string: {text: '{tag_4}', <<: *focused}}
-                      false: {string: {text: '{tag_4}', <<: *default}}
-          - map:
-              margin: 4
-              tag: tag_5_occupied
-              values:
-                true:
-                  map:
-                    tag: tag_5_focused
-                    values:
-                      true: {string: {text: '{tag_5}', <<: *focused}}
-                      false: {string: {text: '{tag_5}', <<: *occupied}}
-                false:
-                  map:
-                    tag: tag_5_focused
-                    values:
-                      true: {string: {text: '{tag_5}', <<: *focused}}
-                      false: {string: {text: '{tag_5}', <<: *default}}
-          - map:
-              margin: 4
-              tag: tag_6_occupied
-              values:
-                true:
-                  map:
-                    tag: tag_6_focused
-                    values:
-                      true: {string: {text: '{tag_6}', <<: *focused}}
-                      false: {string: {text: '{tag_6}', <<: *occupied}}
-                false:
-                  map:
-                    tag: tag_6_focused
-                    values:
-                      true: {string: {text: '{tag_6}', <<: *focused}}
-                      false: {string: {text: '{tag_6}', <<: *default}}
-          - map:
-              margin: 4
-              tag: tag_7_occupied
-              values:
-                true:
-                  map:
-                    tag: tag_7_focused
-                    values:
-                      true: {string: {text: '{tag_7}', <<: *focused}}
-                      false: {string: {text: '{tag_7}', <<: *occupied}}
-                false:
-                  map:
-                    tag: tag_7_focused
-                    values:
-                      true: {string: {text: '{tag_7}', <<: *focused}}
-                      false: {string: {text: '{tag_7}', <<: *default}}
-          - map:
-              margin: 4
-              tag: tag_8_occupied
-              values:
-                true:
-                  map:
-                    tag: tag_8_focused
-                    values:
-                      true: {string: {text: '{tag_8}', <<: *focused}}
-                      false: {string: {text: '{tag_8}', <<: *occupied}}
-                false:
-                  map:
-                    tag: tag_8_focused
-                    values:
-                      true: {string: {text: '{tag_8}', <<: *focused}}
-                      false: {string: {text: '{tag_8}', <<: *default}}
-          - list:
-              spacing: 4
-              items:
-                - string: {text: '{layout}'}
-                - string: {text: '{title}'}
-
-  # [ CENTER ]
-  # center:
-
-  # [ RIGHT ]
-  right:
-    - script:
-        path: /home/novakane/.config/yambar/modules/cpu.sh
-        args: [1]
-        content:
-          list:
-            spacing: 3
-            items:
-              - string:
-                  text: 
-                  font: *sfont
-              - string:
-                  text: '{cpu}'
-
-    - script:
-        path: /home/novakane/.config/yambar/modules/pacman.sh
-        args: []
-        content:
-          map:
-            tag: pkg
-            default:
-              list:
-                spacing: 3
-                items:
+    # [ LEFT ]
+    left:
+        - label:
+              content:
                   - string:
-                      text: 
-                      font: *sfont
-                  - string:
-                      text: '{pkg}'
-                      font: *myfont
-            values:
-              0:
-                string:
-                  text: no updates
-                  font: *sfont
-
-    - alsa:
-        card: hw:PCH
-        mixer: Master
-        content:
-          map:
-            tag: muted
-            values:
-              true:
-                list:
-                  spacing: 3
-                  items:
-                    - string:
-                        text: 
-                        font: *sfont
-                        foreground: *pink
-                    - string:
-                        text: '{percent}'
-                        foreground: *pink
-              false:
-                list:
-                  spacing: 3
-                  items:
-                    - ramp:
-                        tag: percent
-                        items:
-                          - string:
-                              text: 
-                              font: *sfont
-                          - string:
-                              text: 
-                              font: *sfont
-                          - string:
-                              text: 
-                              font: *sfont
-                          - string:
-                              text: 
-                              font: *sfont
-                          - string:
-                              text: 
-                              font: *sfont
-                    - string:
-                        text: '{percent}'
-                        font: *myfont
-
-    - battery:
-        name: BAT1
-        poll-interval: 30
-        content:
-          map:
-            tag: state
-            values:
-              discharging:
-                list:
-                  spacing: 3
-                  items:
-                    - ramp:
-                        tag: capacity
-                        items:
-                          - string:
-                              text: 
-                              font: *sfont
-                              foreground: *pink
-                          - string:
-                              text: 
-                              font: *sfont
-                              foreground: *pink
-                          - string:
-                              text: 
-                              font: *sfont
-                              foreground: *yellow
-                          - string:
-                              text: 
-                              font: *sfont
-                              foreground: *yellow
-                          - string:
-                              text: 
-                              font: *sfont
-                          - string:
-                              text: 
-                              font: *sfont
-                          - string:
-                              text: 
-                              font: *sfont
-                          - string:
-                              text: 
-                              font: *sfont
-                          - string:
-                              text: 
-                              font: *sfont
-                          - string:
-                              text: 
-                              font: *sfont
-                              foreground: *green
-                    - string:
-                        text: '{capacity}%'
-                        font: *myfont
-              charging:
-                list:
-                  spacing: 3
-                  items:
-                    - string:
-                        text: 
+                        text: 襤
                         foreground: *cyan
-                        font: *sfont
-                    - string:
-                        text: '{capacity}%'
-                        font: *myfont
-              full:
-                list:
-                  spacing: 3
-                  items:
-                    - string:
-                        text: 
-                        foreground: *green
-                        font: *sfont
-                    - string:
-                        text: '{capacity}%'
-                        font: *myfont
+                        left-margin: 5
+                        on-click: /usr/bin/bash -c "wlogout"
 
-    - network:
-        name: wlan0
-        content:
-          map:
-            tag: state
-            default:
-              string:
-                text: 直
-                font: *sfont
-            values:
-              down:
-                string:
-                  text: 睊
-                  font: *sfont
-              up:
-                map:
-                  tag: ipv4
-                  default:
-                    string:
-                      text: 直
-                      font: *sfont
-                  values:
-                    '':
-                      string:
-                        text: 直
-                        font: *sfont
+        - script:
+              path: /home/novakane/.config/yambar/modules/dwl-tags.sh
+              args: []
+              anchors:
+                  - occupied: &occupied { foreground: *blue }
+                  - focused: &focused { foreground: *pink }
+                  - default: &default { foreground: *base07 }
+              content:
+                  - map:
+                        margin: 4
+                        tag: tag_0_occupied
+                        values:
+                            true:
+                                map:
+                                    tag: tag_0_focused
+                                    values:
+                                        true:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_0}",
+                                                        <<: *focused,
+                                                    },
+                                            }
+                                        false:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_0}",
+                                                        <<: *occupied,
+                                                    },
+                                            }
+                            false:
+                                map:
+                                    tag: tag_0_focused
+                                    values:
+                                        true:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_0}",
+                                                        <<: *focused,
+                                                    },
+                                            }
+                                        false:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_0}",
+                                                        <<: *default,
+                                                    },
+                                            }
+                  - map:
+                        margin: 4
+                        tag: tag_1_occupied
+                        values:
+                            true:
+                                map:
+                                    tag: tag_1_focused
+                                    values:
+                                        true:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_1}",
+                                                        <<: *focused,
+                                                    },
+                                            }
+                                        false:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_1}",
+                                                        <<: *occupied,
+                                                    },
+                                            }
+                            false:
+                                map:
+                                    tag: tag_1_focused
+                                    values:
+                                        true:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_1}",
+                                                        <<: *focused,
+                                                    },
+                                            }
+                                        false:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_1}",
+                                                        <<: *default,
+                                                    },
+                                            }
+                  - map:
+                        margin: 4
+                        tag: tag_2_occupied
+                        values:
+                            true:
+                                map:
+                                    tag: tag_2_focused
+                                    values:
+                                        true:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_2}",
+                                                        <<: *focused,
+                                                    },
+                                            }
+                                        false:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_2}",
+                                                        <<: *occupied,
+                                                    },
+                                            }
+                            false:
+                                map:
+                                    tag: tag_2_focused
+                                    values:
+                                        true:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_2}",
+                                                        <<: *focused,
+                                                    },
+                                            }
+                                        false:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_2}",
+                                                        <<: *default,
+                                                    },
+                                            }
+                  - map:
+                        margin: 4
+                        tag: tag_3_occupied
+                        values:
+                            true:
+                                map:
+                                    tag: tag_3_focused
+                                    values:
+                                        true:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_3}",
+                                                        <<: *focused,
+                                                    },
+                                            }
+                                        false:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_3}",
+                                                        <<: *occupied,
+                                                    },
+                                            }
+                            false:
+                                map:
+                                    tag: tag_3_focused
+                                    values:
+                                        true:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_3}",
+                                                        <<: *focused,
+                                                    },
+                                            }
+                                        false:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_3}",
+                                                        <<: *default,
+                                                    },
+                                            }
+                  - map:
+                        margin: 4
+                        tag: tag_4_occupied
+                        values:
+                            true:
+                                map:
+                                    tag: tag_4_focused
+                                    values:
+                                        true:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_4}",
+                                                        <<: *focused,
+                                                    },
+                                            }
+                                        false:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_4}",
+                                                        <<: *occupied,
+                                                    },
+                                            }
+                            false:
+                                map:
+                                    tag: tag_4_focused
+                                    values:
+                                        true:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_4}",
+                                                        <<: *focused,
+                                                    },
+                                            }
+                                        false:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_4}",
+                                                        <<: *default,
+                                                    },
+                                            }
+                  - map:
+                        margin: 4
+                        tag: tag_5_occupied
+                        values:
+                            true:
+                                map:
+                                    tag: tag_5_focused
+                                    values:
+                                        true:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_5}",
+                                                        <<: *focused,
+                                                    },
+                                            }
+                                        false:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_5}",
+                                                        <<: *occupied,
+                                                    },
+                                            }
+                            false:
+                                map:
+                                    tag: tag_5_focused
+                                    values:
+                                        true:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_5}",
+                                                        <<: *focused,
+                                                    },
+                                            }
+                                        false:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_5}",
+                                                        <<: *default,
+                                                    },
+                                            }
+                  - map:
+                        margin: 4
+                        tag: tag_6_occupied
+                        values:
+                            true:
+                                map:
+                                    tag: tag_6_focused
+                                    values:
+                                        true:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_6}",
+                                                        <<: *focused,
+                                                    },
+                                            }
+                                        false:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_6}",
+                                                        <<: *occupied,
+                                                    },
+                                            }
+                            false:
+                                map:
+                                    tag: tag_6_focused
+                                    values:
+                                        true:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_6}",
+                                                        <<: *focused,
+                                                    },
+                                            }
+                                        false:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_6}",
+                                                        <<: *default,
+                                                    },
+                                            }
+                  - map:
+                        margin: 4
+                        tag: tag_7_occupied
+                        values:
+                            true:
+                                map:
+                                    tag: tag_7_focused
+                                    values:
+                                        true:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_7}",
+                                                        <<: *focused,
+                                                    },
+                                            }
+                                        false:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_7}",
+                                                        <<: *occupied,
+                                                    },
+                                            }
+                            false:
+                                map:
+                                    tag: tag_7_focused
+                                    values:
+                                        true:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_7}",
+                                                        <<: *focused,
+                                                    },
+                                            }
+                                        false:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_7}",
+                                                        <<: *default,
+                                                    },
+                                            }
+                  - map:
+                        margin: 4
+                        tag: tag_8_occupied
+                        values:
+                            true:
+                                map:
+                                    tag: tag_8_focused
+                                    values:
+                                        true:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_8}",
+                                                        <<: *focused,
+                                                    },
+                                            }
+                                        false:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_8}",
+                                                        <<: *occupied,
+                                                    },
+                                            }
+                            false:
+                                map:
+                                    tag: tag_8_focused
+                                    values:
+                                        true:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_8}",
+                                                        <<: *focused,
+                                                    },
+                                            }
+                                        false:
+                                            {
+                                                string:
+                                                    {
+                                                        text: "{tag_8}",
+                                                        <<: *default,
+                                                    },
+                                            }
+                  - list:
+                        spacing: 4
+                        items:
+                            - string: { text: "{layout}" }
+                            - string: { text: "{title}" }
 
-    - clock:
-        time-format: '%H:%M'
-        date-format: '%a %d/%m'
-        content:
-          list:
-            spacing: 5
-            right-margin: 5
-            items:
-              - string:
-                  text: '{date}'
-                  font: *sfont
-              - string:
-                  text: ' {time} '
-                  foreground: *magenta
-                  deco: {underline: {size: 2, color: *magenta}}
+    # [ CENTER ]
+    # center:
+
+    # [ RIGHT ]
+    right:
+        - script:
+              path: /home/novakane/.config/yambar/modules/cpu.sh
+              args: [1]
+              content:
+                  list:
+                      spacing: 3
+                      items:
+                          - string:
+                                text: 
+                                font: *sfont
+                          - string:
+                                text: "{cpu}"
+
+        - script:
+              path: /home/novakane/.config/yambar/modules/pacman.sh
+              args: []
+              content:
+                  map:
+                      tag: pkg
+                      default:
+                          list:
+                              spacing: 3
+                              items:
+                                  - string:
+                                        text: 
+                                        font: *sfont
+                                  - string:
+                                        text: "{pkg}"
+                                        font: *myfont
+                      values:
+                          0:
+                              string:
+                                  text: no updates
+                                  font: *sfont
+
+        - alsa:
+              card: hw:PCH
+              mixer: Master
+              content:
+                  map:
+                      tag: muted
+                      values:
+                          true:
+                              list:
+                                  spacing: 3
+                                  items:
+                                      - string:
+                                            text: 
+                                            font: *sfont
+                                            foreground: *pink
+                                      - string:
+                                            text: "{percent}"
+                                            foreground: *pink
+                          false:
+                              list:
+                                  spacing: 3
+                                  items:
+                                      - ramp:
+                                            tag: percent
+                                            items:
+                                                - string:
+                                                      text: 
+                                                      font: *sfont
+                                                - string:
+                                                      text: 
+                                                      font: *sfont
+                                                - string:
+                                                      text: 
+                                                      font: *sfont
+                                                - string:
+                                                      text: 
+                                                      font: *sfont
+                                                - string:
+                                                      text: 
+                                                      font: *sfont
+                                      - string:
+                                            text: "{percent}"
+                                            font: *myfont
+
+        - battery:
+              name: BAT1
+              poll-interval: 30
+              content:
+                  map:
+                      tag: state
+                      values:
+                          discharging:
+                              list:
+                                  spacing: 3
+                                  items:
+                                      - ramp:
+                                            tag: capacity
+                                            items:
+                                                - string:
+                                                      text: 
+                                                      font: *sfont
+                                                      foreground: *pink
+                                                - string:
+                                                      text: 
+                                                      font: *sfont
+                                                      foreground: *pink
+                                                - string:
+                                                      text: 
+                                                      font: *sfont
+                                                      foreground: *yellow
+                                                - string:
+                                                      text: 
+                                                      font: *sfont
+                                                      foreground: *yellow
+                                                - string:
+                                                      text: 
+                                                      font: *sfont
+                                                - string:
+                                                      text: 
+                                                      font: *sfont
+                                                - string:
+                                                      text: 
+                                                      font: *sfont
+                                                - string:
+                                                      text: 
+                                                      font: *sfont
+                                                - string:
+                                                      text: 
+                                                      font: *sfont
+                                                - string:
+                                                      text: 
+                                                      font: *sfont
+                                                      foreground: *green
+                                      - string:
+                                            text: "{capacity}%"
+                                            font: *myfont
+                          charging:
+                              list:
+                                  spacing: 3
+                                  items:
+                                      - string:
+                                            text: 
+                                            foreground: *cyan
+                                            font: *sfont
+                                      - string:
+                                            text: "{capacity}%"
+                                            font: *myfont
+                          full:
+                              list:
+                                  spacing: 3
+                                  items:
+                                      - string:
+                                            text: 
+                                            foreground: *green
+                                            font: *sfont
+                                      - string:
+                                            text: "{capacity}%"
+                                            font: *myfont
+
+        - network:
+              name: wlan0
+              content:
+                  map:
+                      tag: state
+                      default:
+                          string:
+                              text: 直
+                              font: *sfont
+                      values:
+                          down:
+                              string:
+                                  text: 睊
+                                  font: *sfont
+                          up:
+                              map:
+                                  tag: ipv4
+                                  default:
+                                      string:
+                                          text: 直
+                                          font: *sfont
+                                  values:
+                                      "":
+                                          string:
+                                              text: 直
+                                              font: *sfont
+
+        - clock:
+              time-format: "%H:%M"
+              date-format: "%a %d/%m"
+              content:
+                  list:
+                      spacing: 5
+                      right-margin: 5
+                      items:
+                          - string:
+                                text: "{date}"
+                                font: *sfont
+                          - string:
+                                text: " {time} "
+                                foreground: *magenta
+                                deco:
+                                    { underline: { size: 2, color: *magenta } }

@@ -8,13 +8,12 @@ setopt extendedglob
 local file
 local line
 
-read -r file line <<<"$(rg --no-heading --line-number 2> /dev/null "$@" | fzf -0 -1 | awk -F: '{print $1, $2}')"
+read -r file line <<<"$(rg --no-heading --line-number "$@" 2>/dev/null | fzf -0 -1 | awk -F: '{print $1, $2}')"
 
-if (( $+commands[nv] )); then
-    [[ -n "$file" ]] && nv "$file" +"$line"
+if (($ + commands[nv])); then
+	[[ -n "$file" ]] && nv "$file" +"$line"
 else
-    [[ -n "$file" ]] && ${EDITOR:-nvim} "$file" +"$line"
+	[[ -n "$file" ]] && ${EDITOR:-nvim} "$file" +"$line"
 fi
 
 # vim: ft=zsh
-

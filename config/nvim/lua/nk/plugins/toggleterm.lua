@@ -1,11 +1,10 @@
 -- [ Toggleterm ]
 if packer_plugins['nvim-toggleterm.lua'] then
-
     local tt = require 'toggleterm'
 
     tt.setup {
         -- size can be a number or function which is passed the current terminal
-        size = function(term)
+        size = function( term )
             if term.direction == 'horizontal' then
                 return 15
             elseif term.direction == 'vertical' then
@@ -23,6 +22,5 @@ if packer_plugins['nvim-toggleterm.lua'] then
         close_on_exit = true, -- close the terminal window when the process exits
         direction = 'vertical',
     }
-
 end
 

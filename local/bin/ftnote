@@ -5,19 +5,19 @@
 # USAGE: ftnote
 # REQUIREMENTS ripgrep fzf nvim
 
-ftnote() {
-  local file line notes_dir
-  local -a rg_opts
+ftnote()
+{
+	local file line notes_dir
+	local -a rg_opts
 
-  notes_dir="$HOME"/media/notes
-  rg_opts=( --color=always --no-heading --line-number --smart-case --only-matching )
+	notes_dir="$HOME"/media/notes
+	rg_opts=(--color=always --no-heading --line-number --smart-case --only-matching)
 
-  read -r file line <<<"$(rg "${rg_opts[@]}" -- '\B@\S+' "${notes_dir}"  2>/dev/null \
-    | fzf -0 -1 --query="$1" \
-    | awk -F: '{print $1, $2}')"
+	read -r file line <<<"$(rg "${rg_opts[@]}" -- '\B@\S+' "${notes_dir}" 2>/dev/null |
+		fzf -0 -1 --query="$1" |
+		awk -F: '{print $1, $2}')"
 
-  [[ -n "${file}" ]] && "${EDITOR:-nvim}" "${file}" +"${line}"
+	[[ -n "${file}" ]] && "${EDITOR:-nvim}" "${file}" +"${line}"
 }
 
 ftnote "$@"
-

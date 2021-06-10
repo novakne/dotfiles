@@ -12,6 +12,9 @@ vim.cmd [[command! Cdw :lcd %:p:h]]
 -- Fix Treesitter
 vim.cmd [[command! FixTs write | edit | TSBufEnable highlight]]
 
+-- Remove consecutive empty lines
+vim.cmd [[command! Dline :%s/\n\{3,}/\r\r/e]]
+
 -- [ Grep ]
 -- '[ word ]'
 vim.cmd [[command! Gpart :grep '\[{1}\s+\w.*\s+\]{1}$' %]]

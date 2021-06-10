@@ -5,7 +5,6 @@
 emulate -L zsh
 setopt extendedglob
 
-zn() { z "$1" && "${EDITOR:-nvim}"; }
+z "$1" && "${EDITOR:-nvim}"
 
 # vim: ft=zsh
-

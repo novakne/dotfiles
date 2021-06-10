@@ -5,12 +5,13 @@
 # USAGE: fmenu
 # REQUIREMENTS: fzf bin-list
 
-fmenu() {
-  local app
-  app=$(bin-list | fzf)
+fmenu()
+{
+	local app
+	app=$(bin-list | fzf)
 
-  "${app}" >/dev/null 2>&1 & disown
+	"${app}" >/dev/null 2>&1 &
+	disown
 }
 
 fmenu "$@"
-

@@ -5,19 +5,20 @@
 # USAGE: new-mail
 # REQUIREMENTS: isync notmuch
 
-_print() {
-  printf -- '\e[31m%s\n\e[0m' "==> $*..." 
+_print()
+{
+	printf -- '\e[31m%s\n\e[0m' "==> $*..."
 }
 
-new-mail() {
-  _print 'Sync mail'
-  mbsync -c "$HOME"/.config/isync/mbsyncrc -Va
+new-mail()
+{
+	_print 'Sync mail'
+	mbsync -c "$HOME"/.config/isync/mbsyncrc -Va
 
-  _print 'Tagging new mail'
-  notmuch new
+	_print 'Tagging new mail'
+	notmuch new
 
-  unset -f _print
+	unset -f _print
 }
 
 new-mail "$@"
-

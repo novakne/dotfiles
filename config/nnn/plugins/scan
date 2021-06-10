@@ -1,14 +1,16 @@
-#!/usr/bin/env sh
-
+#!/usr/bin/env bash
+#
 # Scan file with ClamAV
+#
+# REQUIREMENTS: clamav
 
-scan () {
-  if command -v clamscan >/dev/null 2>&1; then
-    if [ -d "$1" ]; then
-      clamscan --recursive "$1"
-    else
-      clamscan "$1"
-    fi
-  fi
+scan()
+{
+	if command -v clamscan >/dev/null 2>&1; then
+		if [ -d "$1" ]; then
+			clamscan --recursive "$1"
+		else
+			clamscan "$1"
+		fi
+	fi
 }
-

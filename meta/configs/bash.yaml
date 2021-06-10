@@ -1,9 +1,5 @@
 # [ Bash ]
-
 - link:
-    ~/.bash_logout: home/.bash_logout
-    ~/.bash_profile: home/.bash_profile
-    ~/.bashrc: home/.bashrc
-
-# - create:
-#     - ~/.cache/bash
+      ~/.bash_logout: home/.bash_logout
+      ~/.bash_profile: home/.bash_profile
+      ~/.bashrc: home/.bashrc

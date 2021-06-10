@@ -36,7 +36,6 @@
     branch = false
 [delta]
     commit-decoration-style = blue ol
-    ; commit-style = raw
     file-style = omit
     hunk-header-decoration-style = blue ol ul
     hunk-header-file-style = red
@@ -68,3 +67,5 @@
 	prune = true
 [submodule]
     recurse = true
+
+# vim: ft=cfg

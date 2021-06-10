@@ -37,6 +37,5 @@ if packer_plugins['lspsaga.nvim'] and packer_plugins['lspsaga.nvim'].loaded then
         border_style = 'single',
         rename_prompt_prefix = '➤',
     }
-
 end
 

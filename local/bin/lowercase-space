@@ -6,19 +6,19 @@
 #
 # USAGE: lowercase-space <file>
 
-
-_lower() {
-    printf -- '%s\n' "${1,,}"
+_lower()
+{
+	printf -- '%s\n' "${1,,}"
 }
 
-main() {
-  mv "$1" "$(printf -- '%s' "$1" \
-    | _lower "$1" \
-    | tr '_-' ' ' \
-    | tr -s ' ')"
+main()
+{
+	mv "$1" "$(printf -- '%s' "$1" |
+		_lower "$1" |
+		tr '_-' ' ' |
+		tr -s ' ')"
 
-  unset -f _lower
+	unset -f _lower
 }
 
 main "$@"
-

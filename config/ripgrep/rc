@@ -1,5 +1,5 @@
 # [ RIPGREP ]
-#
+
 # Don't let ripgrep vomit really long lines to my terminal.
 --max-columns=150
 --max-columns-preview
@@ -8,14 +8,14 @@
 --glob
 !git/*
 
+--smart-case
+
 # Theme
---colors=line:fg:yellow
---colors=line:style:nobold
---colors=path:fg:blue
+--colors=line:fg:white
+--colors=line:style:bold
+--colors=path:fg:green
 --colors=path:style:underline
 --colors=match:fg:red
 --colors=match:style:bold
 
---smart-case
-
-# vim: ft=cfg
+# vim: ft=sh

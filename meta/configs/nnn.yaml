@@ -1,4 +1,3 @@
 # [ Nnn ]
-
 - link:
-    ~/.config/nnn: config/nnn
+      ~/.config/nnn: config/nnn

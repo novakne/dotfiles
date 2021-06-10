@@ -1,6 +1,5 @@
 -- [ Vim-Grepper ]
 if packer_plugins['vim-grepper'] and packer_plugins['vim-grepper'].loaded then
-
     local map = require'nk.utils'.bind
 
     vim.g.grepper = {
@@ -24,6 +23,5 @@ if packer_plugins['vim-grepper'] and packer_plugins['vim-grepper'].loaded then
     map('n', '<Leader>sb', '<CMD>Grepper -buffers<CR>')
     map('n', '<Leader>sB', '<CMD>Grepper -buffer<CR>')
     map('n', '<Leader>sw', '<CMD>Grepper -cword<CR>')
-
 end
 

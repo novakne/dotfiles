@@ -5,29 +5,30 @@
 # USAGE: script-template <name>
 # REQUIREMENTS:
 
-_message() {
-  cat <<-END
-#!/usr/bin/env bash
-#
-# <description>
-#
-# USAGE:
-# REQUIREMENTS:
+_message()
+{
+	cat <<-END
+		#!/usr/bin/env bash
+		#
+		# <description>
+		#
+		# USAGE:
+		# REQUIREMENTS:
 
 
-$1() {}
+		$1() {}
 
-$1 "\$@"
+		$1 "\$@"
 
-END
+	END
 }
 
-script-template() {
-  local template
-  
-  template="$(_message "$1")"
-  printf -- '%s\n' "${template}" > "$1"
+script-template()
+{
+	local template
+
+	template="$(_message "$1")"
+	printf -- '%s\n' "${template}" >"$1"
 }
 
 script-template "$@"
-

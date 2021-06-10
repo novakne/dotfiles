@@ -1,16 +1,12 @@
 - defaults:
-    link:
-        relink: true
-    create: true
+      link:
+          relink: true
+      create: true
 
 - clean:
-    '~':
-        force: true
-    '~/.config':
-        recursive: true
-    '~/.local':
-        recursive: true
-
-# - shell:
-#     - [git submodule update --init --remote, Installing submodules]
-
+      "~":
+          force: true
+      "~/.config":
+          recursive: true
+      "~/.local":
+          recursive: true

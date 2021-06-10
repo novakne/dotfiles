@@ -1,11 +1,15 @@
+# [ IMV ]
+
 [options]
-background = 202325
+background = f9f9fa
 width = 1720
 height = 880
 overlay_font = Overpass:14
-overlay_text_color = f9f9fa
+overlay_text_color = 202325
 overlay_text_alpha = e6
-overlay_background_color = 3a4043
+overlay_background_color = dce1e4
 overlay_background_alpha = 73
 overlay_position_bottom = true
 scaling_mode = full
+
+# vim: ft=cfg

@@ -1,4 +1,3 @@
 # [ LuaFormatter ]
-
 - link:
-    ~/.config/luaformatter: config/luaformatter
+      ~/.config/luaformatter: config/luaformatter

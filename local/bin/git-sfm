@@ -6,35 +6,36 @@
 # REQUIREMENTS: git
 
 # Help
-_usage() {
-  cat <<-END
-  Usage: git-sfm [OPTION...]
+_usage()
+{
+	cat <<-END
+		  Usage: git-sfm [OPTION...]
 
-    -master    Update master branch
-    -main      Update main branch
-END
+		    -master    Update master branch
+		    -main      Update main branch
+	END
 }
 
-git-sfm() {
-  case "$1" in
-    -master)
-      git switch master
-      git fetch upstream master
-      git merge --commit upstream/master
-    ;;
-    -main)
-      git switch main
-      git fetch upstream main
-      git merge --commit upstream/main
-    ;;
-    *)
-      _usage
-      exit 1
-    ;;
-  esac
+git-sfm()
+{
+	case "$1" in
+	-master)
+		git switch master
+		git fetch upstream master
+		git merge --commit upstream/master
+		;;
+	-main)
+		git switch main
+		git fetch upstream main
+		git merge --commit upstream/main
+		;;
+	*)
+		_usage
+		exit 1
+		;;
+	esac
 
-  unset -f _usage
+	unset -f _usage
 }
 
 git-sfm "$@"
-

@@ -1,4 +1,3 @@
 # [ Nimble ]
-
 - link:
-    ~/.config/nimble: config/nimble
+      ~/.config/nimble: config/nimble
