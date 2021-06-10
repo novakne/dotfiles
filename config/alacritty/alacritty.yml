@@ -1,11 +1,7 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator.
+# [ ALACRITTY ]
 
 # [ Window ]
 window:
-  # Window padding (changes require restart)
-  #
-  # Blank space added around the window in pixels. This padding is scaled
-  # by DPI and the specified value is always added at both opposing sides.
   padding:
    x: 5
    y: 5
@@ -41,11 +37,10 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 # draw_bold_text_with_bright_colors: false
 
-
 # [ Colors ]
 import:
-  - ~/.config/alacritty/themes/kosmikoa.yml
-
+  - ~/.config/alacritty/themes/argi.yml
+  # - ~/.config/alacritty/themes/kosmikoa.yml
 
 # [ Mouse ]
 mouse:

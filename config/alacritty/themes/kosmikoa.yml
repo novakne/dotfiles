@@ -10,7 +10,7 @@ colors:
     text: CellBackground
     cursor: CellForeground
 
-    # Normal colors
+  # Normal colors
   normal:
     black:   '0x474557'
     red:     '0xfc65b0'
@@ -21,7 +21,7 @@ colors:
     cyan:    '0x00cfd0'
     white:   '0xeae9ee'
 
-    # Bright colors
+  # Bright colors
   bright:
     black:   '0x59566d'
     red:     '0xfc65b0'
