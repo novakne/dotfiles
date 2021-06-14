@@ -1,6 +1,5 @@
 -- [ Lsp ]
 if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded then
-
     local lspconfig = require 'lspconfig'
     local configs = require 'lspconfig/configs'
     local utils = require 'nk.utils'
@@ -36,7 +35,7 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
         vim.lsp.diagnostic.set_loclist({ open_loclist = false })
 
         -- ---------------------------------------------
-        -- Mappings
+        -- MAPPINGS
         -- ---------------------------------------------
         -- Lspsaga.nvim
         bmap('n', '<Leader>lk',
@@ -51,8 +50,6 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
             [[<CMD>lua require'lspsaga.signaturehelp'.signature_help()<CR>]])
         bmap('n', '<Leader>lt',
             [[<CMD>lua require'lspsaga.provider'.preview_definition()<CR>]])
-        bmap('n', '<Leader>ll',
-            [[<CMD>lua require'lspsaga.rename'.rename()<CR>]])
         bmap('n', '<Leader>le',
             [[<CMD>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>]])
         bmap('n', '<Leader>lp',
@@ -60,19 +57,21 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
         bmap('n', '<Leader>ln',
             [[<CMD>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>]])
 
-        -- Builtin
-        bmap('n', '<Leader>ld', '<CMD>lua vim.lsp.buf.declaration()<CR>')
-        bmap('n', '<Leader>li', '<CMD>lua vim.lsp.buf.implementation()<CR>')
-        bmap('n', '<Leader>lr', '<CMD>lua vim.lsp.buf.references()<CR>')
-        bmap('n', '<Leader>ls', '<CMD>lua vim.lsp.buf.document_symbol()<CR>')
-        bmap('n', '<Leader>lq', '<CMD>lua vim.lsp.diagnostic.set_loclist()<CR>')
-
         -- Set some keybinds conditional on server capabilities
         if client.resolved_capabilities.document_formatting then
             bmap('n', '<Leader>lf', '<CMD>lua vim.lsp.buf.formatting()<CR>')
         elseif client.resolved_capabilities.document_range_formatting then
             bmap('n', '<Leader>lf', '<CMD>lua vim.lsp.buf.formatting()<CR>')
         end
+
+        -- ---------------------------------------------
+        -- COMMANDS
+        -- ---------------------------------------------
+        -- vim.cmd [[commands! LDecl :lua vim.lsp.buf.declaration()<CR>')]]
+        -- vim.cmd [[commands! LImpl :lua vim.lsp.buf.implementation()<CR>']]
+        -- vim.cmd [[commands! LRef :lua vim.lsp.buf.references()<CR>']]
+        -- vim.cmd [[commands! LDoc :lua vim.lsp.buf.document_symbol()<CR>']]
+        -- vim.cmd [[commands! LLoc :lua vim.lsp.diagnostic.set_loclist()<CR>']]
 
         vim.fn.sign_define('LspDiagnosticsSignError',
             { text = '', texthl = 'LspDiagnosticsSignError' })
