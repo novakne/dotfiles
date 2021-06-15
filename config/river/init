@@ -139,26 +139,37 @@ riverctl map normal $mod M set-layout-value rivercarro string main_location mono
 # Workaround for azerty keyboard
 declare -a azerty tags
 azerty=(ampersand eacute quotedbl apostrophe parenleft minus egrave underscore ccedilla)
-tags=(1 2 4 8 16 32 64 128 256)
 
 for i in {0..8}; do
-	riverctl map normal $mod "${azerty[i]}" set-focused-tags "${tags[i]}"
-	riverctl map normal $mod+Shift "${azerty[i]}" set-view-tags "${tags[i]}"
-	riverctl map normal $mod+Control "${azerty[i]}" toggle-focused-tags "${tags[i]}"
-	riverctl map normal $mod+Shift+Control "${azerty[i]}" toggle-view-tags "${tags[i]}"
+    tags=$((1 << ($i)))
+	riverctl map normal $mod "${azerty[i]}" set-focused-tags "${tags}"
+	riverctl map normal $mod+Shift "${azerty[i]}" set-view-tags "${tags}"
+	riverctl map normal $mod+Control "${azerty[i]}" toggle-focused-tags "${tags}"
+	riverctl map normal $mod+Shift+Control "${azerty[i]}" toggle-view-tags "${tags}"
 done
 
 unset -v azerty tags
-
-# Use a tag as a scratchpad
-riverctl map normal $mod S set-focused-tags 512
-riverctl map normal $mod+Shift S set-view-tags 512
-riverctl map normal $mod+Control S toggle-focused-tags 512
 
 # Mod+0 to focus all tags
 tags1to9=$(((1 << 9) - 1))
 riverctl map normal $mod agrave set-focused-tags $tags1to9
 riverctl map normal $mod+Shift agrave set-view-tags $tags1to9
+
+# [ Scratchpad ]
+# The scratchpad will live on an unused tag. Which tags are used depends on your
+# config, but rivers default uses the first 9 tags.
+scratch_tag=$((1 << 20 ))
+
+# Toggle the scratchpad with Super+P
+riverctl map normal $mod S toggle-focused-tags ${scratch_tag}
+
+# Send windows to the scratchpad with Super+Shift+P
+riverctl map normal $mod+Shift S set-view-tags ${scratch_tag}
+
+# Set spawn tagmask to ensure new windows don't have the scratchpad tag unless
+# explicitly set.
+all_but_scratch_tag=$(( ((1 << 32) - 1) ^ $scratch_tag ))
+riverctl spawn-tagmask ${all_but_scratch_tag}
 
 # [ Passthrough ]
 # Declare a passthrough mode. This mode has only a single mapping to return to
