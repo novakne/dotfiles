@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+# Switch/fetch/merge the main/master upstream branch
+#
+# USAGE: git sfr <branch>
+# REQUIREMENTS: git
+
+# Error message in STDERR
+_err()
+{
+	printf -- '%s\n' "[$(date +'%Y-%m-%d %H:%M:%S')]: $*" >&2
+    exit 1
+}
+
+git-sfm()
+{
+	[[ "$#" -ne 1 ]] && _err "One argument required"
+
+	git switch "$1"
+	git fetch -p upstream
+	git rebase upstream/"$1"
+
+	unset -f _err
+}
+
+git-sfm "$@"

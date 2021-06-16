@@ -34,7 +34,10 @@ _Dotfiles managed with [dotbot](https://github.com/anishathalye/dotbot)_
 
 ## Shell
 
--   prompt: [Starship](https://github.com/starship/starship)
+I use **zsh** as a login/interactive shell and **bash** for scripting. A `README` is available on the `$HOME/.local/bin` directory to explain each
+script I use. The prompt is [Starship](https://github.com/starship/starship)
+
+Below is the folders structure of my **zsh** setup
 
 _$HOME/_
 
@@ -68,7 +71,7 @@ _$HOME/.local/share/zsh/_
     -   `mcd` - mkdir and cd to new dir
     -   `n` - cd on quit - `nnn`
     -   `nl` - Open file at given line in _nvim_
-    -   `rgv` - Search with _ripgrep_ and open in _nvim_ quicklist
+    -   `rgv` - Search with _ripgrep_ and open in _nvim_ quicfix
     -   `up` - Go up N dir `(e.g. up 2)`
     -   `zn` - Jump to a directory with _zoxide_ and open it in _neovim_
 -   site-functions/ - User auto completions for some cli tools

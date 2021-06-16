@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+#
+# Display some system informations
+#
+# USAGE: sysinfo
+# REQUIREMENTS:
 
 sysinfo()
 {

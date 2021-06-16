@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 #
 # Replace:
-#   uppercase with lowercase
-#   '_' and'-' with 'space'
+#     uppercase with lowercase
+#     '_' and'-' with 'space'
 #
 # USAGE: lowercase-space <file>
+# REQUIREMENTS:
 
 _lower()
 {

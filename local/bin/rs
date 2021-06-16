@@ -3,6 +3,7 @@
 # Manage runnit services
 #
 # USAGE: rs <option> <service>
+# REQUIREMENTS: runnit
 
 declare id
 id=$(id -u)

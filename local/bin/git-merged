@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
+#
+# Display latest commits in every branch and git status for current branch
+#
+# USAGE: git merged
+# REQUIREMENTS: git
 
-printf -- '%s\n'
+clear
 printf -- '%s\n' "[ Latest commit date for each branch ]"
 printf -- '%s\n'
 
@@ -17,3 +22,7 @@ for branch in $(git branch -r --no-merged |
 	grep -v HEAD); do echo -e $(git show --format="%ci %cr %an" $branch |
 		head -n 1) \\t$branch; done |
 	sort -r
+
+printf -- '%s\n'
+printf -- '%s\n' "[ Status ]"
+git status -sb

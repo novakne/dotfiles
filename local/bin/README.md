@@ -1,6 +1,6 @@
 # Scripts
 
-Format: `shfmt -fn -w <script>`
+Format with: `shfmt -fn -w <script>`
 
 -   `bin-list` - Get a list of executable in _~/.local/bin_
 -   `bldup` - Update differents repos
@@ -17,8 +17,8 @@ Format: `shfmt -fn -w <script>`
 -   `ftnote` - Search for `@tag` in markdown files
 -   `fuzzel-run` - Launch **fuzzel** with default args
 -   `fvpn` - Fuzzy find config for **wireguard**
--   `git-merged` - Print latest commits for each branch
--   `git-sfm` - Git switch/fetch/merge upstream
+-   `git-merged` - Print latest commits for each branch and status of current branch
+-   `git-sfm` - Git switch/fetch/rebase upstream
 -   `logwrite` - Write STDERR to file
 -   `lowercase-space` - Change to lowercase and add space
 -   `mdpdf` - Convert markdown to pdf with [Pandoc](https://github.com/jgm/pandoc)
