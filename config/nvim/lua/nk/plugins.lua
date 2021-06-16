@@ -107,6 +107,12 @@ return require'packer'.startup(function()
         end,
     }
 
+    -- use {
+    --     'stevearc/qf_helper.nvim',
+    --     config = function()
+    --         require'nk.plugins.qfhelper'
+    --     end,
+    -- }
     use 'kevinhwang91/nvim-bqf'
 
     -- ---------------------------------------------

@@ -1,3 +1,3 @@
-vim.o.textwidth = 80
-vim.o.tabstop = 8
-vim.o.shiftwidth = 8
+vim.bo.textwidth = 80
+vim.bo.tabstop = 8
+vim.bo.shiftwidth = 8

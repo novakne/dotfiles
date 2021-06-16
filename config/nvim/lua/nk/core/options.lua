@@ -13,17 +13,17 @@ vim.o.equalalways = false
 vim.o.clipboard = 'unnamedplus' -- Use the clipboard for all operations
 vim.o.inccommand = 'nosplit' -- Show preview of substitute command
 vim.o.mouse = 'a' -- Enable mouse
-vim.o.shortmess = 'filnxtToOFc' -- Don't give |ins-completion-menu| messages.
+vim.opt.shortmess:append('c') -- Don't give |ins-completion-menu| messages.
 vim.o.pyxversion = 3 -- Use python 3
 vim.o.selection = 'exclusive' -- Dont select newline in visual mode ( v$ )
 vim.o.lazyredraw = true -- Do not redraw screen in the middle of a macro
 vim.o.swapfile = false -- No swap file
 vim.o.updatetime = 100 -- Smaller updatetime for CursorHold & CursorHoldI
--- vim.o.modelines = 1
+vim.o.modelines = 2
 
 -- [ Completion ] ( :help 'complete' )
 vim.o.wildignorecase = true -- Ignore case when completing file and directory
-vim.o.completeopt = 'menuone,noselect,noinsert' -- options for Insert mode completion ins-completion
+vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'} -- options for Insert mode completion ins-completion
 vim.o.pumheight = 10 -- Maximum number of items to show in the popup menu
 
 -- [ Search ]
