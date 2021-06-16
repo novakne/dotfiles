@@ -5,7 +5,8 @@
 # ------------------------------------------------
 # [ SERVICES ]
 # ------------------------------------------------
-# Use differents svdir for every instance of river
+# Use different $svdir for every instance of river
+# Debugging purpose, using river inside river
 declare id
 id=$(id -u)
 svdir=/tmp/"${id}"-sv-"$WAYLAND_DISPLAY"
@@ -13,11 +14,13 @@ svdir=/tmp/"${id}"-sv-"$WAYLAND_DISPLAY"
 pgrep -f "^runsvdir ${svdir}" &&
 	exec echo "runsvdir already running for wayland session"
 
-cp -rLpT "${SVDIR}"/current "${svdir}"
+cp -rLpT "$SVDIR"/current "${svdir}"
 
 # ------------------------------------------------
 # [ THEME ]
 # ------------------------------------------------
+declare themes_dir theme
+
 themes_dir="$XDG_CONFIG_HOME"/river/themes
 
 if [[ "$USER_THEME" == argi ]]; then
@@ -26,8 +29,11 @@ if [[ "$USER_THEME" == argi ]]; then
 elif [[ "$USER_THEME" == kosmikoa ]]; then
 	theme=kosmikoa
 fi
+
 source "${themes_dir}"/"${theme}"
 riverctl spawn 'rivertag >/dev/null 2>&1'
+
+unset -v themes_dir
 
 # ------------------------------------------------
 # [ Options ]
@@ -54,121 +60,122 @@ term=footclient
 browser=firefox
 
 # Mod+E to exit river
-riverctl map normal $mod+Shift E exit
+riverctl map normal ${mod}+Shift E exit
 
 # [ App ]
-riverctl map normal $mod Return spawn $term
-riverctl map normal Control+Shift Return spawn $term
-riverctl map normal $mod D spawn fuzzel-run
-riverctl map normal $mod O spawn footclient --app-id 'float' fmenu
-riverctl map normal $mod P spawn footclient --app-id 'float' fpass
-riverctl map normal $mod B spawn $browser >/dev/null 2>&1
-riverctl map normal $mod T spawn foot-float
-riverctl map normal $mod N spawn footclient --app-id 'float' nnn-float
-riverctl map normal $mod E spawn footclient "$EDITOR"
-riverctl map normal $mod W spawn sysinfo
+riverctl map normal ${mod} Return spawn ${term}
+riverctl map normal Control+Shift Return spawn ${term}
+riverctl map normal ${mod} D spawn fuzzel-run
+riverctl map normal ${mod} O spawn footclient --app-id 'float' fmenu
+riverctl map normal ${mod} P spawn footclient --app-id 'float' fpass
+riverctl map normal ${mod} B spawn ${browser} >/dev/null 2>&1
+riverctl map normal ${mod} T spawn foot-float
+riverctl map normal ${mod} N spawn footclient --app-id 'float' nnn-float
+riverctl map normal ${mod} E spawn footclient "$EDITOR"
+riverctl map normal ${mod} W spawn sysinfo
 
 # [ Views ]
 # Mod+Q to close the focused view
-riverctl map normal $mod Q close
+riverctl map normal ${mod} Q close
 
 # Mod+J and Mod+K to focus the next/previous view in the layout stack
-riverctl map normal $mod J focus-view next
-riverctl map normal $mod K focus-view previous
+riverctl map normal ${mod} J focus-view next
+riverctl map normal ${mod} K focus-view previous
 
 # Mod+Shift+J and Mod+Shift+K to swap the focused view with the next/previous
 # view in the layout stack
-riverctl map normal $mod+Shift J swap next
-riverctl map normal $mod+Shift K swap previous
+riverctl map normal ${mod}+Shift J swap next
+riverctl map normal ${mod}+Shift K swap previous
 
 # Mod+Period and Mod+Comma to focus the next/previous output
-riverctl map normal $mod semicolon focus-output next
-riverctl map normal $mod comma focus-output previous
+riverctl map normal ${mod} semicolon focus-output next
+riverctl map normal ${mod} comma focus-output previous
 
 # Mod+Shift+{Period,Comma} to send the focused view to the next/previous output
-riverctl map normal $mod+Shift semicolon send-to-output next
-riverctl map normal $mod+Shift comma send-to-output previous
+riverctl map normal ${mod}+Shift semicolon send-to-output next
+riverctl map normal ${mod}+Shift comma send-to-output previous
 
 # Mod+Return to bump the focused view to the top of the layout stack
-riverctl map normal $mod+Shift Return zoom
+riverctl map normal ${mod}+Shift Return zoom
 
 # Tiling
-riverctl map normal $mod H mod-layout-value rivercarro fixed main_factor -0.05
-riverctl map normal $mod L mod-layout-value rivercarro fixed main_factor +0.05
-riverctl map normal $mod+Shift H mod-layout-value rivercarro int main_count +1
-riverctl map normal $mod+Shift L mod-layout-value rivercarro int main_count -1
+riverctl map normal ${mod} H mod-layout-value rivercarro fixed main_factor -0.05
+riverctl map normal ${mod} L mod-layout-value rivercarro fixed main_factor +0.05
+riverctl map normal ${mod}+Shift H mod-layout-value rivercarro int main_count +1
+riverctl map normal ${mod}+Shift L mod-layout-value rivercarro int main_count -1
 
 # Floating
 # Mod+Alt+{H,J,K,L} to move views
-riverctl map normal $mod+Mod1 H move left 100
-riverctl map normal $mod+Mod1 J move down 100
-riverctl map normal $mod+Mod1 K move up 100
-riverctl map normal $mod+Mod1 L move right 100
+riverctl map normal ${mod}+Mod1 H move left 100
+riverctl map normal ${mod}+Mod1 J move down 100
+riverctl map normal ${mod}+Mod1 K move up 100
+riverctl map normal ${mod}+Mod1 L move right 100
 
 # Mod+Alt+Control+{H,J,K,L} to snap views to screen edges
-riverctl map normal $mod+Mod1+Control H snap left
-riverctl map normal $mod+Mod1+Control J snap down
-riverctl map normal $mod+Mod1+Control K snap up
-riverctl map normal $mod+Mod1+Control L snap right
+riverctl map normal ${mod}+Mod1+Control H snap left
+riverctl map normal ${mod}+Mod1+Control J snap down
+riverctl map normal ${mod}+Mod1+Control K snap up
+riverctl map normal ${mod}+Mod1+Control L snap right
 
 # Mod+Alt+Shif+{H,J,K,L} to resize views
-riverctl map normal $mod+Mod1+Shift H resize horizontal -100
-riverctl map normal $mod+Mod1+Shift J resize vertical 100
-riverctl map normal $mod+Mod1+Shift K resize vertical -100
-riverctl map normal $mod+Mod1+Shift L resize horizontal 100
+riverctl map normal ${mod}+Mod1+Shift H resize horizontal -100
+riverctl map normal ${mod}+Mod1+Shift J resize vertical 100
+riverctl map normal ${mod}+Mod1+Shift K resize vertical -100
+riverctl map normal ${mod}+Mod1+Shift L resize horizontal 100
 
 # Mod + Left Mouse Button to move views
-riverctl map-pointer normal $mod BTN_LEFT move-view
+riverctl map-pointer normal ${mod} BTN_LEFT move-view
 
 # Mod + Right Mouse Button to resize views
-riverctl map-pointer normal $mod BTN_RIGHT resize-view
+riverctl map-pointer normal ${mod} BTN_RIGHT resize-view
 
 # [ Layouts ]
-riverctl map normal $mod Space toggle-float  # Mod+Space to toggle float
-riverctl map normal $mod F toggle-fullscreen # Mod+F to toggle fullscreen
+riverctl map normal ${mod} Space toggle-float  # Mod+Space to toggle float
+riverctl map normal ${mod} F toggle-fullscreen # Mod+F to toggle fullscreen
 
 # Mod+{Up,Right,Down,Left} to change layout orientation
-riverctl map normal $mod Up set-layout-value rivercarro string main_location top
-riverctl map normal $mod Right set-layout-value rivercarro string main_location right
-riverctl map normal $mod Down set-layout-value rivercarro string main_location bottom
-riverctl map normal $mod Left set-layout-value rivercarro string main_location left
+riverctl map normal ${mod} Up set-layout-value rivercarro string main_location top
+riverctl map normal ${mod} Right set-layout-value rivercarro string main_location right
+riverctl map normal ${mod} Down set-layout-value rivercarro string main_location bottom
+riverctl map normal ${mod} Left set-layout-value rivercarro string main_location left
 
-riverctl map normal $mod M set-layout-value rivercarro string main_location monocle
+riverctl map normal ${mod} M set-layout-value rivercarro string main_location monocle
 
 # [ Tags ]
 # Workaround for azerty keyboard
 declare -a azerty tags
+
 azerty=(ampersand eacute quotedbl apostrophe parenleft minus egrave underscore ccedilla)
 
 for i in {0..8}; do
-    tags=$((1 << ($i)))
-	riverctl map normal $mod "${azerty[i]}" set-focused-tags "${tags}"
-	riverctl map normal $mod+Shift "${azerty[i]}" set-view-tags "${tags}"
-	riverctl map normal $mod+Control "${azerty[i]}" toggle-focused-tags "${tags}"
-	riverctl map normal $mod+Shift+Control "${azerty[i]}" toggle-view-tags "${tags}"
+	tags=$((1 << i))
+	riverctl map normal ${mod} "${azerty[i]}" set-focused-tags "${tags[@]}"
+	riverctl map normal ${mod}+Shift "${azerty[i]}" set-view-tags "${tags[@]}"
+	riverctl map normal ${mod}+Control "${azerty[i]}" toggle-focused-tags "${tags[@]}"
+	riverctl map normal ${mod}+Shift+Control "${azerty[i]}" toggle-view-tags "${tags[@]}"
 done
 
 unset -v azerty tags
 
 # Mod+0 to focus all tags
 tags1to9=$(((1 << 9) - 1))
-riverctl map normal $mod agrave set-focused-tags $tags1to9
-riverctl map normal $mod+Shift agrave set-view-tags $tags1to9
+riverctl map normal ${mod} agrave set-focused-tags $tags1to9
+riverctl map normal ${mod}+Shift agrave set-view-tags $tags1to9
 
 # [ Scratchpad ]
 # The scratchpad will live on an unused tag. Which tags are used depends on your
 # config, but rivers default uses the first 9 tags.
-scratch_tag=$((1 << 20 ))
+scratch_tag=$((1 << 20))
 
 # Toggle the scratchpad with Super+P
-riverctl map normal $mod S toggle-focused-tags ${scratch_tag}
+riverctl map normal ${mod} S toggle-focused-tags ${scratch_tag}
 
 # Send windows to the scratchpad with Super+Shift+P
-riverctl map normal $mod+Shift S set-view-tags ${scratch_tag}
+riverctl map normal ${mod}+Shift S set-view-tags ${scratch_tag}
 
 # Set spawn tagmask to ensure new windows don't have the scratchpad tag unless
 # explicitly set.
-all_but_scratch_tag=$(( ((1 << 32) - 1) ^ $scratch_tag ))
+all_but_scratch_tag=$((((1 << 32) - 1) ^ scratch_tag))
 riverctl spawn-tagmask ${all_but_scratch_tag}
 
 # [ Passthrough ]
@@ -177,28 +184,28 @@ riverctl spawn-tagmask ${all_but_scratch_tag}
 riverctl declare-mode passthrough
 
 # Mod+F11 to enter passthrough mode
-riverctl map normal $mod F11 enter-mode passthrough
+riverctl map normal ${mod} F11 enter-mode passthrough
 
 # Mod+F11 to return to normal mode
-riverctl map passthrough $mod F11 enter-mode normal
+riverctl map passthrough ${mod} F11 enter-mode normal
 
 # [ Special keys ]
 # Various media key mapping examples for both normal and locked mode which do
 # not have a modifier
 for mode in normal locked; do
 	# Volume
-	riverctl map $mode None XF86AudioRaiseVolume spawn pamixer --increase 5
-	riverctl map $mode None XF86AudioLowerVolume spawn pamixer --decrease 5
-	riverctl map $mode None XF86AudioMute spawn pamixer --toggle-mute
+	riverctl map ${mode} None XF86AudioRaiseVolume spawn 'pamixer --increase 5'
+	riverctl map ${mode} None XF86AudioLowerVolume spawn 'pamixer --decrease 5'
+	riverctl map ${mode} None XF86AudioMute spawn 'pamixer --toggle-mute'
 
 	# Brighness
-	riverctl map $mode None XF86MonBrightnessUp spawn brightnessctl set +5%
-	riverctl map $mode None XF86MonBrightnessDown spawn brightnessctl set 5%-
+	riverctl map ${mode} None XF86MonBrightnessUp spawn 'brightnessctl set +5%'
+	riverctl map ${mode} None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
 done
 
 # Screenshot
-riverctl map normal $mod Print spawn 'snap -f'
-riverctl map normal $mod+Shift Print spawn 'snap -s'
+riverctl map normal ${mod} Print spawn 'snap -f'
+riverctl map normal ${mod}+Shift Print spawn 'snap -s'
 
 # Set and exec into the default layout generator, rivertile.
 # River will send the process group of the init executable SIGTERM on exit.
