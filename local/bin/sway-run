@@ -2,7 +2,7 @@
 #
 # Launch Sway
 #
-# USAGE: sway-run [-log]
+# USAGE: sway-run
 # REQUIREMENTS: sway dbus
 
 # [  Wayland env variables ]
@@ -30,14 +30,7 @@ main()
 	log_date=$(date +"%Y_%m_%dT%H_%M_%S")
 	log_file=$(mktemp -t sway-"${log_date}".XXXXXXXXXX.log)
 
-	if [[ $# -eq 0 ]]; then
-		exec dbus-run-session sway >/dev/null 2>&1
-	else
-		case "$1" in
-		-log) exec dbus-run-session sway >"${log_file}" 2>&1 ;;
-		*) exec dbus-run-session sway >/dev/null 2>&1 ;;
-		esac
-	fi
+	exec dbus-run-session sway >"${log_file}" 2>&1
 }
 
 main "$@"

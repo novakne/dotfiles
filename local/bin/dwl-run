@@ -2,7 +2,7 @@
 #
 # Launch dwl
 #
-# USAGE: dwl-run [-log]
+# USAGE: dwl-run
 # REQUIREMENTS: dwl dbus
 
 # [ Wayland env variables ]
@@ -30,21 +30,8 @@ dwl-run()
 	log_file=$(mktemp -t dwl-"${log_date}".XXXXXXXXXX.log)
 	tags_file=/tmp/"$USER"/dwl-tags.log
 
-	if [[ $# -eq 0 ]]; then
-		exec dbus-run-session dwl -s dwl-autostart \
-			1>"${tags_file}" 2>/dev/null
-	else
-		case "$1" in
-		-log)
-			exec dbus-run-session dwl -s dwl-autostart \
-				1>"${tags_file}" 2>"${log_file}"
-			;;
-		*)
-			exec dbus-run-session dwl -s dwl-autostart \
-				1>"${tags_file}" 2>/dev/null
-			;;
-		esac
-	fi
+	exec dbus-run-session dwl -s dwl-autostart \
+		1>"${tags_file}" 2>"${log_file}"
 }
 
 dwl-run "$@"
