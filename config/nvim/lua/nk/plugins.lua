@@ -52,14 +52,9 @@ return require'packer'.startup(function()
         'nvim-treesitter/nvim-treesitter',
         requires = {
             { 'romgrk/nvim-treesitter-context', after = 'nvim-treesitter' },
-            { 'p00f/nvim-ts-rainbow', ft = 'fennel' },
             {
                 'nvim-treesitter/playground',
                 cmd = { 'TSPlaygroundToggle', 'TSHighlightCapturesUnderCursor' },
-            },
-            {
-                'nvim-treesitter/nvim-treesitter-refactor',
-                after = 'nvim-treesitter',
             },
         },
         run = function()
@@ -107,12 +102,6 @@ return require'packer'.startup(function()
         end,
     }
 
-    -- use {
-    --     'stevearc/qf_helper.nvim',
-    --     config = function()
-    --         require'nk.plugins.qfhelper'
-    --     end,
-    -- }
     use 'kevinhwang91/nvim-bqf'
 
     -- ---------------------------------------------
@@ -121,9 +110,6 @@ return require'packer'.startup(function()
     use {
         '~/.local/share/bld/projects/kosmikoa.nvim',
         -- 'https://git.sr.ht/~novakane/kosmikoa.nvim',
-    }
-
-    use {
         '~/.local/share/bld/projects/argi.nvim',
         -- 'https://git.sr.ht/~novakane/argi.nvim',
     }

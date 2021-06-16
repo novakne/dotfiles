@@ -3,18 +3,14 @@
 [status]
     showUntrackedFiles = all
 [alias]
-    co = checkout
-    ci = commit
-    s = status
+	l = log --graph --pretty=format:'%C(italic)%t%Creset %C(bold)<%an>%Creset -> %C(bold)%d%Creset %C(green)%s%Creset - %C(italic)(%cr)%Creset'
     br = branch
-    sw = switch
+    ci = commit
+    co = checkout
     ps = push
-    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-    type = cat-file -t
-    dump = cat-file -p
-    qlog = log -5 --pretty --oneline
-    wow = log --all --graph --decorate --oneline --simplify-by-decoration
+    s = status -sbu
     sbu = submodule update --remote --merge
+    sw = switch
 [diff]
 	submodule = log
     colorMoved = default
