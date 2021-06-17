@@ -50,9 +50,12 @@ _fzf()
 _fnott()
 {
 	cd "${bld_dir}"/pkg/fnott || exit
-	git pull
+	[[ -d bld/release ]] && trash-put bld/release
 
-	cd "${bld_dir}"/pkg/fnott/bld/release || exit
+	git pull
+	mkdir -p bld/release && cd bld/release || exit
+
+	meson --buildtype=release --prefix=/usr ../..
 	ninja
 	sudo ninja install
 }
@@ -61,12 +64,11 @@ _fnott()
 _foot()
 {
 	cd "${bld_dir}"/pkg/foot || exit
-
 	[[ -d bld/release ]] && trash-put bld/release
 
 	git pull
-
 	mkdir -p bld/release && cd bld/release || exit
+
 	export CFLAGS="$CFLAGS -O3"
 	meson --buildtype=release --prefix=/usr -Db_lto=true ../..
 	meson configure -Db_pgo=generate
@@ -77,19 +79,22 @@ _foot()
 	foot_tmp_file=$(mktemp)
 	./foot --config=/dev/null --term=alacritty sh -c "$HOME/.local/share/bld/pkg/foot/scripts/generate-alt-random-writes.py --scroll --scroll-region --colors-regular --colors-bright --colors-256 --colors-rgb --attr-bold --attr-italic --attr-underline --sixel ${foot_tmp_file} && cat ${foot_tmp_file}"
 	rm "${foot_tmp_file}"
+
 	meson configure -Db_pgo=use
 	ninja
 	ninja test
-
 	sudo ninja install
 }
 
 _fuzzel()
 {
 	cd "${bld_dir}"/pkg/fuzzel || exit
-	git pull
+	[[ -d bld/release ]] && trash-put bld/release
 
-	cd "${bld_dir}"/pkg/fuzzel/bld/release || exit
+	git pull
+	mkdir -p bld/release && cd bld/release || exit
+
+	meson --buildtype=release --prefix=/usr ../..
 	ninja
 	sudo ninja install
 }
@@ -112,6 +117,7 @@ _lua_lsp()
 
 	git pull origin master
 	git submodule update --init --recursive
+
 	cd 3rd/luamake || exit
 	compile/install.sh
 	cd ../..
@@ -121,9 +127,9 @@ _lua_lsp()
 _zig()
 {
 	cd "${bld_dir}"/pkg/zig/zig-master || exit
-
 	[[ -d build ]] && trash-put build
-	git pull origin
+
+	git pull
 	mkdir build && cd build || exit
 
 	cmake ..

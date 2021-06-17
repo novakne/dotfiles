@@ -2,7 +2,7 @@
 
 <p align="center"><img src="https://git.sr.ht/~novakane/dotfiles/blob/main/meta/previews/river.png"river""/></a></p>
 
-_Dotfiles managed with [dotbot](https://github.com/anishathalye/dotbot)_
+> _Dotfiles managed with [dotbot](https://github.com/anishathalye/dotbot)_
 
 ## Infos
 
@@ -11,31 +11,32 @@ _Dotfiles managed with [dotbot](https://github.com/anishathalye/dotbot)_
 
 ### Applications
 
--   browser . _firefox_
--   editor . _[neovim 5.x](https://github.com/neovim/neovim)_
--   files manager . _[nnn](https://github.com/jarun/nnn)_
--   launcher . _[fuzzel](https://codeberg.org/dnkl/fuzzel)_
--   mail . _[aerc](https://git.sr.ht/~sircmpwn/aerc)_
+-   browser . firefox
+-   editor . [neovim 5.x](https://github.com/neovim/neovim)
+-   files manager . [nnn](https://github.com/jarun/nnn)
+-   launcher . [fuzzel](https://codeberg.org/dnkl/fuzzel)
+-   mail . [aerc](https://git.sr.ht/~sircmpwn/aerc)
 -   media:
-    -   image . _[imv](https://github.com/eXeC64/imv)_
-    -   music . _spotify_
-    -   video . _[mpv](https://github.com/mpv-player/mpv)_
-    -   pdf . _[zathura](https://pwmt.org/projects/zathura/)_
--   notification . _[fnott](https://codeberg.org/dnkl/fnott)_
--   rss . _[newsboat](https://newsboat.org/)_
--   screenshot . _[grim](https://github.com/emersion/grim)_ . _[slurp](https://github.com/emersion/slurp)_
--   terminal . _[foot](https://codeberg.org/dnkl/foot)_
+    -   image . [imv](https://github.com/eXeC64/imv)
+    -   music . spotify
+    -   video . [mpv](https://github.com/mpv-player/mpv)
+    -   pdf . [zathura](https://pwmt.org/projects/zathura/)
+-   notification . [fnott](https://codeberg.org/dnkl/fnott)
+-   rss . [newsboat](https://newsboat.org/)
+-   screenshot . [grim](https://github.com/emersion/grim) . [slurp](https://github.com/emersion/slurp)
+-   terminal . [foot](https://codeberg.org/dnkl/foot)
 -   fonts:
-    -   system . _[Overpass](https://overpassfont.org/)_
-    -   terminal . _[JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts)_
+    -   system . [Overpass](https://overpassfont.org/)
+    -   terminal . [JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts)
 -   theme:
-    -   icons . _[Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)_
-    -   gtk . _[Materia](https://github.com/nana-4/materia-theme)_
+    -   icons . [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
+    -   gtk . [Materia](https://github.com/nana-4/materia-theme)
 
 ## Shell
 
-I use **zsh** as a login/interactive shell and **bash** for scripting. A `README` is available on the `$HOME/.local/bin` directory to explain each
-script I use. The prompt is [Starship](https://github.com/starship/starship)
+I use **zsh** as a login/interactive shell and **bash** for scripting.
+A [README](local/bin/README.md) is available on the `$HOME/.local/bin` directory to explain each
+script I use. The prompt is [starship](https://github.com/starship/starship)
 
 Below is the folders structure of my **zsh** setup
 
