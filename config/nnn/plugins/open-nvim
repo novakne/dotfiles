@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Open neovim in a folder then open fzf files finder
+
+nvim -c ':Files'
