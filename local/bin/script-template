@@ -15,8 +15,16 @@ _message()
 		# USAGE:
 		# REQUIREMENTS:
 
+		# Error message in STDERR
+		_err()
+		{
+		    printf -- '%s\n' "[$(date +'%Y-%m-%d %H:%M:%S')]: $*" >&2
+		    exit 1
+		}
 
-		$1() {}
+
+		$1()
+        {}
 
 		$1 "\$@"
 
