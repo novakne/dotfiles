@@ -2,7 +2,7 @@
 #
 # Launch River
 #
-# USAGE: river-run
+# USAGE: river-run <log-level>
 # REQUIREMENTS: river dbus
 
 # [  Wayland env variables ]
@@ -22,14 +22,31 @@ export QT_QPA_PLATFORM=wayland-egl
 # Java
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+# Error message in STDERR
+_err()
+{
+	printf -- '%s\n' "[$(date +'%Y-%m-%d %H:%M:%S')]: $*" >&2
+	exit 1
+}
+
 river-run()
 {
-	local log_date log_file
+	[[ "$#" -gt 1 ]] && _err "One optional argument authorized"
+
+	local log_date log_file log_level
 
 	log_date=$(date +"%Y_%m_%dT%H_%M_%S")
 	log_file=$(mktemp -t river-"${log_date}".XXXXXXXXXX.log)
 
-	exec dbus-run-session river -l 6 >"${log_file}" 2>&1
+	if [[ "$1" -eq 1 ]]; then
+		log_level="$1"
+	elif [[ "$1" -lt 0 || "$1" -gt 7 ]]; then
+		_err "Set log level between 0 and 7"
+	else
+		log_level=6
+	fi
+
+	exec dbus-run-session river -l "${log_level}" >"${log_file}" 2>&1
 }
 
 river-run "$@"
