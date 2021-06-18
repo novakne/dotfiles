@@ -28,7 +28,7 @@ if packer_plugins['nvim-compe'] and packer_plugins['nvim-compe'].loaded then
             omni = false,
             path = true,
             snippets_nvim = false,
-            spell = true,
+            spell = false,
             tags = true,
             ultisnips = false,
             vim_lsc = false,

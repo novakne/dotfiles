@@ -75,7 +75,7 @@ map('n', '<esc>', '<CMD>noh<CR>') -- Clear search results
 
 -- Quickfix window
 map('n', '<Leader>cc', ':cclose<CR>')
-map('n', '<Leader>co', ':copen<CR>')
+map('n', '<Leader>co', [[<CMD>lua require'nk.core.bind.fn'.toggle_qf<CR>]])
 map('n', '<Leader>cp', ':cprev<CR>')
 map('n', '<Leader>cn', ':cnext<CR>')
 
@@ -88,5 +88,4 @@ map('n', '<F12>', [[<CMD>TSHighlightCapturesUnderCursor<CR>]])
 
 -- Toggle between number and relative number
 map('n', '<Leader>à', [[<CMD>lua require'nk.core.bind.fn'.toggle_number()<CR>]])
-
 

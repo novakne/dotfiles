@@ -40,12 +40,8 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
         -- Lspsaga.nvim
         bmap('n', '<Leader>lk',
             [[<CMD>lua require'lspsaga.hover'.render_hover_doc()<CR>]])
-        bmap('n', '<Leader>lD',
+        bmap('n', '<Leader>lf',
             [[<CMD>lua require'lspsaga.provider'.lsp_finder()<CR>]])
-        bmap('n', '<Leader>lc',
-            [[<CMD>lua require'lspsaga.codeaction'.code_action()<CR>]])
-        bmap('v', '<Leader>lc',
-            [[<CMD>'<,'>lua require'lspsaga.codeaction'.range_code_action()<CR>]])
         bmap('n', '<Leader>lK',
             [[<CMD>lua require'lspsaga.signaturehelp'.signature_help()<CR>]])
         bmap('n', '<Leader>lt',
@@ -57,21 +53,21 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
         bmap('n', '<Leader>ln',
             [[<CMD>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>]])
 
+        -- Fzf-lsp
+        bmap('n', '<Leader>ld', ':Diagnostics<CR>')
+        bmap('n', '<Leader>lD', ':DiagnosticsAll<CR>')
+        bmap('n', '<Leader>lc', ':CodeActions<CR>')
+        bmap('v', '<Leader>lc', ':RangeCodeActions<CR>')
+        bmap('n', '<Leader>lr', ':References<CR>')
+        bmap('n', '<Leader>ls', ':DocumentSymbols<CR>')
+        bmap('n', '<Leader>lS', ':WorkspaceSymbols<CR>')
+
         -- Set some keybinds conditional on server capabilities
         if client.resolved_capabilities.document_formatting then
             bmap('n', '<Leader>lf', '<CMD>lua vim.lsp.buf.formatting()<CR>')
         elseif client.resolved_capabilities.document_range_formatting then
             bmap('n', '<Leader>lf', '<CMD>lua vim.lsp.buf.formatting()<CR>')
         end
-
-        -- ---------------------------------------------
-        -- COMMANDS
-        -- ---------------------------------------------
-        -- vim.cmd [[commands! LDecl :lua vim.lsp.buf.declaration()<CR>')]]
-        -- vim.cmd [[commands! LImpl :lua vim.lsp.buf.implementation()<CR>']]
-        -- vim.cmd [[commands! LRef :lua vim.lsp.buf.references()<CR>']]
-        -- vim.cmd [[commands! LDoc :lua vim.lsp.buf.document_symbol()<CR>']]
-        -- vim.cmd [[commands! LLoc :lua vim.lsp.diagnostic.set_loclist()<CR>']]
 
         vim.fn.sign_define('LspDiagnosticsSignError',
             { text = '', texthl = 'LspDiagnosticsSignError' })

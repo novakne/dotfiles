@@ -26,8 +26,8 @@ if packer_plugins['fzf.vim'] and packer_plugins['fzf.vim'].loaded then
 
     map('n', '<Leader>o', '<CMD>Files<CR>') -- Search files recursively
     map('n', '<Leader>b', '<CMD>Buffers<CR>') -- Search between open files
-    map('n', '<Leader>r', '<CMD>Rg<CR>') -- Ripgrep
-    map('n', '<Leader>f', '<CMD>:Lines<CR>') -- Search in lines in loaded buffers
-    map('n', '<Leader>F', '<CMD>:BLines<CR>') -- Search in lines in current buffer
+    map('n', '<Leader>r', '<CMD>RG<CR>') -- Ripgrep
+    map('n', '<Leader>F', '<CMD>:Lines<CR>') -- Search in lines in loaded buffers
+    map('n', '<Leader>f', '<CMD>:BLines<CR>') -- Search in lines in current buffer
 end
 
