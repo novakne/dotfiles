@@ -61,20 +61,21 @@ _$HOME/.config/zsh/_
 _$HOME/.local/share/zsh/_
 
 -   functions/ - User auto completions for some cli tools
-    -   `cl` - Cd to a dir and list files with _exa_ or _ls_
-    -   `fcd` - Interactive cd - `fzf`
-    -   `fe` - Open file in default editor - `fzf`
-    -   `fer` - Open the selected file in running neovim session if exists - `fzf`
-    -   `fkill` - Kill processes - `fzf`
-    -   `frg` - Fuzzy grep with _ripgrep_ and open in default editor - `fzf`
-    -   `ft` - Search _ctags_ - `fzf`
-    -   `hglob` - Help for _zsh_ glob
+    -   `cl` - cd to a dir and list files with _exa_ or _ls_
+    -   `fcd` - interactive cd - `fzf`
+    -   `fe` - open file in default editor - `fzf`
+    -   `fer` - open the selected file in running neovim session if exists - `fzf`
+    -   `fkill` - kill processes - `fzf`
+    -   `frg` - fuzzy grep with _ripgrep_ and open in default editor - `fzf`
+    -   `ft` - search _ctags_ - `fzf`
+    -   `hglob` - help for _zsh_ glob
     -   `mcd` - mkdir and cd to new dir
     -   `n` - cd on quit - `nnn`
-    -   `nl` - Open file at given line in _nvim_
-    -   `rgv` - Search with _ripgrep_ and open in _nvim_ quicfix
-    -   `up` - Go up N dir `(e.g. up 2)`
-    -   `zn` - Jump to a directory with _zoxide_ and open it in _neovim_
+    -   `nl` - open file at given line in _nvim_
+    -   `paste` - paste file/STDIN to <https://0x0.st/>
+    -   `rgv` - search with _ripgrep_ and open in _nvim_ quicfix
+    -   `up` - go up N dir `(e.g. up 2)`
+    -   `zn` - jump to a directory with _zoxide_ and open it in _neovim_
 -   site-functions/ - User auto completions for some cli tools
 
 ### Cli tools

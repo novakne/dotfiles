@@ -9,7 +9,7 @@
 printf "pattern: "
 read -r pattern
 
-if ! [ -z "$pattern" ]; then
+if [[ -n "${pattern}" ]]; then
 	printf "%s" "+l" >"$NNN_PIPE"
-	eval "fd -HI $pattern -0" >"$NNN_PIPE"
+	eval "fd -HI ${pattern} -0" >"$NNN_PIPE"
 fi

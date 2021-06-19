@@ -25,8 +25,8 @@ magenta='#be8fde'
 cyan='#00cfd0'
 
 # [ Theme ]
-riverctl background-color "${base00}"
-riverctl border-color-focused "${base04}"
+riverctl background-color       "${base00}"
+riverctl border-color-focused   "${base04}"
 riverctl border-color-unfocused "${base01}"
 riverctl border-width 2
 riverctl xcursor-theme Adwaita

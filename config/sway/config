@@ -5,8 +5,8 @@
 
 # [ UI ]
 # [ Borders ]
-smart_borders on
-default_border pixel 2
+smart_borders           on
+default_border          pixel 2
 default_floating_border none
 
 # [ Gaps ]
@@ -18,8 +18,8 @@ smart_gaps on
 
 # [ Titlebar ]
 titlebar_border_thickness 0
-titlebar_padding 60 10
-title_align right
+titlebar_padding          60 10
+title_align               right
 
 # [ Fonts ]
 font pango: Overpass 11
@@ -36,55 +36,48 @@ seat seat0 {
 # Read `man 5 sway-bar` for more information about this section.
 # bar swaybar_command waybar
 bar {
-    # status_command i3status-rs
     font pango: Overpass 12
-    # gaps 0 50 0 50
     height 22
-    # hidden_state hide
-    # mode hide
-    # modifier Mod1
     position top
-    # separator_symbol
-    # status_edge_padding 30
     status_padding 0
     strip_workspace_numbers yes
     tray {
         tray_padding 2
-        icon_theme Arc
+        icon_theme Papirus-Light
     }
     colors {
-        separator #59566d
-        background #23222b
-        statusline #eae9ee
-        focused_workspace #e8ec77 #e8ec77 #23222b
-        active_workspace #23222b #23222b #eae9ee
+        separator          #59566d
+        background         #23222b
+        statusline         #eae9ee
+        focused_workspace  #e8ec77 #e8ec77 #23222b
+        active_workspace   #23222b #23222b #eae9ee
         inactive_workspace #23222b #23222b #eae9ee
-        urgent_workspace #f63d81 #f63d81 #23222b
+        urgent_workspace   #f63d81 #f63d81 #23222b
     }
 }
 
 # [ Colors ]
-set $border #59566d
-set $bg #59566d
-set $txt #eae9ee
-set $focused #e8ec77
-set $inactive #a9a7b9
+set $border    #59566d
+set $bg        #59566d
+set $txt       #eae9ee
+set $focused   #e8ec77
+set $inactive  #a9a7b9
 set $unfocused #474557
-set $urgent #f63d81
+set $urgent    #f63d81
 
 # class 	            border  background  text  indicator  child_border
-client.focused 	        $border $bg         $txt  $focused   $focused
-client.focused_inactive $border $bg         $txt  $inactive  $inactive
-client.unfocused        $border $bg         $txt  $unfocused $unfocused
-client.urgent           $border $bg         $txt  $urgent    $urgent
+client.focused 	            $border $bg         $txt  $focused   $focused
+client.focused_inactive     $border $bg         $txt  $inactive  $inactive
+client.unfocused            $border $bg         $txt  $unfocused $unfocused
+client.urgent               $border $bg         $txt  $urgent    $urgent
 
 # [ VARIABLES ]
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
+set $left  h
+set $down  j
+set $up    k
 set $right l
 # Your preferred terminal emulator
 set $term footclient
@@ -101,8 +94,6 @@ output eDP-1 {
     resolution 1920x1080
     position 0 0
     bg $wal_dir/tonton_revolver_john_wick_01.jpg fill
-    # bg $wal_dir/red_hood_01.jpg fill
-    # bg $wal_dir/wonder_woman_04.jpg fill
 }
 
 # [ INPUT ]
@@ -111,10 +102,10 @@ output eDP-1 {
 
 # [ Keyboard ]
 input "1:1:AT_Translated_Set_2_keyboard" {
-    xkb_layout "fr"
-    xkb_model "pc105"
+    xkb_layout   "fr"
+    xkb_model    "pc105"
     repeat_delay 300
-    repeat_rate 50
+    repeat_rate  50
 }
 
 # [ Touchpad ]
@@ -144,7 +135,7 @@ for_window [app_id="org.qbittorrent.qBittorrent"] floating enable
 # [ KEY BINDINGS ]
 # [ Apps ]
 # Start a terminal
-bindsym $mod+Return exec $term
+bindsym $mod+Return       exec $term
 bindsym $mod+Shift+Return exec foot
 bindsym Shift+Ctrl+Return exec $term
 
@@ -154,9 +145,6 @@ bindsym $mod+o exec $menu-desktop
 
 # Start browser
 bindsym $mod+b exec firefox-wayland
-
-# Start nnn
-# bindsym $mod+n exec $term nnn
 
 # [ Window ]
 # Kill focused window
@@ -181,50 +169,50 @@ bindsym $mod+Shift+e exec swaynag -t warning -m \
 
 # [ Movements ]
 # Move your focus around
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
+bindsym $mod+$left  focus left
+bindsym $mod+$down  focus down
+bindsym $mod+$up    focus up
 bindsym $mod+$right focus right
 # Or use $mod+[up|down|left|right]
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
 
 # Move the focused window with the same, but add Shift
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$left  move left
+bindsym $mod+Shift+$down  move down
+bindsym $mod+Shift+$up    move up
 bindsym $mod+Shift+$right move right
 # Ditto, with arrow keys
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 
 # [ Workspaces ]
 # Switch to workspace
-bindsym --to-code $mod+ampersand workspace number 1
-bindsym --to-code $mod+eacute workspace number 2
-bindsym --to-code $mod+quotedbl workspace number 3
+bindsym --to-code $mod+ampersand  workspace number 1
+bindsym --to-code $mod+eacute     workspace number 2
+bindsym --to-code $mod+quotedbl   workspace number 3
 bindsym --to-code $mod+apostrophe workspace number 4
-bindsym --to-code $mod+parenleft workspace number 5
-bindsym --to-code $mod+minus workspace number 6
-bindsym --to-code $mod+egrave workspace number 7
+bindsym --to-code $mod+parenleft  workspace number 5
+bindsym --to-code $mod+minus      workspace number 6
+bindsym --to-code $mod+egrave     workspace number 7
 bindsym --to-code $mod+underscore workspace number 8
-bindsym --to-code $mod+ccedilla workspace number 9
-bindsym --to-code $mod+agrave workspace number 10
+bindsym --to-code $mod+ccedilla   workspace number 9
+bindsym --to-code $mod+agrave     workspace number 10
 # Move focused container to workspace
-bindsym --to-code $mod+Shift+ampersand move container to workspace number 1
-bindsym --to-code $mod+Shift+eacute move container to workspace number 2
-bindsym --to-code $mod+Shift+quotedbl move container to workspace number 3
+bindsym --to-code $mod+Shift+ampersand  move container to workspace number 1
+bindsym --to-code $mod+Shift+eacute     move container to workspace number 2
+bindsym --to-code $mod+Shift+quotedbl   move container to workspace number 3
 bindsym --to-code $mod+Shift+apostrophe move container to workspace number 4
-bindsym --to-code $mod+Shift+parenleft move container to workspace number 5
-bindsym --to-code $mod+Shift+minus move container to workspace number 6
-bindsym --to-code $mod+Shift+egrave move container to workspace number 7
+bindsym --to-code $mod+Shift+parenleft  move container to workspace number 5
+bindsym --to-code $mod+Shift+minus      move container to workspace number 6
+bindsym --to-code $mod+Shift+egrave     move container to workspace number 7
 bindsym --to-code $mod+Shift+underscore move container to workspace number 8
-bindsym --to-code $mod+Shift+ccedilla move container to workspace number 9
-bindsym --to-code $mod+Shift+agrave move container to workspace number 10
+bindsym --to-code $mod+Shift+ccedilla   move container to workspace number 9
+bindsym --to-code $mod+Shift+agrave     move container to workspace number 10
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
 
@@ -269,15 +257,15 @@ mode "resize" {
 # right will grow the containers width
 # up will shrink the containers height
 # down will grow the containers height
-        bindsym $left resize shrink width 10px
-        bindsym $down resize grow height 10px
-        bindsym $up resize shrink height 10px
+        bindsym $left  resize shrink width 10px
+        bindsym $down  resize grow height 10px
+        bindsym $up    resize shrink height 10px
         bindsym $right resize grow width 10px
 
 # Ditto, with arrow keys
-        bindsym Left resize shrink width 10px
-        bindsym Down resize grow height 10px
-        bindsym Up resize shrink height 10px
+        bindsym Left  resize shrink width 10px
+        bindsym Down  resize grow height 10px
+        bindsym Up    resize shrink height 10px
         bindsym Right resize grow width 10px
 
 # Return to default mode
@@ -290,14 +278,14 @@ bindsym $mod+r mode "resize"
 # [ Volume ]
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMute        exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # [ Brigthness ]
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessUp   exec brightnessctl set +5%
 
 # [ Screenshot ]
-bindsym Print exec snap -a
+bindsym Print       exec snap -a
 bindsym Shift+Print exec snap -s
 
 # [ INCLUDE ]
