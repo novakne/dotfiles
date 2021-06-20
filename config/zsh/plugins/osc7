@@ -1,5 +1,5 @@
 # OSC, Operating System Command, are escape sequences that interacts with the terminal emulator itself.
-# https://codeberg.org/dnkl/foot/wiki#how-to-configure-my-shell-to-emit-the-osc-7-escape-sequence
+# <https://codeberg.org/dnkl/foot/wiki#how-to-configure-my-shell-to-emit-the-osc-7-escape-sequence>
 
 _urlencode()
 {

@@ -17,20 +17,21 @@ style = "red"
 #success_symbol = "[▁](green)"
 #success_symbol = "[ ](green)"
 #success_symbol = "[ ](green)"
-success_symbol = "[ ](green)"
+success_symbol = "[  ](green)"
 #success_symbol = "[ ](green)"
 #success_symbol = "[ﰲ](green)"
 #success_symbol = "[ ](green)"
 #error_symbol = "[✗](red)"
-error_symbol = "[ ](red)"
+error_symbol = "[  ](red)"
 vicmd_symbol = "[ ](yellow)"
 
 [cmake]
-format = "via [ ($version)](cyan)"
+format = "via [ ($version)](italic)"
+disabled = true
 
 [cmd_duration]
 min_time = 5000
-format = "en [$duration](yellow) "
+format = "- [$duration](italic)"
 
 [conda]
 disabled = true
@@ -42,14 +43,14 @@ disabled = true
 disabled = true
 
 [directory]
-format = "[$path](blue)[$read_only](red) "
+format = "[$path](bold)[$read_only](red)"
 truncation_length = 3
-read_only = " "
+read_only = " "
 [directory.substitutions]
 "~" = "HOME"
 
 [docker_context]
-# disabled = true
+disabled = true
 
 [dotnet]
 disabled = true
@@ -72,22 +73,22 @@ disabled = true
 disabled = true
 
 [git_branch]
-format = "on [$symbol$branch$remote_name](yellow) "
-symbol = "   "
+format = " ﰲ [$symbol $branch$remote_name](italic)"
+symbol = ""
 # truncation_length = 4
 truncation_symbol = ""
 
 [git_commit]
-format = "[\\($hash\\)](white) [\\($tag\\)](white) "
+format = "[\\($hash\\)](white) [\\($tag\\)](white)"
 tag_disabled = false
 commit_hash_length = 4
 tag_symbol = " "
 
 [git_state]
-format = '[\($state( $progress_current of $progress_total)\)]($yellow) '
+format = '[\($state( $progress_current of $progress_total)\)]($yellow)'
 
 [git_status]
-format = '([\[$all_status$ahead_behind\]](blue) )'
+format = '([\[$all_status$ahead_behind\]](italic))'
 conflicted = "="
 ahead = "⇡ ${count}"
 behind = "⇣ ${count}"
@@ -95,12 +96,13 @@ diverged = "⇕⇡ ${ahead_count}⇣${behind_count}"
 untracked = "?"
 stashed = "$"
 modified = "!"
-staged = '[++\($count\)](green)'
+staged = '[++\($count\)](bold)'
 renamed = ">>"
 deleted = "✘"
 
 [golang]
-format = "via [ ($version)](cyan)"
+format = "via [ ($version)](italic)"
+disabled = true
 
 [helm]
 disabled = true
@@ -117,7 +119,7 @@ disabled = true
 [jobs]
 symbol = "+ "
 threshold = 1
-format = "[$symbol$number](blue) "
+format = "[$symbol$number](green) "
 
 [julia]
 disabled = true
@@ -130,23 +132,25 @@ disabled = true
 
 [lua]
 symbol = " "
-format = "via [$symbol $version](cyan) "
+format = "[-> lua $version](italic) "
+disabled = true
 
 [memory_usage]
 disabled = true
 
 [hg_branch]
-format = "on [ $branch](white)"
 disabled = true
 
 [nim]
-format = "via [ ($version)](cyan)"
+format = "via [ ($version)](italic)"
+disabled = true
 
 [nix_shell]
 disabled = true
 
 [nodejs]
-format = "via [ $version](cyan) "
+format = "via [ $version](italic) "
+disabled = true
 
 [ocaml]
 disabled = true
@@ -155,7 +159,8 @@ disabled = true
 disabled = true
 
 [package]
-format = "via [ $version](cyan) "
+format = "via [ $version](italic) "
+disabled = true
 
 [perl]
 disabled = true
@@ -176,7 +181,8 @@ python_binary = "python3"
 disabled = true
 
 [rust]
-format = "via [ $version](cyan) "
+format = ":[ $version](italic) "
+disabled = true
 
 [shlvl]
 disabled = true
@@ -200,6 +206,6 @@ show_always = false
 disabled = false
 
 [zig]
-format = "[⚡️Zig ](cyan)"
-disabled = false
+format = "[:zig $version ](italic)"
+disabled = true
 
