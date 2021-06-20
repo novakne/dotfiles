@@ -37,9 +37,6 @@ fi
 [[ -r "${_zsh_plugins_dir}"/dircolors ]] &&
 	eval "$(dircolors -b "${_zsh_plugins_dir}"/dircolors)"
 
-# [ Fast syntax highlighting ]
-source "${_zsh_plugins_dir}"/fsh/fast-syntax-highlighting.plugin.zsh
-
 # [ Fzf ]
 if [[ -d "${_fzf_dir}" ]]; then
 	_append_path "${_fzf_dir}"/bin

@@ -13,9 +13,6 @@
 [submodule "config/zsh/plugins/zsh-completions"]
 	path = config/zsh/plugins/zsh-completions
 	url = git@github.com:zsh-users/zsh-completions.git
-[submodule "config/zsh/plugins/fsh"]
-	path = config/zsh/plugins/fsh
-	url = git@github.com:zdharma/fast-syntax-highlighting.git
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
