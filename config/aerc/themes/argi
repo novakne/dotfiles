@@ -1,0 +1,30 @@
+# argi - aerc
+# Author: novakane <mail@novakane.xyz>
+
+*.default=true
+*.selected.reverse=toggle
+
+title.reverse=true
+header.bold=true
+
+*error.bold=true
+error.fg=red
+warning.fg=red
+success.fg=green
+
+statusline*.default=true
+statusline_default.default=true
+statusline_error.fg=red
+statusline_error.reverse=true
+
+msglist_unread.fg=green
+msglist_deleted.fg=gray
+
+completion_pill.reverse=true
+
+tab.default=true
+border.default=true
+
+selector_focused.bg=default
+selector_chooser.bold=true
+
