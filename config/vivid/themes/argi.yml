@@ -2,14 +2,24 @@
 # Author: novakane <mail@novakane.xyz>
 
 colors:
-    background_color: "f9f9fa"
-    black: "202325"
+    light00: "f9f9fa"
+    light01: "dce1e4"
+    light02: "cdd4d8"
+
+    dark00: "202325"
+    dark01: "3a4043"
+    dark02: "646e73"
+
     blue: "2e3f9f"
     red: "9e2f59"
-    magenta: "6b2e9f"
+    purple: "6b2e9f"
 
-    gray: "3a4043"
-    lightgray: "dce1e4"
+    err: "9f2e2f"
+    warn: "9f5a2e"
+    success: "577433"
+
+    comment: "29748a"
+    string: "254550"
 
     hblue: "dbf1fd"
     hyellow: "faefb1"
@@ -20,36 +30,34 @@ core:
     regular_file: {}
 
     directory:
-        foreground: blue
+        font-style: bold
 
     executable_file:
+        foreground: red
         font-style: bold
 
     symlink:
-        foreground: magenta
+        font-style: italic
+        foreground: dark01
 
     broken_symlink:
-        foreground: background_color
-        background: gray
+        foreground: dark02
+        background: light01
     missing_symlink_target:
-        foreground: background_color
-        background: gray
+        foreground: dark02
+        background: light01
 
     fifo:
-        foreground: black
         background: hblue
 
     socket:
-        foreground: black
         background: hred
 
     character_device:
-        foreground: black
         background: hgreen
 
     block_device:
-        foreground: black
-        background: lightgray
+        background: light01
 
     normal_text: {}
 
@@ -61,46 +69,43 @@ core:
 
 text:
     special:
-        foreground: black
         background: hyellow
 
     todo:
         font-style: bold
 
-    licenses:
-        foreground: gray
+    licenses: {}
 
     configuration:
-        foreground: blue
+        foreground: purple
 
-    other:
-        foreground: blue
+    other: {}
 
 markup:
-    foreground: blue
+    font-style: italic
 
 programming:
     source:
-        foreground: blue
+        background: hblue
 
     tooling:
-        foreground: blue
+        background: hblue
 
         continuous-integration:
-            foreground: blue
+            background: hblue
 
 media:
-    foreground: red
+    foreground: blue
 
 office:
-    foreground: red
+    foreground: blue
 
 archives:
-    foreground: magenta
+    foreground: purple
     font-style: underline
 
 executable:
     font-style: bold
 
 unimportant:
-    foreground: lightgray
+    foreground: dark01
