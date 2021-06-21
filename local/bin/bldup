@@ -29,7 +29,7 @@ declare bld_dir lib_dir
 bld_dir="${XDG_DATA_HOME:-$HOME/.local/share}"/bld
 lib_dir="$HOME"/.local/lib
 
-# [ https://git.sr.ht/~technomancy/fennel ]
+# <https://git.sr.ht/~technomancy/fennel>
 _fennel()
 {
 	cd "${bld_dir}"/pkg/fennel || exit
@@ -38,7 +38,7 @@ _fennel()
 	make fennel
 }
 
-# [ https://github.com/junegunn/fzf ]
+# <https://github.com/junegunn/fzf>
 _fzf()
 {
 	cd "${bld_dir}"/pkg/fzf || exit
@@ -47,6 +47,7 @@ _fzf()
 	./install --bin --no-update-rc
 }
 
+# <https://codeberg.org/dnkl/fnott>
 _fnott()
 {
 	cd "${bld_dir}"/pkg/fnott || exit
@@ -60,7 +61,7 @@ _fnott()
 	sudo ninja install
 }
 
-# [ https://codeberg.org/dnkl/foot ]
+# <https://codeberg.org/dnkl/foot>
 _foot()
 {
 	cd "${bld_dir}"/pkg/foot || exit
@@ -86,6 +87,7 @@ _foot()
 	sudo ninja install
 }
 
+# <https://codeberg.org/dnkl/fuzzel>
 _fuzzel()
 {
 	cd "${bld_dir}"/pkg/fuzzel || exit
@@ -99,7 +101,7 @@ _fuzzel()
 	sudo ninja install
 }
 
-# [ https://github.com/neovim/neovim ]
+# <https://github.com/neovim/neovim>
 _nvim()
 {
 	cd "${bld_dir}"/pkg/neovim || exit
@@ -110,7 +112,7 @@ _nvim()
 	make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=~/.local install
 }
 
-# [ https://github.com/sumneko/lua-language-server ]
+# <https://github.com/sumneko/lua-language-server>
 _lua_lsp()
 {
 	cd "${lib_dir}"/lsp/lua || exit
@@ -124,6 +126,7 @@ _lua_lsp()
 	./3rd/luamake/luamake rebuild
 }
 
+# <https://github.com/ziglang/zig>
 _zig()
 {
 	cd "${bld_dir}"/pkg/zig/zig-master || exit
@@ -136,6 +139,7 @@ _zig()
 	make install
 }
 
+# <https://github.com/zigtools/zls>
 _zls()
 {
 	cd "${lib_dir}"/lsp/zls || exit
@@ -146,23 +150,23 @@ _zls()
 main()
 {
 	case "$1" in
-	-fennel) _fennel ;;
-	-fnott) _fnott ;;
-	-fzf) _fzf ;;
-	-foot) _foot ;;
-	-fuzzel) _fuzzel ;;
-	-nvim) _nvim ;;
-	-lualsp) _lua_lsp ;;
-	-zig) _zig ;;
-	-zls) _zls ;;
-	*)
-		_usage
-		exit 1
-		;;
+		-fennel) _fennel ;;
+		-fnott) _fnott ;;
+		-fzf) _fzf ;;
+		-foot) _foot ;;
+		-fuzzel) _fuzzel ;;
+		-nvim) _nvim ;;
+		-lualsp) _lua_lsp ;;
+		-zig) _zig ;;
+		-zls) _zls ;;
+		*)
+			_usage
+			exit 1
+			;;
 	esac
 
 	unset -v bld_dir lib_dir
-	unset -f _fennel _fzf _foot _nvim _lua_lsp _zig
+	unset -f _fennel _fnott _fzf _foot _fuzzel _nvim _lua_lsp _zig _zls
 }
 
 main "$@"

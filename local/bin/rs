@@ -73,16 +73,16 @@ _user_status()
 main()
 {
 	case "$1" in
-	-senable) _system_enable "$2" ;;
-	-sdisable) _system_disable "$2" ;;
-	-sstatus) _system_status ;;
-	-ustart) _user_start "$2" ;;
-	-ustop) _user_stop "$2" ;;
-	-ustatus) _user_status ;;
-	*)
-		_usage
-		exit 1
-		;;
+		-senable) _system_enable "$2" ;;
+		-sdisable) _system_disable "$2" ;;
+		-sstatus) _system_status ;;
+		-ustart) _user_start "$2" ;;
+		-ustop) _user_stop "$2" ;;
+		-ustatus) _user_status ;;
+		*)
+			_usage
+			exit 1
+			;;
 	esac
 
 	unset -v id

@@ -24,7 +24,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 dwl-run()
 {
-	local log_date log_file
+	local log_date log_file tags_file
 
 	log_date=$(date +"%Y_%m_%dT%H_%M_%S")
 	log_file=$(mktemp -t dwl-"${log_date}".XXXXXXXXXX.log)

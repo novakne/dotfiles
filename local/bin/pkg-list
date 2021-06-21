@@ -40,28 +40,28 @@ main()
 	[[ ! -d ${pkg_dir} ]] >/dev/null 2>&1 && mkdir -p "${pkg_dir}"
 
 	case "$1" in
-	-a | --all)
-		LC_ALL=C pacman -Qi |
-			awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' |
-			sort -h >"${pkg_dir}"/"${file_date}"-pkg-list-all.log
-		;;
-	-e | --explicitly)
-		pacman -Qe >"${pkg_dir}"/"${file_date}"-plkg-list-explicitly.log
-		;;
-	-m | --manually)
-		pacman -Qm >"${pkg_dir}"/"${file_date}"-pkg-list-manually.log
-		;;
-	-u | --aur)
-		pacman -Qme >"${pkg_dir}"/"${file_date}"-pkg-list-aur.log
-		;;
-	-b | --backup)
-		pacman -Qqe | grep -vx "$(pacman -Qqm)" >"${pkg_dir}"/"${file_date}"/pkg-list-backup.list
-		pacman -Qqme >"${pkg_dir}"/"${file_date}"/pkg-list-backup-aur.list
-		;;
-	*)
-		_usage
-		exit 1
-		;;
+		-a | --all)
+			LC_ALL=C pacman -Qi |
+				awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' |
+				sort -h >"${pkg_dir}"/"${file_date}"-pkg-list-all.log
+			;;
+		-e | --explicitly)
+			pacman -Qe >"${pkg_dir}"/"${file_date}"-plkg-list-explicitly.log
+			;;
+		-m | --manually)
+			pacman -Qm >"${pkg_dir}"/"${file_date}"-pkg-list-manually.log
+			;;
+		-u | --aur)
+			pacman -Qme >"${pkg_dir}"/"${file_date}"-pkg-list-aur.log
+			;;
+		-b | --backup)
+			pacman -Qqe | grep -vx "$(pacman -Qqm)" >"${pkg_dir}"/"${file_date}"/pkg-list-backup.list
+			pacman -Qqme >"${pkg_dir}"/"${file_date}"/pkg-list-backup-aur.list
+			;;
+		*)
+			_usage
+			exit 1
+			;;
 	esac
 
 	unset -f _usage

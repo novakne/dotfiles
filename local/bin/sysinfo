@@ -17,8 +17,8 @@ sysinfo()
 	volume_percent=$(pamixer --get-volume)
 
 	case $mute in
-	true) volume=" Mute" ;;
-	*) volume=" ${volume_percent}%" ;;
+		true) volume=" Mute" ;;
+		*) volume=" ${volume_percent}%" ;;
 	esac
 
 	fmt=$(printf -- '%s\n%s\n%s\n%s\n' " ${clock}" " ${day}" "  ${bat_status} ${bat_percent}%" "${volume}")

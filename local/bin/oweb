@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+#
+# quickly open some sites in firefox
+#
+# USAGE: oweb <url>
+# REQUIREMENTS: firefox
+
+oweb()
+{
+	local url
+
+	case "$1" in
+		lhp) url='https://git.sr.ht/~leon_plickat/' ;;
+		lhpp) url='https://sr.ht/~leon_plickat/' ;;
+		river) url='https://github.com/ifreund/river' ;;
+		srht) url='https://git.sr.ht/' ;;
+		zdoc) url='https://ziglang.org/documentation/0.8.0/' ;;
+		zstd) url='https://ziglang.org/documentation/0.8.0/std/#std' ;;
+		*)
+			printf -- '%s\n' "Invalid argument" >&2
+			exit 1
+			;;
+	esac
+
+	firefox "${url}" >/dev/null 2>&1
+}
+
+oweb "$@"

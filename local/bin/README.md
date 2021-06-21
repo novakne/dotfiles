@@ -1,6 +1,6 @@
 # Scripts
 
-Format with: `shfmt -fn -w <script>`
+Format with: `shfmt -fn -ci -w <script>`
 
 -   `bin-list` - Get a list of executable in _~/.local/bin_
 -   `bldup` - Update differents repos

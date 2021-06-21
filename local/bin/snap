@@ -11,6 +11,7 @@
 _err()
 {
 	printf -- '%s\n' "[$(date +'%Y-%m-%d %H:%M:%S')]: $*" >&2
+	exit 1
 }
 
 # Test installed programs
@@ -37,7 +38,6 @@ _is_slop()
 # Need at least one of grim or maim
 if ! _is_grim && ! _is_maim; then
 	_err "You need to install grim or maim."
-	exit 1
 fi
 
 # Send notification before or after screenshot
@@ -85,59 +85,55 @@ main()
 	[[ ! -d ${screen_dir} ]] >/dev/null 2>&1 && mkdir -p "${screen_dir}"
 
 	case "$1" in
-	-f | --fullscreen)
-		if _is_grim; then
-			grim -t png "${screen_file}"
-			_post_notif
-		elif _is_maim; then
-			maim -d 5 -u -m 3 "${screen_file}"
-			_post_notif
-		fi
-		;;
-	-s | --select)
-		if _is_grim; then
-			if ! _is_slurp; then
-				_err "You need to install slurp."
-				exit 1
-			else
-				_pre_notif 'Select an area...'
-				grim -t png -g "$(slurp)" "${screen_file}"
+		-f | --fullscreen)
+			if _is_grim; then
+				grim -t png "${screen_file}"
+				_post_notif
+			elif _is_maim; then
+				maim -d 5 -u -m 3 "${screen_file}"
 				_post_notif
 			fi
-		elif _is_maim; then
-			if ! _is_slop; then
-				_err "You need to install slop."
-				exit 1
-			else
-				_pre_notif 'Select an area...'
-				maim -s -u -m 3 "${screen_file}"
+			;;
+		-s | --select)
+			if _is_grim; then
+				if ! _is_slurp; then
+					_err "You need to install slurp."
+				else
+					_pre_notif 'Select an area...'
+					grim -t png -g "$(slurp)" "${screen_file}"
+					_post_notif
+				fi
+			elif _is_maim; then
+				if ! _is_slop; then
+					_err "You need to install slop."
+				else
+					_pre_notif 'Select an area...'
+					maim -s -u -m 3 "${screen_file}"
+					_post_notif
+				fi
+			fi
+			;;
+		-w | --window)
+			if _is_grim; then
+				_err "Not available with grim."
+			elif _is_maim; then
+				maim -d 5 -u -m 3 -i "$(xdotool getactivewindow)" "${screen_file}"
 				_post_notif
 			fi
-		fi
-		;;
-	-w | --window)
-		if _is_grim; then
-			_err "Not available with grim."
+			;;
+		-c | --click)
+			if _is_grim; then
+				_err "Not available with grim."
+			elif _is_maim; then
+				_pre_notif 'Click on a window to select it...'
+				maim -st 9999999 -u -m 3 "${screen_file}"
+				_post_notif
+			fi
+			;;
+		*)
+			_usage
 			exit 1
-		elif _is_maim; then
-			maim -d 5 -u -m 3 -i "$(xdotool getactivewindow)" "${screen_file}"
-			_post_notif
-		fi
-		;;
-	-c | --click)
-		if _is_grim; then
-			_err "Not available with grim."
-			exit 1
-		elif _is_maim; then
-			_pre_notif 'Click on a window to select it...'
-			maim -st 9999999 -u -m 3 "${screen_file}"
-			_post_notif
-		fi
-		;;
-	*)
-		_usage
-		exit 1
-		;;
+			;;
 	esac
 
 	unset -f _err _is_grim _is_maim _is_slop _is_slurp
