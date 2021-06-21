@@ -50,7 +50,6 @@ _$HOME/.config/zsh/_
     -   `00_login` - Environment for login shell
     -   `10_interactive` - Environment for interactive shell
 -   plugins/
-    -   [fast-syntax-highlighting](https://github.com/zdharma/fast-syntax-highlighting)
     -   [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
     -   [zsh-completions](https://github.com/zsh-users/zsh-completions)
     -   Personal colors, aliases, dircolors, osc7 and starship config

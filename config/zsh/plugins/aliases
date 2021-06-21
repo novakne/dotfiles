@@ -65,5 +65,6 @@ alias q='exit'
 alias c='clear'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME"/wget-hsts'
 alias myip='curl ifconfig.co/json'
+alias update_starshipt='sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -b ~/.local/bin/app'
 
 # vim: ft=zsh

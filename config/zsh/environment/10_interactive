@@ -1,6 +1,7 @@
 # [ Theme ]
 [[ ! -d "${_zsh_plugins_dir}"/colors ]] && echo "No themes folder found"
 export USER_THEME=argi
+export LS_COLORS="$(vivid generate argi)"
 
 if [[ "$USER_THEME" = argi ]]; then
 	source "${_zsh_plugins_dir}"/colors/argi
@@ -32,10 +33,6 @@ fi
 
 # [ Aliases ]
 [[ -r "${_zsh_plugins_dir}"/aliases ]] && . "${_zsh_plugins_dir}"/aliases
-
-# [ Dircolors ]
-[[ -r "${_zsh_plugins_dir}"/dircolors ]] &&
-	eval "$(dircolors -b "${_zsh_plugins_dir}"/dircolors)"
 
 # [ Fzf ]
 if [[ -d "${_fzf_dir}" ]]; then

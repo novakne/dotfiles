@@ -1,0 +1,106 @@
+# argi - vivid
+# Author: novakane <mail@novakane.xyz>
+
+colors:
+    background_color: "f9f9fa"
+    black: "202325"
+    blue: "2e3f9f"
+    red: "9e2f59"
+    magenta: "6b2e9f"
+
+    gray: "3a4043"
+    lightgray: "dce1e4"
+
+    hblue: "dbf1fd"
+    hyellow: "faefb1"
+    hred: "fde7f6"
+    hgreen: "c0fbd5"
+
+core:
+    regular_file: {}
+
+    directory:
+        foreground: blue
+
+    executable_file:
+        font-style: bold
+
+    symlink:
+        foreground: magenta
+
+    broken_symlink:
+        foreground: background_color
+        background: gray
+    missing_symlink_target:
+        foreground: background_color
+        background: gray
+
+    fifo:
+        foreground: black
+        background: hblue
+
+    socket:
+        foreground: black
+        background: hred
+
+    character_device:
+        foreground: black
+        background: hgreen
+
+    block_device:
+        foreground: black
+        background: lightgray
+
+    normal_text: {}
+
+    sticky: {}
+
+    sticky_other_writable: {}
+
+    other_writable: {}
+
+text:
+    special:
+        foreground: black
+        background: hyellow
+
+    todo:
+        font-style: bold
+
+    licenses:
+        foreground: gray
+
+    configuration:
+        foreground: blue
+
+    other:
+        foreground: blue
+
+markup:
+    foreground: blue
+
+programming:
+    source:
+        foreground: blue
+
+    tooling:
+        foreground: blue
+
+        continuous-integration:
+            foreground: blue
+
+media:
+    foreground: red
+
+office:
+    foreground: red
+
+archives:
+    foreground: magenta
+    font-style: underline
+
+executable:
+    font-style: bold
+
+unimportant:
+    foreground: lightgray
