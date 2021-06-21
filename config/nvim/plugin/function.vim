@@ -33,3 +33,38 @@ function! s:all_files()
   \        "v:val !~ 'fugitive:\\|NERD_tree\\|^/tmp/\\|.git/'"),
   \ map(filter(range(1, bufnr('$')), 'buflisted(v:val)'), 'bufname(v:val)'))
 endfunction
+
+" <https://gist.github.com/romainl/f7e2e506dc4d7827004e4994f1be2df6>
+command! -bang -nargs=1 Global lgetexpr filter(map(getline(1,'$'), { key, val -> expand("%") . ":" . (key + 1) . ":1 " . (len(val) > 0 ? val : '  ') }), { idx, val -> expand('<bang>') == '!' ? val !~ '^.\{-}:1 \zs.*' . <q-args> . '.*' : val =~ '^.\{-}:1 \zs.*' . <q-args> . '.*' })
+
+" <https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7>
+function! Redir(cmd, rng, start, end)
+	for win in range(1, winnr('$'))
+		if getwinvar(win, 'scratch')
+			execute win . 'windo close'
+		endif
+	endfor
+	if a:cmd =~ '^!'
+		let cmd = a:cmd =~' %'
+			\ ? matchstr(substitute(a:cmd, ' %', ' ' . expand('%:p'), ''), '^!\zs.*')
+			\ : matchstr(a:cmd, '^!\zs.*')
+		if a:rng == 0
+			let output = systemlist(cmd)
+		else
+			let joined_lines = join(getline(a:start, a:end), '\n')
+			let cleaned_lines = substitute(shellescape(joined_lines), "'\\\\''", "\\\\'", 'g')
+			let output = systemlist(cmd . " <<< $" . cleaned_lines)
+		endif
+	else
+		redir => output
+		execute a:cmd
+		redir END
+		let output = split(output, "\n")
+	endif
+	vnew
+	let w:scratch = 1
+	setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile
+	call setline(1, output)
+endfunction
+
+command! -nargs=1 -complete=command -bar -range Redir silent call Redir(<q-args>, <range>, <line1>, <line2>)
