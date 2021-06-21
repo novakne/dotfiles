@@ -1,0 +1,4 @@
+*.svg
+zsh-completions/
+zsh-autosuggestions/
+dotbot/

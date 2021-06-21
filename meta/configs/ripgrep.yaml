@@ -1,4 +1,4 @@
 # [ Ripgrep ]
 - link:
       ~/.config/ripgrep: config/ripgrep
-      ~/.ignore: home/.ignore
+      ~/.rgignore: home/.rgignore

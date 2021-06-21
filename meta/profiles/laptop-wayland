@@ -1,3 +1,4 @@
+aerc
 alacritty
 bash
 bat
@@ -16,10 +17,13 @@ newsboat
 nnn
 npm
 nvim
+procs
 ripgrep
 river
 share
 ssh
 userdirs
+vivid
 zathura
+zls
 zsh
