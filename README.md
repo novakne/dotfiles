@@ -71,7 +71,7 @@ _$HOME/.local/share/zsh/_
     -   `mcd` - mkdir and cd to new dir
     -   `n` - cd on quit - `nnn`
     -   `nl` - open file at given line in _nvim_
-    -   `paste` - paste file/STDIN to <https://0x0.st/>
+    -   `paste` - submit paste to https://0x0.st/
     -   `rgv` - search with _ripgrep_ and open in _nvim_ quicfix
     -   `up` - go up N dir `(e.g. up 2)`
     -   `zn` - jump to a directory with _zoxide_ and open it in _neovim_

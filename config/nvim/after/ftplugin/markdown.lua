@@ -1,4 +1,4 @@
-vim.bo.textwidth = 80
+vim.bo.textwidth = 72
 
 vim.cmd [[command! Gmd :grep '^\#+\s\w+$']] -- Grep headers
 vim.cmd [[command! Toc :!toc -p %]]         -- Genrerate TOC

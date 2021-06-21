@@ -22,7 +22,7 @@ oweb()
 			;;
 	esac
 
-	firefox "${url}" >/dev/null 2>&1
+	"${BROWSER:-firefox}" "${url}" >/dev/null 2>&1
 }
 
 oweb "$@"

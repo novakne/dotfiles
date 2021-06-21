@@ -2,3 +2,6 @@
 zsh-completions/
 zsh-autosuggestions/
 dotbot/
+.cache/*
+!.cache/log
+
