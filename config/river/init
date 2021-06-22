@@ -67,7 +67,7 @@ riverctl map normal ${mod}+Shift E exit
 riverctl map normal ${mod}        Return spawn ${term}
 riverctl map normal Control+Shift Return spawn ${term}
 riverctl map normal ${mod}        B      spawn ${browser} >/dev/null 2>&1
-riverctl map normal ${mod}        D      spawn fuzzel-run
+riverctl map normal ${mod}        D      spawn 'fmenu local'
 riverctl map normal ${mod}        E      spawn ${term} "$EDITOR"
 riverctl map normal ${mod}        N      spawn ${term_float} nnn-float
 riverctl map normal ${mod}        O      spawn ${term_float} fmenu
