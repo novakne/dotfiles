@@ -30,9 +30,9 @@ alias gu='git pull'
 
 # [ Neovim ]
 alias sedit='sudo -E nvim'
-alias enote='cd "$XDG_DATA_HOME"/notes && nvim'
-alias equick='nvim "$XDG_DATA_HOME"/notes/quick.md'
-alias etodo='nvim "$XDG_DATA_HOME"/notes/TODO.md'
+alias enote='cd "$HOME"/media/notes && nvim'
+alias equick='nvim "$HOME"/media/notes/_QUICK.md'
+alias etodo='nvim "$HOME"/media/notes/_TODO.md'
 alias edot='cd "$XDG_DATA_HOME"/dotfiles && nvim -c ":Files"'
 alias e='nvim'
 
