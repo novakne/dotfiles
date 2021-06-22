@@ -2,7 +2,6 @@
 
 Format with: `shfmt -fn -ci -w <script>`
 
--   `bin-list` - Get a list of executable in _~/.local/bin_
 -   `bldup` - Update differents repos
 -   `bmenu-run` - Launch _bmenu_
 -   `colors-*` - Some scripts to display colors themes

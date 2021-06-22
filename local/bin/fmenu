@@ -1,16 +1,40 @@
 #!/usr/bin/env bash
 #
-# Fuzzy find bin
+# Fuzzy find bin and launch it
 #
-# USAGE: fmenu
-# REQUIREMENTS: fzf bin-list
+# USAGE: fmenu [-l|local]
+# REQUIREMENTS: fzf
+
+shopt -s lastpipe
 
 fmenu()
 {
-	local app
-	app=$(bin-list | fzf -0 -1 -e -i --prompt='launch -> ')
+	local -a paths
 
-	setsid "${app}" >/dev/null 2>&1 &
+	case "$1" in
+		-l | local)
+			paths=(
+				"$HOME"/.local/bin
+				"$HOME"/.local/bin/app
+			)
+			;;
+		*)
+			paths=(
+				"$HOME"/.local/bin
+				"$HOME"/.local/bin/app
+				/usr/bin
+			)
+			;;
+	esac
+
+	for p in "${paths[@]}"; do
+		ls "$p"
+	done | sort -u | fzf -0 -1 -e -i --prompt='launch => ' | read -r cmd
+
+	[[ -n "${cmd}" ]] || exit
+
+	setsid /usr/bin/env bash -c "${cmd}" >/dev/null 2>&1 &
+	sleep 0.1
 }
 
 fmenu "$@"

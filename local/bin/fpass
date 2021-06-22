@@ -5,16 +5,11 @@
 # USAGE: fpass
 # REQUIREMENTS: fzf pass
 
+shopt -s nullglob globstar
+
 fpass()
 {
-	shopt -s nullglob globstar
-	local prefix password_files password
-
-	typeit=0
-	if [[ $1 == "--type" ]]; then
-		typeit=1
-		shift
-	fi
+	local prefix password_files password cmd
 
 	prefix=${PASSWORD_STORE_DIR:-~/.password-store}
 	password_files=("${prefix}"/**/*.gpg)
@@ -22,19 +17,13 @@ fpass()
 	password_files=("${password_files[@]%.gpg}")
 
 	password=$(printf -- '%s\n' "${password_files[@]}" |
-		fzf -0 -1 --prompt='password -> ' "$@")
+		fzf -0 -1 --prompt='password => ' "$@")
 
 	[[ -n "${password}" ]] || exit
 
-	if [[ "${typeit}" -eq 0 ]]; then
-		pass show -c "${password}" 2>/dev/null
-	else
-		pass show "${password}" |
-			{
-				IFS= read -r pass
-				printf -- '%s' "${pass}"
-			}
-	fi
+	cmd="pass show -c ${password}"
+    setsid /usr/bin/env bash -c "${cmd}" 2>/dev/null
+    sleep 0.1
 }
 
 fpass "$@"

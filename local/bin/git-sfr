@@ -12,15 +12,18 @@ _err()
 	exit 1
 }
 
-git-sfm()
+git-sfr()
 {
-	[[ "$#" -ne 1 ]] && _err "One argument required"
+    local branch="$1"
 
-	git switch "$1"
+	[[ "$#" -gt 1 ]] && _err "Too many arguments"
+	[[ "$#" -eq 0 ]] && branch="master"
+
+	git switch "${branch}"
 	git fetch -p upstream
-	git rebase upstream/"$1"
+	git rebase upstream/"${branch}"
 
 	unset -f _err
 }
 
-git-sfm "$@"
+git-sfr "$@"
