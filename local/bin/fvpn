@@ -3,7 +3,8 @@
 # Fuzzy search mullvad wireguard configs and start it
 #
 # USAGE: fvpn
-# REQUIREMENTS: fd fzf mullvad configs wireguard
+#
+# REQUIREMENTS: fd - fzf - mullvad configs - wireguard
 
 fvpn()
 {

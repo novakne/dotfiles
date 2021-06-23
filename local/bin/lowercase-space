@@ -5,6 +5,7 @@
 #     '_' and'-' with 'space'
 #
 # USAGE: lowercase-space <file>
+#
 # REQUIREMENTS:
 
 _lower()

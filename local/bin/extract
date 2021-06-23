@@ -3,6 +3,7 @@
 # Extract archive
 #
 # USAGE: extract <archive>
+#
 # REQUIREMENTS:
 
 _err()

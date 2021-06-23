@@ -3,6 +3,7 @@
 # Launch fuzzel
 #
 # USAGE: fuzzel-run
+#
 # REQUIREMENTS: fuzzel
 
 fuzzel-run()

@@ -3,6 +3,7 @@
 # Display some system informations
 #
 # USAGE: sysinfo
+#
 # REQUIREMENTS:
 
 sysinfo()

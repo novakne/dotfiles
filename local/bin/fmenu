@@ -3,7 +3,9 @@
 # Fuzzy find bin and launch it
 #
 # USAGE: fmenu [-l|local]
+#
 # REQUIREMENTS: fzf
+# OPTIONALS: fd
 
 shopt -s lastpipe
 
@@ -28,7 +30,11 @@ fmenu()
 	esac
 
 	for p in "${paths[@]}"; do
-		ls "$p"
+		if hash fd >/dev/null 2>&1; then
+			fd . "$p" -texecutable -tsymlink --no-ignore --exec printf '%s\n' "{/}"
+		else
+			ls "$p"
+		fi
 	done | sort -u | fzf -0 -1 -e -i --prompt='launch => ' | read -r cmd
 
 	[[ -n "${cmd}" ]] || exit

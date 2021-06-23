@@ -3,8 +3,9 @@
 # Submits a paste to paste.sr.ht
 # SOURCE: <https://git.sr.ht/~yerinalexey/dotfiles/tree/master/item/scripts/submit-paste>
 #
-# _USAGE: paste-srht [option] <file>
-# REQUIREMENTS: curl jq pass
+# USAGE: paste-srht [option] <file>
+#
+# REQUIREMENTS: curl - jq - pass
 
 PASTE_BASE="${PASTE_BASE:-https://paste.sr.ht}"
 SRHT_TOKEN="${SRHT_TOKEN:-$(pass show srht/token/paste)}"

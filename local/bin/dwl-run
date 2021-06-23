@@ -3,7 +3,8 @@
 # Launch dwl
 #
 # USAGE: dwl-run
-# REQUIREMENTS: dwl dbus
+#
+# REQUIREMENTS: dwl - dbus
 
 # [ Wayland env variables ]
 # Session

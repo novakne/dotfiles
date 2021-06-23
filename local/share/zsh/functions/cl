@@ -1,6 +1,7 @@
 # cd to directory and list files with `exa` or `ls`
 #
-# REQUIREMENTS: exa (optional)
+# REQUIREMENTS:
+# OPTIONALS: exa
 
 emulate -L zsh
 setopt extendedglob

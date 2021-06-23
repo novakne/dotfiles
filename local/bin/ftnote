@@ -3,7 +3,8 @@
 # Search for '@tag' in markdown files
 #
 # USAGE: ftnote
-# REQUIREMENTS ripgrep fzf nvim
+#
+# REQUIREMENTS ripgrep - fzf - nvim
 
 ftnote()
 {

@@ -3,7 +3,8 @@
 # Launch Sway
 #
 # USAGE: sway-run
-# REQUIREMENTS: sway dbus
+#
+# REQUIREMENTS: sway - dbus
 
 # [  Wayland env variables ]
 # Session

@@ -3,6 +3,7 @@
 # Open an exit menu with confirmation in rofi
 #
 # USAGE: rofi-power-menu
+#
 # REQUIREMENTS: rofi
 
 _confirm()

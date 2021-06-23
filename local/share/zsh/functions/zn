@@ -1,6 +1,6 @@
 # Jump to a dir with zoxide and open it in neovim
 #
-# REQUIREMENTS: zoxide, neovim
+# REQUIREMENTS: zoxide - neovim
 
 emulate -L zsh
 setopt extendedglob

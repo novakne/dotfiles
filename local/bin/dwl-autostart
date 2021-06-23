@@ -3,7 +3,9 @@
 # Autostart programm with dwl
 #
 # USAGE: dwl -s dwl-autostart
-# REQUIREMENTS: dwl swaybg yambar
+#
+# REQUIREMENTS: dwl
+# OPTIONALS: swaybg - yambar
 
 dwl-autostart()
 {
@@ -17,8 +19,12 @@ dwl-autostart()
 		-m fill
 	)
 
-	swaybg "${swaybg_opts[@]}" >/dev/null 2>&1 &
-	yambar -c "${yambar_conf}" >/dev/null 2>&1 &
+	if hash swayb >/dev/null 2>&1g; then
+		swaybg "${swaybg_opts[@]}" >/dev/null 2>&1 &
+	fi
+	if hash yambar >/dev/null 2>&1; then
+		yambar -c "${yambar_conf}" >/dev/null 2>&1 &
+	fi
 
 	exec runsvdir "${SVDIR}"
 }

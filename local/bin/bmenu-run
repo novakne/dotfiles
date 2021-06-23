@@ -3,6 +3,7 @@
 # Launch bemenu
 #
 # USAGE: bemenu-run
+#
 # REQUIREMENTS: bemenu
 
 BEMENU_BACKEND=wayland

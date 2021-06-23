@@ -3,7 +3,8 @@
 # Launch River
 #
 # USAGE: river-run <log-level>
-# REQUIREMENTS: river dbus
+#
+# REQUIREMENTS: river - dbus
 
 # [  Wayland env variables ]
 #Session

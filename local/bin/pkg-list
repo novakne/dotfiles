@@ -3,6 +3,7 @@
 # List installed packages on Arch Linux
 #
 # USAGE: pkg-list <options>
+#
 # REQUIREMENTS: pacman
 
 # Help

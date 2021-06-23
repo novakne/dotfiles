@@ -3,7 +3,8 @@
 # Search passwords in pass and copy it
 #
 # USAGE: fpass
-# REQUIREMENTS: fzf pass
+#
+# REQUIREMENTS: fzf - pass
 
 shopt -s nullglob globstar
 

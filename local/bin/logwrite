@@ -3,6 +3,7 @@
 # Write STDERR to a file
 #
 # USAGE: logwrite <command>
+#
 # REQUIREMENTS:
 
 logwrite()

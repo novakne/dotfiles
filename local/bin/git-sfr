@@ -3,6 +3,7 @@
 # Switch/fetch/merge the main/master upstream branch
 #
 # USAGE: git sfr <branch>
+#
 # REQUIREMENTS: git
 
 # Error message in STDERR

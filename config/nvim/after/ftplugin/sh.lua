@@ -1,5 +1,4 @@
 vim.bo.textwidth  = 80
-vim.bo.tabstop    = 4
-vim.bo.shiftwidth = 4
+vim.bo.expandtab = false
 
 vim.cmd [[command! FmtSh :!shfmt -fn -ci -w %]]

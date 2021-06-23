@@ -1,6 +1,7 @@
 # Submit paste to <https://0x0.st/>
 #
 # USAGE: paste <file> or <cmd> | paste
+#
 # REQUIREMENTS: curl
 
 emulate -L zsh

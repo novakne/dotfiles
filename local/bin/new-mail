@@ -3,7 +3,8 @@
 # Sync mails with isync then use notmuch to tag it
 #
 # USAGE: new-mail
-# REQUIREMENTS: isync notmuch
+#
+# REQUIREMENTS: isync - notmuch
 
 _print()
 {

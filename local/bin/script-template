@@ -3,6 +3,7 @@
 # Generate a template script
 #
 # USAGE: script-template <name>
+#
 # REQUIREMENTS:
 
 _message()
@@ -13,18 +14,20 @@ _message()
 		# <description>
 		#
 		# USAGE:
+        #
 		# REQUIREMENTS:
+        # OPTIONALS:
 
 		# Error message in STDERR
 		_err()
 		{
-		    printf -- '%s\n' "[$(date +'%Y-%m-%d %H:%M:%S')]: $*" >&2
+		    printf -- '%s\n' "[$(date +'%Y-%m-%d %H:%M:%S')]: \$*" >&2
 		    exit 1
 		}
 
 
 		$1()
-		        {}
+		{}
 
 		$1 "\$@"
 

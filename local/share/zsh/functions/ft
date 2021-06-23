@@ -1,6 +1,6 @@
 # Search ctags
 #
-# REQUIREMENTS: fzf, ctags
+# REQUIREMENTS: fzf - ctags
 
 emulate -L zsh
 setopt extendedglob

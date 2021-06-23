@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 #
-# quickly open some sites in firefox
+# Quickly open some sites in firefox
 #
 # USAGE: oweb <url>
+#
 # REQUIREMENTS: firefox
 
 oweb()

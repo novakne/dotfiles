@@ -4,6 +4,7 @@
 # or with maim & slop on X11
 #
 # USAGE: snap <options>
+#
 # REQUIREMENTS: grim & slurp or maim & slop
 
 # [ Utils ]

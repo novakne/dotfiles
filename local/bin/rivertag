@@ -3,7 +3,8 @@
 # Launch river-tag-overlay
 #
 # USAGE: rivertag
-# REQUIREMENTS: river river-tag-overlay
+#
+# REQUIREMENTS: river - river-tag-overlay
 
 rto_opts=(
 	--border-width 2

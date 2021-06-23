@@ -3,7 +3,8 @@
 # Search for header in markdown files
 #
 # USAGE: fnote
-# REQUIREMENTS: ripgrep fzf nvim
+#
+# REQUIREMENTS: ripgrep - fzf - nvim
 
 fnote()
 {

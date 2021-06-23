@@ -1,6 +1,6 @@
 # Search with rg and open in neovim quicklist
 #
-# REQUIREMENTS: ripgrep, neovim
+# REQUIREMENTS: ripgrep - neovim
 
 emulate -L zsh
 setopt extendedglob

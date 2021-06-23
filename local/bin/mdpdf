@@ -3,6 +3,7 @@
 # Convert markdown file to pdf with pandoc
 #
 # USAGE: mdpdf <input_file> <output_file>
+#
 # REQUIREMENTS: pandoc
 
 # Error message in STDERR

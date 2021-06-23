@@ -3,6 +3,7 @@
 # Display latest commits in every branch and git status for current branch
 #
 # USAGE: git merged
+#
 # REQUIREMENTS: git
 
 clear
