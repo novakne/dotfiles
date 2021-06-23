@@ -57,7 +57,7 @@ riverctl float-filter-add "imv"
 # ------------------------------------------------
 mod="Mod4"
 term=footclient
-term_float="footclient --app-id 'float'"
+term_float=(footclient --app-id 'float' --window-size-pixels 1200x800)
 browser=firefox
 
 # Mod+E to exit river
@@ -66,13 +66,13 @@ riverctl map normal ${mod}+Shift E exit
 # [ App ]
 riverctl map normal ${mod}        Return spawn ${term}
 riverctl map normal Control+Shift Return spawn ${term}
-riverctl map normal ${mod}        B      spawn ${browser} >/dev/null 2>&1
-riverctl map normal ${mod}        D      spawn 'fmenu local'
 riverctl map normal ${mod}        E      spawn ${term} "$EDITOR"
-riverctl map normal ${mod}        N      spawn ${term_float} nnn-float
-riverctl map normal ${mod}        O      spawn ${term_float} fmenu
-riverctl map normal ${mod}        P      spawn ${term_float} fpass
-riverctl map normal ${mod}        T      spawn foot-float
+riverctl map normal ${mod}        B      spawn ${browser} >/dev/null 2>&1
+riverctl map normal ${mod}        T      spawn ${term_float[@]}
+riverctl map normal ${mod}        D      spawn ${term_float[@]} fmenu -l
+riverctl map normal ${mod}        O      spawn ${term_float[@]} fmenu
+riverctl map normal ${mod}        P      spawn ${term_float[@]} fpass
+riverctl map normal ${mod}        N      spawn ${term_float[@]} nnn
 riverctl map normal ${mod}        W      spawn sysinfo
 
 # [ Views ]
