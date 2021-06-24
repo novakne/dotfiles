@@ -11,6 +11,7 @@ oweb()
 	local url
 
 	case "$1" in
+		deepl) url='https://www.deepl.com/translator' ;;
 		lhp) url='https://git.sr.ht/~leon_plickat/' ;;
 		lhpp) url='https://sr.ht/~leon_plickat/' ;;
 		river) url='https://github.com/ifreund/river' ;;
