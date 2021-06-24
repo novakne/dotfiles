@@ -68,7 +68,7 @@ fi
 # [ Less ]
 # Set the default Less options.
 if _is_command less; then
-	export LESS='-g -i -R -w -z-4'
+	export LESS='-g -i -R -F -w -z-4'
 	export LESSHISTFILE="$XGG_CACHE_HOME"/less
 
 	# Colors

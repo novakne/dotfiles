@@ -58,7 +58,6 @@ return require'packer'.startup(function()
     use {
         'nvim-treesitter/nvim-treesitter',
         requires = {
-            { 'romgrk/nvim-treesitter-context', after = 'nvim-treesitter' },
             {
                 'nvim-treesitter/playground',
                 cmd = { 'TSPlaygroundToggle', 'TSHighlightCapturesUnderCursor' },

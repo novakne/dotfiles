@@ -176,6 +176,7 @@ symbol = " "
 pyenv_version_name = true
 # Only use the `python3` binary to get the version.
 python_binary = "python3"
+disabled = true
 
 [ruby]
 disabled = true
