@@ -40,6 +40,8 @@ script-template()
 
 	template="$(_message "$1")"
 	printf -- '%s\n' "${template}" >"$1"
+	chmod 774 "$1"
+	"${EDITOR:-nvim}" "$1"
 }
 
 script-template "$@"
