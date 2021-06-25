@@ -71,7 +71,7 @@ _foot()
 	git pull
 	mkdir -p bld/release && cd bld/release || exit
 
-	export CFLAGS="$CFLAGS -O3"
+	export CFLAGS="$CFLAGS -O3 -I/usr/include/libutf8proc"
 	meson --buildtype=release --prefix=/usr -Db_lto=true ../..
 	meson configure -Db_pgo=generate
 	ninja
