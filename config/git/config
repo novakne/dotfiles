@@ -1,67 +1,68 @@
 [color]
-    ui = auto
+	ui = auto
 [status]
-    showUntrackedFiles = all
+	showUntrackedFiles = all
 [alias]
 	l = log --graph --pretty=format:'%C(italic)%t%Creset %C(bold)<%an>%Creset -> %C(bold)%d%Creset %C(green)%s%Creset - %C(italic)(%cr)%Creset'
-    br = branch
-    ci = commit
-    co = checkout
-    ps = push
-    s = status -sbu
-    sbu = submodule update --remote --merge
-    sw = switch
+	br = branch
+	ci = commit
+	co = checkout
+	ps = push
+	s = status -sbu
+	sbu = submodule update --remote --merge
+	sw = switch
+	unstage = reset HEAD --
 [diff]
 	submodule = log
-    colorMoved = default
+	colorMoved = default
 [core]
-    editor = nvim
+	editor = nvim
 [include]
-    path = config.user
+	path = config.user
 [credential]
-    helper = store
+	helper = store
 [pull]
 	rebase = true
 [init]
 	defaultBranch = main
 [pager]
-    diff = delta
-    log = delta
-    reflog = delta
-    show = delta
-    branch = false
+	diff = delta
+	log = delta
+	reflog = delta
+	show = delta
+	branch = false
 [delta]
-    commit-decoration-style = blue ol
-    file-style = omit
-    hunk-header-decoration-style = blue ol ul
-    hunk-header-file-style = red
-    hunk-header-line-number-style = "#6b2e9f"
-    hunk-header-style = file line-number syntax
-    light = true
-    line-numbers = true
-    minus-emph-style = normal "#d1bfcb"
-    minus-empty-line-marker-style = normal "#e1cddb"
-    minus-non-emph-style = normal "#e1cddb"
-    minus-style = "normal #fde7f6"
-    plus-emph-style = syntax "#91bda1"
-    plus-empty-line-marker-style = normal "#aadfbd"
-    plus-non-emph-style = syntax "#aadfbd"
-    plus-style = syntax "#c0fbd5"
-    side-by-side = false
-    syntax-theme = argi
-    zero-style = syntax
+	commit-decoration-style = blue ol
+	file-style = omit
+	hunk-header-decoration-style = blue ol ul
+	hunk-header-file-style = red
+	hunk-header-line-number-style = "#6b2e9f"
+	hunk-header-style = file line-number syntax
+	light = true
+	line-numbers = true
+	minus-emph-style = normal "#d1bfcb"
+	minus-empty-line-marker-style = normal "#e1cddb"
+	minus-non-emph-style = normal "#e1cddb"
+	minus-style = "normal #fde7f6"
+	plus-emph-style = syntax "#91bda1"
+	plus-empty-line-marker-style = normal "#aadfbd"
+	plus-non-emph-style = syntax "#aadfbd"
+	plus-style = syntax "#c0fbd5"
+	side-by-side = false
+	syntax-theme = argi
+	zero-style = syntax
 [interactive]
-    diffFilter = delta --color-only
+	diffFilter = delta --color-only
 [commit]
 	gpgsign = true
 [gpg]
 	program = gpg2
 [sendemail]
-    smtpserver = /usr/bin/msmtp
+	smtpserver = /usr/bin/msmtp
 	annotate = yes
 [fetch]
 	prune = true
 [submodule]
-    recurse = true
+	recurse = true
 
-# vim: ft=cfg
+# vim: ft=cfg noet
