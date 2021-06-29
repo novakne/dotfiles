@@ -13,6 +13,7 @@ _usage()
 		  Usage: bld-update [OPTION...]
 
 		    -fennel,  Update fennel [ main ]
+		    -fnlfmt,  Update fnlfmt [ main ]
 		    -fnott,   Update fnott [ master ]
 		    -foot,    Update foot [ master ]
 		    -fuzzel,  Update fuzzel [ master ]
@@ -37,6 +38,15 @@ _fennel()
 
 	git pull
 	make fennel
+}
+
+# <https://git.sr.ht/~technomancy/fnlfmt>
+_fnlfmt()
+{
+	cd "${bld_dir}"/pkg/fnlfmt || exit
+
+	git pull
+	make
 }
 
 # <https://github.com/junegunn/fzf>
@@ -152,6 +162,7 @@ main()
 {
 	case "$1" in
 		-fennel) _fennel ;;
+		-fnlfmt) _fnlfmt ;;
 		-fnott) _fnott ;;
 		-fzf) _fzf ;;
 		-foot) _foot ;;
@@ -167,7 +178,7 @@ main()
 	esac
 
 	unset -v bld_dir lib_dir
-	unset -f _fennel _fnott _fzf _foot _fuzzel _nvim _lua_lsp _zig _zls
+	unset -f _fennel _fnlfmt _fnott _fzf _foot _fuzzel _nvim _lua_lsp _zig _zls
 }
 
 main "$@"

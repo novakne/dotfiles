@@ -75,6 +75,7 @@ if [[ -d "${_fzf_dir}" ]]; then
 	{
 		_fzf_complete +m --prompt="update => " -- "$@" < <(
 			echo -fennel
+			echo -fnlfmt
 			echo -fnott
 			echo -foot
 			echo -fuzzel
