@@ -4,23 +4,31 @@
 #
 # REQUIREMENTS: fzf
 
-emulate -L zsh
-setopt extendedglob
+fe()
+{
+	emulate -L zsh
+	setopt extendedglob
 
-local IFS=$'\n'
-local -a files fzf_opts
+	local IFS=$'\n'
+	local -a files fzf_opts
 
-fzf_opts=(
-	--query="$1"
-	--multi
-	--select-1
-	--exit-0
-	--bind=ctrl-x:toggle-sort
-	--header='Open in $EDITOR - [ctrl-x: sort]'
-)
+	fzf_opts=(
+		--query="$1"
+		--multi
+		--select-1
+		--exit-0
+		--bind=ctrl-x:toggle-sort
+		--header='Open in $EDITOR - [ctrl-x: sort]'
+	)
 
-files=("$(fzf "${fzf_opts[@]}")") || return
+	files=("$(fzf "${fzf_opts[@]}")") || return
 
-"${EDITOR:-nvim}" -- "${files[@]}"
+	case "$1" in
+	    -new) "${EDITOR:-nvim}" -- "${files[@]}" ;;
+	    *) nvr -s -- "${files[@]}" ;;
+	esac
+}
+
+fe "$@"
 
 # vim: ft=zsh
