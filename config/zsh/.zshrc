@@ -36,11 +36,11 @@ _prepend_path()
 # [ Zsh options ]
 # ------------------------------------------------
 # [ Completions ]
-setopt ALWAYS_TO_END	# Move cursor to the end of a completed word
+setopt ALWAYS_TO_END    # Move cursor to the end of a completed word
 setopt AUTO_PARAM_SLASH # If completed parameter is a directory, add a trailing slash
 setopt COMPLETE_ALIASES
 setopt COMPLETE_IN_WORD # Complete from both ends of a word
-setopt EXTENDEDGLOB		# Enable extended globbing
+setopt EXTENDEDGLOB     # Enable extended globbing
 
 # If there are more than 5 options allow selecting from a menu
 # else don't use any menus at all
@@ -99,22 +99,21 @@ export HISTSIZE=10000 SAVEHIST=10000 HISTFILE="$XDG_CACHE_HOME"/zsh/zhistory
 export HISTORY_IGNORE="(ls|cd|cd *|pwd|exit|:q|q|c|e|e *|ea|et|z *|fe|clear|n|N|update|up *|xbi *|xbr *|xbq *|xbu|curl *)"
 export HISTTIMEFORMAT="%F %T:  "
 
-# setopt APPEND_HISTORY
-setopt HIST_EXPIRE_DUPS_FIRST  # Expire a duplicate event first when trimming histor
-setopt HIST_FIND_NO_DUPS	   # Do not display a previously found event
-setopt HIST_IGNORE_ALL_DUPS    # Delete an old recorded event if a new event is a duplicate
-setopt HIST_IGNORE_DUPS		   # Do not record an event that was just recorded again
-setopt HIST_IGNORE_SPACE	   # Do not record an event starting with a space
-setopt HIST_SAVE_NO_DUPS	   # Do not write a duplicate event to the history file
-setopt INC_APPEND_HISTORY	   # Add commands to the history immediately
-setopt SHARE_HISTORY		   # Share history between all sessions
+setopt HIST_EXPIRE_DUPS_FIRST # Expire a duplicate event first when trimming history
+setopt HIST_FIND_NO_DUPS      # Do not display a previously found event
+setopt HIST_IGNORE_ALL_DUPS   # Delete an old recorded event if a new event is a duplicate
+setopt HIST_IGNORE_DUPS       # Do not record an event that was just recorded again
+setopt HIST_IGNORE_SPACE      # Do not record an event starting with a space
+setopt HIST_SAVE_NO_DUPS      # Do not write a duplicate event to the history file
+setopt INC_APPEND_HISTORY     # Add commands to the history immediately
+setopt SHARE_HISTORY          # Share history between all sessions
 
 # [ Misc ]
-setopt AUTO_CD			 # Go to folder path without using cd
-setopt AUTO_PUSHD		 # Push the current directory visited on the stack
-setopt CORRECT			 # Enable built-in command auto-correction
+setopt AUTO_CD           # Go to folder path without using cd
+setopt AUTO_PUSHD        # Push the current directory visited on the stack
+setopt CORRECT           # Enable built-in command auto-correction
 setopt PUSHD_IGNORE_DUPS # Do not store duplicates in the stack
-setopt PUSHD_SILENT		 # Do not print the directory stack after pushd or popd
+setopt PUSHD_SILENT      # Do not print the directory stack after pushd or popd
 
 # No Beep
 setopt NO_BEEP
@@ -124,7 +123,6 @@ setopt NO_LIST_BEEP
 # ------------------------------------------------
 # [ User custom ]
 # ------------------------------------------------
-
 # [ Environment variables ]
 [[ -r "${_zsh_env_dir}"/10_interactive ]] && . "${_zsh_env_dir}"/10_interactive
 
@@ -132,8 +130,8 @@ setopt NO_LIST_BEEP
 if [[ -d "${_zsh_share_dir}"/functions ]]; then
 	fpath+=("${_zsh_share_dir}"/functions)
 
-	for fun in "${_zsh_share_dir}"/functions/*; do
-		autoload -Uz ${fun:t}
+	for fn in "${_zsh_share_dir}"/functions/*; do
+		autoload -Uz ${fn:t}
 	done
 fi
 

@@ -67,6 +67,8 @@ alias q='exit'
 alias c='clear'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME"/wget-hsts'
 alias myip='curl ifconfig.co/json'
-alias update_starshipt='sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -b ~/.local/bin/app'
+alias update_starship='sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -b ~/.local/bin/app'
+alias clang_config='curl -LO https://git.sr.ht/~novakane/guides/blob/wiki/formatter/clang-format/.clang-format'
+alias lua_config='curl -LO https://git.sr.ht/~novakane/guides/blob/wiki/formatter/luaformatter/.lua-format'
 
 # vim: ft=zsh
