@@ -10,6 +10,6 @@ if [[ "$#" -eq 0 ]]; then
 		"[$(date +'%Y-%m-%d %H:%M:%S')]: Require at least one argument" >&2
 fi
 
-nvim -c "silent grep $1" -c "copen"
+nvim -c "silent grep $1" -c "copen" --
 
 # vim: ft=zsh

@@ -15,6 +15,6 @@ fi
 file="$1"
 line="$2"
 
-[[ -n "${file}" ]] && nvim "${file}" +"${line}"
+[[ -n "${file}" ]] && nvim -- "${file}" +"${line}"
 
 # vim: ft=zsh

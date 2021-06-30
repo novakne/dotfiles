@@ -21,6 +21,6 @@ fzf_opts=(
 
 files=("$(fzf "${fzf_opts[@]}")") || return
 
-"${EDITOR:-nvim}" "${files[@]}"
+"${EDITOR:-nvim}" -- "${files[@]}"
 
 # vim: ft=zsh

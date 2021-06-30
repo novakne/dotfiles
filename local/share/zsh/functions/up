@@ -13,6 +13,6 @@ while [ "${count}" -lt "$1" ]; do
 	((count++))
 done
 
-cd "${str}" || exit
+cd -- "${str}" || exit
 
 # vim: ft=zsh
