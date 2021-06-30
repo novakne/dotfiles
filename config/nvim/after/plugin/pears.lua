@@ -1,6 +1,5 @@
 -- [ Nvim-autopairs ]
 if packer_plugins['pears.nvim'] and packer_plugins['pears.nvim'].loaded then
-
     require'pears'.setup(function( conf )
         conf.remove_pair_on_outer_backspace(false)
         conf.on_enter(function( pears_handle )
@@ -12,6 +11,5 @@ if packer_plugins['pears.nvim'] and packer_plugins['pears.nvim'].loaded then
             end
         end)
     end)
-
 end
 

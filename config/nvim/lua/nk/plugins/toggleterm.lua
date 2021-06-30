@@ -1,8 +1,6 @@
 -- [ Toggleterm ]
-if packer_plugins['nvim-toggleterm.lua'] then
-    local tt = require 'toggleterm'
-
-    tt.setup {
+if packer_plugins['nvim-toggleterm.lua'] and packer_plugins['nvim-toggleterm.lua'].loaded then
+    require'toggleterm'.setup {
         -- size can be a number or function which is passed the current terminal
         size = function( term )
             if term.direction == 'horizontal' then

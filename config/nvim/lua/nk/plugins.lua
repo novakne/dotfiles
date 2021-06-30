@@ -39,18 +39,13 @@ return require'packer'.startup(function()
     }
 
     use {
-        'glepnir/lspsaga.nvim',
-        config = function()
-            require 'nk.plugins.lspsaga'
-        end,
-    }
-
-    use {
         'gfanto/fzf-lsp.nvim',
         config = function()
             require'fzf_lsp'.setup()
         end,
     }
+
+    use 'glepnir/lspsaga.nvim'
 
     -- ---------------------------------------------
     -- [ TREESITTER ]
@@ -124,9 +119,6 @@ return require'packer'.startup(function()
         'glepnir/galaxyline.nvim',
         branch = 'main',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-        config = function()
-            require 'nk.plugins.galaxyline'
-        end,
     }
 
     use { 'RRethy/vim-illuminate' }
@@ -143,13 +135,6 @@ return require'packer'.startup(function()
     }
 
     use {
-        'steelsojka/pears.nvim',
-        config = function()
-            require 'nk.plugins.pears'
-        end,
-    }
-
-    use {
         'junegunn/vim-easy-align',
         keys = 'ga',
         cmd = 'EasyAlign',
@@ -161,6 +146,7 @@ return require'packer'.startup(function()
         end,
     }
 
+    use 'steelsojka/pears.nvim'
     use 'machakann/vim-sandwich'
     use 'tpope/vim-repeat'
 
@@ -170,9 +156,6 @@ return require'packer'.startup(function()
     use {
         'lewis6991/gitsigns.nvim',
         requires = 'nvim-lua/plenary.nvim',
-        config = function()
-            require 'nk.plugins.gitsigns'
-        end,
     }
 
     use {

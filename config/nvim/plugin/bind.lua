@@ -25,8 +25,8 @@ map('i', '<C-;>', '<CMD>normal A;<CR>')
 map('i', '<C-,>', '<CMD>normal A,<CR>')
 
 map('n', 'yc', 'vawy') -- Yank the world under the cursor
-map('n', 's', '"_d') -- Make s act like d, except it doesn’t save the cut text to a register
-map('n', 'Y', 'y$') -- Make Y act like D and C
+map('n', 's', '"_d')   -- Make s act like d, except it doesn’t save the cut text to a register
+map('n', 'Y', 'y$')    -- Make Y act like D and C
 
 -- Quickly move current line or visual selection
 map('n', 'mm', '<CMD>m .+1<CR>==')
@@ -49,16 +49,16 @@ map('c', '$d', [[<CR>:d<CR>``]], { noremap = true })
 -- [ Windows ]
 -- Move to the split in the direction shown, or create a new split
 -- ( https://aonemd.github.io/blog/handy-keymaps-in-vim )
-map('n', '<C-h>', [[<CMD>lua require'nk.core.bind.fn'.win_move('h')<CR>]])
-map('n', '<C-j>', [[<CMD>lua require'nk.core.bind.fn'.win_move('j')<CR>]])
-map('n', '<C-k>', [[<CMD>lua require'nk.core.bind.fn'.win_move('k')<CR>]])
-map('n', '<C-l>', [[<CMD>lua require'nk.core.bind.fn'.win_move('l')<CR>]])
+map('n', '<C-h>', [[<CMD>lua require'nk.utils'.win_move('h')<CR>]])
+map('n', '<C-j>', [[<CMD>lua require'nk.utils'.win_move('j')<CR>]])
+map('n', '<C-k>', [[<CMD>lua require'nk.utils'.win_move('k')<CR>]])
+map('n', '<C-l>', [[<CMD>lua require'nk.utils'.win_move('l')<CR>]])
 
 -- Intelligent windows resizing using ctrl + arrow keys
 map('n', '<C-Right>',
-    [[<CMD>lua require'nk.core.bind.fn'.vertical_resize('right')<CR>]])
+    [[<CMD>lua require'nk.utils'.vertical_resize('right')<CR>]])
 map('n', '<C-Left>',
-    [[<CMD>lua require'nk.core.bind.fn'.vertical_resize('left')<CR>]])
+    [[<CMD>lua require'nk.utils'.vertical_resize('left')<CR>]])
 map('n', '<C-Up>', '<CMD>resize -1<CR>')
 map('n', '<C-Down>', '<CMD>resize +1<CR>')
 
@@ -76,7 +76,6 @@ map('n', '<esc>', '<CMD>noh<CR>') -- Clear search results
 -- Quickfix window
 map('n', '<Leader>cc', ':cclose<CR>')
 map('n', '<Leader>co', ':copen<CR>')
--- map('n', '<Leader>co', [[<CMD>lua require'nk.core.bind.fn'.toggle_qf<CR>]])
 map('n', '<Leader>cp', ':cprev<CR>')
 map('n', '<Leader>cn', ':cnext<CR>')
 
@@ -86,7 +85,4 @@ map('n', '<F10>', '<CMD>setlocal spell! spelllang=fr<CR>')
 
 -- Get color group name of the syntax group where the cursor is
 map('n', '<F12>', [[<CMD>TSHighlightCapturesUnderCursor<CR>]])
-
--- Toggle between number and relative number
-map('n', '<Leader>à', [[<CMD>lua require'nk.core.bind.fn'.toggle_number()<CR>]])
 

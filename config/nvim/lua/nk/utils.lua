@@ -54,5 +54,54 @@ M.bind_bufnr = function( mode, lhs, rhs, opts )
     vim.api.nvim_buf_set_keymap(0, mode, lhs, rhs, opts)
 end
 
+-- [ Functions to bind ]
+-- [ Window management ]
+-- Be aware of whether you are right or left vertical split
+-- so you can use arrows more naturally.
+-- Inspired by https://github.com/ethagnawl
+M.vertical_resize = function( direction )
+    local window_resize_count = 5
+    local current_window = vim.call('winnr')
+    local last_window = vim.call('winnr', '$')
+    local modifier, modifier_1, modifier_2 = nil, nil, nil
+
+    if direction == 'left' then
+        modifier_1, modifier_2 = '+', '-'
+    else
+        modifier_1, modifier_2 = '-', '+'
+    end
+
+    if current_window == last_window then
+        local current_window_is_last_window = true
+        if current_window_is_last_window then
+            modifier = modifier_1
+        else
+            modifier = modifier_2
+        end
+    else
+        modifier = modifier_2
+    end
+
+    local cmd = ('vertical resize %s%d<CR>'):format(modifier,
+        window_resize_count)
+
+    vim.cmd(cmd)
+end
+
+-- Move to the split in the direction shown, or create a new split
+-- ( https://aonemd.github.io/blog/handy-keymaps-in-vim )
+M.win_move = function( key )
+    local current_window = vim.call('winnr')
+    vim.cmd('wincmd ' .. key)
+    if current_window == vim.call('winnr') then
+        if string.find(key, '[jk]') then
+            vim.cmd('wincmd s')
+        else
+            vim.cmd('wincmd v')
+        end
+        vim.cmd('wincmd ' .. key)
+    end
+end
+
 return M
 
