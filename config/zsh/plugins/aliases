@@ -16,7 +16,7 @@ alias et='clear; exa -lah -TL2 --group-directories-first --git --icons'
 # [ Git ]
 alias g='clear; git status -sb'
 alias gst='clear; git status'
-alias ga='git add'
+alias ga='noglob git add'
 alias gb='git branch'
 alias gc='git clone'
 alias gd='git diff'

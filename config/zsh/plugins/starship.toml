@@ -1,37 +1,65 @@
 # [ STARSHIP ]
 
-format = "$all"
+# format = '$all'
+format = """
+$username\
+$hostname\
+$jobs\
+$battery\
+$time\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$directory\
+$package\
+$cmake\
+$golang\
+$helm\
+$nim\
+$nodejs\
+$python\
+$rust\
+$zig\
+$env_var\
+$custom\
+$cmd_duration\
+$line_break\
+$lua\
+$status\
+$shell\
+$character"""
 command_timeout = 750
 
 [aws]
 disabled = true
 
 [battery]
-format = "[$percentage]($style) "
-disabled = true
+format = '[$percentage]($style) '
+disabled = false
 [[battery.display]]
-threshold = 15
-style = "red"
+threshold = 20
+style = 'bold'
 
 [character]
-#success_symbol = "[▁](green)"
-#success_symbol = "[ ](green)"
-#success_symbol = "[ ](green)"
-success_symbol = "[  ](green)"
-#success_symbol = "[ ](green)"
-#success_symbol = "[ﰲ](green)"
-#success_symbol = "[ ](green)"
-#error_symbol = "[✗](red)"
-error_symbol = "[  ](red)"
-vicmd_symbol = "[ ](yellow)"
+#success_symbol = '[▁](green)'
+#success_symbol = '[ ](green)'
+#success_symbol = '[ ](green)'
+success_symbol = '[  ](green)'
+#success_symbol = '[ ](green)'
+#success_symbol = '[ﰲ](green)'
+#success_symbol = '[ ](green)'
+#error_symbol = '[✗](red)'
+error_symbol = '[  ](red)'
+vicmd_symbol = '[ ](yellow)'
 
 [cmake]
-format = "via [ ($version)](italic)"
+format = 'via [ ($version)](italic)'
 disabled = true
 
 [cmd_duration]
 min_time = 5000
-format = "- [$duration](italic)"
+format = ' - [$duration](italic)'
 
 [conda]
 disabled = true
@@ -43,11 +71,11 @@ disabled = true
 disabled = true
 
 [directory]
-format = "[$path](bold)[$read_only](red)"
+format = ' [$path](bold)[$read_only](red)'
 truncation_length = 3
-read_only = " "
+read_only = ' '
 [directory.substitutions]
-"~" = "HOME"
+'~' = 'HOME'
 
 [docker_context]
 disabled = true
@@ -62,9 +90,9 @@ disabled = true
 disabled = true
 
 [env_var]
-symbol = " "
-variable = "NNNLVL"
-format = "[$symbol nnn](green) "
+symbol = ' '
+variable = 'NNNLVL'
+format = '[$symbol nnn](green) '
 
 [erlang]
 disabled = true
@@ -73,35 +101,35 @@ disabled = true
 disabled = true
 
 [git_branch]
-format = " ﰲ [$symbol $branch$remote_name](italic)"
-symbol = ""
+format = ' ﰲ [$branch$remote_name](italic)'
+symbol = ''
 # truncation_length = 4
-truncation_symbol = ""
+truncation_symbol = ''
 
 [git_commit]
-format = "[\\($hash\\)](white) [\\($tag\\)](white)"
+format = '[\\($hash\\)](white) [\\($tag\\)](white)'
 tag_disabled = false
 commit_hash_length = 4
-tag_symbol = " "
+tag_symbol = ' '
 
 [git_state]
-format = '[\($state( $progress_current of $progress_total)\)]($yellow)'
+format = '[\($state( $progress_current of $progress_total)\)](yellow)'
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]](italic))'
-conflicted = "="
-ahead = "⇡ ${count}"
-behind = "⇣ ${count}"
-diverged = "⇕⇡ ${ahead_count}⇣${behind_count}"
-untracked = "?"
-stashed = "$"
-modified = "!"
+conflicted = '='
+ahead = '⇡ ${count}'
+behind = '⇣ ${count}'
+diverged = '⇕⇡ ${ahead_count}⇣${behind_count}'
+untracked = '?'
+stashed = '$'
+modified = '!'
 staged = '[++\($count\)](bold)'
-renamed = ">>"
-deleted = "✘"
+renamed = '>>'
+deleted = '✘'
 
 [golang]
-format = "via [ ($version)](italic)"
+format = 'via [ ($version)](italic)'
 disabled = true
 
 [helm]
@@ -109,17 +137,17 @@ disabled = true
 
 [hostname]
 ssh_only = true
-format =  "on [$hostname](red) "
-trim_at = "."
+format =  'on [$hostname](red) '
+trim_at = '.'
 disabled = false
 
 [java]
 disabled = true
 
 [jobs]
-symbol = "+ "
+symbol = '+ '
 threshold = 1
-format = "[$symbol$number](green) "
+format = '[$symbol$number](green)'
 
 [julia]
 disabled = true
@@ -131,8 +159,8 @@ disabled = true
 disabled = true
 
 [lua]
-symbol = " "
-format = "[-> lua $version](italic) "
+symbol = ' '
+format = '[-> lua $version](italic) '
 disabled = true
 
 [memory_usage]
@@ -142,14 +170,14 @@ disabled = true
 disabled = true
 
 [nim]
-format = "via [ ($version)](italic)"
+format = 'via [ ($version)](italic)'
 disabled = true
 
 [nix_shell]
 disabled = true
 
 [nodejs]
-format = "via [ $version](italic) "
+format = 'via [ $version](italic) '
 disabled = true
 
 [ocaml]
@@ -159,7 +187,7 @@ disabled = true
 disabled = true
 
 [package]
-format = "via [ $version](italic) "
+format = 'via [ $version](italic) '
 disabled = true
 
 [perl]
@@ -172,17 +200,17 @@ disabled = true
 disabled = true
 
 [python]
-symbol = " "
+symbol = ' '
 pyenv_version_name = true
 # Only use the `python3` binary to get the version.
-python_binary = "python3"
+python_binary = 'python3'
 disabled = true
 
 [ruby]
 disabled = true
 
 [rust]
-format = ":[ $version](italic) "
+format = ':[ $version](italic) '
 disabled = true
 
 [shlvl]
@@ -198,15 +226,17 @@ disabled = true
 disabled = true
 
 [time]
-disabled = true
+format = '[\[$time\]](lightgrey italic)'
+time_format = '%R'
+disabled = false
 
 [username]
-style_root = "red"
-format = "[$user]($style) "
+style_root = 'red'
+format = '[$user]($style) '
 show_always = false
 disabled = false
 
 [zig]
-format = "[:zig $version ](italic)"
+format = '[:zig $version ](italic)'
 disabled = true
 
