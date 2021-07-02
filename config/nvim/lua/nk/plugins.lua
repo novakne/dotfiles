@@ -121,7 +121,8 @@ return require'packer'.startup(function()
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     }
 
-    use { 'RRethy/vim-illuminate' }
+    use 'Pocco81/TrueZen.nvim'
+    use 'RRethy/vim-illuminate'
 
     -- ---------------------------------------------
     -- [ EDITING ]
@@ -153,10 +154,7 @@ return require'packer'.startup(function()
     -- ---------------------------------------------
     -- [ MISC ]
     -- ---------------------------------------------
-    use {
-        'lewis6991/gitsigns.nvim',
-        requires = 'nvim-lua/plenary.nvim',
-    }
+    use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
 
     use {
         'akinsho/nvim-toggleterm.lua',
