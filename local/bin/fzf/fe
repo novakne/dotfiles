@@ -1,15 +1,16 @@
+#!/usr/bin/env bash
+#
 # Open the selected file with neovim
 # `ctrl-o` to open in a neovim instance if it exists
-# - Bypass fuzzy finder if there's only one match (--select-1)
-# - Exit if there's no match (--exit-0)
+# Bypass fuzzy finder if there's only one match (--select-1)
+# Exit if there's no match (--exit-0)
+#
+# USAGE: fe
 #
 # REQUIREMENTS: fzf - neovim-remote
 
 fe()
 {
-	emulate -L zsh
-	setopt extendedglob
-
 	local key file
 	local -a fzf_opts out
 
@@ -37,5 +38,3 @@ fe()
 }
 
 fe "$@"
-
-# vim: ft=zsh

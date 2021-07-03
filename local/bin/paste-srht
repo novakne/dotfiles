@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # Submits a paste to paste.sr.ht
-# SOURCE: <https://git.sr.ht/~yerinalexey/dotfiles/tree/master/item/scripts/submit-paste>
+# REF: <https://git.sr.ht/~yerinalexey/dotfiles/tree/master/item/scripts/submit-paste>
 #
 # USAGE: paste-srht [option] <file>
 #

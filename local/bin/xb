@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+#
+# Basically some aliases for xbps
+#
+# USAGE: xb <options> [pkg]
+#
+# REQUIREMENTS: xbps
+# OPTIONALS:
+
+# Error message in STDERR
+_err()
+{
+	printf -- '%s\n' "[2021-07-03 12:27:17]: $*" >&2
+	exit 1
+}
+
+xb()
+{
+	case "$1" in
+		i | install) sudo xbps-install "$2" ;;
+		q | search) xbps-query -Rs "$2" ;;
+		r | remove) sudo xbps-remove -Ro "$2" ;;
+		u | update) sudo xbps-install -Su ;;
+		c | clean) sudo xbps-remove -Oo ;;
+		s | info) xbps-query "$2" ;;
+		*) _err "Wrong options" ;;
+	esac
+}
+
+xb "$@"

@@ -1,13 +1,5 @@
 # [ ALIASES ]
 
-# [ xbps ]
-alias xbi='sudo xbps-install'
-alias xbq='xbps-query -Rs'
-alias xbu='sudo xbps-install -Su'
-alias xbr='sudo xbps-remove -Ro'
-alias xbclean='sudo xbps-remove -Oo'
-alias xbinfo='xbps-query'
-
 # [ Exa ]
 alias exa='exa --group-directories-first --icons'
 alias ea='clear; exa -lah --group-directories-first --git --icons'
@@ -30,9 +22,6 @@ alias gu='git pull'
 
 # [ Neovim ]
 alias sedit='sudo -E nvim'
-alias enote='cd "$HOME"/media/notes && nvim'
-alias equick='nvim "$HOME"/media/notes/_QUICK.md'
-alias etodo='nvim "$HOME"/media/notes/_TODO.md'
 alias todo='glow "$HOME"/media/notes/_TODO.md'
 alias edot='cd "$XDG_DATA_HOME"/dotfiles && nvim -c ":Files"'
 alias e='nvim'
@@ -68,7 +57,5 @@ alias c='clear'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME"/wget-hsts'
 alias myip='curl ifconfig.co/json'
 alias update_starship='sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -b ~/.local/bin/app'
-alias clang_config='curl -LO https://git.sr.ht/~novakane/guides/blob/wiki/formatter/clang-format/.clang-format'
-alias lua_config='curl -LO https://git.sr.ht/~novakane/guides/blob/wiki/formatter/luaformatter/.lua-format'
 
 # vim: ft=zsh

@@ -57,6 +57,8 @@ PATH="/usr/local/sbin${PATH:+:${PATH}}"
 if [[ -d "$HOME"/.local/bin ]]; then
 	_prepend_path "$HOME"/.local/bin
 	_prepend_path "$HOME"/.local/bin/app
+	_prepend_path "$HOME"/.local/bin/fzf
+	_prepend_path "$HOME"/.local/bin/run
 fi
 
 # [ User lib ]

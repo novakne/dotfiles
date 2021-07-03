@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+#
+# Open notes directory in neovim or open _TODO/_QUICK note file
+#
+# USAGE: note [options]
+#
+# REQUIREMENTS:
+# OPTIONALS:
+
+note()
+{
+	local notes_dir
+	notes_dir="$HOME"/media/notes
+
+	case "$1" in
+		q | quick)
+			"${EDITOR:-nvim}" -- "${notes_dir}"/_QUICK.md
+			;;
+		t | todo)
+			"${EDITOR:-nvim}" -- "${notes_dir}"/_TODO.md
+			;;
+		*)
+			cd "${notes_dir}" || return
+			"${EDITOR:-nvim}" -c ":FILES"
+			;;
+	esac
+
+}
+
+note "$@"
