@@ -48,7 +48,7 @@ opt.textwidth      = 100      -- Break line after 100 characters
 -- Copy indent from current line when starting a new line
 opt.cindent     = true
 opt.tabstop     = 8
-opt.shiftwidth  = 4
+opt.shiftwidth  = 8
 opt.softtabstop = 4
 opt.expandtab   = true
 
