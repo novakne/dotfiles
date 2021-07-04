@@ -21,7 +21,7 @@ note()
 			;;
 		*)
 			cd "${notes_dir}" || return
-			"${EDITOR:-nvim}" -c ":FILES"
+			"${EDITOR:-nvim}" -c ":Files"
 			;;
 	esac
 
