@@ -13,7 +13,7 @@ if [[ "$USER_THEME" = argi ]]; then
             --color=bg+:${base00},bg:${base00},spinner:${blue},hl:${blue}
             --color=fg:${base07},header:${blue},info:${blue},pointer:${red}
             --color=marker:${red},fg+:${base07},prompt:${blue},hl+:${red}
-            --reverse --margin 2% --cycle --multi --ansi
+            --reverse --margin 2% --cycle --multi --ansi --no-height
         "
 	}
 elif [[ "$USER_THEME" == kosmikoa ]]; then
@@ -26,7 +26,7 @@ elif [[ "$USER_THEME" == kosmikoa ]]; then
             --color=bg+:${base00},bg:${base00},spinner:${pink},hl:${green}
             --color=fg:${base05},header:${pink},info:${pink},pointer:${yellow}
             --color=marker:${blue},fg+:${base07},prompt:${pink},hl+:${yellow}
-            --height 90% --reverse --margin 2% --cycle --multi --ansi
+            --reverse --margin 2% --cycle --multi --ansi --no-height
         "
 	}
 fi

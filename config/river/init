@@ -31,7 +31,7 @@ elif [[ "$USER_THEME" == kosmikoa ]]; then
 fi
 
 source "${themes_dir}"/"${theme}"
-riverctl spawn 'rivertag >/dev/null 2>&1'
+riverctl spawn 'rtag.run >/dev/null 2>&1'
 
 unset -v themes_dir
 
