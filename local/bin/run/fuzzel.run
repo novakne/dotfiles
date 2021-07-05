@@ -5,6 +5,7 @@
 # USAGE: fuzzel-run
 #
 # REQUIREMENTS: fuzzel
+# OPTIONALS:
 
 fuzzel-run()
 {
@@ -26,3 +27,5 @@ fuzzel-run()
 }
 
 fuzzel-run "$@"
+
+# vim: ft=sh

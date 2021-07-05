@@ -7,6 +7,7 @@
 # USAGE: lowercase-space <file>
 #
 # REQUIREMENTS:
+# OPTIONALS:
 
 _lower()
 {

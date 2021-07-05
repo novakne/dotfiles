@@ -5,6 +5,7 @@
 # USAGE: bld-update <option>
 #
 # REQUIREMENTS:
+# OPTIONALS:
 
 # Help
 _usage()

@@ -5,6 +5,7 @@
 # USAGE: bemenu-run
 #
 # REQUIREMENTS: bemenu
+# OPTIONALS:
 
 BEMENU_BACKEND=wayland
 
@@ -32,3 +33,5 @@ bmenu-run()
 }
 
 bmenu-run "$@"
+
+# vim: ft=sh

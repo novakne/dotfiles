@@ -5,6 +5,7 @@
 # USAGE: pkg-list <options>
 #
 # REQUIREMENTS: pacman
+# OPTIONALS:
 
 # Help
 _usage()

@@ -5,25 +5,33 @@
 # USAGE: git merged
 #
 # REQUIREMENTS: git
+# OPTIONALS:
 
-clear
-printf -- '%s\n' "[ Latest commit date for each branch ]"
-printf -- '%s\n'
+git-merged()
+{
+	clear
+	printf -- '%s\n' "[ Latest commit date for each branch ]"
+	printf -- '%s\n'
 
-printf -- '%s\n' "[ Merged in master ]"
-for branch in $(git branch -r --merged |
-	grep -v HEAD); do echo -e $(git show --format="%ci %cr %an" $branch |
-		head -n 1) \\t$branch; done |
-	sort -r
+	printf -- '%s\n' "[ Merged in master ]"
+	for branch in $(git branch -r --merged | grep -v HEAD)
+	do
+		echo -e $(git show --format="%ci %cr %an" $branch \
+			| head -n 1) \\t$branch
+	done | sort -r
 
-printf -- '%s\n'
+	printf -- '%s\n'
 
-printf -- '%s\n' "[ Not merged in master ]"
-for branch in $(git branch -r --no-merged |
-	grep -v HEAD); do echo -e $(git show --format="%ci %cr %an" $branch |
-		head -n 1) \\t$branch; done |
-	sort -r
+	printf -- '%s\n' "[ Not merged in master ]"
+	for branch in $(git branch -r --no-merged | grep -v HEAD)
+	do
+		echo -e $(git show --format="%ci %cr %an" $branch \
+			| head -n 1) \\t$branch
+	done | sort -r
 
-printf -- '%s\n'
-printf -- '%s\n' "[ Status ]"
-git status -sb
+	printf -- '%s\n'
+	printf -- '%s\n' "[ Status ]"
+	git status -sb
+}
+
+git-merged "$@"

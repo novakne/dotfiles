@@ -2,7 +2,9 @@
 
 All scripts made by me, use _bash_, and I don't mind using bashism and not
 being _POSIX_ compliant. I try to always follows [shellcheck][]
-recommendation. For formatting I use [shfmt][]
+recommendation. For formatting I use [shfmt][], be aware that it put `if
+...; then` on the same line and I usually put it on a new line, but I
+can make exception
 
         shfmt -fn -ci -w <script>
 
@@ -17,6 +19,7 @@ read to have more info on one script
 # USAGE:
 #
 # REQUIREMENTS:
+# OPTIONALS:
 ```
 
 [shellcheck]: https://www.shellcheck.net/
@@ -32,6 +35,7 @@ fzf/ - Scripts using _[fzf][]_
 
 -   `fe` - Open selected file in _[neovim][]_, `ctrl-o` to use
     _[neovim-remote][]_
+-   `fkill` - Kill processes, list only the ones you can kill
 -   `fmenu` - Fuzzy find in `bin-list`
 -   `fnote` - Search for `header` in markdown files
 -   `fpass` - Fuzzy search passwords in _[pass][]_ and copy it
@@ -52,10 +56,10 @@ run/ - Scripts used to launch program configured by command line options
 -   `bmenu-run` - Launch _[bmenu][]_
 -   `dwl-autostart` - Script to use at _[dwl][]_ launch
 -   `dwl-run` - Launch _[dwl][]_
--   `foot-light.run` - Launch a _[foot][]_ instance with a light theme
+-   `footlight.run` - Launch a _[foot][]_ instance with a light theme
 -   `fuzzel-run` - Launch _[fuzzel][]_
 -   `river-run` - Launch _[river][]_
--   `rivertag` - Launch _[river-tag-overlay][]_
+-   `rtag.run` - Launch _[river-tag-overlay][]_
 -   `sway-run` - Launch _[sway][]_
 
 [bmenu]: https://github.com/Cloudef/bemenu

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# Helpers library
+#
+# USAGE: source /path/to/this/script
+#
+# REQUIREMENTS:
+# OPTIONALS:
+
+__exists()
+{
+	[[ -x $(type - "$1" 2>/dev/null) ]]
+}

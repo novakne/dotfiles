@@ -5,6 +5,7 @@
 # USAGE: rs <option> <service>
 #
 # REQUIREMENTS: runnit
+# OPTIONALS:
 
 declare id
 id=$(id -u)

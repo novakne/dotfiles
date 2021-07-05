@@ -5,6 +5,7 @@
 # USAGE: dwl-run
 #
 # REQUIREMENTS: dwl - dbus
+# OPTIONALS:
 
 # [ Wayland env variables ]
 # Session
@@ -36,3 +37,5 @@ dwl-run()
 }
 
 dwl-run "$@"
+
+# vim: ft=sh

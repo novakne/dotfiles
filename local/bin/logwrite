@@ -5,6 +5,7 @@
 # USAGE: logwrite <command>
 #
 # REQUIREMENTS:
+# OPTIONALS:
 
 logwrite()
 {

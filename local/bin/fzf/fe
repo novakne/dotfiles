@@ -8,6 +8,7 @@
 # USAGE: fe
 #
 # REQUIREMENTS: fzf - neovim-remote
+# OPTIONALS:
 
 fe()
 {
@@ -28,8 +29,10 @@ fe()
 	key=$(head -1 <<<"${out[@]}")
 	file=$(head -2 <<<"${out[@]}" | tail -1)
 
-	if [[ -n "$file" ]]; then
-		if [[ "${key}" = ctrl-o ]]; then
+	if [[ -n "$file" ]]
+	then
+		if [[ "${key}" = ctrl-o ]]
+		then
 			nvr -s -- "${file}"
 		else
 			"${EDITOR:-nvim}" -- "${file}"

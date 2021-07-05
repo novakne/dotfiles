@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 #
-# Switch/fetch/merge the main/master upstream branch
+# Switch/fetch/rebase the main/master upstream branch
+# Without any branch passed as arguments, the default is master
 #
-# USAGE: git sfr <branch>
+# USAGE: git sfr [branch]
 #
 # REQUIREMENTS: git
+# OPTIONALS:
 
 # Error message in STDERR
 _err()
@@ -15,10 +17,10 @@ _err()
 
 git-sfr()
 {
-    local branch="$1"
+	local branch
 
 	[[ "$#" -gt 1 ]] && _err "Too many arguments"
-	[[ "$#" -eq 0 ]] && branch="master"
+	branch="${1:-master}"
 
 	git switch "${branch}"
 	git fetch -p upstream

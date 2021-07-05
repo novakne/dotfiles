@@ -4,7 +4,8 @@
 #
 # USAGE: ftnote
 #
-# REQUIREMENTS ripgrep - fzf - nvim
+# REQUIREMENTS: ripgrep - fzf - nvim
+# OPTIONALS:
 
 ftnote()
 {

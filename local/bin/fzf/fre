@@ -7,16 +7,18 @@
 # USAGE: fre <pattern>
 #
 # REQUIREMENTS: bat - fzf - ripgrep
+# OPTIONALS:
 
-RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
-INITIAL_QUERY="${*:-}"
+rg_prefix="rg --column --line-number --no-heading --color=always --smart-case "
+initial_query="${*:-}"
+
 IFS=: read -ra selected < <(
-	FZF_DEFAULT_COMMAND="$RG_PREFIX $(printf %q "$INITIAL_QUERY")" \
+	FZF_DEFAULT_COMMAND="${rg_prefix} $(printf %q "${initial_query}")" \
 		fzf --ansi \
-		--disabled --query "$INITIAL_QUERY" \
-		--bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
+		--disabled --query "${initial_query}" \
+		--bind "change:reload:sleep 0.1; ${rg_prefix} {q} || true" \
 		--delimiter : \
 		--preview 'bat --color=always {1} --highlight-line {2}' \
-		--preview-window 'up,60%,border-bottom,+{2}+3/3,~3'
+		# --preview-window 'up,60%,border-bottom,+{2}+3/3,~3'
 )
 [ -n "${selected[0]}" ] && nvim "${selected[0]}" "+${selected[1]}"

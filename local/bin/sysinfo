@@ -5,6 +5,7 @@
 # USAGE: sysinfo
 #
 # REQUIREMENTS:
+# OPTIONALS:
 
 sysinfo()
 {

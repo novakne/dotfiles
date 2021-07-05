@@ -6,6 +6,7 @@
 # USAGE: snap <options>
 #
 # REQUIREMENTS: grim & slurp or maim & slop
+# OPTIONALS:
 
 # [ Utils ]
 # Error message in STDERR
@@ -37,7 +38,8 @@ _is_slop()
 }
 
 # Need at least one of grim or maim
-if ! _is_grim && ! _is_maim; then
+if ! _is_grim && ! _is_maim
+then
 	_err "You need to install grim or maim."
 fi
 
@@ -87,25 +89,31 @@ main()
 
 	case "$1" in
 		-f | --fullscreen)
-			if _is_grim; then
+			if _is_grim
+			then
 				grim -t png "${screen_file}"
 				_post_notif
-			elif _is_maim; then
+			elif _is_maim
+			then
 				maim -d 5 -u -m 3 "${screen_file}"
 				_post_notif
 			fi
 			;;
 		-s | --select)
-			if _is_grim; then
-				if ! _is_slurp; then
+			if _is_grim
+			then
+				if ! _is_slurp
+				then
 					_err "You need to install slurp."
 				else
 					_pre_notif 'Select an area...'
 					grim -t png -g "$(slurp)" "${screen_file}"
 					_post_notif
 				fi
-			elif _is_maim; then
-				if ! _is_slop; then
+			elif _is_maim
+			then
+				if ! _is_slop
+				then
 					_err "You need to install slop."
 				else
 					_pre_notif 'Select an area...'
@@ -115,17 +123,21 @@ main()
 			fi
 			;;
 		-w | --window)
-			if _is_grim; then
+			if _is_grim
+			then
 				_err "Not available with grim."
-			elif _is_maim; then
+			elif _is_maim
+			then
 				maim -d 5 -u -m 3 -i "$(xdotool getactivewindow)" "${screen_file}"
 				_post_notif
 			fi
 			;;
 		-c | --click)
-			if _is_grim; then
+			if _is_grim
+			then
 				_err "Not available with grim."
-			elif _is_maim; then
+			elif _is_maim
+			then
 				_pre_notif 'Click on a window to select it...'
 				maim -st 9999999 -u -m 3 "${screen_file}"
 				_post_notif

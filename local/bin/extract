@@ -5,6 +5,7 @@
 # USAGE: extract <archive>
 #
 # REQUIREMENTS:
+# OPTIONALS:
 
 _err()
 {
@@ -16,7 +17,8 @@ extract()
 {
 	printf -- '%s\n' "Extracting $1 ..."
 
-	if [ -f "$1" ]; then
+	if [[ -f "$1" ]]
+	then
 		case "$1" in
 			*.tar.bz2) tar xjf "$1" ;;
 			*.tar.gz) tar xzf "$1" ;;

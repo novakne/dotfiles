@@ -5,6 +5,7 @@
 # USAGE: script-template <name>
 #
 # REQUIREMENTS:
+# OPTIONALS:
 
 _message()
 {

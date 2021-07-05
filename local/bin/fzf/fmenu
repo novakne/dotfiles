@@ -18,19 +18,25 @@ fmenu()
 			paths=(
 				"$HOME"/.local/bin
 				"$HOME"/.local/bin/app
+				"$HOME"/.local/bin/fzf
+				"$HOME"/.local/bin/run
 			)
 			;;
 		*)
 			paths=(
 				"$HOME"/.local/bin
 				"$HOME"/.local/bin/app
+				"$HOME"/.local/bin/fzf
+				"$HOME"/.local/bin/run
 				/usr/bin
 			)
 			;;
 	esac
 
-	for p in "${paths[@]}"; do
-		if hash fd >/dev/null 2>&1; then
+	for p in "${paths[@]}"
+	do
+		if hash fd >/dev/null 2>&1
+		then
 			fd . "$p" -texecutable -tsymlink --no-ignore --exec printf '%s\n' "{/}"
 		else
 			ls "$p"

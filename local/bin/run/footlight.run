@@ -5,5 +5,8 @@
 # USAGE: foot-light
 #
 # REQUIREMENTS: foot
+# OPTIONALS:
 
 foot -c "$HOME"/.config/foot/foot-light.ini >/dev/null 2>&1
+
+# vim: ft=sh

@@ -5,6 +5,7 @@
 # USAGE: river-run <log-level>
 #
 # REQUIREMENTS: river - dbus
+# OPTIONALS:
 
 # [  Wayland env variables ]
 #Session
@@ -39,15 +40,16 @@ river-run()
 	log_date=$(date +"%Y_%m_%dT%H_%M_%S")
 	log_file=$(mktemp -t river-"${log_date}".XXXXXXXXXX.log)
 
-	if [[ "$1" -eq 1 ]]; then
-		log_level="$1"
-	elif [[ "$1" -lt 0 || "$1" -gt 7 ]]; then
+	if [[ "$1" -lt 0 || "$1" -gt 7 ]]
+        then
 		_err "Set log level between 0 and 7"
 	else
-		log_level=6
+		log_level="$1"
 	fi
 
-	exec dbus-run-session river -l "${log_level}" >"${log_file}" 2>&1
+	exec dbus-run-session river -l "${log_level:-6}" >"${log_file}" 2>&1
 }
 
 river-run "$@"
+
+# vim: ft=sh

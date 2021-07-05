@@ -6,6 +6,7 @@
 # USAGE: paste-srht [option] <file>
 #
 # REQUIREMENTS: curl - jq - pass
+# OPTIONALS:
 
 PASTE_BASE="${PASTE_BASE:-https://paste.sr.ht}"
 SRHT_TOKEN="${SRHT_TOKEN:-$(pass show srht/token/paste)}"
@@ -38,7 +39,8 @@ visibility=unlisted
 filename=""
 unnamed=0
 
-while getopts "n:Nv:dc" opt; do
+while getopts "n:Nv:dc" opt
+do
 	case "$opt" in
 		n) filename="$OPTARG" ;;
 		N) filename="" unnamed=1 ;;

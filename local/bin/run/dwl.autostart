@@ -2,7 +2,7 @@
 #
 # Autostart programm with dwl
 #
-# USAGE: dwl -s dwl-autostart
+# USAGE: dwl -s dwl.autostart
 #
 # REQUIREMENTS: dwl
 # OPTIONALS: swaybg - yambar
@@ -19,10 +19,12 @@ dwl-autostart()
 		-m fill
 	)
 
-	if hash swayb >/dev/null 2>&1g; then
+	if hash swaybg >/dev/null 2>&1
+	then
 		swaybg "${swaybg_opts[@]}" >/dev/null 2>&1 &
 	fi
-	if hash yambar >/dev/null 2>&1; then
+	if hash yambar >/dev/null 2>&1
+	then
 		yambar -c "${yambar_conf}" >/dev/null 2>&1 &
 	fi
 

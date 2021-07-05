@@ -5,6 +5,7 @@
 # USAGE: fnote
 #
 # REQUIREMENTS: ripgrep - fzf - nvim
+# OPTIONALS:
 
 fnote()
 {

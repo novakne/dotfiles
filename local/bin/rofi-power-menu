@@ -5,6 +5,7 @@
 # USAGE: rofi-power-menu
 #
 # REQUIREMENTS: rofi
+# OPTIONALS:
 
 _confirm()
 {

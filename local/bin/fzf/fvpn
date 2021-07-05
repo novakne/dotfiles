@@ -5,6 +5,7 @@
 # USAGE: fvpn
 #
 # REQUIREMENTS: fd - fzf - mullvad configs - wireguard
+# OPTIONALS:
 
 fvpn()
 {

@@ -5,6 +5,7 @@
 # USAGE: sway-run
 #
 # REQUIREMENTS: sway - dbus
+# OPTIONALS:
 
 # [  Wayland env variables ]
 # Session
@@ -35,3 +36,5 @@ main()
 }
 
 main "$@"
+
+# vim: ft=sh

@@ -5,6 +5,7 @@
 # USAGE: oweb <url>
 #
 # REQUIREMENTS: firefox
+# OPTIONALS:
 
 oweb()
 {

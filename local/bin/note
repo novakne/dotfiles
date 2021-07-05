@@ -24,7 +24,6 @@ note()
 			"${EDITOR:-nvim}" -c ":Files"
 			;;
 	esac
-
 }
 
 note "$@"

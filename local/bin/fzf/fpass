@@ -5,6 +5,7 @@
 # USAGE: fpass
 #
 # REQUIREMENTS: fzf - pass
+# OPTIONALS:
 
 shopt -s nullglob globstar
 
@@ -23,8 +24,8 @@ fpass()
 	[[ -n "${password}" ]] || exit
 
 	cmd="pass show -c ${password}"
-    setsid /usr/bin/env bash -c "${cmd}" 2>/dev/null
-    sleep 0.1
+	setsid /usr/bin/env bash -c "${cmd}" 2>/dev/null
+	sleep 0.1
 }
 
 fpass "$@"

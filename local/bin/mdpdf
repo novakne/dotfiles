@@ -5,6 +5,7 @@
 # USAGE: mdpdf <input_file> <output_file>
 #
 # REQUIREMENTS: pandoc
+# OPTIONALS:
 
 # Error message in STDERR
 _err()
@@ -28,10 +29,12 @@ mdpdf()
 		--toc-depth=4
 	)
 
-	if [ $# == "0" ]; then
+	if [ $# == "0" ]
+	then
 		_err "Usage: mdpdf imput_file output_file"
 		exit 1
-	elif [ "$2" = "0" ]; then
+	elif [ "$2" = "0" ]
+	then
 		pandoc -s -f gfm "$1".md -o "${pdf_dir}"/"$1".pdf "${pandoc_opts[@]}"
 	else
 		pandoc -s -f gfm "$1".md -o "${pdf_dir}"/"$2".pdf "${pandoc_opts[@]}"

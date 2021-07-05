@@ -5,6 +5,7 @@
 # USAGE: new-mail
 #
 # REQUIREMENTS: isync - notmuch
+# OPTIONALS:
 
 _print()
 {
