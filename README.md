@@ -19,7 +19,6 @@
 -   browser . firefox
 -   editor . [neovim 5.x][]
 -   files manager . [nnn][]
--   launcher . [fuzzel][]
 -   mail . [aerc][]
 -   media:
     -   image . [imv][]
