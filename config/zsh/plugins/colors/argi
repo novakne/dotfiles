@@ -1,4 +1,6 @@
-# [ Argi colors ]
+# ------------------------------------------------
+# [ ARGI COLORS ]
+# ------------------------------------------------
 
 typeset -U base00 base01 base06 base07
 typeset -U red blue

@@ -1,46 +1,67 @@
-# [ Theme ]
-[[ ! -d "${_zsh_plugins_dir}"/colors ]] && echo "No themes folder found"
+# ------------------------------------------------
+# [ INTERACTIVE ]
+# ------------------------------------------------
+
+# ------------------------------------------------
+# [ THEME ]
+# ------------------------------------------------
+[[ ! -d "${dir_plugins}"/colors ]] &&
+	printf -- '%s\n' "[$(date +'%Y-%m-%d %H:%M:%S')]: No themes folder found" >&2
+
 export USER_THEME=argi
-export LS_COLORS="$(vivid generate argi)"
 
-if [[ "$USER_THEME" = argi ]]; then
-	source "${_zsh_plugins_dir}"/colors/argi
+if _is_command vivid
+then
+	LS_COLORS="$(vivid generate argi)"
+	export LS_COLORS
+else
+	eval "$(dircolors -b "${dir_plugins}"/dircolors)"
+fi
 
-	# Fzf
+if [[ "$USER_THEME" = argi ]]
+then
+	source "${dir_plugins}"/colors/argi
+
 	_gen_fzf_default_opts()
 	{
 		export FZF_DEFAULT_OPTS="
-            --color=bg+:${base00},bg:${base00},spinner:${blue},hl:${blue}
-            --color=fg:${base07},header:${blue},info:${blue},pointer:${red}
-            --color=marker:${red},fg+:${base07},prompt:${blue},hl+:${red}
-            --reverse --margin 2% --cycle --multi --ansi --no-height
-        "
+		--color=bg+:${base00},bg:${base00},spinner:${blue},hl:${blue}
+		--color=fg:${base07},header:${blue},info:${blue},pointer:${red}
+		--color=marker:${red},fg+:${base07},prompt:${blue},hl+:${red}
+		--reverse --margin 2% --cycle --multi --ansi --no-height
+		"
 	}
-elif [[ "$USER_THEME" == kosmikoa ]]; then
-	source "${_zsh_plugins_dir}"/colors/kosmikoa
+elif [[ "$USER_THEME" == kosmikoa ]]
+then
+	source "${dir_plugins}"/colors/kosmikoa
 
-	# Fzf
 	_gen_fzf_default_opts()
 	{
 		export FZF_DEFAULT_OPTS="
-            --color=bg+:${base00},bg:${base00},spinner:${pink},hl:${green}
-            --color=fg:${base05},header:${pink},info:${pink},pointer:${yellow}
-            --color=marker:${blue},fg+:${base07},prompt:${pink},hl+:${yellow}
-            --reverse --margin 2% --cycle --multi --ansi --no-height
-        "
+		--color=bg+:${base00},bg:${base00},spinner:${pink},hl:${green}
+		--color=fg:${base05},header:${pink},info:${pink},pointer:${yellow}
+		--color=marker:${blue},fg+:${base07},prompt:${pink},hl+:${yellow}
+		--reverse --margin 2% --cycle --multi --ansi --no-height
+		"
 	}
 fi
 
-# [ Aliases ]
-[[ -r "${_zsh_plugins_dir}"/aliases ]] && . "${_zsh_plugins_dir}"/aliases
+# ------------------------------------------------
+# [ ALIASES ]
+# ------------------------------------------------
+[[ -r "${dir_plugins}"/aliases ]] && . "${dir_plugins}"/aliases
 
+# ------------------------------------------------
+# [ PLUGINS ]
+# ------------------------------------------------
 # [ Fzf ]
-if [[ -d "${_fzf_dir}" ]]; then
-	_append_path "${_fzf_dir}"/bin
+if [[ -d "${dir_fzf}" ]]
+then
+	_append_path "${dir_fzf}"/bin
 	_gen_fzf_default_opts
 
-	source "${_fzf_dir}"/shell/completion.zsh 2>/dev/null
-	source "${_fzf_dir}"/shell/key-bindings.zsh
+	source "${dir_fzf}"/shell/completion.zsh 2>/dev/null
+	source "${dir_fzf}"/shell/key-bindings.zsh
 
 	export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden -E .git --color=always'
 
@@ -59,18 +80,7 @@ if [[ -d "${_fzf_dir}" ]]; then
 		fd --type d --hidden --follow --exclude ".git" . "$1"
 	}
 
-	# Completion for pass
-	_fzf_complete_pass()
-	{
-		_fzf_complete +m -- "$@" < <(
-			local prefix
-			prefix="${PASSWORD_STORE_DIR:-$HOME/.password-store}"
-			command find -L "$prefix" \
-				-name "*.gpg" -type f |
-				sed -e "s#${prefix}/\{0,1\}##" -e 's#\.gpg##' -e 's#\\#\\\\#' | sort
-		)
-	}
-	# Completion for bldup
+	# Completion for my bldup script
 	_fzf_complete_bldup()
 	{
 		_fzf_complete +m --prompt="update => " -- "$@" < <(
@@ -89,7 +99,8 @@ if [[ -d "${_fzf_dir}" ]]; then
 fi
 
 # [ Nnn ]
-if _is_command nnn; then
+if _is_command nnn
+then
 	export NNN_OPTS='eEHr'
 	export NNN_COLORS='3415'
 	export NNN_FCOLORS='070704030f05060808010301'
@@ -115,30 +126,33 @@ fi
 
 # [ Osc ]
 # Configure shell to emit the OSC 7 escape sequence
-if [[ -r "${_zsh_plugins_dir}"/osc7 ]]; then
-	source "${_zsh_plugins_dir}"/osc7
+if [[ -r "${dir_plugins}"/osc7 ]]
+then
+	source "${dir_plugins}"/osc7
 	autoload -Uz add-zsh-hook
 	add-zsh-hook -Uz chpwd osc7_cwd
 fi
 
 # [ Starship ]
-if [[ -r "${_zsh_plugins_dir}"/starship.toml ]]; then
-	export STARSHIP_CONFIG="${_zsh_plugins_dir}"/starship.toml
+if [[ -r "${dir_plugins}"/starship.toml ]]
+then
+	export STARSHIP_CONFIG="${dir_plugins}"/starship.toml
 	eval "$(starship init zsh)"
 fi
 
 # [ Zoxide ]
-if _is_command zoxide; then
+if _is_command zoxide
+then
 	export _ZO_ECHO=1
 	export _ZO_RESOLVE_SYMLINKS=1
 	eval "$(zoxide init zsh)"
 fi
 
 # [ Zsh-completions ]
-fpath+=("${_zsh_plugins_dir}"/zsh-completions/src)
+fpath+=("${dir_plugins}"/zsh-completions/src)
 
 # [ Zsh-autosuggestions ]
-source "${_zsh_plugins_dir}"/zsh-autosuggestions/zsh-autosuggestions.zsh
+source "${dir_plugins}"/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 # vim: ft=zsh

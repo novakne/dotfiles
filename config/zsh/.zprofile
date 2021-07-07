@@ -1,5 +1,6 @@
+# ------------------------------------------------
 # [ ZPROFILE ]
-#
+# ------------------------------------------------
 # ( login: pre-zshrc / post-zshenv )
 
 # Only on TTY
@@ -26,7 +27,8 @@ _prepend_path()
 	. "$ZDOTDIR"/environment/00_login
 
 # Temporary Files
-if [[ ! -d "$TMPDIR" ]]; then
+if [[ ! -d "$TMPDIR" ]]
+then
 	export TMPDIR="/tmp/$LOGNAME"
 	mkdir -p -m 700 "$TMPDIR"
 fi

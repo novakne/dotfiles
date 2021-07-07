@@ -1,22 +1,14 @@
+# ------------------------------------------------
 # [ ZSHRC ]
-#
+# ------------------------------------------------
 # ( interactive: post-zshenv )
 
 # [ Profiling ]
 # zmodload zsh/zprof
 
-# [ Variables ]
-# Ensure path arrays do not contain duplicates.
-typeset -gU path PATH cdpath CDPATH fpath FPATH manpath MANPATH mailpath
-typeset -U _zsh_plugins_dir _zsh_env_dir _zsh_share_dir _fzf_dir
-
-_zsh_plugins_dir="$ZDOTDIR"/plugins
-_zsh_env_dir="$ZDOTDIR"/environment
-_zsh_share_dir="$XDG_DATA_HOME"/zsh
-
-_fzf_dir="$XDG_DATA_HOME"/bld/pkg/fzf
-
+# ------------------------------------------------
 # [ Helpers ]
+# ------------------------------------------------
 _is_command()
 {
 	hash "$1" >/dev/null 2>&1
@@ -32,8 +24,18 @@ _prepend_path()
 	PATH="$1${PATH:+:${PATH}}"
 }
 
+# Ensure path arrays do not contain duplicates.
+typeset -gU path PATH cdpath CDPATH fpath FPATH manpath MANPATH mailpath
+typeset -U dir_plugins dir_env dir_share_zsh dir_fzf
+
+dir_plugins="$ZDOTDIR"/plugins
+dir_env="$ZDOTDIR"/environment
+dir_share_zsh="$XDG_DATA_HOME"/zsh
+
+dir_fzf="$XDG_DATA_HOME"/bld/pkg/fzf
+
 # ------------------------------------------------
-# [ Zsh options ]
+# [ ZSH OPTIONS ]
 # ------------------------------------------------
 # [ Completions ]
 setopt ALWAYS_TO_END    # Move cursor to the end of a completed word
@@ -44,7 +46,8 @@ setopt EXTENDEDGLOB     # Enable extended globbing
 
 # If there are more than 5 options allow selecting from a menu
 # else don't use any menus at all
-if [[ "$NOMENU" -eq 0 ]]; then
+if [[ "$NOMENU" -eq 0 ]]
+then
 	zstyle ':completion:*' menu select=5
 else
 	setopt NO_AUTO_MENU
@@ -121,23 +124,25 @@ setopt NO_HIST_BEEP
 setopt NO_LIST_BEEP
 
 # ------------------------------------------------
-# [ User custom ]
+# [ USER ]
 # ------------------------------------------------
 # [ Environment variables ]
-[[ -r "${_zsh_env_dir}"/10_interactive ]] && . "${_zsh_env_dir}"/10_interactive
+[[ -r "${dir_env}"/10_interactive ]] && . "${dir_env}"/10_interactive
 
 # [ Functions ]
-if [[ -d "${_zsh_share_dir}"/functions ]]; then
-	fpath+=("${_zsh_share_dir}"/functions)
+if [[ -d "${dir_share_zsh}"/functions ]]
+then
+	fpath+=("${dir_share_zsh}"/functions)
 
-	for fn in "${_zsh_share_dir}"/functions/*; do
+	for fn in "${dir_share_zsh}"/functions/*
+	do
 		autoload -Uz ${fn:t}
 	done
 fi
 
 # [ Completions ]
-[[ -d "${_zsh_share_dir}"/site-functions ]] &&
-	fpath+=("$_zsh_share_dir"/site-functions)
+[[ -d "${dir_share_zsh}"/site-functions ]] &&
+	fpath+=("$dir_share_zsh"/site-functions)
 
 # Load and initialize the completion system ignoring insecure directories with a
 # cache time of 20 hours, so it should almost always regenerate the first time a
@@ -147,7 +152,8 @@ autoload -Uz compinit
 _comp_path="${XDG_CACHE_HOME:-$HOME/.cache}"/zsh/zcompdump
 
 # #q expands globs in conditional expressions
-if [[ $_comp_path(#qNmh-20) ]]; then
+if [[ $_comp_path(#qNmh-20) ]]
+then
 	# -C (skip function check) implies -i (skip security check).
 	compinit -C -d "$_comp_path"
 else
@@ -175,13 +181,14 @@ xterm_title_preexec()
 			print -n -- "${(q)1}\e\\"; }
 }
 
-if [[ "$TERM" == (alacritty*|foot*|kitty*|screen*|tmux*|xterm*) ]]; then
+if [[ "$TERM" == (alacritty*|foot*|kitty*|screen*|tmux*|xterm*) ]]
+then
 	add-zsh-hook -Uz precmd xterm_title_precmd
 	add-zsh-hook -Uz preexec xterm_title_preexec
 fi
 
 # Unset variables
-unset -v _zsh_plugins_dir _zsh_env_dir _zsh_share_dir _fzf_dir
+unset -v dir_plugins dir_env dir_share_zsh dir_fzf
 unset -v base00 base01 base02 base03 base04 base05 base06 base07
 unset -v red pink orange yellow green blue magenta cyan
 unset -f _is_command _append_path _prepend_path

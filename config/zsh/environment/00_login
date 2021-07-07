@@ -1,4 +1,8 @@
 # ------------------------------------------------
+# [ LOGIN ]
+# ------------------------------------------------
+
+# ------------------------------------------------
 # [ SYSTEM ]
 # ------------------------------------------------
 # [ Language ]
@@ -22,7 +26,7 @@ export VISUAL=nvim
 export PAGER=less
 
 # [ Man pages ]
-export MANPATH="${MANNPATH:+${MANPATH}:}/usr/local/share/man:/usr/share/man:$XDG_DATA_HOME/man"
+export MANPATH="${MANPATH:+${MANPATH}:}/usr/local/share/man:/usr/share/man:$XDG_DATA_HOME/man"
 
 # [ Runit ]
 export SVDIR="$XDG_CONFIG_HOME"/service
@@ -36,7 +40,8 @@ GPG_TTY=$(tty)
 export GPG_TTY
 
 unset SSH_AGENT_PID
-if [[ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]]; then
+if [[ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]]
+then
 	SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 	export SSH_AUTH_SOCK
 fi
@@ -54,7 +59,8 @@ PATH="/usr/local/sbin${PATH:+:${PATH}}"
 # [ USER ]
 # ------------------------------------------------
 # [ User bin ]
-if [[ -d "$HOME"/.local/bin ]]; then
+if [[ -d "$HOME"/.local/bin ]]
+then
 	_prepend_path "$HOME"/.local/bin
 	_prepend_path "$HOME"/.local/bin/app
 	_prepend_path "$HOME"/.local/bin/fzf
@@ -68,9 +74,10 @@ fi
 # [ CLI ]
 # ------------------------------------------------
 # [ Less ]
-if _is_command less; then
+if _is_command less
+then
 	export LESS='-g -i -R -F -w -z-4 -P"%F"'
-	export LESSHISTFILE="$XGG_CACHE_HOME"/less
+	export LESSHISTFILE="$XDG_CACHE_HOME"/less
 fi
 
 # [ Neovim ]
@@ -97,7 +104,6 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 # ------------------------------------------------
 # [ PROGRAMMING ]
 # ------------------------------------------------
-
 # [ C ]
 [[ -d "$HOME"/.local/include ]] &&
     export C_INCLUDE_PATH="${C_INCLUDE_PATH:+${C_INCLUDE_PATH}:}${HOME}/.local/include"
@@ -107,7 +113,8 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
     export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+${PKG_CONFIG_PATH}:}${HOME}/.local/lib/pkgconfig"
 
 #  [ Go ]
-if _is_command go; then
+if _is_command go
+then
 	export GOPATH="$LIB_HOME"/go
 	_append_path "$LIB_HOME"/go/bin
 fi
@@ -116,13 +123,15 @@ fi
 _is_command luarocks && _append_path "$LIB_HOME"/luarocks/bin
 
 # [ Npm ]
-if _is_command npm; then
+if _is_command npm
+then
 	export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 	_append_path "$LIB_HOME"/npm/bin
 fi
 
 # [ Rust ]
-if [[ -d "$XDG_DATA_HOME"/rustup && -d "$LIB_HOME"/cargo ]]; then
+if [[ -d "$XDG_DATA_HOME"/rustup && -d "$LIB_HOME"/cargo ]]
+then
 	export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 	export CARGO_HOME="$LIB_HOME"/cargo
 	_append_path "$CARGO_HOME"/bin

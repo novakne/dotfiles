@@ -1,4 +1,6 @@
-# [ Kosmikoa colors ]
+# ------------------------------------------------
+# [ KOSMIKOA COLORS ]
+# ------------------------------------------------
 
 typeset -U base00 base01 base02 base03 base04 base05 base06 base07
 typeset -U red pink orange yellow green blue magenta cyan
