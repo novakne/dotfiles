@@ -1,9 +1,12 @@
-# [ BASH_PROFILE ]
+# ------------------------------------------------
+# [ LOGIN ]
+# ------------------------------------------------
 
 [[ -f "$HOME"/.bashrc ]] && . "$HOME"/.bashrc
 
 # Temporary Files
-if [[ ! -d "$TMPDIR" ]]; then
+if [[ ! -d "$TMPDIR" ]]
+then
 	export TMPDIR="/tmp/$LOGNAME"
 	mkdir -p -m 700 "$TMPDIR"
 fi
@@ -11,6 +14,5 @@ fi
 TMPPREFIX="${TMPDIR%/}/bash"
 
 # Ensure that a non-login, non-interactive shell has a defined environment.
-if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "$HOME"/.bash_profile ]]; then
+[[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "$HOME"/.bash_profile ]] &&
 	source "$HOME"/.bash_profile
-fi
