@@ -7,7 +7,7 @@ config/tmux/plugins
 .netrwhist
 .zcompdump
 default.target.wants
-packer_compiled.vim
+packer_compiled.*
 tags
 
 # some bin/appimage
