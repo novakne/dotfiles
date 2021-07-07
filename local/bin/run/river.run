@@ -40,7 +40,7 @@ river-run()
 	log_date=$(date +"%Y_%m_%dT%H_%M_%S")
 	log_file=$(mktemp -t river-"${log_date}".XXXXXXXXXX.log)
 
-	if [[ "$1" -lt 0 || "$1" -gt 7 ]]
+	if [[ "$1" -lt 0 ]] || [[ "$1" -gt 7 ]]
         then
 		_err "Set log level between 0 and 7"
 	else

@@ -13,6 +13,7 @@ export LC_COLLATE=C
 # [ Keyboard ]
 export XKB_DEFAULT_MODEL=pc105
 export XKB_DEFAULT_LAYOUT=fr
+export XKB_DEFAULT_OPTIONS=caps:escape_shifted_capslock
 
 # [ Xdg ]
 export XDG_CACHE_HOME="$HOME"/.cache
