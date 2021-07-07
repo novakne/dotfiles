@@ -28,6 +28,7 @@
 -   notification . [fnott][]
 -   rss . [newsboat][]
 -   screenshot . [grim][] . [slurp][]
+-   tags . [river-tag-overlay][]
 -   terminal . [foot][]
 -   fonts:
     -   system . [Overpass][]
@@ -47,6 +48,7 @@
 [newsboat]: https://newsboat.org/
 [grim]: https://github.com/emersion/grim
 [slurp]: https://github.com/emersion/slurp
+[river-tag-overlay]: https://git.sr.ht/~leon_plickat/river-tag-overlay
 [foot]: https://codeberg.org/dnkl/foot
 [Overpass]: https://overpassfont.org/
 [JetBrainsMono Nerd Font]: https://github.com/ryanoasis/nerd-fonts
