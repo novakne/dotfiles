@@ -193,16 +193,6 @@ return require'packer'.startup(function()
     use { 'ziglang/zig.vim', ft = 'zig' }
 
     -- Tools
-    use {
-        'euclio/vim-markdown-composer',
-        opt = true,
-        run = 'cargo build --release',
-        ft = 'markdown',
-        config = function()
-            vim.g.markdown_composer_autostart = 0
-        end,
-    }
-
     use { 'sakhnik/nvim-gdb', run = './install.sh', ft = { 'c', 'zig' } }
     use 'editorconfig/editorconfig-vim'
 
