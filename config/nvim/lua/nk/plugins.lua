@@ -74,15 +74,21 @@ return require'packer'.startup(function()
         cmd = { 'Np', 'NnnPicker' },
         keys = '<F6>',
         config = function()
-            require 'nk.plugins.nnn'
-        end,
-    }
+            require'nnn'.setup {
+                set_default_mappings = false,
+                session = 'global',
+                layout = {
+                    window = { width = 0.5, height = 0.6, highlight = 'Debug' },
+                },
+                command = 'nnn -eH',
+                action = {
+                    ['<c-t>'] = 'tab split',
+                    ['<c-h>'] = 'split',
+                    ['<c-v>'] = 'vsplit',
+                },
+            }
 
-    use {
-        'mhinz/vim-grepper',
-        keys = '<Leader>s',
-        config = function()
-            require 'nk.plugins.grepper'
+            require'nk.utils'.bind('n', '<F6>', '<CMD>NnnPicker %:p:h<CR>')
         end,
     }
 
@@ -115,13 +121,7 @@ return require'packer'.startup(function()
         -- 'https://git.sr.ht/~novakane/argi.nvim',
     }
 
-    use {
-        'glepnir/galaxyline.nvim',
-        branch = 'main',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    }
-
-    use 'Pocco81/TrueZen.nvim'
+    use 'glepnir/galaxyline.nvim'
     use 'RRethy/vim-illuminate'
 
     -- ---------------------------------------------
@@ -147,32 +147,38 @@ return require'packer'.startup(function()
         end,
     }
 
-    use 'steelsojka/pears.nvim'
+    use {
+        'steelsojka/pears.nvim',
+        config = function()
+            require'pears'.setup(function( conf )
+                conf.remove_pair_on_outer_backspace(false)
+                conf.on_enter(function( pears_handle )
+                    if vim.fn.pumvisible() == 1 and
+                        vim.fn.complete_info().selected ~= -1 then
+                        return vim.fn['compe#confirm']('<CR>')
+                    else
+                        pears_handle()
+                    end
+                end)
+            end)
+        end,
+    }
     use 'machakann/vim-sandwich'
     use 'tpope/vim-repeat'
+
+    -- ---------------------------------------------
+    -- [ LANG ]
+    -- ---------------------------------------------
+    use { 'MTDL9/vim-log-highlighting', ft = 'log' }
+    use { 'ziglang/zig.vim', ft = 'zig' }
+
+    -- Tools
+    use 'editorconfig/editorconfig-vim'
 
     -- ---------------------------------------------
     -- [ MISC ]
     -- ---------------------------------------------
     use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
-
-    use {
-        'akinsho/nvim-toggleterm.lua',
-        keys = '<C-e>',
-        cmd = { 'ToggleTerm', 'TermExec' },
-        config = function()
-            require 'nk.plugins.toggleterm'
-        end,
-    }
-
-    use {
-        'moll/vim-bbye',
-        keys = '<Leader>q',
-        cmd = 'Bdelete',
-        config = function()
-            require'nk.utils'.bind('n', '<Leader>q', '<CMD>Bdelete<CR>')
-        end,
-    }
 
     use {
         'norcalli/nvim-colorizer.lua',
@@ -183,22 +189,6 @@ return require'packer'.startup(function()
         end,
     }
 
-    -- ---------------------------------------------
-    -- [ LANG ]
-    -- ---------------------------------------------
-    use { 'MTDL9/vim-log-highlighting', ft = 'log' }
-    use { 'arzg/vim-sh', ft = { 'sh', 'zsh' } }
-    use { 'bakpakin/fennel.vim', ft = 'fennel' }
-    use { 'euclidianAce/BetterLua.vim', ft = 'lua' }
-    use { 'ziglang/zig.vim', ft = 'zig' }
-
-    -- Tools
-    use { 'sakhnik/nvim-gdb', run = './install.sh', ft = { 'c', 'zig' } }
-    use 'editorconfig/editorconfig-vim'
-
-    -- ---------------------------------------------
-    -- [ /TMP ]
-    -- ---------------------------------------------
-    -- use { 'tweekmonster/startuptime.vim', cmd = 'StartupTime' }
+    use { 'tweekmonster/startuptime.vim', cmd = 'StartupTime' }
 end)
 

@@ -74,9 +74,7 @@ if packer_plugins['galaxyline.nvim'] and
             provider = function()
                 local fileinfo = require('galaxyline.provider_fileinfo')
                 local filename = fileinfo.get_current_file_name()
-                local fileicon = fileinfo.get_file_icon()
-                local str = '[ %s %s]'
-                return str:format(fileicon, filename)
+                return string.format('[ %s]', filename)
             end,
             condition = buffer_not_empty,
             highlight = { colors.dark00, colors.light00 },
@@ -189,9 +187,7 @@ if packer_plugins['galaxyline.nvim'] and
             provider = function()
                 local fileinfo = require('galaxyline.provider_fileinfo')
                 local filename = fileinfo.get_current_file_name()
-                local fileicon = fileinfo.get_file_icon()
-                local str = '[ %s %s]'
-                return str:format(fileicon, filename)
+                return string.format('[ %s]', filename)
             end,
             condition = buffer_not_empty,
             highlight = { colors.dark00, colors.light00 },

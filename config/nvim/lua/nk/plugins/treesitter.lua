@@ -8,14 +8,12 @@ if packer_plugins['nvim-treesitter'] and
             'bash',
             'c',
             'zig',
-            'toml',
             'query',
             'comment',
             'regex',
-            'yaml',
             'lua',
             'fennel',
-            'rust',
+            'zig',
         },
         highlight = {
             enable = true, -- false will disable the whole extension
