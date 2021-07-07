@@ -1,9 +1,15 @@
+# ------------------------------------------------
 #  [ NEWSBOAT ]
+# ------------------------------------------------
 
-# [ Theme ]
-include "~/.config/newsboat/kosmikoa"
+# ------------------------------------------------
+# [ THEME ]
+# ------------------------------------------------
+include "~/.config/newsboat/argi"
 
-# [ Options ]
+# ------------------------------------------------
+# [ OPTIONS ]
+# ------------------------------------------------
 articlelist-format "%4i %f %D   %?T?|%-17T|  ?%t"
 auto-reload yes
 delete-read-articles-on-quit yes
@@ -15,14 +21,18 @@ reload-threads 50
 show-read-articles no
 text-width 72
 
-# [ Bind ]
+# ------------------------------------------------
+# [ BIND ]
+# ------------------------------------------------
 bind-key k up
 bind-key j down
 bind-key h prev
 bind-key l next
 bind-key c cmdline
 
-# [ Macros ]
+# ------------------------------------------------
+# [ MACROS ]
+# ------------------------------------------------
 # Videos with mpv
 macro v set browser "setsid -f mpv" ; open-in-browser ; set browser firefox
 # Images with imv

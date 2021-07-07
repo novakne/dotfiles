@@ -1,3 +1,6 @@
+" ------------------------------------------------
+" [ USER FUNCTIONS ]
+" ------------------------------------------------
 " TODO: Need to port it to lua
 
 function! RipgrepFzf(query, fullscreen)

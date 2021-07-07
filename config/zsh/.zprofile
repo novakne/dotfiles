@@ -6,7 +6,9 @@
 # Only on TTY
 [[ "$TTY" == /dev/tty* ]] || return 0
 
-# [ Helpers ]
+# ------------------------------------------------
+# [ HELPERS ]
+# ------------------------------------------------
 _is_command()
 {
 	hash "$1" >/dev/null 2>&1
@@ -22,11 +24,15 @@ _prepend_path()
 	PATH="$1${PATH:+:${PATH}}"
 }
 
-# [ Login env ]
+# ------------------------------------------------
+# [ LOGIN ENV ]
+# ------------------------------------------------
 [[ -f "$ZDOTDIR"/environment/00_login ]] &&
 	. "$ZDOTDIR"/environment/00_login
 
-# Temporary Files
+# ------------------------------------------------
+# [ TEMPORARY FILES ]
+# ------------------------------------------------
 if [[ ! -d "$TMPDIR" ]]
 then
 	export TMPDIR="/tmp/$LOGNAME"

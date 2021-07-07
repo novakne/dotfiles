@@ -1,5 +1,6 @@
 # ------------------------------------------------
-# [ ARGI COLORS ]
+# argi - fzf <https://github.com/junegunn/fzf>
+# Author: novakane <mail@novakane.xyz>
 # ------------------------------------------------
 
 typeset -U base00 base01 base06 base07

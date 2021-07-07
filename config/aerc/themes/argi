@@ -1,5 +1,7 @@
+# ------------------------------------------------
 # argi - aerc
 # Author: novakane <mail@novakane.xyz>
+# ------------------------------------------------
 
 *.default=true
 *.selected.reverse=toggle

@@ -1,7 +1,11 @@
 ---
+# ------------------------------------------------
 # [ YAMBAR ]
+# ------------------------------------------------
 
+# ------------------------------------------------
 # [ VARIABLES ]
+# ------------------------------------------------
 # Colors
 base00: &base00 232227ff
 base01: &base01 38383cff
@@ -26,7 +30,9 @@ nerdfont: &nerdfont Overpass Nerd Font:style=Regular:pixelsize=12
 myfont: &myfont Overpass:style=Regular:pixelsize=16
 sfont: &sfont Overpass:style=Regular:pixelsize=12
 
+# ------------------------------------------------
 # [ BAR ]
+# ------------------------------------------------
 bar:
     height: 28
     location: top
@@ -39,7 +45,9 @@ bar:
     border:
         width: 0
 
+    # --------------------------------------------
     # [ LEFT ]
+    # --------------------------------------------
     left:
         - label:
               content:
@@ -459,10 +467,14 @@ bar:
                             - string: { text: "{layout}" }
                             - string: { text: "{title}" }
 
+    # --------------------------------------------
     # [ CENTER ]
+    # --------------------------------------------
     # center:
 
+    # --------------------------------------------
     # [ RIGHT ]
+    # --------------------------------------------
     right:
         - script:
               path: /home/novakane/.config/yambar/modules/cpu.sh

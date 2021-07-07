@@ -1,4 +1,6 @@
--- [ Gitsigns ]
+-- -----------------------------------------------
+-- [ GITSIGNS ]
+-- -----------------------------------------------
 if packer_plugins['gitsigns.nvim'] and packer_plugins['gitsigns.nvim'].loaded then
     local gitsigns = require 'gitsigns'
 

@@ -1,4 +1,6 @@
--- [ Compe ]
+-- -----------------------------------------------
+-- [ COMPE ]
+-- -----------------------------------------------
 if packer_plugins['nvim-compe'] and packer_plugins['nvim-compe'].loaded then
     local utils = require 'nk.utils'
     local map = utils.bind

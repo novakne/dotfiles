@@ -1,5 +1,10 @@
--- [ Options ]
--- [ General ] ( :help nvim-defaults )
+-- -----------------------------------------------
+-- [ OPTIONS ]
+-- -----------------------------------------------
+-- -----------------------------------------------
+-- [ GENERAL ]
+-- -----------------------------------------------
+-- ( :help nvim-defaults )
 local opt = vim.opt
 
 opt.scrolloff   = 5               -- Always 5 lines at the bottom
@@ -20,19 +25,26 @@ opt.swapfile    = false           -- No swap file
 opt.updatetime  = 100             -- Smaller updatetime for CursorHold & CursorHoldI
 opt.modelines   = 2
 
--- [ Completion ] ( :help 'complete' )
+-- -----------------------------------------------
+-- [ COMPLETION ]
+-- -----------------------------------------------
+-- ( :help 'complete' )
 opt.wildignorecase = true                                 -- Ignore case when completing file and directory
 opt.completeopt    = {'menuone', 'noselect', 'noinsert'}  -- options for Insert mode completion ins-completion
 opt.pumheight      = 10                                   -- Maximum number of items to show in the popup menu
 
--- [ Search ]
+-- -----------------------------------------------
+-- [ SEARCH ]
+-- -----------------------------------------------
 opt.hlsearch   = false
 opt.ignorecase = true  -- Case insensitive searching
 opt.smartcase  = true  -- Override ignorecase if upper case typed
 opt.grepprg    = [[rg --vimgrep --no-heading --smart-case --only-matching]]
 opt.grepformat = [[%f:%l:%c:%m,%f]]
 
--- [ Ui ]
+-- -----------------------------------------------
+-- [ UI ]
+-- -----------------------------------------------
 opt.termguicolors  = true
 opt.showmode       = false
 opt.showcmd        = false
@@ -43,7 +55,9 @@ opt.linebreak      = true     -- Don't insert line breaks in the middle of a wor
 opt.signcolumn     = 'yes:2'  -- Always show signcolumns
 opt.textwidth      = 100      -- Break line after 100 characters
 
--- [ Indent ]
+-- -----------------------------------------------
+-- [ INDENT ]
+-- -----------------------------------------------
 -- Use 4 spaces instead of tab
 -- Copy indent from current line when starting a new line
 opt.cindent     = true
@@ -52,11 +66,15 @@ opt.shiftwidth  = 4
 opt.softtabstop = 4
 opt.expandtab   = true
 
--- [ Wrap ]
+-- -----------------------------------------------
+-- [ WRAP ]
+-- -----------------------------------------------
 opt.breakindent = true
 opt.showbreak   = string.rep(' ', 3) -- Make it so that long lines wrap smartly
 opt.linebreak   = true
 
+-- -----------------------------------------------
+-- -----------------------------------------------
 -- Disable some providers and plugins
 vim.g.loaded_node_provider   = 0
 vim.g.loaded_ruby_provider   = 0

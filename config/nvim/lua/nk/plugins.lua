@@ -1,4 +1,6 @@
--- [ Plugins ]
+-- -----------------------------------------------
+-- [ PLUGINS ]
+-- -----------------------------------------------
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
@@ -21,9 +23,9 @@ return require'packer'.startup(function()
     -- Packer can manage itself as an optional plugin
     use { 'wbthomason/packer.nvim', opt = true }
 
-    -- ---------------------------------------------
+    -- -------------------------------------------
     -- [ LSP ]
-    -- ---------------------------------------------
+    -- -------------------------------------------
     use {
         'neovim/nvim-lspconfig',
         config = function()
@@ -47,9 +49,9 @@ return require'packer'.startup(function()
 
     use 'glepnir/lspsaga.nvim'
 
-    -- ---------------------------------------------
+    -- -------------------------------------------
     -- [ TREESITTER ]
-    -- ---------------------------------------------
+    -- -------------------------------------------
     use {
         'nvim-treesitter/nvim-treesitter',
         requires = {
@@ -66,9 +68,9 @@ return require'packer'.startup(function()
         end,
     }
 
-    -- ---------------------------------------------
+    -- -------------------------------------------
     -- [ FILES ]
-    -- ---------------------------------------------
+    -- -------------------------------------------
     use {
         'mcchrish/nnn.vim',
         cmd = { 'Np', 'NnnPicker' },
@@ -111,9 +113,9 @@ return require'packer'.startup(function()
 
     use 'kevinhwang91/nvim-bqf'
 
-    -- ---------------------------------------------
+    -- -------------------------------------------
     -- [ UI ]
-    -- ---------------------------------------------
+    -- -------------------------------------------
     use {
         '~/.local/share/bld/projects/kosmikoa.nvim',
         -- 'https://git.sr.ht/~novakane/kosmikoa.nvim',
@@ -124,9 +126,9 @@ return require'packer'.startup(function()
     use 'glepnir/galaxyline.nvim'
     use 'RRethy/vim-illuminate'
 
-    -- ---------------------------------------------
+    -- -------------------------------------------
     -- [ EDITING ]
-    -- ---------------------------------------------
+    -- -------------------------------------------
     use {
         'terrortylor/nvim-comment',
         keys = 'gc',
@@ -166,18 +168,18 @@ return require'packer'.startup(function()
     use 'machakann/vim-sandwich'
     use 'tpope/vim-repeat'
 
-    -- ---------------------------------------------
+    -- -------------------------------------------
     -- [ LANG ]
-    -- ---------------------------------------------
+    -- -------------------------------------------
     use { 'MTDL9/vim-log-highlighting', ft = 'log' }
     use { 'ziglang/zig.vim', ft = 'zig' }
 
     -- Tools
     use 'editorconfig/editorconfig-vim'
 
-    -- ---------------------------------------------
+    -- -------------------------------------------
     -- [ MISC ]
-    -- ---------------------------------------------
+    -- -------------------------------------------
     use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
 
     use {

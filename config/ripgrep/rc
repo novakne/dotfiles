@@ -1,4 +1,6 @@
+# ------------------------------------------------
 # [ RIPGREP ]
+# ------------------------------------------------
 
 # Don't let ripgrep vomit really long lines to my terminal.
 --max-columns=150

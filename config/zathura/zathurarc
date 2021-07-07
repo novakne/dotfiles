@@ -1,6 +1,10 @@
+# ------------------------------------------------
 # [ ZATHURA ]
+# ------------------------------------------------
 
-# [ Colors ]
+# ------------------------------------------------
+# [ COLORS ]
+# ------------------------------------------------
 set default-bg "#f9f9fa"
 set default-fg "#202325"
 set completion-bg "#f9f9fa"
@@ -23,7 +27,9 @@ set highlight-color "#2e3f9f"
 set highlight-active-color "#faefb1"
 set highlight-transparency 1
 
-# [ Options ]
+# ------------------------------------------------
+# [ OPTIONS ]
+# ------------------------------------------------
 set font "Overpass 12"
 # 'c' - the command line,
 # 's' - the statusbar,

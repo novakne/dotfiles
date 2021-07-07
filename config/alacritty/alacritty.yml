@@ -1,6 +1,10 @@
+# ------------------------------------------------
 # [ ALACRITTY ]
+# ------------------------------------------------
 
-# [ Window ]
+# ------------------------------------------------
+# [ WINDOW ]
+# ------------------------------------------------
 window:
     padding:
         x: 5
@@ -12,7 +16,9 @@ window:
     # Allow terminal applications to change Alacritty's window title.
     dynamic_title: true
 
-# [ Font ]
+# ------------------------------------------------
+# [ FONT ]
+# ------------------------------------------------
 font:
     normal:
         family: JetBrainsMono Nerd Font
@@ -36,12 +42,16 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 # draw_bold_text_with_bright_colors: false
 
-# [ Colors ]
+# ------------------------------------------------
+# [ COLORS ]
+# ------------------------------------------------
 import:
     - ~/.config/alacritty/themes/argi.yml
     # - ~/.config/alacritty/themes/kosmikoa.yml
 
-# [ Mouse ]
+# ------------------------------------------------
+# [ MOUSE ]
+# ------------------------------------------------
 mouse:
     # If this is `true`, the cursor is temporarily hidden when typing.
     hide_when_typing: true

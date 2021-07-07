@@ -1,4 +1,6 @@
--- [ Lsp ]
+-- -----------------------------------------------
+-- [ LSP ]
+-- -----------------------------------------------
 if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded then
     local lspconfig = require 'lspconfig'
     local configs = require 'lspconfig/configs'
@@ -34,9 +36,9 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
         M.handler_init()
         vim.lsp.diagnostic.set_loclist({ open_loclist = false })
 
-        -- ---------------------------------------------
-        -- MAPPINGS
-        -- ---------------------------------------------
+        -- ---------------------------------------
+        -- [ MAPPINGS ]
+        -- ---------------------------------------
         -- Lspsaga.nvim
         bmap('n', '<Leader>lk',
             [[<CMD>lua require'lspsaga.hover'.render_hover_doc()<CR>]])
@@ -90,9 +92,9 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
         ]], false)
     end
 
-    -- -----------------------------------------------
-    -- [ Servers ]
-    -- -----------------------------------------------
+    -- -------------------------------------------
+    -- [ SERVERS ]
+    -- -------------------------------------------
     M.init = function()
         local lsp_dir = os.getenv('HOME') .. '/.local/lib/lsp/'
         local lua_bin = lsp_dir .. 'lua/bin/Linux/lua-language-server'
@@ -106,6 +108,7 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
                     '--background-index',
                     '--suggest-missing-includes',
                     '--clang-tidy',
+                    '--fallback-style=google',
                     '--header-insertion=iwyu',
                 },
             },

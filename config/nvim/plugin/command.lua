@@ -1,4 +1,6 @@
--- [ User commands ]
+-- -----------------------------------------------
+-- [ USER COMMANDS ]
+-- -----------------------------------------------
 -- Map :Format to vim.lsp.buf.formatting()
 vim.cmd [[command! Format execute 'lua vim.lsp.buf.formatting()']]
 
@@ -15,7 +17,9 @@ vim.cmd [[command! FixTs write | edit | TSBufEnable highlight]]
 -- Remove consecutive empty lines
 vim.cmd [[command! Dline :%s/\n\{3,}/\r\r/e]]
 
--- [ Grep ]
+-- -----------------------------------------------
+-- [ GREP ]
+-- -----------------------------------------------
 -- '[ word ]'
 vim.cmd [[command! Gpart :grep '\[{1}\s+\w.*\s+\]{1}$' %]]
 

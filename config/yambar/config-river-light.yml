@@ -1,7 +1,11 @@
 ---
+# ------------------------------------------------
 # [ YAMBAR ]
+# ------------------------------------------------
 
-# [ Variables ]
+# ------------------------------------------------
+# [ VARIABLES ]
+# ------------------------------------------------
 dark00: &dark00 202325ff
 dark01: &dark01 3a4043ff
 light01: &light01 dce1e4ff
@@ -15,7 +19,9 @@ sfont: &sfont Overpass:style=Regular:pixelsize=12
 
 separator: &separator { text: , font: *sfont, foreground: *dark01 }
 
+# ------------------------------------------------
 # [ Bar ]
+# ------------------------------------------------
 bar:
     height: 28
     location: top
@@ -27,7 +33,9 @@ bar:
     background: *dark00
     border: { width: 0 }
 
+    # --------------------------------------------
     # [ Left ]
+    # --------------------------------------------
     left:
         - river:
               anchors:
@@ -64,7 +72,9 @@ bar:
                                                     <<: [*default, *invisible],
                                                 }
 
+    # --------------------------------------------
     # [ Center ]
+    # --------------------------------------------
     center:
         - river:
               title:
@@ -73,7 +83,9 @@ bar:
                   - string: { text: " ]", foreground: *light01 }
               content: { string: { text: "" } }
 
+    # --------------------------------------------
     # [ Right ]
+    # --------------------------------------------
     right:
         - script:
               path: /home/novakane/.config/yambar/modules/cpu.sh

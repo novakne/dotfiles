@@ -1,4 +1,6 @@
--- [ Galaxyline ]
+-- -----------------------------------------------
+-- [ GALAXYLINE ]
+-- -----------------------------------------------
 if packer_plugins['galaxyline.nvim'] and
     packer_plugins['galaxyline.nvim'].loaded then
     local gl = require('galaxyline')
@@ -33,7 +35,9 @@ if packer_plugins['galaxyline.nvim'] and
         return false
     end
 
-    -- [ Left ]
+    -- -------------------------------------------
+    -- [ LEFT ]
+    -- -------------------------------------------
     gls.left[1] = {
         ViMode = {
             provider = function()
@@ -135,7 +139,9 @@ if packer_plugins['galaxyline.nvim'] and
         },
     }
 
-    -- [ Right ]
+    -- -------------------------------------------
+    -- [ RIGHT ]
+    -- -------------------------------------------
     gls.right[1] = {
         DiagnosticError = {
             provider = 'DiagnosticError',
@@ -181,7 +187,9 @@ if packer_plugins['galaxyline.nvim'] and
         },
     }
 
-    -- [ Short ]
+    -- -------------------------------------------
+    -- [ SHORT ]
+    -- -------------------------------------------
     gls.short_line_left[3] = {
         SFileName = {
             provider = function()

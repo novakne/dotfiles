@@ -1,4 +1,6 @@
--- [ Mapping ]
+-- -----------------------------------------------
+-- [ MAPPING ]
+-- -----------------------------------------------
 local map = require'nk.utils'.bind
 
 -- Normal mode with 'jk' or 'kj'
@@ -13,7 +15,9 @@ map('n', 'k', [[v:count == 0 ? 'gk' : 'k']], { noremap = true, expr = true })
 map('n', 'H', '^')
 map('n', 'L', '$')
 
--- [ Editing ]
+-- -----------------------------------------------
+-- [ EDITING ]
+-- -----------------------------------------------
 map('n', '<Leader>w', '<CMD>w<CR>')
 map('n', '<Leader>z', '<CMD>q<CR>')
 map('n', '<Leader>!', '<CMD>q!<CR>')
@@ -46,7 +50,9 @@ map('c', '$m', [[<CR>:m''<CR>]], { noremap = true })
 map('c', '$M', [[<CR>:M''<CR>]], { noremap = true })
 map('c', '$d', [[<CR>:d<CR>``]], { noremap = true })
 
--- [ Windows ]
+-- -----------------------------------------------
+-- [ WINDOWS ]
+-- -----------------------------------------------
 -- Move to the split in the direction shown, or create a new split
 -- ( https://aonemd.github.io/blog/handy-keymaps-in-vim )
 map('n', '<C-h>', [[<CMD>lua require'nk.utils'.win_move('h')<CR>]])
@@ -62,12 +68,16 @@ map('n', '<C-Left>',
 map('n', '<C-Up>', '<CMD>resize -1<CR>')
 map('n', '<C-Down>', '<CMD>resize +1<CR>')
 
--- [ Tabs ]
+-- -----------------------------------------------
+-- [ TABS ]
+-- -----------------------------------------------
 map('n', 'tl', '<CMD>tabnext<CR>')
 map('n', 'th', '<CMD>tabprev<CR>')
 map('n', 'tn', '<CMD>tabnew<CR>')
 map('n', 'tz', '<CMD>tabnew %<CR>') -- Fake zoom, open current file in a new tab
 
+-- -----------------------------------------------
+-- -----------------------------------------------
 map('n', '+', '<CMD>bn<CR>') -- Next buffers
 map('n', '_', '<CMD>bp<CR>') -- Prev buffers
 

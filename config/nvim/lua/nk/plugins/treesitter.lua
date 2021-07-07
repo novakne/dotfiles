@@ -1,4 +1,6 @@
--- [ Treesitter ]
+-- -----------------------------------------------
+-- [ TREESITTER ]
+-- -----------------------------------------------
 if packer_plugins['nvim-treesitter'] and
     packer_plugins['nvim-treesitter'].loaded then
     local ts = require 'nvim-treesitter.configs'

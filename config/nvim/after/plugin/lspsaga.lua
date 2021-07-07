@@ -1,4 +1,6 @@
--- [ Lsp-Saga ]
+-- -----------------------------------------------
+-- [ LSP-SAGA ]
+-- -----------------------------------------------
 if packer_plugins['lspsaga.nvim'] and packer_plugins['lspsaga.nvim'].loaded then
     local saga = require 'lspsaga'
 

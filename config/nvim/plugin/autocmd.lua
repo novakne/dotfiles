@@ -1,4 +1,6 @@
--- [ Autocmd ]
+-- -----------------------------------------------
+-- [ AUTOCMD ]
+-- -----------------------------------------------
 local ex = vim.api.nvim_exec
 
 -- Auto close popup menu after completion
@@ -38,7 +40,6 @@ ex([[
   augroup FtDetect
     autocmd!
     autocmd BufRead,BufNewFile *.conf setlocal filetype=cfg
-    autocmd BufRead,BufNewFile *.jsx setlocal filetype=javascript.jsx
     autocmd BufRead,BufNewFile *.log,*_log,*.LO,G*_LOG set filetype=log
     autocmd BufRead,BufNewFile *.rasi setlocal filetype=css
     augroup END
@@ -57,13 +58,6 @@ ex([[
     autocmd!
     autocmd TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
     autocmd TermOpen * set nonu
-  augroup END
-]], false)
-
-ex([[
-  augroup Grepper
-    autocmd!
-    autocmd User Grepper call setqflist([], 'r', {'context': {'bqf': {'pattern_hl': histget('/')}}}) | botright copen
   augroup END
 ]], false)
 

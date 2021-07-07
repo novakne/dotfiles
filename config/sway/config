@@ -1,9 +1,13 @@
+# ------------------------------------------------
 # [ SWAY ]
+# ------------------------------------------------
 # Read `man 5 sway` for a complete reference.
 
 # xwayland disable
 
+# ------------------------------------------------
 # [ UI ]
+# ------------------------------------------------
 # [ Borders ]
 smart_borders           on
 default_border          pixel 2
@@ -71,7 +75,9 @@ client.focused_inactive     $border $bg         $txt  $inactive  $inactive
 client.unfocused            $border $bg         $txt  $unfocused $unfocused
 client.urgent               $border $bg         $txt  $urgent    $urgent
 
+# ------------------------------------------------
 # [ VARIABLES ]
+# ------------------------------------------------
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
@@ -87,7 +93,9 @@ set $term footclient
 set $menu fuzzel-run | xargs swaymsg exec --
 set $menu-desktop dmenu-desktop | xargs swaymsg exec --
 
+# ------------------------------------------------
 # [ OUTPUT ]
+# ------------------------------------------------
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 set $wal_dir $HOME/media/img/wal
 output eDP-1 {
@@ -96,7 +104,9 @@ output eDP-1 {
     bg $wal_dir/tonton_revolver_john_wick_01.jpg fill
 }
 
+# ------------------------------------------------
 # [ INPUT ]
+# ------------------------------------------------
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
@@ -113,7 +123,9 @@ input "1267:12352:ELAN0501:00_04F3:3040_Touchpad" {
     tap enabled
 }
 
+# ------------------------------------------------
 # [ IDLE ]
+# ------------------------------------------------
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -122,7 +134,9 @@ input "1267:12352:ELAN0501:00_04F3:3040_Touchpad" {
 #          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
 #          before-sleep 'waylock'
 
+# ------------------------------------------------
 # [ WINDOW ]
+# ------------------------------------------------
 # `swaymsg -t get_tree | grep "app_id"` or class or instance
 for_window [shell=".*"] title_format "%title :: %shell"
 
@@ -132,7 +146,9 @@ for_window [app_id="imv"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [app_id="org.qbittorrent.qBittorrent"] floating enable
 
+# ------------------------------------------------
 # [ KEY BINDINGS ]
+# ------------------------------------------------
 # [ Apps ]
 # Start a terminal
 bindsym $mod+Return       exec $term
@@ -288,5 +304,7 @@ bindsym XF86MonBrightnessUp   exec brightnessctl set +5%
 bindsym Print       exec snap -a
 bindsym Shift+Print exec snap -s
 
+# ------------------------------------------------
 # [ INCLUDE ]
+# ------------------------------------------------
 include /etc/sway/config.d/*

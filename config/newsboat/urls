@@ -1,10 +1,14 @@
-# [ news ]
+# ------------------------------------------------
+# [ NEWS ]
+# ------------------------------------------------
 http://www.archlinux.org/feeds/news/         news
 https://voidlinux.org/atom.xml               news
 https://sourcehut.org/blog/index.xml         news
 https://blog.codeberg.org/feeds/all.atom.xml news
 
-# [ blogs ]
+# ------------------------------------------------
+# [ BLOGS ]
+# ------------------------------------------------
 https://emersion.fr/blog/atom.xml        blog
 https://drewdevault.com/blog/index.xml   blog
 https://leon_plickat.srht.site/index.xml blog
@@ -12,7 +16,9 @@ https://andrewkelley.me/rss.xml          blog
 https://devlog.hexops.com/feed.xml       blog
 https://msfjarvis.dev/index.xml          blog
 
-# [ sr.ht ]
+# ------------------------------------------------
+# [ SR.HT ]
+# ------------------------------------------------
 https://git.sr.ht/~leon_plickat/river-tag-overlay/log/master/rss.xml "sr.ht log"
 https://git.sr.ht/~leon_plickat/lswt/log/master/rss.xml              "sr.ht log"
 https://git.sr.ht/~sircmpwn/aerc/log/master/rss.xml                  "sr.ht log"

@@ -1,14 +1,20 @@
--- [ Utils ]
+-- -----------------------------------------------
+-- [ UTILS ]
+-- -----------------------------------------------
 local M = {}
 _G.MUtils = {}
 
--- [ Global ]
+-- -----------------------------------------------
+-- [ GLOBAL ]
+-- -----------------------------------------------
 -- Inspect api & co
 MUtils.inspect = function( stuff )
     return print(vim.inspect(stuff))
 end
 
--- Vim-compe
+-- -----------------------------------------------
+-- [ VIM-COMPE ]
+-- -----------------------------------------------
 local t = function( str )
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
@@ -43,7 +49,9 @@ MUtils.s_tab_complete = function()
     end
 end
 
--- [ Bind key ]
+-- -----------------------------------------------
+-- [ BIND KEY ]
+-- -----------------------------------------------
 M.bind = function( mode, lhs, rhs, opts )
     opts = opts or { noremap = true, silent = true }
     vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
@@ -54,7 +62,9 @@ M.bind_bufnr = function( mode, lhs, rhs, opts )
     vim.api.nvim_buf_set_keymap(0, mode, lhs, rhs, opts)
 end
 
--- [ Functions to bind ]
+-- -----------------------------------------------
+-- [ FUNCTIONS TO BIND ]
+-- -----------------------------------------------
 -- [ Window management ]
 -- Be aware of whether you are right or left vertical split
 -- so you can use arrows more naturally.

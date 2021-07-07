@@ -1,4 +1,6 @@
--- [ Fzf ]
+-- -----------------------------------------------
+-- [ FZF ]
+-- -----------------------------------------------
 if packer_plugins['fzf.vim'] and packer_plugins['fzf.vim'].loaded then
     local map = require'nk.utils'.bind
 
