@@ -136,6 +136,9 @@ _lua_lsp()
 	compile/install.sh
 	cd ../..
 	./3rd/luamake/luamake rebuild
+
+	# remove the .zshrc created by lua-lsp
+	[[ -a ~/.zshrc ]] && trash-put ~/.zshrc
 }
 
 # <https://github.com/ziglang/zig>
