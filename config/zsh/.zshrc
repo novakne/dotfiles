@@ -99,7 +99,7 @@ zstyle ':completion:*:approximate:*' max-errors 1 numeric
 [[ ! -d "$XDG_CACHE_HOME"/zsh ]] && mkdir -p "$XDG_CACHE_HOME"/zsh
 
 export HISTSIZE=10000 SAVEHIST=10000 HISTFILE="$XDG_CACHE_HOME"/zsh/zhistory
-export HISTORY_IGNORE="(ls|cd|cd *|pwd|exit|:q|q|c|e|e *|ea|et|z *|fe|clear|n|N|update|up *|xbi *|xbr *|xbq *|xbu|curl *)"
+export HISTORY_IGNORE="(ls|cd|cd *|pwd|exit|:q|q|c|e|e *|ea|et|z *|fe|clear|n|N|update|up *|xb *|curl *)"
 export HISTTIMEFORMAT="%F %T:  "
 
 setopt HIST_EXPIRE_DUPS_FIRST # Expire a duplicate event first when trimming history

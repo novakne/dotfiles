@@ -44,6 +44,8 @@ alias restore='trash-restore'
 # [ Lang ]
 alias cargou='cargo-install-update install-update'
 alias zb='clear; zig build'
+alias zr='clear; zig run'
+alias zt='clear; zig build test'
 
 # [ Files ]
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
