@@ -47,7 +47,7 @@ return require'packer'.startup(function()
         end,
     }
 
-    use 'glepnir/lspsaga.nvim'
+    use 'ray-x/lsp_signature.nvim'
 
     -- -------------------------------------------
     -- [ TREESITTER ]

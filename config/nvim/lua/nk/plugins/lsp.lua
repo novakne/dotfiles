@@ -18,6 +18,7 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
                 underline = false,
                 virtual_text = true,
                 update_in_insert = false,
+                severity_sort = true,
                 -- Use a function to dynamically turn signs off
                 -- and on, using buffer local variables
                 signs = function( bufnr, client_id )
@@ -35,31 +36,26 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
     local on_attach = function( client )
         M.handler_init()
         vim.lsp.diagnostic.set_loclist({ open_loclist = false })
+        require'lsp_signature'.on_attach()
 
         -- ---------------------------------------
         -- [ MAPPINGS ]
         -- ---------------------------------------
-        -- Lspsaga.nvim
-        bmap('n', '<Leader>lk',
-            [[<CMD>lua require'lspsaga.hover'.render_hover_doc()<CR>]])
-        bmap('n', '<Leader>lf',
-            [[<CMD>lua require'lspsaga.provider'.lsp_finder()<CR>]])
-        bmap('n', '<Leader>lK',
-            [[<CMD>lua require'lspsaga.signaturehelp'.signature_help()<CR>]])
-        bmap('n', '<Leader>lt',
-            [[<CMD>lua require'lspsaga.provider'.preview_definition()<CR>]])
+        -- Builtin
+        bmap('n', '<Leader>ll', [[<CMD>lua vim.lsp.buf.definition()<CR>]])
+        bmap('n', '<Leader>lL', [[<CMD>lua vim.lsp.buf.declaration()<CR>]])
+        bmap('n', '<Leader>lt', [[<CMD>lua vim.lsp.buf.type_definition()<CR>]])
+        bmap('n', '<Leader>lk', [[<CMD>lua vim.lsp.buf.hover()<CR>]])
         bmap('n', '<Leader>le',
-            [[<CMD>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>]])
-        bmap('n', '<Leader>lp',
-            [[<CMD>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>]])
-        bmap('n', '<Leader>ln',
-            [[<CMD>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>]])
+            [[<CMD>lua vim.lsp.diagnostic'.show_line_diagnostics()<CR>]])
+        bmap('n', '<Leader>lp', [[<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>]])
+        bmap('n', '<Leader>ln', [[<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>]])
 
         -- Fzf-lsp
         bmap('n', '<Leader>ld', ':Diagnostics<CR>')
         bmap('n', '<Leader>lD', ':DiagnosticsAll<CR>')
         bmap('n', '<Leader>lc', ':CodeActions<CR>')
-        bmap('v', '<Leader>lc', ':RangeCodeActions<CR>')
+        bmap('v', '<Leader>lC', ':RangeCodeActions<CR>')
         bmap('n', '<Leader>lr', ':References<CR>')
         bmap('n', '<Leader>ls', ':DocumentSymbols<CR>')
         bmap('n', '<Leader>lS', ':WorkspaceSymbols<CR>')
@@ -95,6 +91,11 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
     -- -------------------------------------------
     -- [ SERVERS ]
     -- -------------------------------------------
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
+    capabilities.textDocument.completion.completionItem.resolveSupport =
+        { properties = { 'documentation', 'detail', 'additionalTextEdits' } }
+
     M.init = function()
         local lsp_dir = os.getenv('HOME') .. '/.local/lib/lsp/'
         local lua_bin = lsp_dir .. 'lua/bin/Linux/lua-language-server'
@@ -149,6 +150,7 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
 
         for server, config in pairs(configs) do
             config.on_attach = on_attach
+            config.capabilities = capabilities
             lspconfig[server].setup(config)
         end
 
