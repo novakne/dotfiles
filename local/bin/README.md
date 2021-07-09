@@ -6,7 +6,7 @@ recommendation. For formatting I use [shfmt][], be aware that it put `if
 ...; then` on the same line and I usually put it on a new line, but I
 can make exception
 
-        shfmt -fn -ci -w <script>
+    shfmt -fn -ci -w <script>
 
 All my scripts have a header that follow the same pattern if you want to
 read to have more info on one script
