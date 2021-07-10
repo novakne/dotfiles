@@ -21,9 +21,6 @@ bind 'tab:menu-complete'
 # ------------------------------------------------
 # [ BASH HISTORY ]
 # ------------------------------------------------
-# use standard iso 8601 timestamp
-# %f equivalent to %y-%m-%d
-# %t equivalent to %h:%m:%s (24-hours format)
 histtimeformat='%f %t '
 histsize=10000
 histfilesize=10000
