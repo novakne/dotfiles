@@ -113,5 +113,20 @@ M.win_move = function( key )
     end
 end
 
+-- FIXME
+-- M.rg_fzf = function(query, fullscreen)
+--     local command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+--     local initial_cmd = string.format(command_fmt, query)
+--     local reload_cmd = string.format(command_fmt, '{q}')
+--     local spec = {
+--         '--phony',
+--         '--query',
+--         query,
+--         '--bind',
+--         'change:reload:' .. reload_cmd,
+--     }
+--     vim.fn['fzf#vim#grep'](initial_cmd, 1, vim.fn['fzf#vim#with_preview']({options = spec}), fullscreen)
+-- end
+
 return M
 

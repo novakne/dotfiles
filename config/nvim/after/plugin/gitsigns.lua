@@ -25,6 +25,7 @@ if packer_plugins['gitsigns.nvim'] and packer_plugins['gitsigns.nvim'].loaded th
             },
         },
         numhl = false,
+        linehl = false,
         keymaps = {
             noremap = true,
             buffer = true,
@@ -38,10 +39,18 @@ if packer_plugins['gitsigns.nvim'] and packer_plugins['gitsigns.nvim'].loaded th
                 '&diff ? \'[c\' : \'<cmd>lua require"gitsigns".prev_hunk()<CR>\'',
             },
             ['n <leader>gb'] = '<CMD>lua require"gitsigns".blame_line()<CR>',
+            ['n <leader>gd'] = '<CMD>lua require"gitsigns".diffthis()<CR>',
         },
-        watch_index = { interval = 1000 },
+        watch_index = { interval = 1000, follow_files = true },
+        current_line_blame = false,
+        current_line_blame_delay = 1000,
+        current_line_blame_position = 'eol',
         sign_priority = 6,
+        update_debounce = 100,
         status_formatter = nil, -- Use default
+        word_diff = false,
+        use_decoration_api = true,
+        use_internal_diff = true, -- If luajit is present
     }
 end
 

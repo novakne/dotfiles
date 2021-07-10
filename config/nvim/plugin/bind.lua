@@ -42,14 +42,6 @@ map('v', '<A-k>', [[<CMD>m '<-2<CR>gv=gv]])
 map('x', '<', '<gv')
 map('x', '>', '>gv')
 
--- Copy, move or delete the first occurence of the search
--- e.g. /word$t
-map('c', '$t', [[<CR>:t''<CR>]], { noremap = true })
-map('c', '$T', [[<CR>:T''<CR>]], { noremap = true })
-map('c', '$m', [[<CR>:m''<CR>]], { noremap = true })
-map('c', '$M', [[<CR>:M''<CR>]], { noremap = true })
-map('c', '$d', [[<CR>:d<CR>``]], { noremap = true })
-
 -- -----------------------------------------------
 -- [ WINDOWS ]
 -- -----------------------------------------------
@@ -67,14 +59,6 @@ map('n', '<C-Left>',
     [[<CMD>lua require'nk.utils'.vertical_resize('left')<CR>]])
 map('n', '<C-Up>', '<CMD>resize -1<CR>')
 map('n', '<C-Down>', '<CMD>resize +1<CR>')
-
--- -----------------------------------------------
--- [ TABS ]
--- -----------------------------------------------
-map('n', 'tl', '<CMD>tabnext<CR>')
-map('n', 'th', '<CMD>tabprev<CR>')
-map('n', 'tn', '<CMD>tabnew<CR>')
-map('n', 'tz', '<CMD>tabnew %<CR>') -- Fake zoom, open current file in a new tab
 
 -- -----------------------------------------------
 -- -----------------------------------------------

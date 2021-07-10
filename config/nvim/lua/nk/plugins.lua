@@ -103,7 +103,7 @@ return require'packer'.startup(function()
         end,
     }
 
-    use '~/.local/share/bld/pkg/fzf'
+    use '~/.local/share/bld/src/fzf'
     use {
         'junegunn/fzf.vim',
         config = function()
