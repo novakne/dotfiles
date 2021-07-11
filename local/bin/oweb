@@ -7,6 +7,16 @@
 # REQUIREMENTS: firefox
 # OPTIONALS:
 
+# Help
+_usage()
+{
+	cat <<-END
+	SITES:
+	  deepl - lhp - lhpp - river - shrt
+	  zdoc  - zstd
+	END
+}
+
 oweb()
 {
 	local url
@@ -20,7 +30,7 @@ oweb()
 		zdoc) url='https://ziglang.org/documentation/0.8.0/' ;;
 		zstd) url='https://ziglang.org/documentation/0.8.0/std/#std' ;;
 		*)
-			printf -- '%s\n' "Invalid argument" >&2
+			_usage
 			exit 1
 			;;
 	esac
