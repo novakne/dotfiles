@@ -1,3 +1,5 @@
+/!\ This repo is archived, I will only update the one on [sourcehut](https://sr.ht/~novakane/dotfiles/) now.
+
 # Dotfiles
 
 <p align="center"><img src="https://git.sr.ht/~novakane/dotfiles/blob/main/meta/previews/river.png"river""/></a></p>
