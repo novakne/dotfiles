@@ -109,8 +109,8 @@ then
 	export NNN_SEL='/tmp/.sel'
 	export NNN_FIFO='/tmp/nnn.fifo'
 
-	NNN_BMS_CONFIG='c:~/.config;n:~/.config/nvim;z:~/.config/zsh;s:~/.config/shell;r:~/.config/river'
-	NNN_BMS_LOCAL='b:~/.local/share/bld;l:~/.local;d:~/.local/share/dotfiles'
+	NNN_BMS_CONFIG='c:~/.config;n:~/.config/nvim;z:~/.config/zsh;r:~/.config/river'
+	NNN_BMS_LOCAL='s:~/.local/share/src;l:~/.local;d:~/.local/share/dotfiles'
 	NNN_BMS_DEV='g:~/dev;t:/tmp'
 	NNN_BMS_MEDIA='m:~/media;i:~/media/img;e:~/media/notes;v:~/dl'
 	NNN_BMS="$NNN_BMS_CONFIG;$NNN_BMS_LOCAL;$NNN_BMS_DEV;$NNN_BMS_MEDIA"

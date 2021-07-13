@@ -14,8 +14,11 @@ tags
 */bin/app/*
 */bin/chardetect
 */bin/dwl
+*/bin/fnott*
+*/bin/foot*
 */bin/futurize
 */bin/jsonschema
+*/bin/kak
 */bin/lswt
 */bin/nvim
 */bin/nvr
@@ -28,5 +31,5 @@ tags
 */bin/riverctl
 */bin/rivertile
 */bin/stacktile
-*/bin/zig*
 */bin/vis*
+*/bin/zig*

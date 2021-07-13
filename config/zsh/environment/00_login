@@ -35,6 +35,9 @@ export SVDIR="$XDG_CONFIG_HOME"/service
 # [ Dotfiles ]
 export DOTFILES_DIR="$XDG_DATA_HOME"/dotfiles
 
+# [ Sources ]
+export SOURCES_DIR="$XDG_DATA_HOME"/src
+
 # [ Gpg ]
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 GPG_TTY=$(tty)

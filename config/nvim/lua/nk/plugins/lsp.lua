@@ -9,7 +9,7 @@ if packer_plugins['nvim-lspconfig'] and packer_plugins['nvim-lspconfig'].loaded 
 
     local M = {}
 
-    -- vim.lsp.set_log_level("debug")
+    vim.lsp.set_log_level("error")
 
     -- [ Custom handlers ]
     M.handler_init = function()

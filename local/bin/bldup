@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Update differents repos to latest commit
+# Update different repos to latest commit
 #
 # USAGE: bld-update <option>
 #
@@ -27,15 +27,15 @@ _usage()
 	END
 }
 
-declare bld_dir lib_dir
+declare dir_src dir_lib
 
-bld_dir="${XDG_DATA_HOME:-$HOME/.local/share}"/bld
-lib_dir="$HOME"/.local/lib
+dir_src="${XDG_DATA_HOME:-$HOME/.local/share}"/src
+dir_lib="$HOME"/.local/lib
 
 # <https://git.sr.ht/~technomancy/fennel>
 _fennel()
 {
-	cd "${bld_dir}"/src/fennel || exit
+	cd "${dir_src}"/fennel || exit
 
 	git pull
 	make fennel
@@ -44,7 +44,7 @@ _fennel()
 # <https://git.sr.ht/~technomancy/fnlfmt>
 _fnlfmt()
 {
-	cd "${bld_dir}"/src/fnlfmt || exit
+	cd "${dir_src}"/fnlfmt || exit
 
 	git pull
 	make
@@ -53,7 +53,7 @@ _fnlfmt()
 # <https://github.com/junegunn/fzf>
 _fzf()
 {
-	cd "${bld_dir}"/src/fzf || exit
+	cd "${dir_src}"/fzf || exit
 
 	git pull
 	./install --bin --no-update-rc
@@ -62,7 +62,7 @@ _fzf()
 # <https://codeberg.org/dnkl/fnott>
 _fnott()
 {
-	cd "${bld_dir}"/src/fnott || exit
+	cd "${dir_src}"/fnott || exit
 	[[ -d bld/release ]] && trash-put bld/release
 
 	git pull
@@ -76,7 +76,7 @@ _fnott()
 # <https://codeberg.org/dnkl/foot>
 _foot()
 {
-	cd "${bld_dir}"/src/foot || exit
+	cd "${dir_src}"/foot || exit
 	[[ -d bld/release ]] && trash-put bld/release
 
 	git pull
@@ -90,7 +90,7 @@ _foot()
 
 	./footclient --version
 	foot_tmp_file=$(mktemp)
-	./foot --config=/dev/null --term=alacritty sh -c "$HOME/.local/share/bld/src/foot/scripts/generate-alt-random-writes.py --scroll --scroll-region --colors-regular --colors-bright --colors-256 --colors-rgb --attr-bold --attr-italic --attr-underline --sixel ${foot_tmp_file} && cat ${foot_tmp_file}"
+	./foot --config=/dev/null --term=alacritty sh -c "$HOME/.local/share/src/foot/scripts/generate-alt-random-writes.py --scroll --scroll-region --colors-regular --colors-bright --colors-256 --colors-rgb --attr-bold --attr-italic --attr-underline --sixel ${foot_tmp_file} && cat ${foot_tmp_file}"
 	rm "${foot_tmp_file}"
 
 	meson configure -Db_pgo=use
@@ -102,7 +102,7 @@ _foot()
 # <https://codeberg.org/dnkl/fuzzel>
 _fuzzel()
 {
-	cd "${bld_dir}"/src/fuzzel || exit
+	cd "${dir_src}"/fuzzel || exit
 	[[ -d bld/release ]] && trash-put bld/release
 
 	git pull
@@ -116,7 +116,7 @@ _fuzzel()
 # <https://github.com/neovim/neovim>
 _nvim()
 {
-	cd "${bld_dir}"/src/neovim || exit
+	cd "${dir_src}"/neovim || exit
 
 	git pull
 	make clean
@@ -127,7 +127,7 @@ _nvim()
 # <https://github.com/sumneko/lua-language-server>
 _lua_lsp()
 {
-	cd "${lib_dir}"/lsp/lua || exit
+	cd "${dir_lib}"/lsp/lua || exit
 
 	git pull origin master
 	git submodule update --init --recursive
@@ -144,7 +144,7 @@ _lua_lsp()
 # <https://github.com/ziglang/zig>
 _zig()
 {
-	cd "${bld_dir}"/src/zig/zig-master || exit
+	cd "${dir_src}"/zig/zig-master || exit
 	[[ -d build ]] && trash-put build
 
 	git pull
@@ -157,7 +157,7 @@ _zig()
 # <https://github.com/zigtools/zls>
 _zls()
 {
-	cd "${lib_dir}"/lsp/zls || exit
+	cd "${dir_lib}"/lsp/zls || exit
 	git pull
 	zig-master build -Drelease-safe
 }
@@ -181,7 +181,7 @@ main()
 			;;
 	esac
 
-	unset -v bld_dir lib_dir
+	unset -v dir_src dir_lib
 	unset -f _fennel _fnlfmt _fnott _fzf _foot _fuzzel _nvim _lua_lsp _zig _zls
 }
 

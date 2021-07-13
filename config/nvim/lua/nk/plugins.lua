@@ -103,7 +103,7 @@ return require'packer'.startup(function()
         end,
     }
 
-    use '~/.local/share/bld/src/fzf'
+    use '~/.local/share/src/fzf'
     use {
         'junegunn/fzf.vim',
         config = function()
@@ -117,9 +117,9 @@ return require'packer'.startup(function()
     -- [ UI ]
     -- -------------------------------------------
     use {
-        '~/.local/share/bld/projects/kosmikoa.nvim',
+        '~/.local/share/src/kosmikoa.nvim',
         -- 'https://git.sr.ht/~novakane/kosmikoa.nvim',
-        '~/.local/share/bld/projects/argi.nvim',
+        '~/.local/share/src/argi.nvim',
         -- 'https://git.sr.ht/~novakane/argi.nvim',
     }
 
@@ -180,8 +180,6 @@ return require'packer'.startup(function()
     -- -------------------------------------------
     -- [ MISC ]
     -- -------------------------------------------
-    use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
-
     use {
         'norcalli/nvim-colorizer.lua',
         keys = '<Leader>h',
@@ -191,6 +189,7 @@ return require'packer'.startup(function()
         end,
     }
 
+    use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
     use { 'tweekmonster/startuptime.vim', cmd = 'StartupTime' }
 end)
 

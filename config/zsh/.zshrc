@@ -32,7 +32,7 @@ dir_plugins="$ZDOTDIR"/plugins
 dir_env="$ZDOTDIR"/environment
 dir_share_zsh="$XDG_DATA_HOME"/zsh
 
-dir_fzf="$XDG_DATA_HOME"/bld/src/fzf
+dir_fzf="$XDG_DATA_HOME"/src/fzf
 
 # ------------------------------------------------
 # [ ZSH OPTIONS ]
